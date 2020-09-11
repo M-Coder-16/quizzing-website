@@ -1,0 +1,903 @@
+<!DOCTYPE html>
+<html> 
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+
+        h1{
+            background-color: black;
+            text-align: center;
+            font-size: 120px;
+            margin: 0px;
+            padding: 30px;
+            color: rgb(0, 172, 172);
+            font-family: 'Impact', Haettenschweiler, Arial Narrow Bold, sans-serif;
+            top: 0px;
+            left: 0px;
+            text-emphasis: bold;
+        }
+
+        head{
+            background-color: black;
+            margin: 0px;
+            padding: 20px;
+        }
+
+        nav{
+            left: 0px;
+            margin: 0px;
+            padding: 20px;
+            background-color: rgb(0, 172, 172);
+            color: black;
+            text-align: left;
+            display: inline-block;
+            height: auto;
+        }
+
+        nav a{
+            color: black;
+            text-decoration: none;
+            margin: 10px 15px;
+            padding: 8px;
+            font-size: 24px;
+            display: inline-block;
+            box-shadow: 0px 0px 10px 5px black;
+            background-color: #b3b3b3;
+            border-radius: 5px;
+        }
+
+        body{
+            background-image: url('data:image/jpeg;base64,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');
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-attachment: fixed;
+        }
+
+        h2{
+            text-align: center;
+            color: white;
+            font-size: 32px;
+            text-emphasis: bold;
+            margin: 10px;
+            background-color: black;
+            padding: 10px;
+            border: double 3px black;
+        }
+
+        .bookmarks{
+            background-color: rgb(0, 172, 172);
+            position: absolute;
+            top: 290px;
+            left: 26%;
+            text-align: center;
+            padding: 10px 20px;
+            border: solid black 5px;
+            border-radius: 25px;
+        }
+
+        .bookmarks a{
+            display: inline-block;
+            background-color: black;
+            color: white;
+            text-emphasis: bold;
+            font-size: 24px;
+            margin: 10px;
+            padding: 10px;
+            border-radius: 10px;
+        }
+
+        h3{
+            font-size: 68px;
+            position: absolute;
+            float: center;
+            top: 350px;
+            left: 48%;
+            text-emphasis: bold;
+            text-align: center;
+            font-family: 'Times New Roman', Times, serif;
+        }
+
+        .verses a{
+            position: absolute;
+            color: rgb(0, 172, 172);
+            background-color: black;
+            font-size: 32px;
+            font-family: Arial, Helvetica, sans-serif;
+            left: 38%;
+            padding: 10px 100px;
+            text-decoration: none;
+            text-align: center;
+            top: 220px;
+            text-emphasis: bold;
+        }
+
+        #myBtn {
+            display: none; /* Hidden by default */
+            position: fixed; /* Fixed/sticky position */
+            bottom: 65px; /* Place the button at the bottom of the page */
+            left: 50px; /* Place the button 30px from the right */
+            z-index: 99; /* Make sure it does not overlap */
+            border: none; /* Remove borders */
+            outline: none; /* Remove outline */
+            background-color: rgb(0, 172, 172); /* Set a background color */
+            color: black; /* Text color */
+            cursor: pointer; /* Add a mouse pointer on hover */
+            padding: 10px; /* Some padding */
+            padding-bottom: 0px;
+            border-radius: 10px; /* Rounded corners */
+            border: solid black 5px;
+            font-size: 72px; /* Increase font size */
+        }
+
+        #myBtn:hover {
+            display: none; /* Hidden by default */
+            position: fixed; /* Fixed/sticky position */
+            bottom: 65px; /* Place the button at the bottom of the page */
+            left: 50px; /* Place the button 30px from the right */
+            z-index: 99; /* Make sure it does not overlap */
+            border: none; /* Remove borders */
+            outline: none; /* Remove outline */
+            background-color: rgb(0, 0, 0); /* Set a background color */
+            color: rgb(0, 172, 172); /* Text color */
+            cursor: pointer; /* Add a mouse pointer on hover */
+            padding: 10px; /* Some padding */
+            padding-bottom: 0px;
+            border-radius: 10px; /* Rounded corners */
+            border: solid rgb(0, 172, 172) 5px;
+            font-size: 72px; /* Increase font size */
+        }
+
+        p{
+            font-size: 22px;
+            position: absolute;
+            top: 500px;
+            left: 30%;
+        }
+
+        h7{
+            font-size: 32px;
+            text-emphasis: bold;
+        }
+
+    </style>
+    <button onclick="topFunction()" id="myBtn" title="Go to top"><b>^</b></button>
+<head> 
+    <h1>Questions</h1>
+    <div class="verses">
+        <a href="Quizzing.html">Click here for memory verses.</a>        
+   </div>
+</head>
+<body>
+   
+    <script>
+        //Get the button
+        var mybutton = document.getElementById("myBtn");
+        
+        // When the user scrolls down 20px from the top of the document, show the button
+        window.onscroll = function() {scrollFunction()};
+        
+        function scrollFunction() {
+          if (document.body.scrollTop > 1750 || document.documentElement.scrollTop > 1750) {
+            mybutton.style.display = "block";
+          } else {
+            mybutton.style.display = "none";
+          }
+        }
+        
+        // When the user clicks on the button, scroll to the top of the document
+        function topFunction() {
+          document.body.scrollTop = 0;
+          document.documentElement.scrollTop = 0;
+        }
+        </script>
+
+    <nav>
+
+        <h2>Select a Chapter</h2>
+        <br>
+
+        <a href="Quizzing_Questions_1.html">Matthew 1</a>
+        <br>
+        <a href="Quizzing_Questions_2.html">Matthew 2</a>
+        <br>
+        <a href="Quizzing_Questions_3.html">Matthew 3</a>
+        <br>
+        <a href="Quizzing_Questions_4.html">Matthew 4</a>
+        <br>
+        <a href="Quizzing_Questions_5.html">Matthew 5</a>
+        <br>
+        <a href="Quizzing_Questions_6.html">Matthew 6</a>
+        <br>
+        <a href="Quizzing_Questions_7.html">Matthew 7</a>
+        <br>
+        <a href="Quizzing_Questions_8.html">Matthew 8</a>
+        <br>
+        <a href="Quizzing_Questions_9.html">Matthew 9</a>
+        <br>
+        <a href="Quizzing_Questions_10.html">Matthew 10</a>
+        <br>
+        <a href="Quizzing_Questions_11.html">Matthew 11</a>
+        <br>
+        <a href="Quizzing_Questions_12.html">Matthew 12</a>
+        <br>
+        <a href="Quizzing_Questions_13.html">Matthew 13</a>
+        <br>
+        <a href="Quizzing_Questions_14.html">Matthew 14</a>
+        <br>
+        <a href="Quizzing_Questions_15.html">Matthew 15</a>
+        <br>
+        <a href="Quizzing_Questions_16.html">Matthew 16</a>
+        <br>
+        <a href="Quizzing_Questions_17.html">Matthew 17</a>
+        <br>
+        <a href="Quizzing_Questions_18.html">Matthew 18</a>
+        <br>
+        <a href="Quizzing_Questions_19.html">Matthew 19</a>
+        <br>
+        <a href="Quizzing_Questions_20.html">Matthew 20</a>
+        <br>
+        <a href="Quizzing_Questions_21.html">Matthew 21</a>
+        <br>
+        <a href="Quizzing_Questions_22.html">Matthew 22</a>
+        <br>
+        <a href="Quizzing_Questions_23.html">Matthew 23</a>
+        <br>
+        <a href="Quizzing_Questions_24.html">Matthew 24</a>
+        <br>
+        <a href="Quizzing_Questions_25.html">Matthew 25</a>
+        <br>
+        <a href="Quizzing_Questions_26.html">Matthew 26</a>
+        <br>
+        <a href="Quizzing_Questions_27.html">Matthew 27</a>
+        <br>
+        <a href="Quizzing_Questions_28.html">Matthew 28</a>
+    </nav>
+
+    <div class="bookmarks">
+        <a href="#1">Set 1</a>
+        <a href="#2">Set 2</a>
+        <a href="#3">Set 3</a>
+        <a href="#4">Set 4</a>
+        <a href="#5">Set 5</a>
+        <a href="#6">Set 6</a>
+        <a href="#7">Set 7</a>
+        <a href="#8">Set 8</a>
+        <a href="#9">Set 9</a>
+        <a href="#10">Set 10</a>
+    </div>
+
+    <h3>Matthew 26</h3>
+
+    <p><h7 id="1">SET #1</h7>   <br><br>
+
+        Q 	1. Quote Matthew, chapter 26, verse 41. <br>
+            A. "Watch and pray so that you will not fall into temptation. The spirit is willing, but the flesh is weak." (Matthew 26:41)  <br><br>
+        
+        G 	2. Who was sitting out in the courtyard? <br>
+            A. Peter (Matthew 26:69)  <br><br>
+        
+        X 	3. In Matthew, chapter 26, what could have been given to the poor? <br>
+            A. The money from selling the very expensive perfume a woman poured on Jesus' head (Matthew 26:7-9) <br><br> 
+        
+        G 	4. Who said, "Surely you are one of them; your accent gives you away."? <br>
+            A. Those standing there (Matthew 26:73)  <br><br>
+        
+        G 	5. Whom did the crowd not arrest when every day he sat in the temple courts teaching? <br>
+            A. Jesus (Matthew 26:55)  <br><br>
+        
+        A 	6. According to Matthew, chapter 26, verse 21, what do I truly tell you? <br>
+            A. One of you will betray me (Matthew 26:21)  <br><br>
+        
+        G 	7. Who took Peter and the two sons of Zebedee along with him? <br>
+            A. Jesus (Matthew 26:37)  <br><br>
+        
+        G 	8. To whom did the high priest say, "Are you not going to answer? What is this testimony that these men are bringing against you?" <br>
+            A. Jesus (Matthew 26:62)  <br><br>
+        
+        R 	9. Finish this verse and give the reference: "Going a little farther, he. . ." <br>
+            A. ". . .fell with his face to the ground and prayed, "My Father, if it is possible, may this cup be taken from me. Yet not as I will, but as you will." " (Matthew 26:39) <br><br> 
+        
+        G 	10. When will you see the Son of Man sitting at the right hand of the Mighty One? <br>
+            A. From now on (Matthew 26:64)  <br><br>
+        
+        G 	11. Who said, "Greetings, Rabbi!" and kissed Jesus? <br>
+            A. Judas (Matthew 26:49)  <br><br>
+        
+        A 	12. According to Matthew, chapter 26, verse 30, what had they sung? <br>
+            A. A hymn (Matthew 26:30)  <br><br>
+        
+        G 	13. Who schemed to arrest Jesus secretly and kill him? <br>
+            A. The chief priests and the elders of the people (Matthew 26:4)  <br><br>
+        
+        G 	14. Whom did the men arrest? <br>
+            A. Jesus (Matthew 26:50)  <br><br>
+        
+        V 	15. Finish this verse: "While they were eating, Jesus. . ." <br>
+            A. ". . .took bread, and when he had given thanks, he broke it and gave it to his disciples, saying, "Take and eat; this is my body." (Matthew 26:26)  <br><br>
+        
+        S 	16. Situation question: who said it, to whom, and what was the reply: "Where do you want us to make preparations for you to eat the Passover?" <br>
+            A. The disciples said it to Jesus, and the reply was, "Go into the city to a certain man and tell him, 'The Teacher says: My appointed time is near. I am going to celebrate the Passover with my disciples at your house.'" (Matthew 26:17-18)  <br><br>
+        
+        A 	17. According to Matthew, chapter 26, verse 28, what is this? <br>
+            A. My blood of the covenant (which is poured out for many for the forgiveness of sins) (Matthew 26:28)  <br><br>
+        
+        G 	18. For whom would it be better if he had not been born? <br>
+            A. That man who betrays the Son of Man (Matthew 26:24)  <br><br>
+        
+        G 	19. With what was a large crowd armed? <br>
+            A. Swords and clubs (Matthew 26:47)  <br><br>
+        
+        A 	20. According to Matthew, chapter 26, verse 58, how did Peter follow him? <br>
+            A. At a distance (Matthew 26:58)  <br><br>
+        <br><br>
+        
+         <h7 id="2">SET #2</h7>   <br><br>
+        
+        G 	1. Who did not arrest Jesus when every day he sat in the temple courts teaching?<br> 
+            A. The crowd (Matthew 26:55)  <br><br>
+        
+        G 	2. Who entered the courtyard of the high priest and sat down with the guards? <br>
+            A. Peter (Matthew 26:58)  <br><br>
+        
+        A 	3. According to Matthew, chapter 26, verse 19, whom had Jesus directed? <br>
+            A. The disciples (Matthew 26:19)  <br><br>
+        
+        G 	4. Why were the chief priests and the whole Sanhedrin looking for false evidence against Jesus? <br>
+            A. So that they could put him to death (Matthew 26:59)  <br><br>
+        
+        G 	5. Who seized Jesus and arrested him? <br>
+            A. The men (from the crowd with Judas) (Matthew 26:50)  <br><br>
+        
+        X 	6. Who was the high priest? <br>
+            A. Caiaphas (Matthew 26:3)  <br><br>
+        
+        R 	7. Finish these verses and give the reference: "Then he took a cup,. . ." <br>
+            A. ". . .and when he had given thanks, he gave it to them, saying, "Drink from it, all of you. This is my blood of the covenant, which is poured out for many for the forgiveness of sins. " (Matthew 26:27-28)  <br><br>
+        
+        G 	8. What would be better for that man who betrays the Son of Man? <br>
+            A. If he had not been born (Matthew 26:24)  <br><br>
+        
+        A 	9. According to Matthew, chapter 26, verse 64, what will you see from now on? <br>
+            A. The Son of Man sitting at the right hand of the Mighty One and coming on the clouds of heaven (Matthew 26:64)  <br><br>
+        
+        G 	10. Who sent a large crowd armed with swords and clubs? <br>
+            A. The chief priests and the elders of the people (Matthew 26:47)  <br><br>
+        
+        A 	11. According to Matthew, chapter 26, verse 35, what did Peter declare? <br>
+            A. "Even if I have to die with you, I will never disown you." (Matthew 26:35) <br><br> 
+        
+        V 	12. Finish this verse: "Going a little farther, he. . ." <br>
+            A. ". . .fell with his face to the ground and prayed, "My Father, if it is possible, may this cup be taken from me. Yet not as I will, but as you will." (Matthew 26:39) <br><br> 
+        
+        A 	13. According to Matthew, chapter 26, verse 41, what is the flesh? <br>
+            A. Weak (Matthew 26:41)  <br><br>
+        
+        G 	14. Who then remembered the word Jesus had spoken: "Before the rooster crows, you will disown me three times."? <br>
+            A. Peter (Matthew 26:75)  <br><br>
+        
+        G 	15. Who said to Jesus, "I charge you under oath by the living God: Tell us if you are the Messiah, the Son of God."? <br>
+            A. The high priest [OR Caiaphas] (Matthew 26:63)  <br><br>
+        
+        Q 	16. Quote Matthew, chapter 26, verse 26. <br>
+            A. "While they were eating, Jesus took bread, and when he had given thanks, he broke it and gave it to his disciples, saying, "Take and eat; this is my body."" (Matthew 26:26)  <br><br>
+        
+        G 	17. Who said, "I don't know what you're talking about."? <br>
+            A. Peter (Matthew 26:70)  <br><br>
+        
+        G 	18. Whom did others slap? <br>
+            A. Jesus (Matthew 26:67)  <br><br>
+        
+        S 	19. Situation question: who said it, to whom, and when: "Truly I tell you, one of you will betray me."? <br>
+            A. Jesus said it to the Twelve, while they were eating (Matthew 26:21)  <br><br>
+        
+        G 	20. Who said, "But not during the festival, or there may be a riot among the people."? <br>
+            A. The chief priests and the elders of the people (Matthew 26:5)  <br><br>
+        <br><br>
+        
+         <h7 id="3">SET #3</h7>   <br><br>
+        
+        G 	1. To whom did a servant girl come? <br>
+            A. Peter (Matthew 26:69)  <br><br>
+        
+        G 	2. Who was reclining at the table with the Twelve? <br>
+            A. Jesus (Matthew 26:20)  <br><br>
+        
+        S 	3. Situation question: who said it, and to whom: "Surely you don't mean me, Lord?" <br>
+            A. The Twelve (one after the other) said it to Jesus (Matthew 26:22)  <br><br>
+    
+        G 	4. To whom did a woman come with an alabaster jar of very expensive perfume? <br>
+            A. Jesus (Matthew 26:7)  <br><br>
+        
+        G 	5. To whom did Judas Iscariot go and ask, "What are you willing to give me if I deliver him over to you?" <br>
+            A. The chief priests (Matthew 26:14-15)  <br><br>
+        
+        R 	6. Finish this verse and give the reference: "While they were eating, Jesus. . ." <br>
+            A. ". . .took bread, and when he had given thanks, he broke it and gave it to his disciples, saying, "Take and eat; this is my body." " (Matthew 26:26)  <br><br>
+        
+        X 	7. From what Old Testament book does the following quotation come: "I will strike the shepherd, and the sheep of the flock will be scattered."? <br>
+            A. Zechariah (Matthew 26:31)  <br><br>
+        
+        G 	8. Who said, "He has spoken blasphemy! Why do we need any more witnesses? Look, now you have heard the blasphemy."? <br>
+            A. The high priest [OR Caiaphas] (Matthew 26:65)  <br><br>
+        
+        A 	9. According to Matthew, chapter 26, verse 3, what was the high priest's name? <br>
+            A. Caiaphas (Matthew 26:3)  <br><br>
+        
+        G 	10. How did one of Jesus' companions strike the servant of the high priest? <br>
+            A. Cutting off his ear (Matthew 26:51)  <br><br>
+        
+        G 	11. Who did not find any false evidence against Jesus? <br>
+            A. The chief priests and the whole Sanhedrin (Matthew 26:60) <br><br> 
+        
+        V 	12. Finish these verses: "Then he took a cup,. . ." <br>
+            A. ". . .and when he had given thanks, he gave it to them, saying, "Drink from it, all of you. This is my blood of the covenant, which is poured out for many for the forgiveness of sins." (Matthew 26:27-28)  <br><br>
+        
+        A 	13. According to Matthew, chapter 26, verse 4, whom did they scheme to kill? <br>
+            A. Jesus (Matthew 26:4)  <br><br>
+        
+        G 	14. To whom did those standing there go up and say, "Surely you are one of them; your accent gives you away."? <br><br>
+            A. Peter (Matthew 26:73)  <br><br>
+        
+        G 	15. To whom did those who had arrested Jesus take him? <br>
+            A. Caiaphas the high priest (Matthew 26:57)  <br><br>
+        
+        Q 	16. Quote Matthew, chapter 26, verse 41. <br>
+            A. "Watch and pray so that you will not fall into temptation. The spirit is willing, but the flesh is weak." (Matthew 26:41)  <br><br>
+        
+        G 	17. Who said, "Truly I tell you, one of you will betray me."? <br>
+            A. Jesus (Matthew 26:21)  <br><br>
+        
+        A 	18. According to Matthew, chapter 26, verse 37, whom did he take along with him? <br>
+            A. Peter and the two sons of Zebedee (Matthew 26:37)  <br><br>
+        
+        G 	19. Who is delivered into the hands of sinners? <br>
+            A. The Son of Man (Matthew 26:45)  <br><br>
+        
+        A 	20. According to Matthew, chapter 26, verse 42, when did he go away? <br>
+            A. A second time (Matthew 26:42)  <br><br>
+        <br>
+        <br>
+        
+         <h7 id="4">SET #4</h7>   <br><br>
+        
+        G 	1. Who asked, "Where do you want us to make preparations for you to eat the Passover?" <br>
+            A. The disciples (Matthew 26:17)  <br><br>
+        
+        V 	2. Finish these verses: "Then he took a cup,. . ." <br>
+            A. ". . .and when he had given thanks, he gave it to them, saying, "Drink from it, all of you. This is my blood of the covenant, which is poured out for many for the forgiveness of sins." (Matthew 26:27-28)  <br><br>
+        
+        A 	3. According to Matthew, chapter 26, verse 74, what did he begin to do? <br>
+            A. Call down curses (Matthew 26:74)  <br><br>
+        
+        G 	4. Where will you see the Son of Man sitting from now on? <br>
+            A. At the right hand of the Mighty One (Matthew 26:64)  <br><br>
+        
+        G 	5. Where was the home of Simon the Leper? <br>
+            A. In Bethany (Matthew 26:6)  <br><br>
+        
+        A 	6. According to Matthew, chapter 26, verse 18, what is the Teacher going to do? <br>
+            A. Celebrate the Passover with his disciples at a certain man's house (Matthew 26:18) <br><br> 
+        
+        G 	7. Who took Jesus to Caiaphas the high priest? <br>
+            A. Those who had arrested Jesus (Matthew 26:57)  <br><br>
+        
+        G 	8. Who came to Jesus with an alabaster jar of very expensive perfume? <br>
+            A. A woman (Matthew 26:7)  <br><br>
+        
+        Q 	9. Quote Matthew, chapter 26, verse 39. <br>
+            A. "Going a little farther, he fell with his face to the ground and prayed, "My Father, if it is possible, may this cup be taken from me. Yet not as I will, but as you will."" (Matthew 26:39)  <br><br>
+        
+        G 	10. Who will be handed over to be crucified? <br>
+            A. The Son of Man (Matthew 26:2)  <br><br>
+        
+        X 	11. In Matthew, chapter 26, what is the bread Jesus gave his disciples? <br>
+            A. Jesus' body (Matthew 26:26)  <br><br>
+        
+        G 	12. Who said to his disciples, "Sit here while I go over there and pray."? <br>
+            A. Jesus (Matthew 26:36)  <br><br>
+        
+        A 	13. According to Matthew, chapter 26, verse 3, where did the chief priests and the elders of the people assemble? <br>
+            A. In the palace of the high priest (Matthew 26:3)  <br><br>
+        
+        G 	14. Who said, "This fellow was with Jesus of Nazareth."? <br>
+            A. Another servant girl (Matthew 26:71)  <br><br>
+        
+        G 	15. Who left his disciples and went away once more and prayed the third time, saying the same thing? <br>
+            A. Jesus (Matthew 26:44)  <br><br>
+        
+        A 	16. According to Matthew, chapter 26, verse 38, what did he then say to them? <br>
+            A. "My soul is overwhelmed with sorrow to the point of death. Stay here and keep watch with me." (Matthew 26:38)  <br><br>
+        
+        R 	17. Finish this verse and give the reference: ""Watch and pray so that. . ." <br>
+            A. ". . .you will not fall into temptation. The spirit is willing, but the flesh is weak." " (Matthew 26:41)  <br><br>
+        
+        S 	18. Situation question: who said it, to whom, and what was the reply: "Surely you don't mean me, Rabbi?" <br>
+            A. Judas said it to Jesus, and the reply was, "You have said so." (Matthew 26:25)  <br><br>
+        
+        G 	19. Who struck the servant of the high priest, cutting off his ear? <br>
+            A. One of Jesus' companions (Matthew 26:51)  <br><br>
+        
+        G 	20. Who went away a second time and prayed, "My Father, if it is not possible for this cup to be taken away unless I drink it, may your will be done."? <br>
+            A. Jesus (Matthew 26:42)  <br><br>
+        <br><br>
+        
+         <h7 id="5">SET #5 </h7>  <br><br>
+        
+        A 	1. According to Matthew, chapter 26, verse 59, for what were the chief priests and the whole Sanhedrin looking? <br>
+            A. False evidence against Jesus (Matthew 26:59)  <br><br>
+        
+        Q 	2. Quote Matthew, chapter 26, verse 39. <br>
+            A. "Going a little farther, he fell with his face to the ground and prayed, "My Father, if it is possible, may this cup be taken from me. Yet not as I will, but as you will."" (Matthew 26:39)  <br><br>
+        
+        A 	3. According to Matthew, chapter 26, verse 30, where did they go? <br>
+            A. Out to the Mount of Olives (Matthew 26:30)  <br><br>
+        
+        G 	4. Who were indignant when they saw a woman pour very expensive perfume on Jesus' head? <br>
+            A. The disciples (Matthew 26:7-8)  <br><br>
+        
+        G 	5. What did the high priest tear? <br>
+            A. His clothes (Matthew 26:65)  <br><br>
+        
+        S 	6. Situation question: who said it, to whom, and what was the response: "Do what you came for, friend."? <br>
+            A. Jesus said it to Judas, and the men stepped forward, seized Jesus and arrested him (Matthew 26:50)  <br><br>
+        
+        G 	7. To whom has this woman done a beautiful thing? <br>
+            A. Jesus (Matthew 26:10)  <br><br>
+        
+        G 	8. Where should one of Jesus' companions put his sword? <br>
+            A. Back in its place (Matthew 26:52)  <br><br>
+        
+        R 	9. Finish these verses and give the reference: "Then he took a cup,. . ." <br>
+            A. ". . .and when he had given thanks, he gave it to them, saying, "Drink from it, all of you. This is my blood of the covenant, which is poured out for many for the forgiveness of sins. " (Matthew 26:27-28)  <br><br>
+        
+        A 	10. According to Matthew, chapter 26, verse 72, how did he deny it again? <br>
+            A. With an oath: "I don't know the man!" (Matthew 26:72)  <br><br>
+        
+        G 	11. Who went away once more and prayed the third time, saying the same thing? <br>
+            A. Jesus (Matthew 26:44)  <br><br>
+        
+        G 	12. What signal had the betrayer arranged with them? <br>
+            A. "The one I kiss is the man; arrest him." (Matthew 26:48)  <br><br>
+        
+        A 	13. According to Matthew, chapter 26, verse 67, in what did they spit? <br>
+            A. His face (Matthew 26:67)  <br><br>
+        
+        G 	14. To whom did Jesus say, "Am I leading a rebellion, that you have come out with swords and clubs to capture me?" <br>
+            A. The crowd (Matthew 26:55)  <br><br>
+        
+        G 	15. Why should you watch and pray? <br>
+            A. So that you will not fall into temptation (Matthew 26:41)  <br><br>
+        
+        V 	16. Finish this verse: "While they were eating, Jesus. . ." <br>
+            A. ". . .took bread, and when he had given thanks, he broke it and gave it to his disciples, saying, "Take and eat; this is my body." (Matthew 26:26)  <br><br>
+        
+        G 	17. To whom did Jesus give a cup, saying, "Drink from it, all of you."? <br>
+            A. His disciples (Matthew 26:27)  <br><br>
+        
+        G 	18. What word did Peter then remember? <br>
+            A. The word Jesus had spoken: "Before the rooster crows, you will disown me three times." (Matthew 26:75)  <br><br>
+        
+        X 	19. In Matthew, chapter 26, who will be scattered? <br>
+            A. The sheep of the flock [OR Jesus' disciples] (Matthew 26:31) <br><br> 
+        
+        G 	20. When did a woman pour very expensive perfume on Jesus' head? <br>
+            A. As he was reclining at the table (Matthew 26:7)  <br><br>
+        <br><br>
+        
+         <h7 id="6">SET #6</h7>   <br><br>
+        
+        G 	1. For what opportunity did Judas watch from then on? <br>
+            A. An opportunity to hand Jesus over (Matthew 26:16)  <br><br>
+        
+        V 	2. Finish this verse: "While they were eating, Jesus. . ." <br>
+            A. ". . .took bread, and when he had given thanks, he broke it and gave it to his disciples, saying, "Take and eat; this is my body." (Matthew 26:26)  <br><br>
+        
+        G 	3. Who again found his disciples sleeping when he came back? <br>
+            A. Jesus (Matthew 26:43)  <br><br>
+        
+        A 	4. According to Matthew, chapter 26, verse 75, who wept bitterly? <br>
+            A. Peter (Matthew 26:75)  <br><br>
+        
+        X 	5. What were the chief priests willing to give Judas Iscariot if he delivered Jesus over to them? <br>
+            A. Thirty pieces of silver (Matthew 26:15)  <br><br>
+        
+        G 	6. Who were very sad and began to say to Jesus one after the other, "Surely you don't mean me, Lord?" <br>
+            A. The Twelve (Matthew 26:22)  <br><br>
+        
+        R 	7. Finish this verse and give the reference: ""Watch and pray so that. . ." <br>
+            A. ". . .you will not fall into temptation. The spirit is willing, but the flesh is weak." " (Matthew 26:41)  <br><br>
+        
+        G 	8. Who went out to the gateway? <br>
+            A. Peter (Matthew 26:71)  <br><br>
+        
+        A 	9. According to Matthew, chapter 26, verse 69, where was Peter sitting? <br>
+            A. Out in the courtyard (Matthew 26:69)  <br><br>
+        
+        G 	10. With whom had the betrayer arranged a signal? <br>
+            A. A large crowd (armed with swords and clubs) (Matthew 26:48)  <br><br>
+        
+        S 	11. Situation question: who said it, to whom, and what was the reply: "Greetings, Rabbi!"? <br>
+            A. Judas said it to Jesus, and the reply was, "Do what you came for, friend." (Matthew 26:49-50) <br><br> 
+        
+        G 	12. Whose ear did one of Jesus' companions cut off? <br>
+            A. The servant of the high priest's (Matthew 26:51)  <br><br>
+        
+        G 	13. What immediately crowed? <br>
+            A. A rooster (Matthew 26:74)  <br><br>
+        
+        A 	14. According to Matthew, chapter 26, verse 31, what is written? <br>
+            A. "I will strike the shepherd, and the sheep of the flock will be scattered." (Matthew 26:31)  <br><br>
+        
+        G 	15. With what did Peter deny it again? <br>
+            A. An oath (Matthew 26:72)  <br><br>
+        
+        G 	16. To whom did Jesus say, "Put your sword back in its place, for all who draw the sword will die by the sword."? <br>
+            A. One of Jesus' companions (Matthew 26:52)  <br><br>
+        
+        Q 	17. Quote Matthew, chapter 26, verse 39. <br>
+            A. "Going a little farther, he fell with his face to the ground and prayed, "My Father, if it is possible, may this cup be taken from me. Yet not as I will, but as you will."" (Matthew 26:39) <br><br> 
+        
+        A 	18. According to Matthew, chapter 26, verse 40, what did he ask Peter? <br>
+            A. "Couldn't you men keep watch with me for one hour?" (Matthew 26:40)  <br><br>
+        
+        G 	19. What is overwhelmed with sorrow to the point of death? <br>
+            A. Jesus' soul (Matthew 26:38)  <br><br>
+        
+        G 	20. Who sat down with the guards to see the outcome? <br>
+            A. Peter (Matthew 26:58)  <br><br>
+        <br><br>
+        
+         <h7 id="7">SET #7</h7>   <br><br>
+        
+        G 	1. Whose soul is overwhelmed with sorrow to the point of death? <br>
+            A. Jesus' (Matthew 26:38)  <br><br>
+        
+        A 	2. According to Matthew, chapter 26, verse 20, with whom was Jesus reclining at the table? <br>
+            A. The Twelve (Matthew 26:20)  <br><br>
+        
+        G 	3. At what could this perfume have been sold? <br>
+            A. A high price (Matthew 26:9)  <br><br>
+        
+        A 	4. According to Matthew, chapter 26, verse 69, what did a servant girl say? <br>
+            A. "You also were with Jesus of Galilee." (Matthew 26:69)  <br><br>
+        
+        G 	5. What did Peter begin to call down? <br>
+            A. Curses (Matthew 26:74)  <br><br>
+        
+        X 	6. In Matthew, chapter 26, what is the spirit? <br>
+            A. Willing (Matthew 26:41)  <br><br>
+        
+        A 	7. According to Matthew, chapter 26, verse 75, what did Peter then remember? <br>
+            A. The word Jesus had spoken: "Before the rooster crows, you will disown me three times." (Matthew 26:75)  <br><br>
+        
+        G 	8. For what were the chief priests and the whole Sanhedrin looking? <br>
+            A. False evidence against Jesus (Matthew 26:59)  <br><br>
+        
+        G 	9. Why did Peter sit down with the guards? <br>
+            A. To see the outcome (Matthew 26:58)  <br><br>
+        
+        Q 	10. Quote Matthew, chapter 26, verse 26. <br>
+            A. "While they were eating, Jesus took bread, and when he had given thanks, he broke it and gave it to his disciples, saying, "Take and eat; this is my body."" (Matthew 26:26)  <br><br>
+        
+        G 	11. Who poured this perfume on Jesus' body to prepare him for burial? <br>
+            A. This woman (Matthew 26:12)  <br><br>
+        
+        G 	12. Who stood up and said to Jesus, "Are you not going to answer? What is this testimony that these men are bringing against you?" <br>
+            A. The high priest [OR Caiaphas] (Matthew 26:62)  <br><br>
+        
+        R 	13. Finish this verse and give the reference: "Going a little farther, he. . ." <br>
+            A. ". . .fell with his face to the ground and prayed, "My Father, if it is possible, may this cup be taken from me. Yet not as I will, but as you will." " (Matthew 26:39)  <br><br>
+        
+        G 	14. Who has done a beautiful thing to Jesus? <br>
+            A. This woman (Matthew 26:10)  <br><br>
+        
+        G 	15. Who should put his sword back in its place? <br>
+            A. One of Jesus' companions (Matthew 26:52)  <br><br>
+        
+        S 	16. Situation question: who said it, and to whom: "This very night you will all fall away on account of me, for it is written: 'I will strike the shepherd, and the sheep of the flock will be scattered.'"? <br>
+            A. Jesus said it to his disciples (Matthew 26:31)  <br><br>
+        
+        V 	17. Finish these verses: "Then he took a cup,. . ." <br>
+            A. ". . .and when he had given thanks, he gave it to them, saying, "Drink from it, all of you. This is my blood of the covenant, which is poured out for many for the forgiveness of sins." (Matthew 26:27-28)  <br><br>
+        
+        G 	18. Whom will the disciples not always have? <br>
+            A. Jesus (Matthew 26:11)  <br><br>
+        
+        G 	19. Who asked Peter, "Couldn't you men keep watch with me for one hour?" <br>
+            A. Jesus (Matthew 26:40)  <br><br>
+        
+        A 	20. According to Matthew, chapter 26, verse 24, who will go just as it is written about him? <br>
+            A. The Son of Man (Matthew 26:24)  <br><br>
+        <br><br>
+        
+         <h7 id="8">SET #8</h7>   <br><br>
+        
+        G 	1. Why will what this woman has done also be told wherever this gospel is preached throughout the world? <br>
+            A. In memory of her (Matthew 26:13)  <br><br>
+        
+        G 	2. How did Jesus pray, "My Father, if it is possible, may this cup be taken from me. Yet not as I will, but as you will."? <br>
+            A. With his face to the ground (Matthew 26:39)  <br><br>
+        
+        A 	3. According to Matthew, chapter 26, verse 8, what did the disciples ask? <br>
+            A. "Why this waste?" (Matthew 26:8)  <br><br>
+        
+        G 	4. To whom did the Twelve begin to say one after the other, "Surely you don't mean me, Lord?" <br>
+            A. Jesus (Matthew 26:22)  <br><br>
+        
+        Q 	5. Quote Matthew, chapter 26, verse 26. <br>
+            A. "While they were eating, Jesus took bread, and when he had given thanks, he broke it and gave it to his disciples, saying, "Take and eat; this is my body."" (Matthew 26:26)  <br><br>
+        
+        G 	6. Whom are the disciples bothering? <br>
+            A. This woman (Matthew 26:10)  <br><br>
+        
+        S 	7. Situation question: who said it, and to whom: "Couldn't you men keep watch with me for one hour?" <br>
+            A. Jesus said it to Peter (Matthew 26:40)  <br><br>
+        
+        X 	8. How many angels will Jesus' Father at once put at his disposal if Jesus calls on him? <br>
+            A. More than twelve legions (Matthew 26:53)  <br><br>
+        
+        G 	9. Who replied, "Go into the city to a certain man and tell him, 'The Teacher says: My appointed time is near. I am going to celebrate the Passover with my disciples at your house.'"? <br>
+            A. Jesus (Matthew 26:18)  <br><br>
+        
+        G 	10. For whom did the chief priests count out thirty pieces of silver? <br>
+            A. Judas Iscariot (Matthew 26:15)  <br><br>
+        
+        A 	11. According to Matthew, chapter 26, verse 43, when did he again find them sleeping? <br>
+            A. When he came back (Matthew 26:43)  <br><br>
+        
+        G 	12. Who will not always have Jesus? <br>
+            A. The disciples (Matthew 26:11)  <br><br>
+        
+        R 	13. Finish this verse and give the reference: ""Watch and pray so that. . ." <br>
+            A. ". . .you will not fall into temptation. The spirit is willing, but the flesh is weak." " (Matthew 26:41)  <br><br>
+        
+        A 	14. According to Matthew, chapter 26, verse 31, who will be scattered? <br>
+            A. The sheep of the flock (Matthew 26:31)  <br><br>
+        
+        G 	15. With whom did Jesus go to a place called Gethsemane? <br>
+            A. His disciples (Matthew 26:36)  <br><br>
+        
+        A 	16. According to Matthew, chapter 26, verse 5, what may there be? <br>
+            A. A riot among the people (Matthew 26:5)  <br><br>
+        
+        G 	17. To whom did the disciples come and ask, "Where do you want us to make preparations for you to eat the Passover?" <br>
+            A. Jesus (Matthew 26:17)  <br><br>
+        
+        G 	18. When will Peter disown Jesus three times? <br>
+            A. This very night, before the rooster crows (Matthew 26:34)  <br><br>
+        
+        V 	19. Finish these verses: "Then he took a cup,. . ." <br>
+            A. ". . .and when he had given thanks, he gave it to them, saying, "Drink from it, all of you. This is my blood of the covenant, which is poured out for many for the forgiveness of sins." (Matthew 26:27-28)  <br><br>
+        
+        G 	20. How did Peter weep? <br>
+            A. Bitterly (Matthew 26:75) <br><br> 
+        <br><br>
+        
+         <h7 id="9">SET #9 </h7>  <br><br>
+        
+        G 	1. Why is Jesus' blood of the covenant poured out for many? <br>
+            A. For the forgiveness of sins (Matthew 26:28)  <br><br>
+        
+        A 	2. According to Matthew, chapter 26, verse 44, what did he say? <br>
+            A. The same thing (Matthew 26:44)  <br><br>
+        
+        G 	3. Into where will Jesus go ahead of his disciples after he has risen? <br>
+            A. Galilee (Matthew 26:32)  <br><br>
+        
+        A 	4. According to Matthew, chapter 26, verse 8, who saw this? <br>
+            A. The disciples (Matthew 26:8)  <br><br>
+        
+        V 	5. Finish this verse: ""Watch and pray so that. . ." <br>
+            A. ". . .you will not fall into temptation. The spirit is willing, but the flesh is weak." (Matthew 26:41) <br><br> 
+        
+        S 	6. Situation question: who said it, to whom, and what was the response: "What are you willing to give me if I deliver him over to you?" <br>
+            A. Judas Iscariot said it to the chief priests, and they counted out for him thirty pieces of silver (Matthew 26:14-15)  <br><br>
+        
+        G 	7. With whom is the Teacher going to celebrate the Passover at a certain man's house? <br>
+            A. His disciples (Matthew 26:18)  <br><br>
+        
+        G 	8. Whose name was Caiaphas? <br>
+            A. The high priest's (Matthew 26:3) <br><br> 
+        
+        R 	9. Finish these verses and give the reference: "Then he took a cup,. . ." <br>
+            A. ". . .and when he had given thanks, he gave it to them, saying, "Drink from it, all of you. This is my blood of the covenant, which is poured out for many for the forgiveness of sins. " (Matthew 26:27-28)  <br><br>
+        
+        G 	10. Who will disown Jesus three times this very night before the rooster crows? <br>
+            A. Peter (Matthew 26:34)  <br><br>
+        
+        G 	11. Who prepared the Passover? <br>
+            A. The disciples (Matthew 26:19)  <br><br>
+        
+        X 	12. Two-part answer: in Matthew, chapter 26, who had assembled where Caiaphas the high priest was? <br>
+            A. 1) The teachers of the law; 2) The elders (Matthew 26:57)  <br><br>
+        
+        Q 	13. Quote Matthew, chapter 26, verse 39. <br>
+            A. "Going a little farther, he fell with his face to the ground and prayed, "My Father, if it is possible, may this cup be taken from me. Yet not as I will, but as you will."" (Matthew 26:39)  <br><br>
+        
+        G 	14. Who will drink from this fruit of the vine new with his disciples in his Father's kingdom? <br>
+            A. Jesus (Matthew 26:29)  <br><br>
+        
+        G 	15. Who broke bread and gave it to his disciples, saying, "Take and eat; this is my body."? <br>
+            A. Jesus (Matthew 26:26)  <br><br>
+        
+        A 	16. According to Matthew, chapter 26, verse 22, what were they? <br>
+            A. Very sad (Matthew 26:22)  <br><br>
+        
+        G 	17. Who took a cup, and when he had given thanks, gave it to his disciples, saying, "Drink from it, all of you."? <br>
+            A. Jesus (Matthew 26:27)  <br><br>
+        
+        G 	18. Who counted out for Judas Iscariot thirty pieces of silver? <br>
+            A. The chief priests (Matthew 26:15)  <br><br>
+        
+        A 	19. According to Matthew, chapter 26, verse 40, to whom did he return? <br>
+            A. His disciples (Matthew 26:40)  <br><br>
+        
+        G 	20. Who went out to the Mount of Olives when they had sung a hymn? <br>
+            A. Jesus and his disciples (Matthew 26:30)  <br><br>
+        <br><br>
+        
+         <h7 id="10">SET #10</h7>   <br><br>
+        
+        A 	1. According to Matthew, chapter 26, verse 24, to whom is woe? <br>
+            A. That man who betrays the Son of Man (Matthew 26:24)  <br><br>
+        
+        G 	2. Who said, "He has spoken blasphemy! Why do we need any more witnesses? Look, now you have heard the blasphemy."? <br>
+            A. The high priest [OR Caiaphas] (Matthew 26:65)  <br><br>
+        
+        G 	3. From when will Jesus not drink from this fruit of the vine until that day when he drinks it new with his disciples in his Father's kingdom? <br>
+            A. Now on (Matthew 26:29)  <br><br>
+        
+        Q 	4. Quote Matthew, chapter 26, verses 27 through 28. <br>
+            A. "Then he took a cup, and when he had given thanks, he gave it to them, saying, "Drink from it, all of you. This is my blood of the covenant, which is poured out for many for the forgiveness of sins." (Matthew 26:27-28)  <br><br>
+        
+        S 	5. Situation question: who said it, to whom, and where: "Sit here while I go over there and pray."? <br>
+            A. Jesus said it to his disciples, at Gethsemane (Matthew 26:36)  <br><br>
+        
+        G 	6. To whom did a servant girl come? <br>
+            A. Peter (Matthew 26:69)  <br><br>
+        
+        A 	7. According to Matthew, chapter 26, verse 42, when may your will be done? <br>
+            A. If it is not possible for this cup to be taken away unless I drink it (Matthew 26:42)  <br><br>
+        
+        X 	8. In Matthew, chapter 26, who will be scattered? <br>
+            A. The sheep of the flock [OR Jesus' disciples] (Matthew 26:31)  <br><br>
+        
+        G 	9. For whom is Jesus' blood of the covenant poured out for the forgiveness of sins? <br>
+            A. Many (Matthew 26:28)  <br><br>
+        
+        G 	10. Whom did Jesus ask, "Couldn't you men keep watch with me for one hour?" <br>
+            A. Peter (Matthew 26:40)  <br><br>
+        
+        A 	11. According to Matthew, chapter 26, verse 18, what should you tell a certain man? <br>
+            A. "The Teacher says: My appointed time is near. I am going to celebrate the Passover with my disciples at your house." (Matthew 26:18)  <br><br>
+        
+        G 	12. With what did Peter deny it again? <br>
+            A. An oath (Matthew 26:72)  <br><br>
+        
+        G 	13. Why did Peter sit down with the guards? <br>
+            A. To see the outcome (Matthew 26:58)  <br><br>
+        
+        R 	14. Finish this verse and give the reference: "While they were eating, Jesus. . ." <br>
+            A. ". . .took bread, and when he had given thanks, he broke it and gave it to his disciples, saying, "Take and eat; this is my body." " (Matthew 26:26)  <br><br>
+        
+        A 	15. According to Matthew, chapter 26, verse 17, when did the disciples come to Jesus? <br>
+            A. On the first day of the Festival of Unleavened Bread (Matthew 26:17)  <br><br>
+        
+        G 	16. Who said, "But not during the festival, or there may be a riot among the people."? <br>
+            A. The chief priests and the elders of the people (Matthew 26:5)  <br><br>
+        
+        G 	17. Whom did the men arrest? <br>
+            A. Jesus (Matthew 26:50)  <br><br>
+        
+        V 	18. Finish this verse: "Going a little farther, he. . ." <br>
+            A. ". . .fell with his face to the ground and prayed, "My Father, if it is possible, may this cup be taken from me. Yet not as I will, but as you will." (Matthew 26:39)  <br><br>
+        
+        G 	19. Whom did others slap? <br>
+            A. Jesus (Matthew 26:67)  <br><br>
+        
+        G 	20. Where did Jesus and his disciples go when they had sung a hymn? <br>
+            A. Out to the Mount of Olives (Matthew 26:30)  <br><br>
+        
+        </p>
+
+</body>
+</html>

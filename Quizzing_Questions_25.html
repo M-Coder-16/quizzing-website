@@ -1,0 +1,902 @@
+<!DOCTYPE html>
+<html> 
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+
+        h1{
+            background-color: black;
+            text-align: center;
+            font-size: 120px;
+            margin: 0px;
+            padding: 30px;
+            color: rgb(0, 172, 172);
+            font-family: 'Impact', Haettenschweiler, Arial Narrow Bold, sans-serif;
+            top: 0px;
+            left: 0px;
+            text-emphasis: bold;
+        }
+
+        head{
+            background-color: black;
+            margin: 0px;
+            padding: 20px;
+        }
+
+        nav{
+            left: 0px;
+            margin: 0px;
+            padding: 20px;
+            background-color: rgb(0, 172, 172);
+            color: black;
+            text-align: left;
+            display: inline-block;
+            height: auto;
+        }
+
+        nav a{
+            color: black;
+            text-decoration: none;
+            margin: 10px 15px;
+            padding: 8px;
+            font-size: 24px;
+            display: inline-block;
+            box-shadow: 0px 0px 10px 5px black;
+            background-color: #b3b3b3;
+            border-radius: 5px;
+        }
+
+        body{
+            background-image: url('data:image/jpeg;base64,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');
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-attachment: fixed;
+        }
+
+        h2{
+            text-align: center;
+            color: white;
+            font-size: 32px;
+            text-emphasis: bold;
+            margin: 10px;
+            background-color: black;
+            padding: 10px;
+            border: double 3px black;
+        }
+
+        .bookmarks{
+            background-color: rgb(0, 172, 172);
+            position: absolute;
+            top: 290px;
+            left: 26%;
+            text-align: center;
+            padding: 10px 20px;
+            border: solid black 5px;
+            border-radius: 25px;
+        }
+
+        .bookmarks a{
+            display: inline-block;
+            background-color: black;
+            color: white;
+            text-emphasis: bold;
+            font-size: 24px;
+            margin: 10px;
+            padding: 10px;
+            border-radius: 10px;
+        }
+
+        h3{
+            font-size: 68px;
+            position: absolute;
+            float: center;
+            top: 350px;
+            left: 48%;
+            text-emphasis: bold;
+            text-align: center;
+            font-family: 'Times New Roman', Times, serif;
+        }
+
+        .verses a{
+            position: absolute;
+            color: rgb(0, 172, 172);
+            background-color: black;
+            font-size: 32px;
+            font-family: Arial, Helvetica, sans-serif;
+            left: 38%;
+            padding: 10px 100px;
+            text-decoration: none;
+            text-align: center;
+            top: 220px;
+            text-emphasis: bold;
+        }
+
+        #myBtn {
+            display: none; /* Hidden by default */
+            position: fixed; /* Fixed/sticky position */
+            bottom: 65px; /* Place the button at the bottom of the page */
+            left: 50px; /* Place the button 30px from the right */
+            z-index: 99; /* Make sure it does not overlap */
+            border: none; /* Remove borders */
+            outline: none; /* Remove outline */
+            background-color: rgb(0, 172, 172); /* Set a background color */
+            color: black; /* Text color */
+            cursor: pointer; /* Add a mouse pointer on hover */
+            padding: 10px; /* Some padding */
+            padding-bottom: 0px;
+            border-radius: 10px; /* Rounded corners */
+            border: solid black 5px;
+            font-size: 72px; /* Increase font size */
+        }
+
+        #myBtn:hover {
+            display: none; /* Hidden by default */
+            position: fixed; /* Fixed/sticky position */
+            bottom: 65px; /* Place the button at the bottom of the page */
+            left: 50px; /* Place the button 30px from the right */
+            z-index: 99; /* Make sure it does not overlap */
+            border: none; /* Remove borders */
+            outline: none; /* Remove outline */
+            background-color: rgb(0, 0, 0); /* Set a background color */
+            color: rgb(0, 172, 172); /* Text color */
+            cursor: pointer; /* Add a mouse pointer on hover */
+            padding: 10px; /* Some padding */
+            padding-bottom: 0px;
+            border-radius: 10px; /* Rounded corners */
+            border: solid rgb(0, 172, 172) 5px;
+            font-size: 72px; /* Increase font size */
+        }
+
+        p{
+            font-size: 22px;
+            position: absolute;
+            top: 500px;
+            left: 30%;
+        }
+
+        h7{
+            font-size: 32px;
+            text-emphasis: bold;
+        }
+
+    </style>
+    <button onclick="topFunction()" id="myBtn" title="Go to top"><b>^</b></button>
+<head> 
+    <h1>Questions</h1>
+    <div class="verses">
+        <a href="Quizzing.html">Click here for memory verses.</a>        
+   </div>
+</head>
+<body>
+   
+    <script>
+        //Get the button
+        var mybutton = document.getElementById("myBtn");
+        
+        // When the user scrolls down 20px from the top of the document, show the button
+        window.onscroll = function() {scrollFunction()};
+        
+        function scrollFunction() {
+          if (document.body.scrollTop > 1750 || document.documentElement.scrollTop > 1750) {
+            mybutton.style.display = "block";
+          } else {
+            mybutton.style.display = "none";
+          }
+        }
+        
+        // When the user clicks on the button, scroll to the top of the document
+        function topFunction() {
+          document.body.scrollTop = 0;
+          document.documentElement.scrollTop = 0;
+        }
+        </script>
+
+    <nav>
+
+        <h2>Select a Chapter</h2>
+        <br>
+
+        <a href="Quizzing_Questions_1.html">Matthew 1</a>
+        <br>
+        <a href="Quizzing_Questions_2.html">Matthew 2</a>
+        <br>
+        <a href="Quizzing_Questions_3.html">Matthew 3</a>
+        <br>
+        <a href="Quizzing_Questions_4.html">Matthew 4</a>
+        <br>
+        <a href="Quizzing_Questions_5.html">Matthew 5</a>
+        <br>
+        <a href="Quizzing_Questions_6.html">Matthew 6</a>
+        <br>
+        <a href="Quizzing_Questions_7.html">Matthew 7</a>
+        <br>
+        <a href="Quizzing_Questions_8.html">Matthew 8</a>
+        <br>
+        <a href="Quizzing_Questions_9.html">Matthew 9</a>
+        <br>
+        <a href="Quizzing_Questions_10.html">Matthew 10</a>
+        <br>
+        <a href="Quizzing_Questions_11.html">Matthew 11</a>
+        <br>
+        <a href="Quizzing_Questions_12.html">Matthew 12</a>
+        <br>
+        <a href="Quizzing_Questions_13.html">Matthew 13</a>
+        <br>
+        <a href="Quizzing_Questions_14.html">Matthew 14</a>
+        <br>
+        <a href="Quizzing_Questions_15.html">Matthew 15</a>
+        <br>
+        <a href="Quizzing_Questions_16.html">Matthew 16</a>
+        <br>
+        <a href="Quizzing_Questions_17.html">Matthew 17</a>
+        <br>
+        <a href="Quizzing_Questions_18.html">Matthew 18</a>
+        <br>
+        <a href="Quizzing_Questions_19.html">Matthew 19</a>
+        <br>
+        <a href="Quizzing_Questions_20.html">Matthew 20</a>
+        <br>
+        <a href="Quizzing_Questions_21.html">Matthew 21</a>
+        <br>
+        <a href="Quizzing_Questions_22.html">Matthew 22</a>
+        <br>
+        <a href="Quizzing_Questions_23.html">Matthew 23</a>
+        <br>
+        <a href="Quizzing_Questions_24.html">Matthew 24</a>
+        <br>
+        <a href="Quizzing_Questions_25.html">Matthew 25</a>
+        <br>
+        <a href="Quizzing_Questions_26.html">Matthew 26</a>
+        <br>
+        <a href="Quizzing_Questions_27.html">Matthew 27</a>
+        <br>
+        <a href="Quizzing_Questions_28.html">Matthew 28</a>
+    </nav>
+
+    <div class="bookmarks">
+        <a href="#1">Set 1</a>
+        <a href="#2">Set 2</a>
+        <a href="#3">Set 3</a>
+        <a href="#4">Set 4</a>
+        <a href="#5">Set 5</a>
+        <a href="#6">Set 6</a>
+        <a href="#7">Set 7</a>
+        <a href="#8">Set 8</a>
+        <a href="#9">Set 9</a>
+        <a href="#10">Set 10</a>
+    </div>
+
+    <h3>Matthew 25</h3>
+
+    <p><h7 id="1">SET #1 </h7>  <br><br>
+
+        A 	1. According to Matthew, chapter 25, verse 23, what did his master reply? <br>
+            A. "Well done, good and faithful servant! You have been faithful with a few things; I will put you in charge of many things. Come and share your master's happiness!" (Matthew 25:23)  <br><br>
+        
+        X 	2. Two-part question: in Matthew, chapter 25, who were foolish, and who were wise? <br>
+            A. 1) Five of the virgins who took their lamps and went out to meet the bridegroom; 2) Five of the virgins who took their lamps and went out to meet the bridegroom (Matthew 25:2)  <br><br>
+        
+        G 	3. Whose money did the man who had received one bag hide? <br>
+            A. His master's (Matthew 25:18)  <br><br>
+        
+        S 	4. Situation question: who said it, and to whom: "Master, you entrusted me with five bags of gold. See, I have gained five more."? <br>
+            A. The man who had received five bags of gold said it to his master (Matthew 25:20)  <br><br>
+        
+        G 	5. Who returned and settled accounts with them? <br>
+            A. The master of those servants (Matthew 25:19)  <br><br>
+        
+        R 	6. Finish this verse and give the reference: ""When the Son of Man. . ." <br>
+            A. ". . .comes in his glory, and all the angels with him, he will sit on his glorious throne. " (Matthew 25:31) <br><br> 
+        
+        A 	7. According to Matthew, chapter 25, verse 27, what should you have done? <br>
+            A. Put my money on deposit with the bankers (Matthew 25:27)  <br><br>
+        
+        G 	8. Where should that worthless servant be thrown? <br>
+            A. Outside, into the darkness (where there will be weeping and gnashing of teeth) (Matthew 25:30)  <br><br>
+        
+        G 	9. Where will the Son of Man put the sheep? <br>
+            A. On his right (Matthew 25:33)  <br><br>
+        
+        V 	10. Finish these verses: "All the nations will be. . ." <br>
+            A. ". . .gathered before him, and he will separate the people one from another as a shepherd separates the sheep from the goats. He will put the sheep on his right and the goats on his left." (Matthew 25:32-33)  <br><br>
+        
+        G 	11. Who put his money to work and gained five bags more? <br>
+            A. The man who had received five bags of gold (Matthew 25:16)  <br><br>
+        
+        A 	12. According to Matthew, chapter 25, verse 9, what did they reply? <br>
+            A. "No, there may not be enough for both us and you. Instead, go to those who sell oil and buy some for yourselves." (Matthew 25:9)  <br><br>
+        
+        G 	13. What is prepared for the devil and his angels? <br>
+            A. The eternal fire (Matthew 25:41)  <br><br>
+        
+        Q 	14. Quote Matthew, chapter 25, verse 35. <br>
+            A. "For I was hungry and you gave me something to eat, I was thirsty and you gave me something to drink, I was a stranger and you invited me in," (Matthew 25:35)  <br><br>
+        
+        G 	15. Whom will the righteous answer, "Lord, when did we see you hungry and feed you, or thirsty and give you something to drink?" <br>
+            A. The King [OR the Son of Man, OR the Lord] (Matthew 25:37)  <br><br>
+        
+        G 	16. Who will say to those on his right, "Come, you who are blessed by my Father; take your inheritance, the kingdom prepared for you since the creation of the world."? <br>
+            A. The King [OR the Son of Man, OR the Lord] (Matthew 25:34)  <br><br>
+        
+        A 	17. According to Matthew, chapter 25, verse 36, what did you do when I needed clothes? <br>
+            A. You clothed me (Matthew 25:36)  <br><br>
+        
+        G 	18. When did those on the King's left give the King nothing to eat? <br>
+            A. When he was hungry (Matthew 25:42)  <br><br>
+        
+        G 	19. Who did for the King whatever they did for one of the least of these brothers and sisters of his? <br>
+            A. The righteous [OR those on the King's right] (Matthew 25:40)  <br><br>
+        
+        G 	20. Who will reply, "Truly I tell you, whatever you did not do for one of the least of these, you did not do for me."? <br>
+            A. The King [OR the Son of Man, OR the Lord] (Matthew 25:45)  <br><br>
+        
+         <br><br>
+          <h7 id="2">SET #2</h7><br><br>
+        
+        G 	1. What did those on the King's right do when the King needed clothes? <br>
+            A. Clothed him (Matthew 25:36)  <br><br>
+        
+        G 	2. In what did the wise virgins take oil? <br>
+            A. Jars (Matthew 25:4)  <br><br>
+        
+        A 	3. According to Matthew, chapter 25, verse 30, who should be thrown outside, into the darkness? <br>
+            A. That worthless servant (Matthew 25:30)  <br><br>
+        
+        G 	4. How many virgins who took their lamps and went out to meet the bridegroom were foolish? <br>
+            A. Five (Matthew 25:2)  <br><br>
+        
+        G 	5. Into what should those on the King's left depart from him? <br>
+            A. The eternal fire (prepared for the devil and his angels) (Matthew 25:41)  <br><br>
+        
+        Q 	6. Quote Matthew, chapter 25, verse 31. <br>
+            A. "When the Son of Man comes in his glory, and all the angels with him, he will sit on his glorious throne. (Matthew 25:31)  <br><br>
+        
+        G 	7. Who called his servants and entrusted his wealth to them? <br>
+            A. A man going on a journey (Matthew 25:14)  <br><br>
+        
+        G 	8. How many bags of gold did the one with two bags of gold gain? <br>
+            A. Two more (Matthew 25:17)  <br><br>
+        
+        A 	9. According to Matthew, chapter 25, verse 15, when did he go on his journey? <br>
+            A. After he gave five bags of gold to one, to another two bags, and to another one bag (Matthew 25:15)  <br><br>
+        
+        X 	10. What if the wicked, lazy servant had put his master's money on deposit with the bankers? <br>
+            A. His master would have received it back with interest when he returned (Matthew 25:27)  <br><br>
+        
+        R 	11. Finish this verse and give the reference: "For I was hungry and. . ." <br>
+            A. ". . .you gave me something to eat, I was thirsty and you gave me something to drink, I was a stranger and you invited me in, " (Matthew 25:35)  <br>
+        
+        G 	12. Who should instead go to those who sell oil and buy some for themselves? <br>
+            A. The foolish virgins (Matthew 25:9)  <br><br>
+        
+        A 	13. According to Matthew, chapter 25, verse 10, when did the bridegroom arrive? <br>
+            A. While they were on their way to buy the oil (Matthew 25:10)  <br><br>
+        
+        G 	14. Who entrusted the man with five bags of gold? <br>
+            A. His master (Matthew 25:20)  <br><br>
+        
+        V 	15. Finish this verse: ""The King will reply, 'Truly. . ." <br>
+            A. ". . .I tell you, whatever you did for one of the least of these brothers and sisters of mine, you did for me.'" (Matthew 25:40)  <br><br>
+        
+        G 	16. Whom did those on the King's left not invite in when he was a stranger? <br>
+            A. The King [OR the Son of Man, OR the Lord] (Matthew 25:43)  <br><br>
+        
+        G 	17. Why was the man who had received one bag of gold afraid? <br>
+            A. Because he knew that his master is a hard man, harvesting where he has not sown and gathering where he has not scattered seed (Matthew 25:24-25)  <br><br>
+        
+        A 	18. According to Matthew, chapter 25, verse 32, what does a shepherd do? <br>
+            A. Separates the sheep from the goats (Matthew 25:32)  <br><br>
+        
+        S 	19. Situation question: who said it, to whom, and what was the reply: "Master, you entrusted me with two bags of gold; see, I have gained two more."? <br>
+            A. The man with two bags of gold said it to his master, and the reply was, "Well done, good and faithful servant! You have been faithful with a few things; I will put you in charge of many things. Come and share your master's happiness!" (Matthew 25:22-23)  <br><br>
+        
+        G 	20. With what has the servant who has gained two more bags of gold been faithful? <br>
+            A. A few things (Matthew 25:23)  <br><br>
+        
+         <br><br>
+          <h7 id="3">SET #3</h7><br><br>
+        
+        A 	1. According to Matthew, chapter 25, verse 22, with what have you entrusted me? <br>
+            A. Two bags of gold (Matthew 25:22)  <br><br>
+        
+        G 	2. Whom did those on the King's left give nothing to eat when he was hungry? <br>
+            A. The King [OR the Son of Man, OR the Lord] (Matthew 25:42)  <br><br>
+        
+        Q 	3. Quote Matthew, chapter 25, verses 32 through 33. <br>
+            A. "All the nations will be gathered before him, and he will separate the people one from another as a shepherd separates the sheep from the goats. He will put the sheep on his right and the goats on his left." (Matthew 25:32-33)  <br><br>
+        
+        G 	4. Where did the man who had received one bag of gold hide his master's gold? <br>
+            A. In the ground (Matthew 25:25)  <br><br>
+        
+        G 	5. Who knew that his master is a hard man, harvesting where he has not sown and gathering where he has not scattered seed? <br>
+            A. The man who had received one bag of gold (Matthew 25:24)  <br><br>
+        
+        R 	6. Finish this verse and give the reference: "For I was hungry and. . ." <br>
+            A. ". . .you gave me something to eat, I was thirsty and you gave me something to drink, I was a stranger and you invited me in, " (Matthew 25:35)  <br><br>
+        
+        G 	7. Who separates the sheep from the goats? <br>
+            A. A shepherd (Matthew 25:32)  <br><br>
+        
+        G 	8. To whom did a man going on a journey entrust his wealth? <br>
+            A. His servants (Matthew 25:14)  <br><br>
+        
+        V 	9. Finish this verse: ""When the Son of Man. . ." <br>
+            A. ". . .comes in his glory, and all the angels with him, he will sit on his glorious throne." (Matthew 25:31)  <br><br>
+        
+        G 	10. Who arrived while the foolish virgins were on their way to buy the oil? <br>
+            A. The bridegroom (Matthew 25:10)  <br><br>
+        
+        A 	11. According to Matthew, chapter 25, verse 30, what will there be outside, in the darkness? <br>
+            A. Weeping and gnashing of teeth (Matthew 25:30)  <br><br>
+        
+        X 	12. Two-part question: who did not take any oil with them, and who took oil in jars along with their lamps? <br>
+            A. 1) The foolish virgins; 2) The wise virgins (Matthew 25:3-4)  <br><br>
+        
+        G 	13. Who replied, "Well done, good and faithful servant! You have been faithful with a few things; I will put you in charge of many things. Come and share your master's happiness!"? <br>
+            A. The servant's master (Matthew 25:21)  <br><br>
+        
+        G 	14. What did the man who had received five bags of gold gain? <br>
+            A. Five bags more (Matthew 25:16)  <br><br>
+        
+        A 	15. According to Matthew, chapter 25, verse 26, where do I harvest? <br>
+            A. Where I have not sown (Matthew 25:26)  <br><br>
+        
+        G 	16. Whom did you clothe when he needed clothes? <br>
+            A. The King [OR the Son of Man, OR the Lord] (Matthew 25:36)  <b><br>
+        
+        G 	17. When did those on the King's left not clothe the King? <br>
+            A. When he needed clothes (Matthew 25:43)  <br><br>
+        
+        A 	18. According to Matthew, chapter 25, verse 23, of what will his master put the servant in charge? <br>
+            A. Many things (Matthew 25:23)  <br><br>
+        
+        S 	19. Situation question: who will say it, and to whom: "Come, you who are blessed by my Father; take your inheritance, the kingdom prepared for you since the creation of the world."? <br>
+            A. The King [OR the Son of Man, OR the Lord] will say it to those on his right (Matthew 25:34)  <br><br>
+        
+        G 	20. To what will those on the King's left go away? <br>
+            A. Eternal punishment (Matthew 25:46)  <br><br>
+        
+         <br><br>
+          <h7 id="4">SET #4</h7><br><br>
+        
+        G 	1. When did the man who had received five bags of gold go and put his money to work? <br>
+            A. At once (Matthew 25:16)  <br><br>
+        
+        A 	2. According to Matthew, chapter 25, verse 35, what did you give me when I was thirsty? <br>
+            A. Something to drink (Matthew 25:35)  <br><br>
+        
+        G 	3. What did all the virgins trim? <br>
+            A. Their lamps (Matthew 25:7)  <br><br>
+        
+        G 	4. When did those on the King's left not look after the King? <br>
+            A. When he was sick and in prison (Matthew 25:43)  <br><br>
+        
+        Q 	5. Quote Matthew, chapter 25, verse 40. <br>
+            A. "The King will reply, 'Truly I tell you, whatever you did for one of the least of these brothers and sisters of mine, you did for me.' (Matthew 25:40)  <br><br>
+        
+        G 	6. Who will go away to eternal punishment? <br>
+            A. Those on the King's left (Matthew 25:46)  <br><br>
+        
+        X 	7. Complete, in essence, the following: "And throw that worthless servant . . ." <br>
+            A. ". . . outside, into the darkness, where there will be weeping and gnashing of teeth." (Matthew 25:30)  <br><br>
+        
+        A 	8. According to Matthew, chapter 25, verse 8, what did the foolish ones say to the wise? <br>
+            A. "Give us some of your oil; our lamps are going out." (Matthew 25:8)  <br><br>
+        
+        G 	9. What did those on the King's right do when the King was sick? <br>
+            A. Looked after him (Matthew 25:36)  <br><br>
+        
+        G 	10. Who gave five bags of gold to one servant? <br>
+            A. A man going on a journey (Matthew 25:15)  <br><br>
+        
+        R 	11. Finish this verse and give the reference: ""When the Son of Man. . ." <br>
+            A. ". . .comes in his glory, and all the angels with him, he will sit on his glorious throne. " (Matthew 25:31)  <br><br>
+        
+        A 	12. According to Matthew, chapter 25, verse 34, what should you who are blessed by my Father take? <br>
+            A. Your inheritance (the kingdom prepared for you since the creation of the world) (Matthew 25:34)  <br><br>
+        
+        G 	13. Of what will his master put the servant who has gained two more bags of gold in charge? <br>
+            A. Many things (Matthew 25:23)  <br><br>
+        
+        G 	14. What did those on the King's left do when the King was hungry? <br>
+            A. They gave him nothing to eat (Matthew 25:42)  <br><br>
+        
+        V 	15. Finish these verses: "All the nations will be. . ." <br>
+            A. ". . .gathered before him, and he will separate the people one from another as a shepherd separates the sheep from the goats. He will put the sheep on his right and the goats on his left." (Matthew 25:32-33)  <br><br>
+        
+        A 	16. According to Matthew, chapter 25, verse 32, who will be gathered before him? <br>
+            A. All the nations (Matthew 25:32)  <br><br>
+        
+        G 	17. To what did the virgins who were ready go in with the bridegroom? <br>
+            A. The wedding banquet (Matthew 25:10)  <br><br>
+        
+        G 	18. Who were foolish? <br>
+            A. Five of the virgins who took their lamps and went out to meet the bridegroom (Matthew 25:2)  <br><br>
+        
+        S 	19. Situation question: who will say it, and to whom: "Depart from me, you who are cursed, into the eternal fire prepared for the devil and his angels."? <br>
+            A. The King [OR the Son of Man, OR the Lord] will say it to those on his left (Matthew 25:41)  <br><br>
+        
+        G 	20. Who said, "Lord, Lord, open the door for us!"? <br>
+            A. The other (foolish) virgins (Matthew 25:11)  <br><br>
+        
+         <br><br>
+          <h7 id="5">SET #5</h7><br><br>
+        
+        G 	1. What has the man with two bags of gold gained? <br>
+            A. Two more (bags of gold) (Matthew 25:22)  <br><br>
+        
+        G 	2. What did the man who had received five bags of gold bring? <br>
+            A. The other five (bags of gold) (Matthew 25:20)  <br><br>
+        
+        Q 	3. Quote Matthew, chapter 25, verse 35. <br>
+            A. "For I was hungry and you gave me something to eat, I was thirsty and you gave me something to drink, I was a stranger and you invited me in," (Matthew 25:35)  <br><br>
+        
+        G 	4. By whom are those on the King's right blessed? <br>
+            A. The King's Father [OR the Son of Man's Father, OR the Lord's Father] (Matthew 25:34)  <br><br>
+        
+        G 	5. Who was afraid and went out and hid his master's gold in the ground? <br>
+            A. The man who had received one bag of gold (Matthew 25:25)  <br><br>
+        
+        V 	6. Finish this verse: ""When the Son of Man. . ." <br>
+            A. ". . .comes in his glory, and all the angels with him, he will sit on his glorious throne." (Matthew 25:31)  <br><br>
+        
+        X 	7. Three-part answer: in Matthew, chapter 25, what did a man give to each of his servants? <br>
+            A. 1) Five bags of gold; 2) Two bags of gold; 3) One bag of gold (Matthew 25:15)  <br><br>
+        
+        G 	8. Who all became drowsy and fell asleep? <br>
+            A. The ten virgins (Matthew 25:5)  <br><br>
+        
+        G 	9. Where does his master harvest? <br>
+            A. Where he has not sown (Matthew 25:26)  <br><br>
+        
+        A 	10. According to Matthew, chapter 25, verse 7, what did all the virgins do? <br>
+            A. Woke up and trimmed their lamps (Matthew 25:7)  <br><br>
+        
+        G 	11. Whose lamps are going out? <br>
+            A. The foolish virgins' lamps (Matthew 25:8)  <br><br>
+        
+        G 	12. When did the cry ring out: "Here's the bridegroom! Come out to meet him!"? <br>
+            A. At midnight (Matthew 25:6)  <br><br>
+        
+        R 	13. Finish these verses and give the reference: "All the nations will be. . ." <br>
+            A. ". . .gathered before him, and he will separate the people one from another as a shepherd separates the sheep from the goats. He will put the sheep on his right and the goats on his left. " (Matthew 25:32-33)  <br><br>
+        
+        A 	14. According to Matthew, chapter 25, verse 36, when did you clothe me? <br>
+            A. When I needed clothes (Matthew 25:36)  <br><br>
+        
+        S 	15. Situation question: who said it, to whom, and what was the reply: "Give us some of your oil; our lamps are going out."? <br>
+            A. The foolish virgins said it to the wise virgins, and the reply was, "No, there may not be enough for both us and you. Instead, go to those who sell oil and buy some for yourselves." (Matthew 25:8-9)  <br><br>
+        
+        A 	16. According to Matthew, chapter 25, verse 18, what did the man who had received one bag do? <br>
+            A. He went off, dug a hole in the ground and hid his master's money (Matthew 25:18)  <br><br>
+        
+        G 	17. Who did not look after the King when he was sick and in prison? <br>
+            A. Those on the King's left (Matthew 25:43)  <br><br>
+        
+        G 	18. Who gave the King nothing to eat when he was hungry? <br>
+            A. Those on the King's left (Matthew 25:42)  <br><br>
+        
+        A 	19. According to Matthew, chapter 25, verse 21, what has the servant been? <br>
+            A. Faithful with a few things (Matthew 25:21)  <br><br>
+        
+        G 	20. What will those on the King's left also answer? <br>
+            A. "Lord, when did we see you hungry or thirsty or a stranger or needing clothes or sick or in prison, and did not help you?" (Matthew 25:44)  <br><br>
+        
+         <br><br>
+          <h7 id="6">SET #6</h7><br><br>
+        
+        G 	1. What should the servant who has gained two more bags of gold share? <br>
+            A. His master's happiness (Matthew 25:23)  <br><br>
+        
+        R 	2. Finish these verses and give the reference: "All the nations will be. . ." <br>
+            A. ". . .gathered before him, and he will separate the people one from another as a shepherd separates the sheep from the goats. He will put the sheep on his right and the goats on his left. " (Matthew 25:32-33)  <br><br>
+        
+        G 	3. Who hid his master's money? <br>
+            A. The man who had received one bag (of gold) (Matthew 25:18)  <br><br>
+        
+        G 	4. Whom will the Son of Man separate one from another? <br>
+            A. The people (Matthew 25:32)  <br><br>
+        
+        V 	5. Finish this verse: ""The King will reply, 'Truly. . ." <br>
+            A. ". . .I tell you, whatever you did for one of the least of these brothers and sisters of mine, you did for me.'" (Matthew 25:40)  <br><br>
+        
+        G 	6. Who has gained five more bags of gold? <br>
+            A. The man who had received five bags of gold (Matthew 25:20)  <br><br>
+        
+        G 	7. To whom will the King say, "Come, you who are blessed by my Father; take your inheritance, the kingdom prepared for you since the creation of the world."? <br>
+            A. Those on his right (Matthew 25:34)  <br><br>
+        
+        A 	8. According to Matthew, chapter 25, verse 35, what did you give me when I was hungry? <br>
+            A. Something to eat (Matthew 25:35)  <br><br>
+        
+        X 	9. Two-part question: where will the Son of Man put the sheep, and where will he put the goats? <br>
+            A. 1) On his right; 2) On his left (Matthew 25:33)  <br><br>
+        
+        A 	10. According to Matthew, chapter 25, verse 24, where does the master harvest? <br>
+            A. Where he has not sown (Matthew 25:24)  <br><br>
+        
+        G 	11. From whom should the bag of gold be taken? <br>
+            A. The man who had received one bag of gold (Matthew 25:28)  <br><br>
+        
+        G 	12. Of what will his master put the servant who has gained five more bags of gold in charge? <br>
+            A. Many things (Matthew 25:21)  <br><br>
+        
+        S 	13. Situation question: who said it, and to whom: "Lord, Lord, open the door for us!"? <br>
+            A. The foolish virgins said it to the bridegroom (Matthew 25:11)  <br><br>
+        
+        G 	14. To whom did a man going on a journey give two bags of gold? <br>
+            A. Another servant (Matthew 25:15)  <br><br>
+        
+        A 	15. According to Matthew, chapter 25, verse 5, what did they all become? <br>
+            A. Drowsy (Matthew 25:5)  <br><br>
+        
+        G 	16. Who clothed the King when he needed clothes? <br>
+            A. Those on the King's right [OR you who are blessed by the King's Father] (Matthew 25:36)  <br><br>
+        
+        A 	17. According to Matthew, chapter 25, verse 25, what was I? <br>
+            A. Afraid (Matthew 25:25)  <br><br>
+        
+        G 	18. What did the foolish virgins take? <br>
+            A. Their lamps (Matthew 25:3)  <br><br>
+        
+        Q 	19. Quote Matthew, chapter 25, verse 31. <br>
+            A. "When the Son of Man comes in his glory, and all the angels with him, he will sit on his glorious throne. (Matthew 25:31)  <br><br>
+        
+        G 	20. What did the foolish virgins say to the wise virgins? <br>
+            A. "Give us some of your oil; our lamps are going out." (Matthew 25:8)  <br><br>
+        
+         <br><br>
+          <h7 id="7">SET #7</h7><br><br>
+        
+        A 	1. According to Matthew, chapter 25, verse 36, when did you come to visit me? <br>
+            A. When I was in prison (Matthew 25:36)  <br><br>
+        
+        G 	2. Who will come in his glory? <br>
+            A. The Son of Man (Matthew 25:31)  <br><br>
+        
+        G 	3. Whom did you give something to eat when he was hungry? <br>
+            A. The King [OR the Son of Man, OR the Lord] (Matthew 25:35)  <br><br>
+        
+        Q 	4. Quote Matthew, chapter 25, verse 31. <br>
+            A. "When the Son of Man comes in his glory, and all the angels with him, he will sit on his glorious throne. (Matthew 25:31)  <br><br>
+        
+        X 	5. Two-part question: in Matthew, chapter 25, who will go away to eternal punishment, and who will go away to eternal life? <br>
+            A. 1) Those on the King's [OR the Son of Man's, OR the Lord's] left; 2) The righteous (Matthew 25:46)  <br><br>
+        
+        S 	6. Situation question: who said it, to whom, and what was the reply: "Lord, Lord, open the door for us!"? <br>
+            A. The foolish virgins said it to the bridegroom, and the reply was, "Truly I tell you, I don't know you." (Matthew 25:11-12)  <br><br>
+        
+        G 	7. Who will sit on his throne when he comes in his glory? <br>
+            A. The Son of Man (Matthew 25:31)  <br><br>
+        
+        G 	8. What did those on the King's right give him when he was hungry? <br>
+            A. Something to eat (Matthew 25:35)  <br><br>
+        
+        A 	9. According to Matthew, chapter 25, verse 24, what did the man who had received one bag of gold say? <br>
+            A. "Master, I knew that you are a hard man, harvesting where you have not sown and gathering where you have not scattered seed." (Matthew 25:24)  <br><br>
+        
+        G 	10. Who took their lamps but did not take any oil with them? <br>
+            A. The foolish virgins (Matthew 25:3)  <br><br>
+        
+        R 	11. Finish this verse and give the reference: ""The King will reply, 'Truly. . ." <br>
+            A. ". . .I tell you, whatever you did for one of the least of these brothers and sisters of mine, you did for me.' " (Matthew 25:40)  <br><br>
+        
+        G 	12. Whose happiness should the servant who has gained five more bags of gold share? <br>
+            A. His master's (Matthew 25:21)  <br><br>
+        
+        G 	13. What does a shepherd separate from the goats? <br>
+            A. The sheep (Matthew 25:32)  <br><br>
+        
+        V 	14. Finish this verse: "For I was hungry and. . ." <br>
+            A. ". . .you gave me something to eat, I was thirsty and you gave me something to drink, I was a stranger and you invited me in," (Matthew 25:35)  <br><br>
+        
+        A 	15. According to Matthew, chapter 25, verse 2, who were foolish? <br>
+            A. Five of them (Matthew 25:2)  <br><br>
+        
+        G 	16. Who knew that his master harvests where he has not sown and gathers where he has not scattered seed? <br>
+            A. The man who had received one bag of gold (Matthew 25:26)  <br><br>
+        
+        G 	17. What should the wicked, lazy servant have put on deposit with the bankers? <br>
+            A. His master's money (Matthew 25:27)  <br><br>
+        
+        A 	18. According to Matthew, chapter 25, verse 1, what did ten virgins do? <br>
+            A. They took their lamps and went out to meet the bridegroom (Matthew 25:1)  <br><br>
+        
+        G 	19. Who would have received his money back with interest when he returned? <br>
+            A. His master (Matthew 25:27)  <br><br>
+        
+        G 	20. With what would his master have received back his money when he returned? <br>
+            A. Interest (Matthew 25:27)  <br><br>
+        
+         <br><br>
+          <h7 id="8">SET #8</h7><br><br>
+        
+        G 	1. How many bags of gold did the one with two bags of gold gain? <br>
+            A. Two more (Matthew 25:17)  <br><br>
+        
+        A 	2. According to Matthew, chapter 25, verse 10, who went in with the bridegroom to the wedding banquet? <br>
+            A. The virgins who were ready (Matthew 25:10)  <br><br>
+        
+        G 	3. Who put his money to work and gained five bags more? <br>
+            A. The man who had received five bags of gold (Matthew 25:16)  <br><br>
+        
+        G 	4. Who were foolish? <br>
+            A. Five of the virgins who took their lamps and went out to meet the bridegroom (Matthew 25:2) <br><br>  
+        
+        S 	5. Situation question: who said it, and to whom: "Master, you entrusted me with five bags of gold. See, I have gained five more."? <br>
+            A. The man who had received five bags of gold said it to his master (Matthew 25:20)  <br><br>
+        
+        G 	6. Who did not look after the King when he was sick and in prison? <br>
+            A. Those on the King's left (Matthew 25:43)  <br><br>
+        
+        X 	7. Complete, in essence, the following: "At midnight the cry rang . . ." <br>
+            A. ". . . out: 'Here's the bridegroom! Come out to meet him!'" (Matthew 25:6)  <br><br>
+        
+        V 	8. Finish this verse: "For I was hungry and. . ." <br>
+            A. ". . .you gave me something to eat, I was thirsty and you gave me something to drink, I was a stranger and you invited me in," (Matthew 25:35)  <br><br>
+        
+        A 	9. According to Matthew, chapter 25, verse 37, what will the righteous answer him? <br>
+            A. "Lord, when did we see you hungry and feed you, or thirsty and give you something to drink?" (Matthew 25:37)  <br><br>
+        
+        G 	10. Whose happiness should the servant who has gained five more bags of gold share? <br>
+            A. His master's (Matthew 25:21)  <br><br>
+        
+        A 	11. According to Matthew, chapter 25, verse 4, what did the wise ones do? <br>
+            A. Took oil in jars along with their lamps (Matthew 25:4)  <br><br>
+        
+        G 	12. Who will reply, "Truly I tell you, whatever you did not do for one of the least of these, you did not do for me."? <br>
+            A. The King [OR the Son of Man, OR the Lord] (Matthew 25:45)  <br><br>
+        
+        A 	13. According to Matthew, chapter 25, verse 36, what did you do when I was in prison? <br>
+            A. You came to visit me (Matthew 25:36)  <br><br>
+        
+        G 	14. Into what should those on the King's left depart from him? <br>
+            A. The eternal fire (prepared for the devil and his angels) (Matthew 25:41)  <br><br>
+        
+        Q 	15. Quote Matthew, chapter 25, verse 31. <br>
+            A. "When the Son of Man comes in his glory, and all the angels with him, he will sit on his glorious throne. (Matthew 25:31)  <br><br>
+        
+        G 	16. Whose money did the man who had received one bag hide? <br>
+            A. His master's (Matthew 25:18)  <br><br>
+        
+        G 	17. By whom are those on the King's right blessed? <br>
+            A. The King's Father [OR the Son of Man's Father, OR the Lord's Father] (Matthew 25:34)  <br><br>
+        
+        R 	18. Finish these verses and give the reference: "All the nations will be. . ." <br>
+            A. ". . .gathered before him, and he will separate the people one from another as a shepherd separates the sheep from the goats. He will put the sheep on his right and the goats on his left. " (Matthew 25:32-33) <br><br> 
+        
+        G 	19. Who returned and settled accounts with them? <br>
+            A. The master of those servants (Matthew 25:19)  <br><br>
+        
+        G 	20. To whom did a man going on a journey give two bags of gold? <br>
+            A. Another servant (Matthew 25:15)  <br><br>
+        
+         <br><br>
+          <h7 id="9">SET #9</h7><br><br>
+        
+        A 	1. According to Matthew, chapter 25, verse 21, of what will his master put the servant in charge? <br>
+            A. Many things (Matthew 25:21)  <br><br>
+        
+        G 	2. Who knew that his master is a hard man, harvesting where he has not sown and gathering where he has not scattered seed? <br>
+            A. The man who had received one bag of gold (Matthew 25:24)  <br><br>
+        
+        G 	3. What will those on the King's left also answer? <br>
+            A. "Lord, when did we see you hungry or thirsty or a stranger or needing clothes or sick or in prison, and did not help you?" (Matthew 25:44)  <br><br>
+        
+        Q 	4. Quote Matthew, chapter 25, verses 32 through 33. <br>
+            A. "All the nations will be gathered before him, and he will separate the people one from another as a shepherd separates the sheep from the goats. He will put the sheep on his right and the goats on his left." (Matthew 25:32-33)  <br><br>
+        
+        X 	5. What if the wicked, lazy servant had put his master's money on deposit with the bankers? <br>
+            A. His master would have received it back with interest when he returned (Matthew 25:27)  <br><br>
+        
+        G 	6. What has the man with two bags of gold gained? <br>
+            A. Two more (bags of gold) (Matthew 25:22)  <br><br>
+        
+        A 	7. According to Matthew, chapter 25, verse 41, what are you? <br>
+            A. Cursed (Matthew 25:41)  <br><br>
+        
+        G 	8. Whom did those on the King's left give nothing to eat when he was hungry? <br>
+            A. The King [OR the Son of Man, OR the Lord] (Matthew 25:42)  <br><br>
+        
+        R 	9. Finish this verse and give the reference: ""The King will reply, 'Truly. . ." <br>
+            A. ". . .I tell you, whatever you did for one of the least of these brothers and sisters of mine, you did for me.' " (Matthew 25:40)  <br><br>
+        
+        G 	10. To whom will the King say, "Come, you who are blessed by my Father; take your inheritance, the kingdom prepared for you since the creation of the world."? <br>
+            A. Those on his right (Matthew 25:34)  <br><br>
+        
+        G 	11. Who hid his master's money? <br>
+            A. The man who had received one bag (of gold) (Matthew 25:18)  <br><br>
+        
+        V 	12. Finish this verse: ""When the Son of Man. . ." <br>
+            A. ". . .comes in his glory, and all the angels with him, he will sit on his glorious throne." (Matthew 25:31)  <br><br>
+        
+        G 	13. Who should instead go to those who sell oil and buy some for themselves? <br>
+            A. The foolish virgins (Matthew 25:9)  <br><br>
+        
+        G 	14. Who separates the sheep from the goats? <br>
+            A. A shepherd (Matthew 25:32)  <br><br>
+        
+        A 	15. According to Matthew, chapter 25, verse 11, when did the others also come? <br>
+            A. Later (Matthew 25:11)  <br><br>
+        
+        G 	16. What did those on the King's right give him when he was hungry? <br>
+            A. Something to eat (Matthew 25:35)  <br><br>
+        
+        G 	17. Who clothed the King when he needed clothes? <br>
+            A. Those on the King's right [OR you who are blessed by the King's Father] (Matthew 25:36)  <br><br>
+        
+        A 	18. According to Matthew, chapter 25, verse 20, who brought the other five? <br>
+            A. The man who had received five bags of gold (Matthew 25:20)  <br><br>
+        
+        S 	19. Situation question: who said it, to whom, and what was the reply: "Master, you entrusted me with two bags of gold; see, I have gained two more."? <br>
+            A. The man with two bags of gold said it to his master, and the reply was, "Well done, good and faithful servant! You have been faithful with a few things; I will put you in charge of many things. Come and share your master's happiness!" (Matthew 25:22-23)  <br><br>
+        
+        G 	20. Who knew that his master harvests where he has not sown and gathers where he has not scattered seed? 
+            A. The man who had received one bag of gold (Matthew 25:26)  
+        
+         <br><br>
+          <h7 id="10">SET #10</h7><br><br>
+        
+        A 	1. According to Matthew, chapter 25, verse 46, who will go away to eternal life? <br>
+            A. The righteous (Matthew 25:46)  <br><br>
+        
+        G 	2. Whom will the righteous answer, "Lord, when did we see you hungry and feed you, or thirsty and give you something to drink?" <br>
+            A. The King [OR the Son of Man, OR the Lord] (Matthew 25:37)  <br><br>
+        
+        A 	3. According to Matthew, chapter 25, verse 40, what did you do for me? <br>
+            A. Whatever you did for one of the least of these brothers and sisters of mine (Matthew 25:40)  <br><br>
+        
+        G 	4. What should the wicked, lazy servant have put on deposit with the bankers? <br>
+            A. His master's money (Matthew 25:27)  <br><br>
+        
+        G 	5. What is prepared for the devil and his angels? <br>
+            A. The eternal fire (Matthew 25:41)  <br><br>
+        
+        Q 	6. Quote Matthew, chapter 25, verses 32 through 33. <br>
+            A. "All the nations will be gathered before him, and he will separate the people one from another as a shepherd separates the sheep from the goats. He will put the sheep on his right and the goats on his left." (Matthew 25:32-33)  <br><br>
+        
+        S 	7. Situation question: who will say it, and to whom: "Come, you who are blessed by my Father; take your inheritance, the kingdom prepared for you since the creation of the world."? <br>
+            A. The King [OR the Son of Man, OR the Lord] will say it to those on his right (Matthew 25:34)  <br><br>
+        
+        G 	8. Why was the man who had received one bag of gold afraid? <br>
+            A. Because he knew that his master is a hard man, harvesting where he has not sown and gathering where he has not scattered seed (Matthew 25:24-25)  <br><br>
+        
+        G 	9. Where will the Son of Man put the sheep? <br>
+            A. On his right (Matthew 25:33)  <br><br>
+        
+        R 	10. Finish this verse and give the reference: ""When the Son of Man. . ." <br>
+            A. ". . .comes in his glory, and all the angels with him, he will sit on his glorious throne. " (Matthew 25:31)  <br><br>
+        
+        X 	11. Two-part question: who did not take any oil with them, and who took oil in jars along with their lamps? <br>
+            A. 1) The foolish virgins; 2) The wise virgins (Matthew 25:3-4)  <br><br>
+        
+        G 	12. How many virgins who took their lamps and went out to meet the bridegroom were foolish? <br>
+            A. Five (Matthew 25:2)  <br><br>
+        
+        A 	13. According to Matthew, chapter 25, verse 43, when did you not clothe me? <br>
+            A. When I needed clothes (Matthew 25:43)  <br><br>
+        
+        G 	14. Of what will his master put the servant who has gained two more bags of gold in charge? <br>
+            A. Many things (Matthew 25:23)  <br><br>
+        
+        G 	15. Who replied, "Well done, good and faithful servant! You have been faithful with a few things; I will put you in charge of many things. Come and share your master's happiness!"? <br>
+            A. The servant's master (Matthew 25:21)  <br><br>
+        
+        A 	16. According to Matthew, chapter 25, verse 42, when did you give me nothing to drink? <br>
+            A. When I was thirsty (Matthew 25:42)  <br><br>
+        
+        V 	17. Finish this verse: "For I was hungry and. . ." <br>
+            A. ". . .you gave me something to eat, I was thirsty and you gave me something to drink, I was a stranger and you invited me in," (Matthew 25:35)  <br><br>
+        
+        G 	18. Whose lamps are going out? <br>
+            A. The foolish virgins' lamps (Matthew 25:8)  <br><br>
+        
+        G 	19. What did the man who had received five bags of gold gain? <br>
+            A. Five bags more (Matthew 25:16)  <br><br>
+        
+        G 	20. Where did the man who had received one bag of gold hide his master's gold? <br>
+            A. In the ground (Matthew 25:25)  <br><br>
+        
+        </p>
+
+</body>
+</html>

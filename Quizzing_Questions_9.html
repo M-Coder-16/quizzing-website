@@ -1,0 +1,902 @@
+<!DOCTYPE html>
+<html> 
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+
+        h1{
+            background-color: black;
+            text-align: center;
+            font-size: 120px;
+            margin: 0px;
+            padding: 30px;
+            color: rgb(0, 172, 172);
+            font-family: 'Impact', Haettenschweiler, Arial Narrow Bold, sans-serif;
+            top: 0px;
+            left: 0px;
+            text-emphasis: bold;
+        }
+
+        head{
+            background-color: black;
+            margin: 0px;
+            padding: 20px;
+        }
+
+        nav{
+            left: 0px;
+            margin: 0px;
+            padding: 20px;
+            background-color: rgb(0, 172, 172);
+            color: black;
+            text-align: left;
+            display: inline-block;
+            height: auto;
+        }
+
+        nav a{
+            color: black;
+            text-decoration: none;
+            margin: 10px 15px;
+            padding: 8px;
+            font-size: 24px;
+            display: inline-block;
+            box-shadow: 0px 0px 10px 5px black;
+            background-color: #b3b3b3;
+            border-radius: 5px;
+        }
+
+        body{
+            background-image: url('data:image/jpeg;base64,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');
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-attachment: fixed;
+        }
+
+        h2{
+            text-align: center;
+            color: white;
+            font-size: 32px;
+            text-emphasis: bold;
+            margin: 10px;
+            background-color: black;
+            padding: 10px;
+            border: double 3px black;
+        }
+
+        .bookmarks{
+            background-color: rgb(0, 172, 172);
+            position: absolute;
+            top: 290px;
+            left: 26%;
+            text-align: center;
+            padding: 10px 20px;
+            border: solid black 5px;
+            border-radius: 25px;
+        }
+
+        .bookmarks a{
+            display: inline-block;
+            background-color: black;
+            color: white;
+            text-emphasis: bold;
+            font-size: 24px;
+            margin: 10px;
+            padding: 10px;
+            border-radius: 10px;
+        }
+
+        h3{
+            font-size: 68px;
+            position: absolute;
+            float: center;
+            top: 350px;
+            left: 48%;
+            text-emphasis: bold;
+            text-align: center;
+            font-family: 'Times New Roman', Times, serif;
+        }
+
+        .verses a{
+            position: absolute;
+            color: rgb(0, 172, 172);
+            background-color: black;
+            font-size: 32px;
+            font-family: Arial, Helvetica, sans-serif;
+            left: 38%;
+            padding: 10px 100px;
+            text-decoration: none;
+            text-align: center;
+            top: 220px;
+            text-emphasis: bold;
+        }
+
+        #myBtn {
+            display: none; /* Hidden by default */
+            position: fixed; /* Fixed/sticky position */
+            bottom: 65px; /* Place the button at the bottom of the page */
+            left: 50px; /* Place the button 30px from the right */
+            z-index: 99; /* Make sure it does not overlap */
+            border: none; /* Remove borders */
+            outline: none; /* Remove outline */
+            background-color: rgb(0, 172, 172); /* Set a background color */
+            color: black; /* Text color */
+            cursor: pointer; /* Add a mouse pointer on hover */
+            padding: 10px; /* Some padding */
+            padding-bottom: 0px;
+            border-radius: 10px; /* Rounded corners */
+            border: solid black 5px;
+            font-size: 72px; /* Increase font size */
+        }
+
+        #myBtn:hover {
+            display: none; /* Hidden by default */
+            position: fixed; /* Fixed/sticky position */
+            bottom: 65px; /* Place the button at the bottom of the page */
+            left: 50px; /* Place the button 30px from the right */
+            z-index: 99; /* Make sure it does not overlap */
+            border: none; /* Remove borders */
+            outline: none; /* Remove outline */
+            background-color: rgb(0, 0, 0); /* Set a background color */
+            color: rgb(0, 172, 172); /* Text color */
+            cursor: pointer; /* Add a mouse pointer on hover */
+            padding: 10px; /* Some padding */
+            padding-bottom: 0px;
+            border-radius: 10px; /* Rounded corners */
+            border: solid rgb(0, 172, 172) 5px;
+            font-size: 72px; /* Increase font size */
+        }
+
+        p{
+            font-size: 22px;
+            position: absolute;
+            top: 500px;
+            left: 30%;
+        }
+
+        h7{
+            font-size: 32px;
+            text-emphasis: bold;
+        }
+
+    </style>
+    <button onclick="topFunction()" id="myBtn" title="Go to top"><b>^</b></button>
+<head> 
+    <h1>Questions</h1>
+    <div class="verses">
+        <a href="Quizzing.html">Click here for memory verses.</a>        
+   </div>
+</head>
+<body>
+   
+    <script>
+        //Get the button
+        var mybutton = document.getElementById("myBtn");
+        
+        // When the user scrolls down 20px from the top of the document, show the button
+        window.onscroll = function() {scrollFunction()};
+        
+        function scrollFunction() {
+          if (document.body.scrollTop > 1750 || document.documentElement.scrollTop > 1750) {
+            mybutton.style.display = "block";
+          } else {
+            mybutton.style.display = "none";
+          }
+        }
+        
+        // When the user clicks on the button, scroll to the top of the document
+        function topFunction() {
+          document.body.scrollTop = 0;
+          document.documentElement.scrollTop = 0;
+        }
+        </script>
+
+    <nav>
+
+        <h2>Select a Chapter</h2>
+        <br>
+
+        <a href="Quizzing_Questions_1.html">Matthew 1</a>
+        <br>
+        <a href="Quizzing_Questions_2.html">Matthew 2</a>
+        <br>
+        <a href="Quizzing_Questions_3.html">Matthew 3</a>
+        <br>
+        <a href="Quizzing_Questions_4.html">Matthew 4</a>
+        <br>
+        <a href="Quizzing_Questions_5.html">Matthew 5</a>
+        <br>
+        <a href="Quizzing_Questions_6.html">Matthew 6</a>
+        <br>
+        <a href="Quizzing_Questions_7.html">Matthew 7</a>
+        <br>
+        <a href="Quizzing_Questions_8.html">Matthew 8</a>
+        <br>
+        <a href="Quizzing_Questions_9.html">Matthew 9</a>
+        <br>
+        <a href="Quizzing_Questions_10.html">Matthew 10</a>
+        <br>
+        <a href="Quizzing_Questions_11.html">Matthew 11</a>
+        <br>
+        <a href="Quizzing_Questions_12.html">Matthew 12</a>
+        <br>
+        <a href="Quizzing_Questions_13.html">Matthew 13</a>
+        <br>
+        <a href="Quizzing_Questions_14.html">Matthew 14</a>
+        <br>
+        <a href="Quizzing_Questions_15.html">Matthew 15</a>
+        <br>
+        <a href="Quizzing_Questions_16.html">Matthew 16</a>
+        <br>
+        <a href="Quizzing_Questions_17.html">Matthew 17</a>
+        <br>
+        <a href="Quizzing_Questions_18.html">Matthew 18</a>
+        <br>
+        <a href="Quizzing_Questions_19.html">Matthew 19</a>
+        <br>
+        <a href="Quizzing_Questions_20.html">Matthew 20</a>
+        <br>
+        <a href="Quizzing_Questions_21.html">Matthew 21</a>
+        <br>
+        <a href="Quizzing_Questions_22.html">Matthew 22</a>
+        <br>
+        <a href="Quizzing_Questions_23.html">Matthew 23</a>
+        <br>
+        <a href="Quizzing_Questions_24.html">Matthew 24</a>
+        <br>
+        <a href="Quizzing_Questions_25.html">Matthew 25</a>
+        <br>
+        <a href="Quizzing_Questions_26.html">Matthew 26</a>
+        <br>
+        <a href="Quizzing_Questions_27.html">Matthew 27</a>
+        <br>
+        <a href="Quizzing_Questions_28.html">Matthew 28</a>
+    </nav>
+
+    <div class="bookmarks">
+        <a href="#1">Set 1</a>
+        <a href="#2">Set 2</a>
+        <a href="#3">Set 3</a>
+        <a href="#4">Set 4</a>
+        <a href="#5">Set 5</a>
+        <a href="#6">Set 6</a>
+        <a href="#7">Set 7</a>
+        <a href="#8">Set 8</a>
+        <a href="#9">Set 9</a>
+        <a href="#10">Set 10</a>
+    </div>
+
+    <h3>Matthew 9</h3>
+
+    <p>  <h7 id="1">SET #1 </h7> <br><br>
+
+        G 	1. Who need a doctor? <br>
+            A. The sick (Matthew 9:12)  <br><br>
+        
+        X 	2. From what Old Testament book does the following quotation come: "I desire mercy, not sacrifice."? <br>
+            A. Hosea (Matthew 9:13)  <br><br>
+        
+        G 	3. Who was teaching in their synagogues? <br>
+            A. Jesus (Matthew 9:35)  <br><br>
+        
+        A 	4. According to Matthew, chapter 9, verse 22, what has healed you? <br>
+            A. Your faith (Matthew 9:22)  <br><br>
+        
+        V 	5. Finish these verses: "On hearing this, Jesus said,. . ." <br>
+            A. ". . ."It is not the healthy who need a doctor, but the sick. But go and learn what this means: 'I desire mercy, not sacrifice.' For I have not come to call the righteous, but sinners." (Matthew 9:12-13)  <br><br>
+        
+        A 	6. According to Matthew, chapter 9, verse 18, who will live? <br>
+            A. A synagogue leader's daughter (Matthew 9:18)  <br><br>
+        
+        G 	7. Who is not dead but asleep? <br>
+            A. The girl [OR the synagogue leader's daughter] (Matthew 9:24)  <br><br>
+        
+        G 	8. Who said to themselves, "This fellow is blaspheming!"? <br>
+            A. Some of the teachers of the law (Matthew 9:3) <br><br>  
+        
+        Q 	9. Quote Matthew, chapter 9, verses 37 through 38. <br>
+            A. "Then he said to his disciples, "The harvest is plentiful but the workers are few. Ask the Lord of the harvest, therefore, to send out workers into his harvest field."" (Matthew 9:37-38)  <br><br>
+        
+        G 	10. Where do some of the teachers of the law entertain evil thoughts? <br>
+            A. In their hearts (Matthew 9:4)  <br><br>
+        
+        A 	11. According to Matthew, chapter 9, verse 2, whom did some men bring to Jesus? <br>
+            A. A paralyzed man (Matthew 9:2)  <br><br>
+        
+        G 	12. Who said, "It is by the prince of demons that he drives out demons."? <br>
+            A. The Pharisees (Matthew 9:34)  <br><br>
+        
+        A 	13. According to Matthew, chapter 9, verse 30, what did Jesus warn them? <br>
+            A. "See that no one knows about this." (Matthew 9:30)  <br><br>
+        
+        G 	14. When will the guests of the bridegroom fast? <br>
+            A. When the bridegroom is taken from them (Matthew 9:15)  <br><br>
+        
+        G 	15. Whom did the crowd praise? <br>
+            A. God (Matthew 9:8)  <br><br>
+        
+        R 	16. Finish this verse and give the reference: "When he saw the crowds,. . ." <br>
+            A. ". . .he had compassion on them, because they were harassed and helpless, like sheep without a shepherd. " (Matthew 9:36)  <br><br>
+        
+        G 	17. Who touched the blind men's eyes? <br>
+            A. Jesus (Matthew 9:29)  <br><br>
+        
+        G 	18. What is plentiful? <br>
+            A. The harvest (Matthew 9:37)  <br><br>
+        
+        S 	19. Situation question: who said it, to whom, and what was the response: "My daughter has just died. But come and put your hand on her, and she will live."? <br>
+            A. A synagogue leader said it to Jesus, and Jesus and his disciples got up and went with the synagogue leader (Matthew 9:18-19)  <br><br>
+        
+        G 	20. What will be ruined if people pour new wine into old wineskins? <br>
+            A. The wineskins (Matthew 9:17)  <br><br>
+        
+         <br><br>
+          <h7 id="2">SET #2</h7><br><br>
+        
+        G 	1. Who got up and went home? <br>
+            A. The (formerly) paralyzed man (Matthew 9:7) <br><br> 
+        
+        A 	2. According to Matthew, chapter 9, verse 17, what do people not do? <br>
+            A. Pour new wine into old wineskins (Matthew 9:17)  <br><br>
+        
+        G 	3. Who saw the noisy crowd and people playing pipes? <br>
+            A. Jesus (Matthew 9:23)  <br><br>
+        
+        G 	4. Where should you ask the Lord of the harvest to send out workers? <br>
+            A. Into his harvest field (Matthew 9:38)  <br><br>
+        
+        A 	5. According to Matthew, chapter 9, verse 21, what did she say to herself? <br>
+            A. "If I only touch his cloak, I will be healed." (Matthew 9:21)  <br><br>
+        
+        V 	6. Finish these verses: "Then he said to his. . ." <br>
+            A. ". . .disciples, "The harvest is plentiful but the workers are few. Ask the Lord of the harvest, therefore, to send out workers into his harvest field." (Matthew 9:37-38)  <br><br>
+        
+        X 	7. In Matthew, chapter 9, what does God not desire? <br>
+            A. Sacrifice (Matthew 9:13)  <br><br>
+        
+        G 	8. Who knew the teachers of the law's thoughts? <br>
+            A. Jesus (Matthew 9:4)  <br><br>
+        
+        G 	9. According to what should the blind men let it be done to them? <br>
+            A. Their faith (Matthew 9:29)  <br><br>
+        
+        Q 	10. Quote Matthew, chapter 9, verses 12 through 13. <br>
+            A. "On hearing this, Jesus said, "It is not the healthy who need a doctor, but the sick. But go and learn what this means: 'I desire mercy, not sacrifice.' For I have not come to call the righteous, but sinners."" (Matthew 9:12-13)  <br><br>
+        
+        A 	11. According to Matthew, chapter 9, verse 19, who got up and went with him? <br>
+            A. Jesus and his disciples (Matthew 9:19)  <br><br>
+        
+        G 	12. Who said, "My daughter has just died. But come and put your hand on her, and she will live."? <br>
+            A. A synagogue leader (Matthew 9:18)  <br><br>
+        
+        G 	13. What will make the tear worse? <br>
+            A. The patch of unshrunk cloth pulling away from the old garment (Matthew 9:16)  <br><br>
+        
+        R 	14. Finish this verse and give the reference: "When he saw the crowds,. . ." <br>
+            A. ". . .he had compassion on them, because they were harassed and helpless, like sheep without a shepherd. " (Matthew 9:36)  <br><br>
+        
+        G 	15. Who followed Jesus calling out, "Have mercy on us, Son of David!"? <br>
+            A. Two blind men (Matthew 9:27)  <br><br>
+        
+        G 	16. What news did the blind men spread all over that region? <br>
+            A. The news about Jesus (Matthew 9:31)  <br><br>
+        
+        S 	17. Situation question: who said it, and to whom: "How is it that we and the Pharisees fast often, but your disciples do not fast?" <br>
+            A. John's disciples said it to Jesus (Matthew 9:14)  <br><br>
+        
+        G 	18. Why did Jesus say to the paralyzed man, "Get up, take your mat and go home."? <br>
+            A. Because Jesus wants the teachers of the law to know that the Son of Man has authority on earth to forgive sins (Matthew 9:6) <br><br> 
+        
+        A 	19. According to Matthew, chapter 9, verse 3, what did some of the teachers of the law say to themselves? <br>
+            A. "This fellow is blaspheming!" (Matthew 9:3)  <br><br>
+        
+        G 	20. To whom did the blind men come when he had gone indoors? <br>
+            A. Jesus (Matthew 9:28)  <br><br>
+        
+         <br><br>
+          <h7 id="3">SET #3</h7><br><br>
+        
+        G 	1. Where was Jesus having dinner? <br>
+            A. At Matthew's house (Matthew 9:10)  <br><br>
+        
+        G 	2. From whom will the bridegroom be taken? <br>
+            A. The guests of the bridegroom (Matthew 9:15)  <br><br>
+        
+        V 	3. Finish these verses: "On hearing this, Jesus said,. . ." <br>
+            A. ". . ."It is not the healthy who need a doctor, but the sick. But go and learn what this means: 'I desire mercy, not sacrifice.' For I have not come to call the righteous, but sinners." (Matthew 9:12-13)  <br><br>
+        
+        G 	4. Who warned the blind men sternly, "See that no one knows about this."? <br>
+            A. Jesus (Matthew 9:30)  <br><br>
+        
+        A 	5. According to Matthew, chapter 9, verse 27, who went on from there? <br>
+            A. Jesus (Matthew 9:27)  <br><br>
+        
+        G 	6. To whom was a man who was demon-possessed and could not talk brought? <br>
+            A. Jesus (Matthew 9:32)  <br><br>
+        
+        X 	7. Two-part question: what does no one sew on an old garment, and why? <br>
+            A. 1) A patch of unshrunk cloth; 2) The patch will pull away from the garment, making the tear worse (Matthew 9:16)  <br><br>
+        
+        Q 	8. Quote Matthew, chapter 9, verses 37 through 38. <br>
+            A. "Then he said to his disciples, "The harvest is plentiful but the workers are few. Ask the Lord of the harvest, therefore, to send out workers into his harvest field."" (Matthew 9:37-38) <br><br> 
+        
+        A 	9. According to Matthew, chapter 9, verse 2, what did some men do? <br>
+            A. Brought to Jesus a paralyzed man (lying on a mat) (Matthew 9:2)  <br><br>
+        
+        G 	10. Who told Matthew, "Follow me."? <br>
+            A. Jesus (Matthew 9:9)  <br><br>
+        
+        G 	11. Who touched the edge of Jesus' cloak? <br>
+            A. A woman who had been subject to bleeding for twelve years (Matthew 9:20)  <br><br>
+        
+        R 	12. Finish this verse and give the reference: "When he saw the crowds,. . ." <br>
+            A. ". . .he had compassion on them, because they were harassed and helpless, like sheep without a shepherd. " (Matthew 9:36)  <br><br>
+        
+        G 	13. Who laughed at Jesus? <br>
+            A. The noisy crowd and people playing pipes (Matthew 9:23-24)  <br><br>
+        
+        A 	14. According to Matthew, chapter 9, verse 17, what will be ruined? <br>
+            A. The wineskins (Matthew 9:17)  <br><br>
+        
+        G 	15. When was the crowd filled with awe? <br>
+            A. When they saw the paralyzed man get up and go home (Matthew 9:8)  <br><br>
+    
+        G 	16. What should the Pharisees go and learn? <br>
+            A. What this means: "I desire mercy, not sacrifice." (Matthew 9:13)  <br><br>
+        
+        A 	17. According to Matthew, chapter 9, verse 28, who replied, "Yes, Lord."? <br>
+            A. The blind men (Matthew 9:28)  <br><br>
+        
+        G 	18. When did a synagogue leader come and kneel before Jesus and say, "My daughter has just died. But come and put your hand on her, and she will live."? <br>
+            A. While Jesus was saying this (Matthew 9:18)  <br><br>
+        
+        S 	19. Situation question: who said it, to whom, and what was the result: "Take heart, daughter, your faith has healed you."? <br>
+            A. Jesus said it to a woman who had been subject to bleeding for twelve years, and the woman was healed at that moment (Matthew 9:22)  <br><br>
+        
+        G 	20. What does the Son of Man have authority on earth to forgive? <br>
+            A. Sins (Matthew 9:6) <br><br>
+        
+         <br><br>
+          <h7 id="4">SET #4</h7><br><br>
+        
+        G 	1. Who has authority on earth to forgive sins? <br>
+            A. The Son of Man (Matthew 9:6)  <br><br>
+        
+        G 	2. What will a patch of unshrunk cloth pulling away from the old garment do? <br>
+            A. Make the tear worse (Matthew 9:16)  <br><br>
+        
+        A 	3. According to Matthew, chapter 9, verse 1, who crossed over? <br>
+            A. Jesus (Matthew 9:1)  <br><br>
+        
+        G 	4. Who said, "Take heart, daughter, your faith has healed you."? <br>
+            A. Jesus (Matthew 9:22)  <br><br>
+        
+        A 	5. According to Matthew, chapter 9, verse 23, whom did Jesus see? <br>
+            A. The noisy crowd and people playing pipes (Matthew 9:23)  <br><br>
+        
+        G 	6. How did Jesus warn the blind men, "See that no one knows about this."? <br>
+            A. Sternly (Matthew 9:30)  <br><br>
+        
+        Q 	7. Quote Matthew, chapter 9, verse 36. <br>
+            A. "When he saw the crowds, he had compassion on them, because they were harassed and helpless, like sheep without a shepherd." (Matthew 9:36)  <br><br>
+        
+        G 	8. Who eats with tax collectors and sinners? <br>
+            A. Jesus [OR Jesus' disciples' teacher] (Matthew 9:11)  <br><br>
+        
+        G 	9. Whose disciples fast often? <br>
+            A. John's (Matthew 9:14)  <br><br>
+        
+        A 	10. According to Matthew, chapter 9, verse 21, what will I be? <br>
+            A. Healed (Matthew 9:21)  <br><br>
+        
+        G 	11. Who will be taken from the guests of the bridegroom? <br>
+            A. The bridegroom (Matthew 9:15)  <br><br>
+        
+        G 	12. Who took the girl by the hand after the crowd had been put outside? <br>
+            A. Jesus (Matthew 9:25)  <br><br>
+        
+        V 	13. Finish these verses: "Then he said to his. . ." <br>
+            A. ". . .disciples, "The harvest is plentiful but the workers are few. Ask the Lord of the harvest, therefore, to send out workers into his harvest field." (Matthew 9:37-38)  <br><br>
+        
+        X 	14. Three-part answer: what if people pour new wine into old wineskins? <br>
+            A. 1) The skins will burst; 2) The wine will run out; 3) The wineskins will be ruined (Matthew 9:17)  <br><br>
+        
+        G 	15. To what had a woman been subject for twelve years? <br>
+            A. Bleeding (Matthew 9:20)  <br><br>
+        
+        G 	16. Where was Matthew sitting? <br>
+            A. At the tax collector's booth (Matthew 9:9)  <br><br>
+        
+        R 	17. Finish these verses and give the reference: "On hearing this, Jesus said,. . ." <br>
+            A. ". . ."It is not the healthy who need a doctor, but the sick. But go and learn what this means: 'I desire mercy, not sacrifice.' For I have not come to call the righteous, but sinners." " (Matthew 9:12-13)  <br><br>
+        
+        G 	18. Who asked the blind men, "Do you believe that I am able to do this?" <br>
+            A. Jesus (Matthew 9:28)  <br><br>
+        
+        A 	19. According to Matthew, chapter 9, verse 10, what did many tax collectors and sinners do? <br>
+            A. Came and ate with Jesus and his disciples (Matthew 9:10)  <br><br>
+        
+        S 	20. Situation question: who said it, and to whom: "Take heart, son; your sins are forgiven."? <br>
+            A. Jesus said it to a paralyzed man (Matthew 9:2)  <br><br>
+        
+         <br><br>
+          <h7 id="5">SET #5</h7><br><br>
+        
+        G 	1. Who should go and learn what this means: "I desire mercy, not sacrifice."? <br>
+            A. The Pharisees (Matthew 9:13)  <br><br>
+        
+        A 	2. According to Matthew, chapter 9, verse 24, who is not dead? <br>
+            A. The girl (Matthew 9:24)  <br><br>
+        
+        Q 	3. Quote Matthew, chapter 9, verse 36. <br>
+            A. "When he saw the crowds, he had compassion on them, because they were harassed and helpless, like sheep without a shepherd." (Matthew 9:36) <br><br> 
+        
+        S 	4. Situation question: who said it, to whom, and what was the reply: "Do you believe that I am able to do this?" <br>
+            A. Jesus said it to two blind men, and the reply was, "Yes, Lord." (Matthew 9:28)  <br><br>
+        
+        G 	5. Whom did Jesus see when he entered the synagogue leader's house? <br>
+            A. The noisy crowd and people playing pipes (Matthew 9:23)  <br><br>
+        
+        V 	6. Finish these verses: "On hearing this, Jesus said,. . ." <br>
+            A. ". . ."It is not the healthy who need a doctor, but the sick. But go and learn what this means: 'I desire mercy, not sacrifice.' For I have not come to call the righteous, but sinners." (Matthew 9:12-13)  <br><br>
+        
+        G 	7. Whom did Matthew follow? <br>
+            A. Jesus (Matthew 9:9)  <br><br>
+        
+        A 	8. According to Matthew, chapter 9, verse 25, who had been put outside? <br>
+            A. The crowd (Matthew 9:25)  <br><br>
+        
+        G 	9. Who brought to Jesus a paralyzed man, lying on a mat? <br>
+            A. Some men (Matthew 9:2)  <br><br>
+        
+        G 	10. On what does no one sew a patch of unshrunk cloth? <br>
+            A. An old garment (Matthew 9:16)  <br><br>
+    
+        R 	11. Finish these verses and give the reference: "Then he said to his. . ." <br>
+            A. ". . .disciples, "The harvest is plentiful but the workers are few. Ask the Lord of the harvest, therefore, to send out workers into his harvest field." " (Matthew 9:37-38)  <br><br>
+        
+        G 	12. When did Jesus say, "It is not the healthy who need a doctor, but the sick."? <br>
+            A. On hearing the Pharisees ask Jesus' disciples, "Why does your teacher eat with tax collectors and sinners?" (Matthew 9:11-12)  <br><br>
+        
+        X 	13. What are both wine and wineskins when people pour new wine into new wineskins? <br>
+            A. Preserved (Matthew 9:17)  <br><br>
+        
+        G 	14. Who came to his own town? <br>
+            A. Jesus (Matthew 9:1)  <br><br>
+        
+        A 	15. According to Matthew, chapter 9, verse 13, what should you learn? <br>
+            A. What this means: "I desire mercy, not sacrifice." (Matthew 9:13)  <br><br>
+        
+        G 	16. What did a woman who had been subject to bleeding for twelve years say to herself? <br>
+            A. "If I only touch his cloak, I will be healed." (Matthew 9:21)  <br><br>
+        
+        G 	17. Whom do the sick need? <br>
+            A. A doctor (Matthew 9:12)  <br><br>
+        
+        A 	18. According to Matthew, chapter 9, verse 14, what do John's disciples do? <br>
+            A. Fast often (Matthew 9:14)  <br><br>
+        
+        G 	19. Who stepped into a boat, crossed over and came to his own town? <br>
+            A. Jesus (Matthew 9:1)  <br><br>
+        
+        G 	20. At whose house was Jesus having dinner? <br>
+            A. Matthew's (Matthew 9:10)  <br><br>
+        
+         <br><br>
+          <h7 id="6">SET #6</h7><br><br>
+        
+        A 	1. According to Matthew, chapter 9, verse 26, what spread through all that region? <br>
+            A. News of this (Matthew 9:26)  <br><br>
+        
+        G 	2. To what had a woman been subject for twelve years? <br>
+            A. Bleeding (Matthew 9:20)  <br><br>
+        
+        A 	3. According to Matthew, chapter 9, verse 29, how should you let it be done to you? <br>
+            A. According to your faith (Matthew 9:29)  <br><br>
+        
+        G 	4. Whom has Jesus not come to call? <br>
+            A. The righteous (Matthew 9:13)  <br><br>
+        
+        S 	5. Situation question: who said it, to whom, and what was the reply: "If I only touch his cloak, I will be healed."? <br>
+            A. A woman who had been subject to bleeding for twelve years said it to herself, and the reply was, "Take heart, daughter, your faith has healed you." (Matthew 9:21-22)  <br><br>
+        
+        G 	6. Who said, "It is by the prince of demons that he drives out demons."? <br>
+            A. The Pharisees (Matthew 9:34)  <br><br>
+        
+        G 	7. What news did the blind men spread all over that region? br <br>
+            A. The news about Jesus (Matthew 9:31)  <br><br>
+        
+        Q 	8. Quote Matthew, chapter 9, verses 37 through 38. <br>
+            A. "Then he said to his disciples, "The harvest is plentiful but the workers are few. Ask the Lord of the harvest, therefore, to send out workers into his harvest field."" (Matthew 9:37-38)  <br><br>
+        
+        X 	9. Complete, in essence, the following: "When Jesus saw their faith, . . ." <br>
+            A. ". . . he said to the man, "Take heart, son; your sins are forgiven." (Matthew 9:2)  <br><br>
+        
+        G 	10. Who was teaching in their synagogues? <br>
+            A. Jesus (Matthew 9:35)  <br><br>
+        
+        G 	11. What is plentiful? <br>
+            A. The harvest (Matthew 9:37)  <br><br>
+        
+        R 	12. Finish these verses and give the reference: "On hearing this, Jesus said,. . ." <br>
+            A. ". . ."It is not the healthy who need a doctor, but the sick. But go and learn what this means: 'I desire mercy, not sacrifice.' For I have not come to call the righteous, but sinners." " (Matthew 9:12-13)  <br><br>
+        
+        G 	13. What do John's disciples and the Pharisees do often? <br>
+            A. Fast (Matthew 9:14)  <br><br>
+        
+        A 	14. According to Matthew, chapter 9, verse 28, what did he ask the blind men? <br>
+            A. "Do you believe that I am able to do this?" (Matthew 9:28)  <br><br>
+        
+        G 	15. When will the wine run out and the wineskins be ruined? <br>
+            A. If people pour new wine into old wineskins (Matthew 9:17)  <br><br>
+        
+        G 	16. Where should you ask the Lord of the harvest to send out workers? <br>
+            A. Into his harvest field (Matthew 9:38)  <br><br>
+        
+        V 	17. Finish this verse: "When he saw the crowds,. . ." <br>
+            A. ". . .he had compassion on them, because they were harassed and helpless, like sheep without a shepherd." (Matthew 9:36)  <br><br>
+        
+        G 	18. What will make the tear worse? <br>
+            A. The patch of unshrunk cloth pulling away from the old garment (Matthew 9:16)  <br><br>
+        
+        G 	19. To whom was a man who was demon-possessed and could not talk brought? <br>
+            A. Jesus (Matthew 9:32)  <br><br>
+        
+        A 	20. According to Matthew, chapter 9, verse 9, who went on from there? <br>
+            A. Jesus (Matthew 9:9)  <br><br>
+        
+         <br><br>
+          <h7 id="7">SET #7</h7><br><br>
+        
+        G 	1. Who got up and went home? <br>
+            A. The (formerly) paralyzed man (Matthew 9:7)  <br><br>
+        
+        G 	2. Who eats with tax collectors and sinners? <br>
+            A. Jesus [OR Jesus' disciples' teacher] (Matthew 9:11)  <br><br>
+        
+        S 	3. Situation question: who said it, and when: "It is not the healthy who need a doctor, but the sick."? <br>
+            A. Jesus said it on hearing the Pharisees ask his disciples, "Why does your teacher eat with tax collectors and sinners?" (Matthew 9:11-12)  <br><br>
+        
+        G 	4. Who said, "Take heart, daughter, your faith has healed you."? <br>
+            A. Jesus (Matthew 9:22)  <br><br>
+        
+        A 	5. According to Matthew, chapter 9, verse 28, where had he gone? <br>
+            A. Indoors (Matthew 9:28)  <br><br>
+        
+        G 	6. Who said to themselves, "This fellow is blaspheming!"? <br>
+            A. Some of the teachers of the law (Matthew 9:3)  <br><br>
+        
+        G 	7. Who touched the edge of Jesus' cloak? <br>
+            A. A woman who had been subject to bleeding for twelve years (Matthew 9:20)  <br><br>
+        
+        Q 	8. Quote Matthew, chapter 9, verses 12 through 13. <br>
+            A. "On hearing this, Jesus said, "It is not the healthy who need a doctor, but the sick. But go and learn what this means: 'I desire mercy, not sacrifice.' For I have not come to call the righteous, but sinners."" (Matthew 9:12-13)  <br><br>
+        
+        G 	9. What do people not pour into old wineskins? <br>
+            A. New wine (Matthew 9:17)  <br><br>
+        
+        X 	10. Where did news of the healing of the synagogue leader's daughter spread? <br>
+            A. Through all that region (Matthew 9:26)  <br><br>
+        
+        G 	11. Who was lying on a mat? <br>
+            A. A paralyzed man (Matthew 9:2)  <br><br>
+        
+        G 	12. What did a woman who had been subject to bleeding for twelve years say to herself? <br>
+            A. "If I only touch his cloak, I will be healed." (Matthew 9:21)  <br><br>
+        
+        R 	13. Finish these verses and give the reference: "Then he said to his. . ." <br>
+            A. ". . .disciples, "The harvest is plentiful but the workers are few. Ask the Lord of the harvest, therefore, to send out workers into his harvest field." " (Matthew 9:37-38)  <br><br>
+        
+        G 	14. Who followed Jesus calling out, "Have mercy on us, Son of David!"? <br>
+            A. Two blind men (Matthew 9:27)  <br><br>
+        
+        A 	15. According to Matthew, chapter 9, verse 33, where has nothing like this ever been seen? <br>
+            A. In Israel (Matthew 9:33)  <br><br>
+        
+        G 	16. Where do some of the teachers of the law entertain evil thoughts? <br>
+            A. In their hearts (Matthew 9:4)  <br><br>
+        
+        A 	17. According to Matthew, chapter 9, verse 32, when was a man who was demon-possessed and could not talk brought to Jesus? <br>
+            A. While they were going out (Matthew 9:32)  <br><br>
+        
+        G 	18. Why did Jesus say to the paralyzed man, "Get up, take your mat and go home."? <br>
+            A. Because Jesus wants the teachers of the law to know that the Son of Man has authority on earth to forgive sins (Matthew 9:6)  <br><br>
+        
+        A 	19. According to Matthew, chapter 9, verse 31, what did they spread? <br>
+            A. The news about him (Matthew 9:31)  <br><br>
+        
+        V 	20. Finish this verse: "When he saw the crowds,. . ." <br>
+            A. ". . .he had compassion on them, because they were harassed and helpless, like sheep without a shepherd." (Matthew 9:36) <br><br> 
+        
+         <br><br>
+          <h7 id="8">SET #8</h7><br><br>
+        
+        G 	1. Who knew the teachers of the law's thoughts? <br>
+            A. Jesus (Matthew 9:4)  <br><br>
+        
+        R 	2. Finish these verses and give the reference: "Then he said to his. . ." <br>
+            A. ". . .disciples, "The harvest is plentiful but the workers are few. Ask the Lord of the harvest, therefore, to send out workers into his harvest field." " (Matthew 9:37-38)  <br><br>
+        
+        G 	3. Whom did the crowd praise? <br>
+            A. God (Matthew 9:8)  <br><br>
+        
+        G 	4. Who saw the noisy crowd and people playing pipes? <br>
+            A. Jesus (Matthew 9:23)  <br><br>
+        
+        V 	5. Finish this verse: "When he saw the crowds,. . ." <br>
+            A. ". . .he had compassion on them, because they were harassed and helpless, like sheep without a shepherd." (Matthew 9:36)  <br><br>
+        
+        G 	6. To whom did the blind men come when he had gone indoors? <br>
+            A. Jesus (Matthew 9:28)  <br><br>
+        
+        X 	7. In Matthew, chapter 9, who could not talk? <br>
+            A. A man who was demon-possessed (Matthew 9:32)  <br><br>
+        
+        G 	8. Who brought to Jesus a paralyzed man, lying on a mat? <br>
+            A. Some men (Matthew 9:2)  <br><br>
+        
+        A 	9. According to Matthew, chapter 9, verse 13, what do I not desire? <br>
+            A. Sacrifice (Matthew 9:13)  <br><br>
+        
+        G 	10. Where was Matthew sitting? <br>
+            A. At the tax collector's booth (Matthew 9:9)  <br><br>
+        
+        S 	11. Situation question: who said it, to whom, and what was the response: "See that no one knows about this."? <br>
+            A. Jesus said it to two blind men (whose sight had been restored), and they went out and spread the news about Jesus all over that region (Matthew 9:30-31)  <br><br>
+        
+        G 	12. What will be ruined if people pour new wine into old wineskins? <br>
+            A. The wineskins (Matthew 9:17)  <br><br>
+        
+        A 	13. According to Matthew, chapter 9, verse 33, who was amazed? <br>
+            A. The crowd (Matthew 9:33)  <br><br>
+        
+        G 	14. What does the Son of Man have authority on earth to forgive? <br>
+            A. Sins (Matthew 9:6)  <br><br>
+        
+        A 	15. According to Matthew, chapter 9, verse 14, who fast often? <br>
+            A. John's disciples and the Pharisees (Matthew 9:14)  <br><br>
+        
+        Q 	16. Quote Matthew, chapter 9, verses 12 through 13. <br>
+            A. "On hearing this, Jesus said, "It is not the healthy who need a doctor, but the sick. But go and learn what this means: 'I desire mercy, not sacrifice.' For I have not come to call the righteous, but sinners."" (Matthew 9:12-13)  <br><br>
+        
+        G 	17. Who laughed at Jesus? <br>
+            A. The noisy crowd and people playing pipes (Matthew 9:23-24)  <br><br>
+        
+        A 	18. According to Matthew, chapter 9, verse 15, who will fast? <br>
+            A. The guests of the bridegroom (Matthew 9:15)  <br><br>
+        
+        G 	19. How did Jesus warn the blind men, "See that no one knows about this."? <br>
+            A. Sternly (Matthew 9:30)  <br><br>
+        
+        G 	20. What will a patch of unshrunk cloth pulling away from the old garment do? <br>
+            A. Make the tear worse (Matthew 9:16)  <br><br>
+        
+         <br><br>
+          <h7 id="9">SET #9</h7><br><br>
+        
+        G 	1. From whom will the bridegroom be taken? <br>
+            A. The guests of the bridegroom (Matthew 9:15)  <br><br>
+        
+        S 	2. Situation question: who said it, and to whom: "According to your faith let it be done to you."? <br>
+            A. Jesus said it to two blind men (Matthew 9:29)  <br><br>
+        
+        G 	3. Who came to his own town? <br>
+            A. Jesus (Matthew 9:1)  <br><br>
+        
+        G 	4. Who took the girl by the hand after the crowd had been put outside? <br>
+            A. Jesus (Matthew 9:25)  <br><br>
+        
+        A 	5. According to Matthew, chapter 9, verse 35, who was healing every disease and sickness? <br>
+            A. Jesus (Matthew 9:35)  <br><br>
+        
+        R 	6. Finish these verses and give the reference: "On hearing this, Jesus said,. . ." <br>
+            A. ". . ."It is not the healthy who need a doctor, but the sick. But go and learn what this means: 'I desire mercy, not sacrifice.' For I have not come to call the righteous, but sinners." " (Matthew 9:12-13)  <br><br>
+        
+        X 	7. In Matthew, chapter 9, whom did the Pharisees say drove out demons by the prince of demons? <br>
+            A. Jesus (Matthew 9:34)  <br><br>
+        
+        G 	8. Who should go and learn what this means: "I desire mercy, not sacrifice."? <br>
+            A. The Pharisees (Matthew 9:13)  <br><br>
+        
+        V 	9. Finish this verse: "When he saw the crowds,. . ." <br>
+            A. ". . .he had compassion on them, because they were harassed and helpless, like sheep without a shepherd." (Matthew 9:36) <br><br> 
+        
+        A 	10. According to Matthew, chapter 9, verse 11, who saw this? <br>
+            A. The Pharisees (Matthew 9:11)  <br><br>
+        
+        G 	11. Who asked the blind men, "Do you believe that I am able to do this?" <br>
+            A. Jesus (Matthew 9:28)  <br><br>
+        
+        G 	12. When was the crowd filled with awe? <br>
+            A. When they saw the paralyzed man get up and go home (Matthew 9:8) <br><br> 
+        
+        Q 	13. Quote Matthew, chapter 9, verses 37 through 38. <br>
+            A. "Then he said to his disciples, "The harvest is plentiful but the workers are few. Ask the Lord of the harvest, therefore, to send out workers into his harvest field."" (Matthew 9:37-38)  <br><br>
+        
+        A 	14. According to Matthew, chapter 9, verse 37, what did he say to his disciples? <br>
+            A. "The harvest is plentiful but the workers are few." (Matthew 9:37)  <br><br>
+        
+        G 	15. Why do people not pour new wine into old wineskins? <br>
+            A. If they do, the skins will burst; the wine will run out and the wineskins will be ruined (Matthew 9:17)  <br><br>
+        
+        G 	16. Who is not dead but asleep? <br>
+            A. The girl [OR the synagogue leader's daughter] (Matthew 9:24)  <br><br>
+        
+        A 	17. According to Matthew, chapter 9, verse 33, who spoke? <br>
+            A. The man who had been mute (Matthew 9:33)  <br><br>
+        
+        G 	18. Who has authority on earth to forgive sins? <br>
+            A. The Son of Man (Matthew 9:6)  <br><br>
+        
+        G 	19. Who told Matthew, "Follow me."? <br>
+            A. Jesus (Matthew 9:9)  <br><br>
+        
+        G 	20. Whom did Jesus see when he entered the synagogue leader's house? <br>
+            A. The noisy crowd and people playing pipes (Matthew 9:23)  <br><br>
+        
+        
+         <h7 id="10">SET #10</h7>   <br><br>
+        
+        R 	1. Finish these verses and give the reference: "Then he said to his. . ." <br>
+            A. ". . .disciples, "The harvest is plentiful but the workers are few. Ask the Lord of the harvest, therefore, to send out workers into his harvest field." " (Matthew 9:37-38)  <br><br>
+        
+        G 	2. On what does no one sew a patch of unshrunk cloth? <br>
+            A. An old garment (Matthew 9:16)  <br><br>
+        
+        X 	3. Complete, in essence, the following: "Which is easier: to say, . . ." <br>
+            A. ". . . 'Your sins are forgiven,' or to say, 'Get up and walk'?" (Matthew 9:5) <br> <br>
+        
+        S 	4. Situation question: who said it, and about whom: "Why do you entertain evil thoughts in your hearts?" <br>
+            A. Jesus said it about some of the teachers of the law (Matthew 9:3-4)  <br><br>
+        
+        A 	5. According to Matthew, chapter 9, verse 37, what are the workers? <br>
+            A. Few (Matthew 9:37)  <br><br>
+        
+        G 	6. What will run out if people pour new wine into old wineskins? <br>
+            A. The wine (Matthew 9:17)  <br><br>
+        
+        A 	7. According to Matthew, chapter 9, verse 9, where was Matthew sitting? <br>
+            A. At the tax collector's booth (Matthew 9:9)  <br><br>
+        
+        G 	8. Who warned the blind men sternly, "See that no one knows about this."? <br>
+            A. Jesus (Matthew 9:30)  <br><br>
+        
+        G 	9. When did a synagogue leader come and kneel before Jesus and say, "My daughter has just died. But come and put your hand on her, and she will live."? <br>
+            A. While Jesus was saying this (Matthew 9:18)  <br><br>
+        
+        V 	10. Finish this verse: "When he saw the crowds,. . ." <br>
+            A. ". . .he had compassion on them, because they were harassed and helpless, like sheep without a shepherd." (Matthew 9:36)  <br><br>
+        
+        G 	11. When did Jesus say, "It is not the healthy who need a doctor, but the sick."? <br>
+            A. On hearing the Pharisees ask Jesus' disciples, "Why does your teacher eat with tax collectors and sinners?" (Matthew 9:11-12)  <br><br>
+        
+        G 	12. Who touched the blind men's eyes? <br>
+            A. Jesus (Matthew 9:29)  <br><br>
+        
+        Q 	13. Quote Matthew, chapter 9, verses 12 through 13. <br>
+            A. "On hearing this, Jesus said, "It is not the healthy who need a doctor, but the sick. But go and learn what this means: 'I desire mercy, not sacrifice.' For I have not come to call the righteous, but sinners."" (Matthew 9:12-13)  <br><br>
+        
+        G 	14. What should the Pharisees go and learn? <br>
+            A. What this means: "I desire mercy, not sacrifice." (Matthew 9:13)  <br><br>
+        
+        G 	15. Who stepped into a boat, crossed over and came to his own town? <br>
+            A. Jesus (Matthew 9:1)  <br><br>
+        
+        A 	16. According to Matthew, chapter 9, verse 15, what did Jesus answer? <br>
+            A. "How can the guests of the bridegroom mourn while he is with them? The time will come when the bridegroom will be taken from them; then they will fast." (Matthew 9:15)  <br><br>
+        
+        G 	17. Whom did John's disciples ask, "How is it that we and the Pharisees fast often, but your disciples do not fast?" <br>
+            A. Jesus (Matthew 9:14)  <br><br>
+        
+        G 	18. Where was Jesus having dinner? <br>
+            A. At Matthew's house (Matthew 9:10)  <br><br>
+        
+        A 	19. According to Matthew, chapter 9, verse 35, what was Jesus proclaiming? <br>
+            A. The good news of the kingdom (Matthew 9:35)  <br><br>
+        
+        G 	20. Who need a doctor? <br>
+            A. The sick (Matthew 9:12) <br><br> 
+        
+        </p>
+
+</body>
+</html>

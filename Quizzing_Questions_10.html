@@ -1,0 +1,872 @@
+<!DOCTYPE html>
+<html> 
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+
+        h1{
+            background-color: black;
+            text-align: center;
+            font-size: 120px;
+            margin: 0px;
+            padding: 30px;
+            color: rgb(0, 172, 172);
+            font-family: 'Impact', Haettenschweiler, Arial Narrow Bold, sans-serif;
+            top: 0px;
+            left: 0px;
+            text-emphasis: bold;
+        }
+
+        head{
+            background-color: black;
+            margin: 0px;
+            padding: 20px;
+        }
+
+        nav{
+            left: 0px;
+            margin: 0px;
+            padding: 20px;
+            background-color: rgb(0, 172, 172);
+            color: black;
+            text-align: left;
+            display: inline-block;
+            height: auto;
+        }
+
+        nav a{
+            color: black;
+            text-decoration: none;
+            margin: 10px 15px;
+            padding: 8px;
+            font-size: 24px;
+            display: inline-block;
+            box-shadow: 0px 0px 10px 5px black;
+            background-color: #b3b3b3;
+            border-radius: 5px;
+        }
+
+        body{
+            background-image: url('data:image/jpeg;base64,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');
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-attachment: fixed;
+        }
+
+        h2{
+            text-align: center;
+            color: white;
+            font-size: 32px;
+            text-emphasis: bold;
+            margin: 10px;
+            background-color: black;
+            padding: 10px;
+            border: double 3px black;
+        }
+
+        .bookmarks{
+            background-color: rgb(0, 172, 172);
+            position: absolute;
+            top: 290px;
+            left: 26%;
+            text-align: center;
+            padding: 10px 20px;
+            border: solid black 5px;
+            border-radius: 25px;
+        }
+
+        .bookmarks a{
+            display: inline-block;
+            background-color: black;
+            color: white;
+            text-emphasis: bold;
+            font-size: 24px;
+            margin: 10px;
+            padding: 10px;
+            border-radius: 10px;
+        }
+
+        h3{
+            font-size: 68px;
+            position: absolute;
+            float: center;
+            top: 350px;
+            left: 48%;
+            text-emphasis: bold;
+            text-align: center;
+            font-family: 'Times New Roman', Times, serif;
+        }
+
+        .verses a{
+            position: absolute;
+            color: rgb(0, 172, 172);
+            background-color: black;
+            font-size: 32px;
+            font-family: Arial, Helvetica, sans-serif;
+            left: 38%;
+            padding: 10px 100px;
+            text-decoration: none;
+            text-align: center;
+            top: 220px;
+            text-emphasis: bold;
+        }
+
+        #myBtn {
+            display: none; /* Hidden by default */
+            position: fixed; /* Fixed/sticky position */
+            bottom: 65px; /* Place the button at the bottom of the page */
+            left: 50px; /* Place the button 30px from the right */
+            z-index: 99; /* Make sure it does not overlap */
+            border: none; /* Remove borders */
+            outline: none; /* Remove outline */
+            background-color: rgb(0, 172, 172); /* Set a background color */
+            color: black; /* Text color */
+            cursor: pointer; /* Add a mouse pointer on hover */
+            padding: 10px; /* Some padding */
+            padding-bottom: 0px;
+            border-radius: 10px; /* Rounded corners */
+            border: solid black 5px;
+            font-size: 72px; /* Increase font size */
+        }
+
+        #myBtn:hover {
+            display: none; /* Hidden by default */
+            position: fixed; /* Fixed/sticky position */
+            bottom: 65px; /* Place the button at the bottom of the page */
+            left: 50px; /* Place the button 30px from the right */
+            z-index: 99; /* Make sure it does not overlap */
+            border: none; /* Remove borders */
+            outline: none; /* Remove outline */
+            background-color: rgb(0, 0, 0); /* Set a background color */
+            color: rgb(0, 172, 172); /* Text color */
+            cursor: pointer; /* Add a mouse pointer on hover */
+            padding: 10px; /* Some padding */
+            padding-bottom: 0px;
+            border-radius: 10px; /* Rounded corners */
+            border: solid rgb(0, 172, 172) 5px;
+            font-size: 72px; /* Increase font size */
+        }
+
+        p{
+            font-size: 22px;
+            position: absolute;
+            top: 500px;
+            left: 30%;
+        }
+
+        h7{
+            font-size: 32px;
+            text-emphasis: bold;
+        }
+
+    </style>
+    <button onclick="topFunction()" id="myBtn" title="Go to top"><b>^</b></button>
+<head> 
+    <h1>Questions</h1>
+    <div class="verses">
+        <a href="Quizzing.html">Click here for memory verses.</a>        
+   </div>
+</head>
+<body>
+   
+    <script>
+        //Get the button
+        var mybutton = document.getElementById("myBtn");
+        
+        // When the user scrolls down 20px from the top of the document, show the button
+        window.onscroll = function() {scrollFunction()};
+        
+        function scrollFunction() {
+          if (document.body.scrollTop > 1750 || document.documentElement.scrollTop > 1750) {
+            mybutton.style.display = "block";
+          } else {
+            mybutton.style.display = "none";
+          }
+        }
+        
+        // When the user clicks on the button, scroll to the top of the document
+        function topFunction() {
+          document.body.scrollTop = 0;
+          document.documentElement.scrollTop = 0;
+        }
+        </script>
+
+    <nav>
+
+        <h2>Select a Chapter</h2>
+        <br>
+
+        <a href="Quizzing_Questions_1.html">Matthew 1</a>
+        <br>
+        <a href="Quizzing_Questions_2.html">Matthew 2</a>
+        <br>
+        <a href="Quizzing_Questions_3.html">Matthew 3</a>
+        <br>
+        <a href="Quizzing_Questions_4.html">Matthew 4</a>
+        <br>
+        <a href="Quizzing_Questions_5.html">Matthew 5</a>
+        <br>
+        <a href="Quizzing_Questions_6.html">Matthew 6</a>
+        <br>
+        <a href="Quizzing_Questions_7.html">Matthew 7</a>
+        <br>
+        <a href="Quizzing_Questions_8.html">Matthew 8</a>
+        <br>
+        <a href="Quizzing_Questions_9.html">Matthew 9</a>
+        <br>
+        <a href="Quizzing_Questions_10.html">Matthew 10</a>
+        <br>
+        <a href="Quizzing_Questions_11.html">Matthew 11</a>
+        <br>
+        <a href="Quizzing_Questions_12.html">Matthew 12</a>
+        <br>
+        <a href="Quizzing_Questions_13.html">Matthew 13</a>
+        <br>
+        <a href="Quizzing_Questions_14.html">Matthew 14</a>
+        <br>
+        <a href="Quizzing_Questions_15.html">Matthew 15</a>
+        <br>
+        <a href="Quizzing_Questions_16.html">Matthew 16</a>
+        <br>
+        <a href="Quizzing_Questions_17.html">Matthew 17</a>
+        <br>
+        <a href="Quizzing_Questions_18.html">Matthew 18</a>
+        <br>
+        <a href="Quizzing_Questions_19.html">Matthew 19</a>
+        <br>
+        <a href="Quizzing_Questions_20.html">Matthew 20</a>
+        <br>
+        <a href="Quizzing_Questions_21.html">Matthew 21</a>
+        <br>
+        <a href="Quizzing_Questions_22.html">Matthew 22</a>
+        <br>
+        <a href="Quizzing_Questions_23.html">Matthew 23</a>
+        <br>
+        <a href="Quizzing_Questions_24.html">Matthew 24</a>
+        <br>
+        <a href="Quizzing_Questions_25.html">Matthew 25</a>
+        <br>
+        <a href="Quizzing_Questions_26.html">Matthew 26</a>
+        <br>
+        <a href="Quizzing_Questions_27.html">Matthew 27</a>
+        <br>
+        <a href="Quizzing_Questions_28.html">Matthew 28</a>
+    </nav>
+
+    <div class="bookmarks">
+        <a href="#1">Set 1</a>
+        <a href="#2">Set 2</a>
+        <a href="#3">Set 3</a>
+        <a href="#4">Set 4</a>
+        <a href="#5">Set 5</a>
+        <a href="#6">Set 6</a>
+        <a href="#7">Set 7</a>
+        <a href="#8">Set 8</a>
+        <a href="#9">Set 9</a>
+        <a href="#10">Set 10</a>
+    </div>
+
+    <h3>Matthew 10</h3>
+
+    <p> <h7 id="1">SET #1</h7>  <br><br>
+
+        G 	1. What will whoever loses their life for Jesus' sake find? <br>
+            A. Their life (Matthew 10:39)  <br><br>
+        
+        V 	2. Finish these verses: ""Whoever acknowledges me before others,. . ." <br>
+            A. ". . .I will also acknowledge before my Father in heaven. But whoever disowns me before others, I will disown before my Father in heaven." (Matthew 10:32-33)  <br><br>
+        
+        G 	3. What will whoever welcomes a prophet as a prophet receive? <br>
+            A. A prophet's reward (Matthew 10:41)  <br><br>
+        
+        X 	4. To whom did Jesus give authority to drive out impure spirits? <br>
+            A. His twelve disciples (Matthew 10:1)  <br><br>
+        
+        A 	5. According to Matthew, chapter 10, verse 22, what will you be by everyone because of me? <br>
+            A. Hated (Matthew 10:22)  <br><br>
+        
+        A 	6. According to Matthew, chapter 10, verse 17, to whom will you be handed over? <br>
+            A. The local councils (Matthew 10:17)  <br><br>
+        
+        G 	7. Who did not come to bring peace to the earth? <br>
+            A. Jesus (Matthew 10:34)  <br><br>
+        
+        G 	8. What are all numbered? <br>
+            A. Even the very hairs of your head (Matthew 10:30)  <br><br>
+        
+        Q 	9. Quote Matthew, chapter 10, verse 40. <br>
+            A. "Anyone who welcomes you welcomes me, and anyone who welcomes me welcomes the one who sent me. (Matthew 10:40) <br><br> 
+        
+        G 	10. Where will these twelve be flogged? <br>
+            A. In the synagogues (Matthew 10:17)  <br><br>
+        
+        G 	11. Whom does anyone who welcomes these twelve welcome? <br>
+            A. Jesus (Matthew 10:40)  <br><br>
+        
+        G 	12. What did Jesus not come to bring to the earth? <br>
+            A. Peace (Matthew 10:34)  <br><br>
+        
+        G 	13. What can those who kill the body not kill? <br>
+            A. The soul (Matthew 10:28)  <br><br>
+        
+        G 	14. What town should these twelve not enter? <br>
+            A. Any town of the Samaritans (Matthew 10:5)  <br><br>
+        
+        R 	15. Finish this verse and give the reference: "Whoever finds their life will. . ." <br>
+            A. ". . .lose it, and whoever loses their life for my sake will find it. " (Matthew 10:39)  <br><br>
+        
+        A 	16. According to Matthew, chapter 10, verse 18, before whom will you be brought? <br>
+            A. Governors and kings (Matthew 10:18)  <br><br>
+        
+        A 	17. According to Matthew, chapter 10, verse 15, for whom will it be more bearable on the day of judgment? <br>
+            A. Sodom and Gomorrah (Matthew 10:15)  <br><br>
+        
+        G 	18. What will not fall to the ground outside your Father's care? <br>
+            A. One of the sparrows (Matthew 10:29)  <br><br>
+        
+        G 	19. Who should go rather to the lost sheep of Israel? <br>
+            A. These twelve [OR the twelve apostles OR Jesus' twelve disciples] (Matthew 10:6)  <br><br>
+        <br><br>
+        
+         <h7 id="2">SET #2</h7>  <br><br>
+        
+        G 	1. What if anyone gives even a cup of cold water to one of these little ones who is Jesus' disciple? <br>
+            A. That person will certainly not lose their reward (Matthew 10:42)  <br><br>
+        
+        G 	2. About what should these twelve not worry when they arrest them? <br>
+            A. What to say or how to say it (Matthew 10:19)  <br><br>
+        
+        G 	3. Who will be handed over to the local councils? <br>
+            A. These twelve [OR the twelve apostles OR Jesus' twelve disciples] (Matthew 10:17)  <br><br>
+        
+        A 	4. According to Matthew, chapter 10, verse 20, who will be speaking through you? <br>
+            A. The Spirit of your Father (Matthew 10:20)  <br><br>
+        
+        G 	5. Whom has Jesus come to turn against her mother? <br>
+            A. A daughter (Matthew 10:35)  <br><br>
+        
+        A 	6. According to Matthew, chapter 10, verse 31, why should you not be afraid? <br>
+            A. You are worth more than many sparrows (Matthew 10:31)  <br><br>
+        
+        A 	7. According to Matthew, chapter 10, verse 25, what is enough? <br>
+            A. For students to be like their teachers, and servants like their masters (Matthew 10:25) <br><br> 
+        
+        V 	8. Finish these verses: ""Whoever acknowledges me before others,. . ." <br>
+            A. ". . .I will also acknowledge before my Father in heaven. But whoever disowns me before others, I will disown before my Father in heaven." (Matthew 10:32-33)  <br><br>
+        
+        G 	9. Who is the son of Alphaeus? <br>
+            A. James (Matthew 10:3)  <br><br>
+        
+        Q 	10. Quote Matthew, chapter 10, verse 39. <br>
+            A. "Whoever finds their life will lose it, and whoever loses their life for my sake will find it." (Matthew 10:39)  <br><br>
+        
+        G 	11. Whom should these twelve drive out? <br>
+            A. Demons (Matthew 10:8)  <br><br>
+        
+        X 	12. Complete, in essence, the following: "If the home is deserving, . . ." <br>
+            A. ". . . let your peace rest on it; if it is not, let your peace return to you." (Matthew 10:13)  <br><br>
+        
+        G 	13. Who will receive a righteous person's reward? <br>
+            A. Whoever welcomes a righteous person as a righteous person (Matthew 10:41)  <br><br>
+        
+        R 	14. Finish this verse and give the reference: "And if anyone gives even. . ." <br>
+            A. ". . .a cup of cold water to one of these little ones who is my disciple, truly I tell you, that person will certainly not lose their reward." " (Matthew 10:42) <br><br> 
+        
+        G 	15. Whom did Judas Iscariot betray? <br>
+            A. Jesus (Matthew 10:4)  <br><br>
+        
+        A 	16. According to Matthew, chapter 10, verse 22, who will be saved? <br>
+            A. The one who stands firm to the end (Matthew 10:22)  <br><br>
+        
+        G 	17. When will that person certainly not lose their reward? <br>
+            A. If they give even a cup of cold water to one of these little ones who is Jesus' disciple (Matthew 10:42)  <br><br>
+        
+        G 	18. Where should these twelve speak what Jesus tells them in the dark? <br>
+            A. In the daylight (Matthew 10:27)  <br><br>
+        
+        G 	19. Against whom has Jesus come to turn a man? <br>
+            A. His father (Matthew 10:35)  <br><br>
+        <br><br>
+        
+         <h7 id="3">SET #3</h7>  <br><br>
+        
+        G 	1. Who has come to turn a daughter against her mother? <br>
+            A. Jesus (Matthew 10:35)  <br><br>
+        
+        R 	2. Finish this verse and give the reference: ""Anyone who welcomes you welcomes. . ." <br>
+            A. ". . .me, and anyone who welcomes me welcomes the one who sent me. " (Matthew 10:40)  <br><br>
+        
+        G 	3. What is hidden that will not be made known? <br>
+            A. Nothing (Matthew 10:26)  <br><br>
+        
+        A 	4. According to Matthew, chapter 10, verse 11, for whom should you search? <br>
+            A. Some worthy person (Matthew 10:11)  <br><br>
+        
+        G 	5. What are these twelve worth? <br>
+            A. More than many sparrows (Matthew 10:31) <br><br> 
+        
+        G 	6. Outside of whose care will not one of the sparrows fall to the ground? <br>
+            A. Your Father's (Matthew 10:29)  <br><br>
+        
+        G 	7. Who should proclaim this message as they go: "The kingdom of heaven has come near."? <br>
+            A. These twelve [OR the twelve apostles OR Jesus' twelve disciples] (Matthew 10:7)  <br><br>
+        
+        A 	8. According to Matthew, chapter 10, verse 27, what should you proclaim from the roofs? <br>
+            A. What is whispered in your ear (Matthew 10:27)  <br><br>
+        
+        V 	9. Finish these verses: ""Whoever acknowledges me before others,. . ." <br>
+            A. ". . .I will also acknowledge before my Father in heaven. But whoever disowns me before others, I will disown before my Father in heaven." (Matthew 10:32-33)  <br><br>
+        
+        Q 	10. Quote Matthew, chapter 10, verse 39. <br>
+            A. "Whoever finds their life will lose it, and whoever loses their life for my sake will find it." (Matthew 10:39)  <br><br>
+        
+        G 	11. Who is not above his master? <br>
+            A. A servant (Matthew 10:24)  <br><br>
+        
+        G 	12. Who should raise the dead? <br>
+            A. These twelve [OR the twelve apostles OR Jesus' twelve disciples] (Matthew 10:8)  <br><br>
+        
+        G 	13. Of what will a man's enemies be the members? <br>
+            A. His own household (Matthew 10:36)  <br><br>
+        
+        X 	14. In Matthew, chapter 10, for whom will it be more bearable on the day of judgment? <br>
+            A. Sodom and Gomorrah (Matthew 10:15)  <br><br>
+        
+        A 	15. According to Matthew, chapter 10, verse 23, to where should you flee? <br>
+            A. Another place (Matthew 10:23)  <br><br>
+        
+        G 	16. Who should not enter any town of the Samaritans? <br>
+            A. These twelve [OR the twelve apostles OR Jesus' twelve disciples] (Matthew 10:5)  <br><br>
+        
+        G 	17. Who should cleanse those who have leprosy? <br>
+            A. These twelve [OR the twelve apostles OR Jesus' twelve disciples] (Matthew 10:8)  <br><br>
+        
+        G 	18. Whom should these twelve raise? <br>
+            A. The dead (Matthew 10:8)  <br><br>
+        
+        A 	19. According to Matthew, chapter 10, verse 21, what will a father do? <br>
+            A. Betray his child to death (Matthew 10:21)  <br><br>
+        <br><br>
+        
+         <h7 id="4">SET #4 </h7>  <br><br>
+        
+        G 	1. Before whom will Jesus also acknowledge whoever acknowledges Jesus before others? <br>
+            A. His Father in heaven (Matthew 10:32)  <br><br>
+        
+        A 	2. According to Matthew, chapter 10, verse 3, what is Matthew? <br>
+            A. A tax collector (Matthew 10:3)  <br><br>
+        
+        A 	3. According to Matthew, chapter 10, verse 32, where is my Father? <br>
+            A. In heaven (Matthew 10:32)  <br><br>
+        
+        G 	4. What is Matthew? <br>
+            A. A tax collector (Matthew 10:3)  <br><br>
+        
+        Q 	5. Quote Matthew, chapter 10, verse 39. <br>
+            A. "Whoever finds their life will lose it, and whoever loses their life for my sake will find it." (Matthew 10:39)  <br><br>
+        
+        G 	6. What did Jesus give his twelve disciples authority to heal? <br>
+            A. Every disease and sickness (Matthew 10:1)  <br><br>
+        
+        G 	7. To where should these twelve flee when they are persecuted in one place? <br>
+            A. Another place (Matthew 10:23)  <br><br>
+        
+        G 	8. Whom did Jesus give authority to drive out impure spirits and to heal every disease and sickness? <br>
+            A. His twelve disciples (Matthew 10:1)  <br><br>
+        
+        G 	9. Why should these twelve take no bag for the journey or extra shirt or sandals or a staff? <br>
+            A. For the worker is worth his keep (Matthew 10:10)  <br><br>
+        
+        A 	10. According to Matthew, chapter 10, verse 32, what will I also do? <br>
+            A. Acknowledge before my Father in heaven whoever acknowledges me before others (Matthew 10:32)  <br><br>
+        
+        A 	11. According to Matthew, chapter 10, verse 28, of whom should you be afraid? <br>
+            A. The One who can destroy both soul and body in hell (Matthew 10:28)  <br><br>
+        
+        G 	12. Who should be afraid of the One who can destroy both soul and body in hell? <br>
+            A. These twelve [OR the twelve apostles OR Jesus' twelve disciples] (Matthew 10:28) <br><br> 
+        
+        G 	13. Of whom is anyone who loves their son or daughter more than Jesus not worthy? <br>
+            A. Jesus (Matthew 10:37)  <br><br>
+        
+        X 	14. Two-part question: in Matthew, chapter 10, to whom will the twelve apostles be handed over, and where will they be flogged? <br>
+            A. 1) Local councils; 2) In the synagogues (Matthew 10:17)  <br><br>
+        
+        V 	15. Finish these verses: ""Whoever acknowledges me before others,. . ." <br>
+            A. ". . .I will also acknowledge before my Father in heaven. But whoever disowns me before others, I will disown before my Father in heaven." (Matthew 10:32-33)  <br><br>
+        
+        G 	16. What should these twelve proclaim from the roofs? <br>
+            A. What is whispered in their ear (Matthew 10:27)  <br><br>
+        
+        R 	17. Finish this verse and give the reference: "And if anyone gives even. . ." <br>
+            A. ". . .a cup of cold water to one of these little ones who is my disciple, truly I tell you, that person will certainly not lose their reward." " (Matthew 10:42)  <br><br>
+        
+        G 	18. Whom will a man's enemies be? <br>
+            A. The members of his own household (Matthew 10:36) <br><br> 
+        
+        G 	19. What should these twelve not get to take with them in their belts? <br>
+            A. Any gold or silver or copper (Matthew 10:9)  <br><br>
+        <br><br>
+        
+         <h7 id="5">SET #5</h7>   <br><br>
+        
+        G 	1. Whom will Jesus also acknowledge before his Father in heaven? <br>
+            A. Whoever acknowledges Jesus before others (Matthew 10:32)  <br><br>
+        
+        A 	2. According to Matthew, chapter 10, verse 33, where is my Father? <br>
+            A. In heaven (Matthew 10:33)  <br><br>
+        
+        A 	3. According to Matthew, chapter 10, verse 12, what should you do as you enter the home? <br>
+            A. Give it your greeting (Matthew 10:12)  <br><br>
+        
+        G 	4. When should these twelve flee to another place?<br> 
+            A. When they are persecuted in one place (Matthew 10:23) <br><br> 
+        
+        G 	5. For what should these twelve take no bag? <br>
+            A. The journey (Matthew 10:10)  <br><br>
+        
+        A 	6. According to Matthew, chapter 10, verse 34, why did I come? <br>
+            A. To bring a sword to the earth (Matthew 10:34)  <br><br>
+        
+        X 	7. Complete, in essence, the following: "Whatever town or village you . . ." <br>
+            A. ". . . enter, search there for some worthy person and stay at their house until you leave." (Matthew 10:11)  <br><br>
+        
+        A 	8. According to Matthew, chapter 10, verse 34, what did I come to bring to the earth? <br>
+            A. A sword (Matthew 10:34)  <br><br>
+        
+        R 	9. Finish this verse and give the reference: "Whoever finds their life will. . ." <br>
+            A. ". . .lose it, and whoever loses their life for my sake will find it. " (Matthew 10:39)  <br><br>
+        
+        G 	10. What if the home is not deserving? <br>
+            A. These twelve should let their peace return to them (Matthew 10:13)  <br><br>
+        
+        Q 	11. Quote Matthew, chapter 10, verse 42. <br>
+            A. "And if anyone gives even a cup of cold water to one of these little ones who is my disciple, truly I tell you, that person will certainly not lose their reward."" (Matthew 10:42) <br><br> 
+        
+        G 	12. What is whoever does not take up their cross and follow Jesus? <br>
+            A. Not worthy of Jesus (Matthew 10:38)  <br><br>
+        
+        V 	13. Finish this verse: ""Anyone who welcomes you welcomes. . ." <br>
+            A. ". . .me, and anyone who welcomes me welcomes the one who sent me." (Matthew 10:40)  <br><br>
+        
+        G 	14. What should these twelve give the home as they enter it? <br>
+            A. Their greeting (Matthew 10:12)  <br><br>
+        
+        G 	15. When should these twelve let their peace return to them? <br>
+            A. If the home is not deserving (Matthew 10:13)  <br><br>
+        
+        G 	16. Who should search in whatever town or village they enter for some worthy person? <br>
+            A. These twelve [OR the twelve apostles OR Jesus' twelve disciples] (Matthew 10:11)  <br><br>
+        
+        G 	17. What should these twelve let return to them if the home is not deserving? <br>
+            A. Their peace (Matthew 10:13)  <br><br>
+        
+        G 	18. On what should these twelve let their peace rest if it is deserving? <br>
+            A. The home (Matthew 10:13)  <br><br>
+        
+        G 	19. For whom should these twelve search in whatever town or village they enter? <br>
+            A. Some worthy person (Matthew 10:11)  <br><br>
+        <br><br>
+        
+         <h7 id="6">SET #6 </h7>  <br><br>
+        
+        A 	1. According to Matthew, chapter 10, verse 4, what is Simon? <br>
+            A. The Zealot (Matthew 10:4)  <br><br>
+        
+        G 	2. As innocent as what should these twelve be? <br>
+            A. Doves (Matthew 10:16)  <br><br>
+        
+        G 	3. How shrewd should these twelve be? <br>
+            A. As shrewd as snakes (Matthew 10:16)  <br><br>
+        
+        G 	4. As what should these twelve be shrewd? <br>
+            A. Snakes (Matthew 10:16)  <br><br>
+        
+        A 	5. According to Matthew, chapter 10, verse 39, who will lose their life? <br>
+            A. Whoever finds their life (Matthew 10:39)  <br><br>
+        
+        G 	6. Why should these twelve be as shrewd as snakes and as innocent as doves? <br>
+            A. Because Jesus is sending them out like sheep among wolves (Matthew 10:16)  <br><br>
+        
+        V 	7. Finish this verse: ""Anyone who welcomes you welcomes. . ." <br>
+            A. ". . .me, and anyone who welcomes me welcomes the one who sent me." (Matthew 10:40)  <br><br>
+        
+        G 	8. What should these twelve shake off their feet when they leave that home or town if anyone will not welcome them or listen to their words? <br>
+            A. The dust (Matthew 10:14)  <br><br>
+        
+        G 	9. Who will have their parents put to death? <br>
+            A. Children (Matthew 10:21)  <br><br>
+        
+        Q 	10. Quote Matthew, chapter 10, verses 32 through 33. <br>
+            A. "Whoever acknowledges me before others, I will also acknowledge before my Father in heaven. But whoever disowns me before others, I will disown before my Father in heaven. (Matthew 10:32-33)  <br><br>
+        
+        G 	11. Who is sending these twelve out like sheep among wolves? <br>
+            A. Jesus (Matthew 10:16)  <br><br>
+        
+        A 	12. According to Matthew, chapter 10, verse 40, who welcomes me? <br>
+            A. Anyone who welcomes you (Matthew 10:40)  <br><br>
+        
+        G 	13. When will it be more bearable for Sodom and Gomorrah than for that town? <br>
+            A. On the day of judgment (Matthew 10:15)  <br><br>
+        
+        X 	14. Why should the twelve apostles not worry about what to say or how to say it when they are arrested? <br>
+            A. Because at that time they will be given what to say, for it will not be them speaking, but the Spirit of their Father speaking through them (Matthew 10:19-20)  <br><br>
+        
+        G 	15. When should these twelve leave that home or town and shake the dust off their feet? <br>
+            A. If anyone will not welcome them or listen to their words (Matthew 10:14)  <br><br>
+        
+        A 	16. According to Matthew, chapter 10, verse 4, who betrayed him? <br>
+            A. Judas Iscariot (Matthew 10:4)  <br><br>
+        
+        G 	17. What is enough for servants? <br>
+            A. To be like their masters (Matthew 10:25)  <br><br>
+        
+        G 	18. Than for whom will it be more bearable for Sodom and Gomorrah on the day of judgment? <br>
+            A. That town (that does not welcome these twelve or listen to their words) (Matthew 10:15)  <br><br>
+        
+        R 	19. Finish this verse and give the reference: "Whoever finds their life will. . ." <br>
+            A. ". . .lose it, and whoever loses their life for my sake will find it. " (Matthew 10:39)  <br><br>
+        <br><br>
+        
+         <h7 id="7">SET #7</h7>   <br><br>
+        
+        G 	1. Who should not worry about what to say or how to say it when they arrest them? <br>
+            A. These twelve [OR the twelve apostles OR Jesus' twelve disciples] (Matthew 10:19)  <br><br>
+        
+        G 	2. Whose brother is Andrew? <br>
+            A. Simon's (who is called Peter) (Matthew 10:2)  <br><br>
+        
+        G 	3. When will these twelve be given what to say? <br>
+            A. At the time when they arrest them (Matthew 10:19) <br><br>  
+        
+        A 	4. According to Matthew, chapter 10, verse 42, who will certainly not lose their reward? <br>
+            A. Anyone who gives even a cup of cold water to one of these little ones who is my disciple (Matthew 10:42)  <br><br>
+        
+        G 	5. Because of whom will these twelve be hated by everyone? <br>
+            A. Jesus (Matthew 10:22)  <br><br>
+        
+        A 	6. According to Matthew, chapter 10, verse 7, how should you proclaim this message: "The kingdom of heaven has come near."? <br>
+            A. As you go (Matthew 10:7)  <br><br>
+        
+        G 	7. Whom will a father betray to death? <br>
+            A. His child (Matthew 10:21)  <br><br>
+        
+        A 	8. According to Matthew, chapter 10, verse 7, what should you proclaim as you go? <br>
+            A. This message: "The kingdom of heaven has come near." (Matthew 10:7)  <br><br>
+        
+        R 	9. Finish these verses and give the reference: ""Whoever acknowledges me before others,. . ." <br>
+            A. ". . .I will also acknowledge before my Father in heaven. But whoever disowns me before others, I will disown before my Father in heaven. " (Matthew 10:32-33)  <br><br>
+        
+        A 	10. According to Matthew, chapter 10, verse 5, what should these twelve not enter? <br>
+            A. Any town of the Samaritans (Matthew 10:5)  <br><br>
+        
+        G 	11. Against whom will children rebel? <br>
+            A. Their parents (Matthew 10:21)  <br><br>
+        
+        V 	12. Finish this verse: "And if anyone gives even. . ." <br>
+            A. ". . .a cup of cold water to one of these little ones who is my disciple, truly I tell you, that person will certainly not lose their reward." (Matthew 10:42)  <br><br>
+        
+        G 	13. Whom will children have put to death? <br>
+            A. Their parents (Matthew 10:21)  <br><br>
+        
+        G 	14. As what will these twelve be brought before governors and kings on Jesus' account? <br>
+            A. Witnesses to them and to the Gentiles (Matthew 10:18)  <br><br>
+        
+        Q 	15. Quote Matthew, chapter 10, verse 39. <br>
+            A. "Whoever finds their life will lose it, and whoever loses their life for my sake will find it." (Matthew 10:39)  <br><br>
+        
+        G 	16. On whose account will these twelve be brought before governors and kings as witnesses to them and to the Gentiles? <br>
+            A. Jesus' (Matthew 10:18)  <br><br>
+        
+        G 	17. To what will children have their parents put? <br>
+            A. Death (Matthew 10:21)  <br><br>
+        
+        X 	18. Who was the brother of James son of Zebedee? <br>
+            A. John (Matthew 10:2)  <br><br>
+        
+        G 	19. Whom is a servant not above? <br>
+            A. His master (Matthew 10:24)  <br><br>
+        <br><br>
+        
+         <h7 id="8">SET #8</h7>   <br><br>
+        
+        G 	1. What will whoever welcomes a prophet as a prophet receive? <br>
+            A. A prophet's reward (Matthew 10:41)  <br><br>
+        
+        G 	2. Outside of whose care will not one of the sparrows fall to the ground? <br>
+            A. Your Father's (Matthew 10:29)  <br><br>
+        
+        A 	3. According to Matthew, chapter 10, verse 8, whom should you twelve cleanse? <br>
+            A. Those who have leprosy (Matthew 10:8)  <br><br>
+        
+        G 	4. Who should proclaim this message as they go: "The kingdom of heaven has come near."? <br>
+            A. These twelve [OR the twelve apostles OR Jesus' twelve disciples] (Matthew 10:7)  <br><br>
+        
+        X 	5. Complete, in essence, the following: "The student is not above . . ." <br>
+            A. ". . . the teacher, nor a servant above his master." (Matthew 10:24)  <br><br>
+        
+        R 	6. Finish this verse and give the reference: ""Anyone who welcomes you welcomes. . ." <br>
+            A. ". . .me, and anyone who welcomes me welcomes the one who sent me. " (Matthew 10:40)  <br><br>
+        
+        G 	7. What will whoever loses their life for Jesus' sake find? <br>
+            A. Their life (Matthew 10:39)  <br><br>
+        
+        G 	8. Who did not come to bring peace to the earth? <br>
+            A. Jesus (Matthew 10:34)  <br><br>
+        
+        A 	9. According to Matthew, chapter 10, verse 27, what should you proclaim from the roofs? <br>
+            A. What is whispered in your ear (Matthew 10:27)  <br><br>
+        
+        A 	10. According to Matthew, chapter 10, verse 1, what did Jesus give his twelve disciples? <br>
+            A. Authority to drive out impure spirits and to heal every disease and sickness (Matthew 10:1)  <br><br>
+        
+        G 	11. Before whom will Jesus also acknowledge whoever acknowledges Jesus before others? <br>
+            A. His Father in heaven (Matthew 10:32)  <br><br>
+        
+        G 	12. Like whom is it enough for students to be? <br>
+            A. Their teachers (Matthew 10:25)  <br><br>
+        
+        Q 	13. Quote Matthew, chapter 10, verse 39. <br>
+            A. "Whoever finds their life will lose it, and whoever loses their life for my sake will find it." (Matthew 10:39)  <br><br>
+        
+        A 	14. According to Matthew, chapter 10, verse 8, how should you give? <br>
+            A. Freely (Matthew 10:8)  <br><br>
+        
+        G 	15. When will that person certainly not lose their reward? <br>
+            A. If they give even a cup of cold water to one of these little ones who is Jesus' disciple (Matthew 10:42)  <br><br>
+        
+        G 	16. For whom is it enough to be like their teachers? <br>
+            A. Students (Matthew 10:25)  <br><br>
+        
+        G 	17. Who has come to turn a daughter against her mother? <br>
+            A. Jesus (Matthew 10:35)  <br><br>
+        
+        G 	18. Whom does anyone who welcomes these twelve welcome? <br>
+            A. Jesus (Matthew 10:40)  <br><br>
+        
+        V 	19. Finish these verses: ""Whoever acknowledges me before others,. . ." <br>
+            A. ". . .I will also acknowledge before my Father in heaven. But whoever disowns me before others, I will disown before my Father in heaven." (Matthew 10:32-33)  <br><br>
+        <br><br>
+        
+         <h7 id="9">SET #9</h7>   <br><br>
+        
+        G 	1. Who is not above his master? <br>
+            A. A servant (Matthew 10:24)  <br><br>
+        
+        X 	2. Two-part question: what is enough for students, and what is enough for servants? <br>
+            A. 1) To be like their teachers; 2) To be like their masters (Matthew 10:25)  <br><br>
+        
+        G 	3. What if anyone gives even a cup of cold water to one of these little ones who is Jesus' disciple? <br>
+            A. That person will certainly not lose their reward (Matthew 10:42)  <br><br>
+        
+        R 	4. Finish this verse and give the reference: "And if anyone gives even. . ." <br>
+            A. ". . .a cup of cold water to one of these little ones who is my disciple, truly I tell you, that person will certainly not lose their reward." " (Matthew 10:42)  <br><br>
+        
+        A 	5. According to Matthew, chapter 10, verse 20, who will be speaking through you? <br>
+            A. The Spirit of your Father (Matthew 10:20)  <br><br>
+        
+        G 	6. Whom has Jesus come to turn against her mother? <br>
+            A. A daughter (Matthew 10:35)  <br><br>
+        
+        V 	7. Finish these verses: ""Whoever acknowledges me before others,. . ." <br>
+            A. ". . .I will also acknowledge before my Father in heaven. But whoever disowns me before others, I will disown before my Father in heaven." (Matthew 10:32-33)  <br><br>
+        
+        A 	8. According to Matthew, chapter 10, verse 25, what is enough? <br>
+            A. For students to be like their teachers, and servants like their masters (Matthew 10:25) <br><br> 
+        
+        A 	9. According to Matthew, chapter 10, verse 28, of whom should you be afraid? <br>
+            A. The One who can destroy both soul and body in hell (Matthew 10:28)  <br><br>
+        
+        G 	10. Who will have their parents put to death? <br>
+            A. Children (Matthew 10:21)  <br><br>
+        
+        G 	11. Who will receive a righteous person's reward? <br>
+            A. Whoever welcomes a righteous person as a righteous person (Matthew 10:41)  <br><br>
+        
+        G 	12. Whom should these twelve drive out? <br>
+            A. Demons (Matthew 10:8)  <br><br>
+        
+        G 	13. Whom did Judas Iscariot betray? <br>
+            A. Jesus (Matthew 10:4)  <br><br>
+        
+        G 	14. Whom will children have put to death? <br>
+            A. Their parents (Matthew 10:21)  <br><br>
+        
+        G 	15. What did Jesus not come to bring to the earth? <br>
+            A. Peace (Matthew 10:34)  <br><br>
+        
+        G 	16. Whom will Jesus also acknowledge before his Father in heaven? <br>
+            A. Whoever acknowledges Jesus before others (Matthew 10:32)  <br><br>
+        
+        G 	17. What town should these twelve not enter? <br>
+            A. Any town of the Samaritans (Matthew 10:5)  <br><br>
+        
+        Q 	18. Quote Matthew, chapter 10, verse 39. <br>
+            A. "Whoever finds their life will lose it, and whoever loses their life for my sake will find it." (Matthew 10:39)  <br><br>
+        
+        A 	19. According to Matthew, chapter 10, verse 17, to whom will you be handed over? <br>
+            A. The local councils (Matthew 10:17)  <br><br>
+        <br><br>
+        
+         <h7 id="10">SET #10 </h7>  <br><br>
+        
+        A 	1. According to Matthew, chapter 10, verse 3, what is Matthew? <br>
+            A. A tax collector (Matthew 10:3)  <br><br>
+        
+        A 	2. According to Matthew, chapter 10, verse 11, for whom should you search? <br>
+            A. Some worthy person (Matthew 10:11)  <br><br>
+        
+        G 	3. What is enough for servants? <br>
+            A. To be like their masters (Matthew 10:25) <br><br> 
+        
+        A 	4. According to Matthew, chapter 10, verse 22, what will you be by everyone because of me? <br>
+            A. Hated (Matthew 10:22)  <br><br>
+        
+        G 	5. Against whom has Jesus come to turn a man? <br>
+            A. His father (Matthew 10:35)  <br><br>
+        
+        R 	6. Finish these verses and give the reference: ""Whoever acknowledges me before others,. . ." <br>
+            A. ". . .I will also acknowledge before my Father in heaven. But whoever disowns me before others, I will disown before my Father in heaven. " (Matthew 10:32-33)  <br><br>
+        
+        G 	7. What is whoever does not take up their cross and follow Jesus? <br>
+            A. Not worthy of Jesus (Matthew 10:38)  <br><br>
+        
+        A 	8. According to Matthew, chapter 10, verse 15, for whom will it be more bearable on the day of judgment? <br>
+            A. Sodom and Gomorrah (Matthew 10:15)  <br><br>
+        
+        X 	9. In Matthew, chapter 10, what will everything that is concealed be? <br>
+            A. Disclosed (Matthew 10:26)  <br><br>
+        
+        Q 	10. Quote Matthew, chapter 10, verse 40. <br> 
+            A. "Anyone who welcomes you welcomes me, and anyone who welcomes me welcomes the one who sent me. (Matthew 10:40)  <br><br>
+        
+        G 	11. Who should cleanse those who have leprosy? <br>
+            A. These twelve [OR the twelve apostles OR Jesus' twelve disciples] (Matthew 10:8)  <br><br>
+        
+        G 	12. What is Matthew? <br>
+            A. A tax collector (Matthew 10:3)  <br><br>
+        
+        G 	13. Who should not enter any town of the Samaritans? <br>
+            A. These twelve [OR the twelve apostles OR Jesus' twelve disciples] (Matthew 10:5)  <br><br>
+        
+        G 	14. Who should go rather to the lost sheep of Israel? <br>
+            A. These twelve [OR the twelve apostles OR Jesus' twelve disciples] (Matthew 10:6)  <br><br>
+        
+        V 	15. Finish this verse: "Whoever finds their life will. . ." <br>
+            A. ". . .lose it, and whoever loses their life for my sake will find it." (Matthew 10:39)  <br><br>
+        
+        G 	16. Whom will a man's enemies be? <br>
+            A. The members of his own household (Matthew 10:36)  <br><br>
+        
+        G 	17. Whom should these twelve raise? <br>
+            A. The dead (Matthew 10:8)  <br><br>
+        
+        G 	18. What can those who kill the body not kill? <br>
+            A. The soul (Matthew 10:28)  <br><br>
+        
+        G 	19. Of what will a man's enemies be the members? <br>
+            A. His own household (Matthew 10:36)  <br><br>
+        
+        </p>
+
+</body>
+</html>

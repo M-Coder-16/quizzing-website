@@ -1,0 +1,903 @@
+<!DOCTYPE html>
+<html> 
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+
+        h1{
+            background-color: black;
+            text-align: center;
+            font-size: 120px;
+            margin: 0px;
+            padding: 30px;
+            color: rgb(0, 172, 172);
+            font-family: 'Impact', Haettenschweiler, Arial Narrow Bold, sans-serif;
+            top: 0px;
+            left: 0px;
+            text-emphasis: bold;
+        }
+
+        head{
+            background-color: black;
+            margin: 0px;
+            padding: 20px;
+        }
+
+        nav{
+            left: 0px;
+            margin: 0px;
+            padding: 20px;
+            background-color: rgb(0, 172, 172);
+            color: black;
+            text-align: left;
+            display: inline-block;
+            height: auto;
+        }
+
+        nav a{
+            color: black;
+            text-decoration: none;
+            margin: 10px 15px;
+            padding: 8px;
+            font-size: 24px;
+            display: inline-block;
+            box-shadow: 0px 0px 10px 5px black;
+            background-color: #b3b3b3;
+            border-radius: 5px;
+        }
+
+        body{
+            background-image: url('data:image/jpeg;base64,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');
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-attachment: fixed;
+        }
+
+        h2{
+            text-align: center;
+            color: white;
+            font-size: 32px;
+            text-emphasis: bold;
+            margin: 10px;
+            background-color: black;
+            padding: 10px;
+            border: double 3px black;
+        }
+
+        .bookmarks{
+            background-color: rgb(0, 172, 172);
+            position: absolute;
+            top: 290px;
+            left: 26%;
+            text-align: center;
+            padding: 10px 20px;
+            border: solid black 5px;
+            border-radius: 25px;
+        }
+
+        .bookmarks a{
+            display: inline-block;
+            background-color: black;
+            color: white;
+            text-emphasis: bold;
+            font-size: 24px;
+            margin: 10px;
+            padding: 10px;
+            border-radius: 10px;
+        }
+
+        h3{
+            font-size: 68px;
+            position: absolute;
+            float: center;
+            top: 350px;
+            left: 48%;
+            text-emphasis: bold;
+            text-align: center;
+            font-family: 'Times New Roman', Times, serif;
+        }
+
+        .verses a{
+            position: absolute;
+            color: rgb(0, 172, 172);
+            background-color: black;
+            font-size: 32px;
+            font-family: Arial, Helvetica, sans-serif;
+            left: 38%;
+            padding: 10px 100px;
+            text-decoration: none;
+            text-align: center;
+            top: 220px;
+            text-emphasis: bold;
+        }
+
+        #myBtn {
+            display: none; /* Hidden by default */
+            position: fixed; /* Fixed/sticky position */
+            bottom: 65px; /* Place the button at the bottom of the page */
+            left: 50px; /* Place the button 30px from the right */
+            z-index: 99; /* Make sure it does not overlap */
+            border: none; /* Remove borders */
+            outline: none; /* Remove outline */
+            background-color: rgb(0, 172, 172); /* Set a background color */
+            color: black; /* Text color */
+            cursor: pointer; /* Add a mouse pointer on hover */
+            padding: 10px; /* Some padding */
+            padding-bottom: 0px;
+            border-radius: 10px; /* Rounded corners */
+            border: solid black 5px;
+            font-size: 72px; /* Increase font size */
+        }
+
+        #myBtn:hover {
+            display: none; /* Hidden by default */
+            position: fixed; /* Fixed/sticky position */
+            bottom: 65px; /* Place the button at the bottom of the page */
+            left: 50px; /* Place the button 30px from the right */
+            z-index: 99; /* Make sure it does not overlap */
+            border: none; /* Remove borders */
+            outline: none; /* Remove outline */
+            background-color: rgb(0, 0, 0); /* Set a background color */
+            color: rgb(0, 172, 172); /* Text color */
+            cursor: pointer; /* Add a mouse pointer on hover */
+            padding: 10px; /* Some padding */
+            padding-bottom: 0px;
+            border-radius: 10px; /* Rounded corners */
+            border: solid rgb(0, 172, 172) 5px;
+            font-size: 72px; /* Increase font size */
+        }
+
+        p{
+            font-size: 22px;
+            position: absolute;
+            top: 500px;
+            left: 30%;
+        }
+
+        h7{
+            font-size: 32px;
+            text-emphasis: bold;
+        }
+
+    </style>
+    <button onclick="topFunction()" id="myBtn" title="Go to top"><b>^</b></button>
+<head> 
+    <h1>Questions</h1>
+    <div class="verses">
+        <a href="Quizzing.html">Click here for memory verses.</a>        
+   </div>
+</head>
+<body>
+   
+    <script>
+        //Get the button
+        var mybutton = document.getElementById("myBtn");
+        
+        // When the user scrolls down 20px from the top of the document, show the button
+        window.onscroll = function() {scrollFunction()};
+        
+        function scrollFunction() {
+          if (document.body.scrollTop > 1750 || document.documentElement.scrollTop > 1750) {
+            mybutton.style.display = "block";
+          } else {
+            mybutton.style.display = "none";
+          }
+        }
+        
+        // When the user clicks on the button, scroll to the top of the document
+        function topFunction() {
+          document.body.scrollTop = 0;
+          document.documentElement.scrollTop = 0;
+        }
+        </script>
+
+    <nav>
+
+        <h2>Select a Chapter</h2>
+        <br>
+
+        <a href="Quizzing_Questions_1.html">Matthew 1</a>
+        <br>
+        <a href="Quizzing_Questions_2.html">Matthew 2</a>
+        <br>
+        <a href="Quizzing_Questions_3.html">Matthew 3</a>
+        <br>
+        <a href="Quizzing_Questions_4.html">Matthew 4</a>
+        <br>
+        <a href="Quizzing_Questions_5.html">Matthew 5</a>
+        <br>
+        <a href="Quizzing_Questions_6.html">Matthew 6</a>
+        <br>
+        <a href="Quizzing_Questions_7.html">Matthew 7</a>
+        <br>
+        <a href="Quizzing_Questions_8.html">Matthew 8</a>
+        <br>
+        <a href="Quizzing_Questions_9.html">Matthew 9</a>
+        <br>
+        <a href="Quizzing_Questions_10.html">Matthew 10</a>
+        <br>
+        <a href="Quizzing_Questions_11.html">Matthew 11</a>
+        <br>
+        <a href="Quizzing_Questions_12.html">Matthew 12</a>
+        <br>
+        <a href="Quizzing_Questions_13.html">Matthew 13</a>
+        <br>
+        <a href="Quizzing_Questions_14.html">Matthew 14</a>
+        <br>
+        <a href="Quizzing_Questions_15.html">Matthew 15</a>
+        <br>
+        <a href="Quizzing_Questions_16.html">Matthew 16</a>
+        <br>
+        <a href="Quizzing_Questions_17.html">Matthew 17</a>
+        <br>
+        <a href="Quizzing_Questions_18.html">Matthew 18</a>
+        <br>
+        <a href="Quizzing_Questions_19.html">Matthew 19</a>
+        <br>
+        <a href="Quizzing_Questions_20.html">Matthew 20</a>
+        <br>
+        <a href="Quizzing_Questions_21.html">Matthew 21</a>
+        <br>
+        <a href="Quizzing_Questions_22.html">Matthew 22</a>
+        <br>
+        <a href="Quizzing_Questions_23.html">Matthew 23</a>
+        <br>
+        <a href="Quizzing_Questions_24.html">Matthew 24</a>
+        <br>
+        <a href="Quizzing_Questions_25.html">Matthew 25</a>
+        <br>
+        <a href="Quizzing_Questions_26.html">Matthew 26</a>
+        <br>
+        <a href="Quizzing_Questions_27.html">Matthew 27</a>
+        <br>
+        <a href="Quizzing_Questions_28.html">Matthew 28</a>
+    </nav>
+
+    <div class="bookmarks">
+        <a href="#1">Set 1</a>
+        <a href="#2">Set 2</a>
+        <a href="#3">Set 3</a>
+        <a href="#4">Set 4</a>
+        <a href="#5">Set 5</a>
+        <a href="#6">Set 6</a>
+        <a href="#7">Set 7</a>
+        <a href="#8">Set 8</a>
+        <a href="#9">Set 9</a>
+        <a href="#10">Set 10</a>
+    </div>
+
+    <h3>Matthew 22</h3>
+
+    <p> <h7 id="1">SET #1</h7>   <br><br>
+
+        G 	1. Whom did Jesus ask, "What do you think about the Messiah? Whose son is he?" <br>
+            A. The Pharisees (Matthew 22:41-42)  <br><br>
+        
+        G 	2. When did the Sadducees come to Jesus with a question? <br>
+            A. That same day (Matthew 22:23)  <br><br>
+        
+        R 	3. Finish these verses and give the reference: "Jesus replied: "'Love the Lord. . ." <br>
+            A. ". . .your God with all your heart and with all your soul and with all your mind.' This is the first and greatest commandment. " (Matthew 22:37-38) <br><br> 
+        
+        A 	4. According to Matthew, chapter 22, verse 30, like whom will people be at the resurrection? <br>
+            A. The angels in heaven (Matthew 22:30)  <br><br>
+        
+        G 	5. Who dared to ask Jesus any more questions from that day on? <br>
+            A. No one (Matthew 22:46)  <br><br>
+        
+        G 	6. Whom did the Pharisees lay plans to trap in his words? <br>
+            A. Jesus (Matthew 22:15)  <br><br>
+        
+        X 	7. In Matthew, chapter 22, what was a special tax levied on subject peoples? <br>
+            A. The imperial tax (Matthew 22:17)  <br><br>
+        
+        G 	8. Who tested Jesus with this question: "Teacher, which is the greatest commandment in the Law?" <br>
+            A. One of the Pharisees (an expert in the law) (Matthew 22:35-36)  <br><br>
+        
+        G 	9. Who heard that Jesus had silenced the Sadducees? <br>
+            A. The Pharisees (Matthew 22:34)  <br><br>
+        
+        V 	10. Finish this verse: "Jesus replied, "You are in. . ." <br>
+            A. "... error because you do not know the Scriptures or the power of God." (Matthew 22:29)  <br><br>
+        
+        G 	11. How should you love the Lord your God? <br>
+            A. With all your heart and with all your soul and with all your mind (Matthew 22:37)  <br><br>
+        
+        A 	12. According to Matthew, chapter 22, verse 9, where should they go? <br>
+            A. To the street corners (Matthew 22:9)  <br><br>
+        
+        G 	13. Who sent some more servants and said, "Tell those who have been invited that I have prepared my dinner: My oxen and fattened cattle have been butchered, and everything is ready. Come to the wedding banquet."? <br>
+            A. A king (Matthew 22:4)  <br><br>
+        
+        G 	14. Who is not the God of the dead but of the living? <br>
+            A. The God of Abraham, Isaac and Jacob (Matthew 22:32)  <br><br>
+        
+        A 	15. According to Matthew, chapter 22, verse 25, who had no children? <br>
+            A. The first brother (Matthew 22:25)  <br><br>
+        
+        S 	16. Situation question: who said it, to whom, and what was the response: "How did you get in here without wedding clothes, friend?" <br>
+            A. The king said it to the man not wearing wedding clothes, and the man was speechless (Matthew 22:11-12)  <br><br>
+        
+        A 	17. According to Matthew, chapter 22, verse 22, when were they amazed? <br>
+            A. When they heard this (Matthew 22:22)  <br><br>
+        
+        G 	18. Who said, "How is it then that David, speaking by the Spirit, calls him 'Lord'?" <br>
+            A. Jesus (Matthew 22:43)  <br><br>
+        
+        Q 	19. Quote Matthew, chapter 22, verses 31 through 32. <br>
+            A. "But about the resurrection of the dead - have you not read what God said to you, 'I am the God of Abraham, the God of Isaac, and the God of Jacob'? He is not the God of the dead but of the living."" (Matthew 22:31-32)  <br><br>
+        
+        G 	20. What coin should the Pharisees' disciples and the Herodians show Jesus? <br>
+            A. The coin used for paying the tax (Matthew 22:19)  <br><br>
+        <br><br>
+        
+         <h7 id="2">SET #2</h7>   <br><br>
+        
+        G 	1. Who seized a king's servants, mistreated them and killed them? <br>
+            A. The rest of those who had been invited to the banquet (Matthew 22:6) <br><br> 
+        
+        A 	2. According to Matthew, chapter 22, verse 13, where will there be weeping and gnashing of teeth? <br>
+            A. Outside, in the darkness (Matthew 22:13)  <br><br>
+        
+        G 	3. What plans did the Pharisees go out and lay? <br>
+            A. Plans to trap Jesus in his words (Matthew 22:15) <br><br> 
+        
+        G 	4. Why did the servants go out into the streets and gather all the people they could find, the bad as well as the good? <br>
+            A. Because the king told them to go to the street corners and invite to the banquet anyone they find (Matthew 22:9-10)  <br><br>
+        
+        S 	5. Situation question: who said it, and to whom: "You hypocrites, why are you trying to trap me?" <br>
+            A. Jesus said it to the Pharisees' disciples and the Herodians (Matthew 22:18)  <br><br>
+        
+        A 	6. According to Matthew, chapter 22, verse 23, with what did the Sadducees come to him? <br>
+            A. A question (Matthew 22:23)  <br><br>
+        
+        G 	7. When will people be like the angels in heaven? <br>
+            A. At the resurrection (Matthew 22:30)  <br><br>
+        
+        A 	8. According to Matthew, chapter 22, verse 21, what did he say to them? <br>
+            A. "So give back to Caesar what is Caesar's, and to God what is God's." (Matthew 22:21) <br><br> 
+        
+        G 	9. At whose teaching were the crowds astonished? <br>
+            A. Jesus' (Matthew 22:33)  <br><br>
+        
+        Q 	10. Quote Matthew, chapter 22, verses 39 through 40. <br>
+            A. "And the second is like it: 'Love your neighbor as yourself.' All the Law and the Prophets hang on these two commandments."" (Matthew 22:39-40)  <br><br>
+        
+        G 	11. In what was one of the Pharisees an expert? <br>
+            A. The law (Matthew 22:35)  <br><br>
+        
+        G 	12. What have been butchered? <br>
+            A. A king's oxen and fattened cattle (Matthew 22:4)  <br><br>
+        
+        R 	13. Finish this verse and give the reference: "Jesus replied, "You are in. . ." <br>
+            A. "... error because you do not know the Scriptures or the power of God." (Matthew 22:29)  <br><br>
+        
+        G 	14. On what do all the Law and the Prophets hang? <br>
+            A. These two commandments ("Love the Lord your God with all your heart and with all your soul and with all your mind" and "Love your neighbor as yourself") (Matthew 22:40)  <br><br>
+        
+        G 	15. Whom should you love with all your heart and with all your soul and with all your mind? <br>
+            A. The Lord your God (Matthew 22:37)  <br><br>
+        
+        V 	16. Finish these verses: "But about the resurrection of. . ." <br>
+            A. ". . .the dead - have you not read what God said to you, 'I am the God of Abraham, the God of Isaac, and the God of Jacob'? He is not the God of the dead but of the living." (Matthew 22:31-32)  <br><br>
+        
+        X 	17. Whose image was on a denarius? <br>
+            A. Caesar's (Matthew 22:19-21)  <br><br>
+        
+        A 	18. According to Matthew, chapter 22, verse 27, when did the woman die? <br>
+            A. Finally (Matthew 22:27)  <br><br>
+        
+        G 	19. When did Jesus ask the Pharisees, "What do you think about the Messiah? Whose son is he?" <br>
+            A. While the Pharisees were gathered together (Matthew 22:41-42)  <br><br>
+        
+        G 	20. How does David call the Messiah "Lord"? <br>
+            A. Speaking by the Spirit (Matthew 22:43)  <br><br>
+        <br><br>
+        
+         <h7 id="3">SET #3</h7>   <br><br>
+        
+        A 	1. According to Matthew, chapter 22, verse 13, what did the king tell the attendants? <br>
+            A. "Tie him hand and foot, and throw him outside, into the darkness, where there will be weeping and gnashing of teeth." (Matthew 22:13)  <br><br>
+        
+        G 	2. Who must marry the widow and raise up offspring for him if a man dies without having children? <br>
+            A. The man's brother (Matthew 22:24)  <br><br>
+        
+        G 	3. To what should the king's servants go and invite to the banquet anyone they find? <br>
+            A. The street corners (Matthew 22:9)  <br><br>
+        
+        A 	4. According to Matthew, chapter 22, verse 23, when did the Sadducees come to him with a question? <br>
+            A. That same day (Matthew 22:23)  <br><br>
+        
+        X 	5. Complete, in essence, the following: "For many are invited, but . . ." <br>
+            A. ". . . few are chosen." (Matthew 22:14)  <br><br>
+        
+        A 	6. According to Matthew, chapter 22, verse 37, what did Jesus reply? <br>
+            A. "'Love the Lord your God with all your heart and with all your soul and with all your mind.'" (Matthew 22:37)  <br><br>
+        
+        G 	7. Who went out into the streets and gathered all the people they could find, the bad as well as the good? <br>
+            A. The servants (Matthew 22:10)  <br><br>
+        
+        G 	8. Who said to his servants, "The wedding banquet is ready, but those I invited did not deserve to come."? <br>
+            A. The king (Matthew 22:8)  <br><br>
+        
+        R 	9. Finish this verse and give the reference: "Jesus replied, "You are in. . ." <br>
+            A. "... error because you do not know the Scriptures or the power of God." (Matthew 22:29)  <br><br>
+        
+        G 	10. To what does Jesus pay no attention? <br>
+            A. Who others are (Matthew 22:16)  <br><br>
+        
+        G 	11. Who sent his army and destroyed those murderers and burned their city? <br>
+            A. The king (Matthew 22:7)  <br><br>
+        
+        V 	12. Finish these verses: "But about the resurrection of. . ." <br>
+            A. ". . .the dead - have you not read what God said to you, 'I am the God of Abraham, the God of Isaac, and the God of Jacob'? He is not the God of the dead but of the living." (Matthew 22:31-32)  <br><br>
+        
+        G 	13. Why did the Pharisees' disciples and the Herodians leave Jesus and go away? <br>
+            A. Because they were amazed when they heard this (Matthew 22:22)  <br><br>
+        
+        G 	14. Who said to my Lord: "Sit at my right hand until I put your enemies under your feet."? <br>
+            A. The Lord (Matthew 22:44)  <br><br>
+        
+        Q 	15. Quote Matthew, chapter 22, verses 37 through 38. <br>
+            A. "Jesus replied: "'Love the Lord your God with all your heart and with all your soul and with all your mind.' This is the first and greatest commandment." (Matthew 22:37-38)  <br><br>
+        
+        G 	16. Who spoke to them again in parables? <br>
+            A. Jesus (Matthew 22:1)  <br><br>
+        
+        S 	17. Situation question: who said it, and to whom: "Teacher, which is the greatest commandment in the law?" <br>
+            A. One of the Pharisees (an expert in the law) said it to Jesus (Matthew 22:35-36)  <br><br>
+        
+        G 	18. Whom did a king send to those who had been invited to the banquet to tell them to come? <br>
+            A. His servants (Matthew 22:3)  <br><br>
+        
+        G 	19. Who will neither marry nor be given in marriage at the resurrection? <br>
+            A. People (Matthew 22:30)  <br><br>
+        
+        A 	20. According to Matthew, chapter 22, verse 15, what did the Pharisees do? <br>
+            A. Went out and laid plans to trap him in his words (Matthew 22:15)  <br><br>
+        <br><br>
+        
+         <h7 id="4">SET #4</h7>   <br><br>
+        
+        G 	1. What was filled with guests? <br>
+            A. The wedding hall (Matthew 22:10) <br><br> 
+        
+        G 	2. Who asked, "Whose image is this? And whose inscription?" <br>
+            A. Jesus (Matthew 22:20)  <br><br>
+        
+        Q 	3. Quote Matthew, chapter 22, verses 37 through 38. <br>
+            A. "Jesus replied: "'Love the Lord your God with all your heart and with all your soul and with all your mind.' This is the first and greatest commandment." (Matthew 22:37-38)  <br><br>
+        
+        A 	4. According to Matthew, chapter 22, verse 6, what did the rest do? <br>
+            A. Seized his servants, mistreated them and killed them (Matthew 22:6)  <br><br>
+        
+        X 	5. In Matthew, chapter 22, what coin was used for paying the imperial tax? <br>
+            A. A denarius (Matthew 22:17-19)  <br><br>
+        
+        A 	6. According to Matthew, chapter 22, verse 16, what did they say? <br>
+            A. "Teacher, we know that you are a man of integrity and that you teach the way of God in accordance with the truth. You aren't swayed by others, because you pay no attention to who they are." (Matthew 22:16)  <br><br>
+        
+        G 	7. Whom did the king come in to see? <br>
+            A. The guests (Matthew 22:11)  <br> <br>
+        
+        G 	8. With what did the Sadducees come to Jesus? <br>
+            A. A question (Matthew 22:23)  <br><br>
+        
+        A 	9. According to Matthew, chapter 22, verse 28, who were married to her? <br>
+            A. All of the seven (Matthew 22:28)  <br><br>
+        
+        S 	10. Situation question: who said it, to whom, and in reply to what: "Love the Lord your God with all your heart and with all your soul and with all your mind."? <br>
+            A. Jesus said it to one of the Pharisees (an expert in the law), in reply to, "Teacher, which is the greatest commandment in the law?" (Matthew 22:35-36) <br><br>
+        
+        G 	11. Who should show Jesus the coin used for paying the tax? <br>
+            A. The Pharisees' disciples and the Herodians (Matthew 22:19)  <br><br>
+        
+        G 	12. Who said, "You hypocrites, why are you trying to trap me?" <br>
+            A. Jesus (Matthew 22:18)  <br><br>
+        
+        A 	13. According to Matthew, chapter 22, verse 8, what is ready? <br>
+            A. The wedding banquet (Matthew 22:8)  <br><br>
+        
+        G 	14. Who asked, "How did you get in here without wedding clothes, friend?" <br>
+            A. The king (Matthew 22:12)  <br><br>
+        
+        G 	15. Who told us that if a man dies without having children, his brother must marry the widow and raise up offspring for him? <br>
+            A. Moses (Matthew 22:24)  <br><br>
+        
+        R 	16. Finish these verses and give the reference: "And the second is like. . ." <br>
+            A. ". . .it: 'Love your neighbor as yourself.' All the Law and the Prophets hang on these two commandments." " (Matthew 22:39-40)  <br><br>
+        
+        G 	17. Who prepared a wedding banquet for his son? <br>
+            A. A king (Matthew 22:2)  <br><br>
+        
+        G 	18. Who said, "So give back to Caesar what is Caesar's, and to God what is God's."? <br>
+            A. Jesus (Matthew 22:21)  <br><br>
+        
+        V 	19. Finish this verse: "Jesus replied, "You are in. . ." <br>
+            A. "... error because you do not know the Scriptures or the power of God." (Matthew 22:29)  <br><br>
+        
+        G 	20. Whom should the attendants tie hand and foot and throw outside, into the darkness? <br>
+            A. The man who was not wearing wedding clothes (Matthew 22:13)  <br><br>
+        
+        <br><br>
+         <h7 id="5">SET #5</h7>   <br><br>
+        
+        G 	1. What was a man in the wedding hall not wearing? <br>
+            A. Wedding clothes (Matthew 22:11)  <br><br>
+        
+        G 	2. By whom is Jesus not swayed? <br>
+            A. Others (Matthew 22:16)  <br><br>
+        
+        A 	3. According to Matthew, chapter 22, verse 1, how did Jesus speak to them again? <br>
+            A. In parables (Matthew 22:1)  <br><br>
+        
+        G 	4. What does Jesus teach in accordance with the truth? <br>
+            A. The way of God (Matthew 22:16)  <br> <br>
+        
+        X 	5. Four-part answer: in Matthew chapter 22, of whom is God the God? <br>
+            A. 1) Abraham; 2) Isaac; 3) Jacob; 4) The living (Matthew 22:32)  <br><br>
+        
+        G 	6. Who told the attendants, "Tie him hand and foot, and throw him outside, into the darkness, where there will be weeping and gnashing of teeth."? <br>
+            A. The king (Matthew 22:13)  <br><br>
+        
+        G 	7. How should the attendants tie the man who was not wearing wedding clothes? <br>
+            A. Hand and foot (Matthew 22:13)  <br><br>
+        
+        R 	8. Finish these verses and give the reference: "But about the resurrection of. . ." <br>
+            A. ". . .the dead - have you not read what God said to you, 'I am the God of Abraham, the God of Isaac, and the God of Jacob'? He is not the God of the dead but of the living." " (Matthew 22:31-32)  <br><br>
+        
+        G 	9. Who is not swayed by others? <br>
+            A. Jesus (Matthew 22:16)  <br><br>
+        
+        G 	10. Who said, "Teacher, we know that you are a man of integrity and that you teach the way of God in accordance with the truth. You aren't swayed by others, because you pay no attention to who they are."? <br>
+            A. The Pharisees' disciples and the Herodians (Matthew 22:16)  <br><br>
+        
+        S 	11. Situation question: who said it, to whom, and what was the reply: "Whose image is this? And whose inscription?" <br>
+            A. Jesus said it to the Pharisees' disciples and the Herodians, and the reply was, "Caesar's." (Matthew 22:20-21)  <br><br>
+        
+        A 	12. According to Matthew, chapter 22, verse 24, what did Moses tell us? <br>
+            A. That if a man dies without having children, his brother must marry the widow and raise up offspring for him (Matthew 22:24)  <br><br>
+        
+        V 	13. Finish this verse: "Jesus replied, "You are in. . ." <br>
+            A. "... error because you do not know the Scriptures or the power of God." (Matthew 22:29)  <br><br>
+        
+        A 	14. According to Matthew, chapter 22, verse 18, what did Jesus know? <br>
+            A. Their evil intent (Matthew 22:18)  <br><br>
+        
+        G 	15. What should you give back to God? <br>
+            A. What is God's (Matthew 22:21)  <br><br>
+        
+        G 	16. What did those the king invited not deserve? <br>
+            A. To come to the wedding banquet (Matthew 22:8)  <br><br>
+        
+        Q 	17. Quote Matthew, chapter 22, verses 37 through 38. <br>
+            A. "Jesus replied: "'Love the Lord your God with all your heart and with all your soul and with all your mind.' This is the first and greatest commandment." (Matthew 22:37-38) <br><br> 
+        
+        G 	18. Who teaches the way of God in accordance with the truth? <br>
+            A. Jesus (Matthew 22:16)  <br><br>
+        
+        A 	19. According to Matthew, chapter 22, verse 3, whom did he send? <br>
+            A. His servants (Matthew 22:3)  <br><br>
+        
+        G 	20. What did a king prepare for his son? <br>
+            A. A wedding banquet (Matthew 22:2)  <br><br>
+
+        <br><br>
+        
+         <h7 id="6">SET #6</h7>   <br><br>
+        
+        G 	1. To what should the king's servants go and invite to the banquet anyone they find? <br>
+            A. The street corners (Matthew 22:9)  <br><br>
+        
+        G 	2. Who sent some more servants and said, "Tell those who have been invited that I have prepared my dinner: My oxen and fattened cattle have been butchered, and everything is ready. Come to the wedding banquet."? <br>
+            A. A king (Matthew 22:4)  <br><br>
+        
+        S 	3. Situation question: who said it, to whom, and when: "What do you think about the Messiah? Whose son is he?" <br>
+            A. Jesus said it to the Pharisees, while the Pharisees were gathered together (Matthew 22:41-42)  <br><br>
+        
+        G 	4. To whom did Jesus say, "So give back to Caesar what is Caesar's, and to God what is God's."? <br>
+            A. The Pharisees' disciples and the Herodians (Matthew 22:21)  <br><br>
+        
+        G 	5. Why did the servants go out into the streets and gather all the people they could find, the bad as well as the good? <br>
+            A. Because the king told them to go to the street corners and invite to the banquet anyone they find (Matthew 22:9-10)  <br><br>
+        
+        R 	6. Finish these verses and give the reference: "And the second is like. . ." <br>
+            A. ". . .it: 'Love your neighbor as yourself.' All the Law and the Prophets hang on these two commandments." " (Matthew 22:39-40)  <br><br>
+        
+        X 	7. From what Old Testament book does the following quotation come: "I am the God of Abraham, the God of Isaac, and the God of Jacob."? <br>
+            A. Exodus (Matthew 22:32)  <br><br>
+        
+        G 	8. On what do all the Law and the Prophets hang? <br>
+            A. These two commandments ("Love the Lord your God with all your heart and with all your soul and with all your mind" and "Love your neighbor as yourself") (Matthew 22:40)  <br><br>
+        
+        A 	9. According to Matthew, chapter 22, verse 14, what are many? <br>
+            A. Invited (Matthew 22:14)  <br><br>
+        
+        G 	10. Who said to my Lord: "Sit at my right hand until I put your enemies under your feet."? <br>
+            A. The Lord (Matthew 22:44)  <br><br>
+        
+        G 	11. Whom should you love with all your heart and with all your soul and with all your mind? <br>
+            A. The Lord your God (Matthew 22:37)  <br><br>
+        
+        A 	12. According to Matthew, chapter 22, verse 3, why did he send his servants? <br>
+            A. To tell those who had been invited to the banquet to come (Matthew 22:3)  <br><br>
+        
+        G 	13. Who should show Jesus the coin used for paying the tax? <br>
+            A. The Pharisees' disciples and the Herodians (Matthew 22:19)  <br><br>
+        
+        V 	14. Finish this verse: "Jesus replied, "You are in. . ." <br>
+            A. "... error because you do not know the Scriptures or the power of God." (Matthew 22:29)  <br><br>
+        
+        A 	15. According to Matthew, chapter 22, verse 33, who were astonished at his teaching? <br>
+            A. The crowds (Matthew 22:33)  <br><br>
+        
+        G 	16. Who seized a king's servants, mistreated them and killed them? <br>
+            A. The rest of those who had been invited to the banquet (Matthew 22:6) <br><br> 
+        
+        A 	17. According to Matthew, chapter 22, verse 10, whom did the servants gather? <br>
+            A. All the people they could find, the bad as well as the good (Matthew 22:10)  <br><br>
+        
+        G 	18. Whose evil intent did Jesus know? <br>
+            A. The Pharisees' disciples' and the Herodians' (Matthew 22:18)  <br><br>
+        
+        G 	19. Who came in to see the guests? <br>
+            A. The king (Matthew 22:11)  <br><br>
+        
+        Q 	20. Quote Matthew, chapter 22, verses 31 through 32. <br>
+            A. "But about the resurrection of the dead - have you not read what God said to you, 'I am the God of Abraham, the God of Isaac, and the God of Jacob'? He is not the God of the dead but of the living."" (Matthew 22:31-32)  <br><br>
+        <br><br>
+        
+         <h7 id="7">SET #7</h7>   <br><br>
+        
+        G 	1. Whom did the king come in to see? <br>
+            A. The guests (Matthew 22:11)  <br><br>
+        
+        Q 	2. Quote Matthew, chapter 22, verse 29. <br>
+            A. "Jesus replied, "You are in error because you do not know the Scriptures or the power of God." (Matthew 22:29)  <br><br>
+        
+        G 	3. Who dared to ask Jesus any more questions from that day on? <br>
+            A. No one (Matthew 22:46)  <br><br>
+        
+        S 	4. Situation question: who said it, and what was the response: "If then David calls him 'Lord', how can he be his son?" <br>
+            A. Jesus said it, and no one could say a word in reply, and from that day on no one dared to ask Jesus any more questions (Matthew 22:45-46)  <br><br>
+        
+        X 	5. Three-part answer: with what should you love the Lord your God? <br>
+            A. 1) All your heart; 2) All your soul; 3) All your mind (Matthew 22:37) <br><br> 
+        
+        G 	6. Who said, "So give back to Caesar what is Caesar's, and to God what is God's."? <br>
+            A. Jesus (Matthew 22:21)  <br><br>
+        
+        A 	7. According to Matthew, chapter 22, verse 19, what should you show me? <br>
+            A. The coin used for paying the tax (Matthew 22:19)  <br><br>
+        
+        G 	8. Who said, "You hypocrites, why are you trying to trap me?"<br> 
+            A. Jesus (Matthew 22:18)  <br><br>
+        
+        A 	9. According to Matthew, chapter 22, verse 33, when were the crowds astonished at his teaching? <br>
+            A. When they heard this (Matthew 22:33)  <br><br>
+        
+        V 	10. Finish these verses: "Jesus replied: "'Love the Lord. . ." <br>
+            A. ". . .your God with all your heart and with all your soul and with all your mind.' This is the first and greatest commandment." (Matthew 22:37-38)  <br><br>
+        
+        A 	11. According to Matthew, chapter 22, verse 7, whom did the king destroy? <br>
+            A. Those murderers (Matthew 22:7)  <br><br>
+        
+        G 	12. What have been butchered? <br>
+            A. A king's oxen and fattened cattle (Matthew 22:4) <br><br> 
+        
+        G 	13. In what was one of the Pharisees an expert? <br>
+            A. The law (Matthew 22:35)  <br><br>
+        
+        R 	14. Finish these verses and give the reference: "But about the resurrection of. . ." <br>
+            A. ". . .the dead - have you not read what God said to you, 'I am the God of Abraham, the God of Isaac, and the God of Jacob'? He is not the God of the dead but of the living." " (Matthew 22:31-32)  <br><br>
+        
+        G 	15. Who will neither marry nor be given in marriage at the resurrection? <br>
+            A. People (Matthew 22:30)  <br><br>
+        
+        G 	16. Who asked, "Whose image is this? And whose inscription?" <br>
+            A. Jesus (Matthew 22:20)  <br><br>
+        
+        A 	17. According to Matthew, chapter 22, verse 16, what do you teach? <br>
+            A. The way of God (Matthew 22:16)  <br><br>
+        
+        G 	18. Whom did Jesus ask, "What do you think about the Messiah? Whose son is he?" <br>
+            A. The Pharisees (Matthew 22:41-42)  <br><br>
+        
+        G 	19. Who is not the God of the dead but of the living? <br>
+            A. The God of Abraham, Isaac and Jacob (Matthew 22:32)  <br><br>
+        
+        G 	20. How does David call the Messiah "Lord"? <br>
+            A. Speaking by the Spirit (Matthew 22:43)  <br><br>
+        <br><br>
+        
+         <h7 id="8">SET #8 </h7>  <br><br>
+        
+        G 	1. Who said to his servants, "The wedding banquet is ready, but those I invited did not deserve to come."? <br>
+            A. The king (Matthew 22:8)  <br><br>
+        
+        A 	2. According to Matthew, chapter 22, verse 37, whom should you love with all your heart and with all your soul and with all your mind? <br>
+            A. The Lord your God (Matthew 22:37)  <br><br>
+        
+        G 	3. Who spoke to them again in parables? <br>
+            A. Jesus (Matthew 22:1)  <br><br>
+        
+        A 	4. According to Matthew, chapter 22, verse 34, what did the Pharisees hear? <br>
+            A. That Jesus had silenced the Sadducees (Matthew 22:34)  <br><br>
+        
+        G 	5. Whom did a king send to those who had been invited to the banquet to tell them to come? <br>
+            A. His servants (Matthew 22:3)  <br><br>
+        
+        X 	6. From what Old Testament book does the following quotation come: "Love your neighbor as yourself."? <br>
+            A. Leviticus (Matthew 22:39)  <br><br>
+        
+        S 	7. Situation question: who said it, to whom, and in reply to what: "So give back to Caesar what is Caesar's, and to God what is God's."? <br>
+            A. Jesus said it to the Pharisees' disciples and the Herodians, in reply to, "Caesar's." (Matthew 22:21)  <br><br>
+        
+        G 	8. Who told us that if a man dies without having children, his brother must marry the widow and raise up offspring for him? <br>
+            A. Moses (Matthew 22:24)  <br><br>
+        
+        R 	9. Finish this verse and give the reference: "Jesus replied, "You are in. . ." <br>
+            A. "... error because you do not know the Scriptures or the power of God." (Matthew 22:29)  <br><br>
+        
+        G 	10. Who said, "How is it then that David, speaking by the Spirit, calls him 'Lord'?" <br>
+            A. Jesus (Matthew 22:43)  <br><br>
+        
+        A 	11. According to Matthew, chapter 22, verse 6, whom did the rest kill? <br>
+            A. His servants (Matthew 22:6)  <br><br>
+        
+        G 	12. When did Jesus ask the Pharisees, "What do you think about the Messiah? Whose son is he?" <br>
+            A. While the Pharisees were gathered together (Matthew 22:41-42)  <br><br>
+        
+        Q 	13. Quote Matthew, chapter 22, verses 39 through 40. <br>
+            A. "And the second is like it: 'Love your neighbor as yourself.' All the Law and the Prophets hang on these two commandments."" (Matthew 22:39-40) <br><br>
+        
+        G 	14. At whose teaching were the crowds astonished? <br>
+            A. Jesus' (Matthew 22:33)  <br><br>
+        
+        G 	15. Who said, "Teacher, we know that you are a man of integrity and that you teach the way of God in accordance with the truth. You aren't swayed by others, because you pay no attention to who they are."? <br>
+            A. The Pharisees' disciples and the Herodians (Matthew 22:16)  <br><br>
+        
+        V 	16. Finish these verses: "But about the resurrection of. . ." <br>
+            A. ". . .the dead - have you not read what God said to you, 'I am the God of Abraham, the God of Isaac, and the God of Jacob'? He is not the God of the dead but of the living." (Matthew 22:31-32)  <br><br>
+        
+        G 	17. Who sent his army and destroyed those murderers and burned their city? <br>
+            A. The king (Matthew 22:7)  <br><br>
+        
+        G 	18. When did the Sadducees come to Jesus with a question? <br>
+            A. That same day (Matthew 22:23)  <br><br>
+        
+        A 	19. According to Matthew, chapter 22, verse 35, what was one of them? <br>
+            A. An expert in the law (Matthew 22:35)  <br><br>
+        
+        G 	20. Whom should the attendants tie hand and foot and throw outside, into the darkness? <br>
+            A. The man who was not wearing wedding clothes (Matthew 22:13)  <br><br>
+        <br><br>
+        
+         <h7 id="9">SET #9</h7>   <br><br>
+        
+        G 	1. Who must marry the widow and raise up offspring for him if a man dies without having children? <br>
+            A. The man's brother (Matthew 22:24)  <br> <br>
+        
+        X 	2. From what Old Testament book does the following quotation come: "The Lord said to my Lord: 'Sit at my right hand until I put your enemies under your feet.'"? <br>
+            A. Psalms (Matthew 22:44)  <br><br>
+        
+        G 	3. Who went out into the streets and gathered all the people they could find, the bad as well as the good? <br>
+            A. The servants (Matthew 22:10)  <br><br>
+        
+        G 	4. What did those the king invited not deserve? <br>
+            A. To come to the wedding banquet (Matthew 22:8)  <br><br>
+        
+        Q 	5. Quote Matthew, chapter 22, verses 31 through 32. <br>
+            A. "But about the resurrection of the dead - have you not read what God said to you, 'I am the God of Abraham, the God of Isaac, and the God of Jacob'? He is not the God of the dead but of the living."" (Matthew 22:31-32)  <br><br>
+        
+        A 	6. According to Matthew, chapter 22, verse 6, whom did the rest seize? <br>
+            A. His servants (Matthew 22:6)  <br><br>
+        
+        S 	7. Situation question: who said it, to whom, and what was the response: "The wedding banquet is ready, but those I invited did not deserve to come. So go to the street corners and invite to the banquet anyone you find."? <br>
+            A. The king said it to his servants, and the servants went out into the streets and gathered all the people they could find, the bad as well as the good (and the wedding hall was filled with guests) (Matthew 22:8-10)  <br><br>
+        
+        A 	8. According to Matthew, chapter 22, verse 41, who were gathered together? <br>
+            A. The Pharisees (Matthew 22:41)  <br><br>
+        
+        G 	9. When will people be like the angels in heaven? <br>
+            A. At the resurrection (Matthew 22:30)  <br><br>
+        
+        G 	10. How should the attendants tie the man who was not wearing wedding clothes? <br>
+            A. Hand and foot (Matthew 22:13)  <br><br>
+        
+        R 	11. Finish this verse and give the reference: "Jesus replied, "You are in. . ." <br>
+            A. "... error because you do not know the Scriptures or the power of God." (Matthew 22:29)  <br><br>
+        
+        G 	12. Why did the Pharisees' disciples and the Herodians leave Jesus and go away? <br>
+            A. Because they were amazed when they heard this (Matthew 22:22)  <br><br>
+        
+        A 	13. According to Matthew, chapter 22, verse 4, what is ready? <br>
+            A. Everything (Matthew 22:4)  <br><br>
+        
+        G 	14. Who heard that Jesus had silenced the Sadducees? <br>
+            A. The Pharisees (Matthew 22:34)  <br><br>
+        
+        G 	15. What was a man in the wedding hall not wearing? <br>
+            A. Wedding clothes (Matthew 22:11)  <br><br>
+        
+        V 	16. Finish these verses: "Jesus replied: "'Love the Lord. . ." <br>
+            A. ". . .your God with all your heart and with all your soul and with all your mind.' This is the first and greatest commandment." (Matthew 22:37-38)  <br><br>
+        
+        A 	17. According to Matthew, chapter 22, verse 43, what did he say to them? <br>
+            A. "How is it then that David, speaking by the Spirit, calls him 'Lord'?" (Matthew 22:43) <br><br> 
+        
+        G 	18. Who asked, "How did you get in here without wedding clothes, friend?" <br>
+            A. The king (Matthew 22:12)  <br><br>
+        
+        G 	19. Who tested Jesus with this question: "Teacher, which is the greatest commandment in the Law?" <br>
+            A. One of the Pharisees (an expert in the law) (Matthew 22:35-36)  <br><br>
+        
+        G 	20. How should you love the Lord your God? <br>
+            A. With all your heart and with all your soul and with all your mind (Matthew 22:37) <br><br> 
+        <br><br>
+        
+         <h7 id="10">SET #10 </h7>  <br><br>
+        
+        G 	1. Who is not swayed by others? <br>
+            A. Jesus (Matthew 22:16)  <br><br>
+        
+        A 	2. According to Matthew, chapter 22, verse 4, whom did he then send? <br>
+            A. Some more servants (Matthew 22:4)  <br><br>
+        
+        X 	3. In Matthew, chapter 22, what was a special tax levied on subject peoples? <br>
+            A. The imperial tax (Matthew 22:17)  <br><br>
+        
+        G 	4. What should you give back to God? <br>
+            A. What is God's (Matthew 22:21)  <br><br>
+        
+        G 	5. Who prepared a wedding banquet for his son? <br>
+            A. A king (Matthew 22:2)  <br><br>
+        
+        Q 	6. Quote Matthew, chapter 22, verses 39 through 40. <br>
+            A. "And the second is like it: 'Love your neighbor as yourself.' All the Law and the Prophets hang on these two commandments."" (Matthew 22:39-40)  <br><br>
+        
+        A 	7. According to Matthew, chapter 22, verse 43, what does David call him? <br>
+            A. "Lord" (Matthew 22:43)  <br><br>
+        
+        G 	8. Who told the attendants, "Tie him hand and foot, and throw him outside, into the darkness, where there will be weeping and gnashing of teeth."? <br>
+            A. The king (Matthew 22:13)  <br><br>
+        
+        G 	9. What coin should the Pharisees' disciples and the Herodians show Jesus? <br>
+            A. The coin used for paying the tax (Matthew 22:19)  <br><br>
+        
+        R 	10. Finish these verses and give the reference: "But about the resurrection of. . ." <br>
+            A. ". . .the dead - have you not read what God said to you, 'I am the God of Abraham, the God of Isaac, and the God of Jacob'? He is not the God of the dead but of the living." " (Matthew 22:31-32)  <br><br>
+        
+        G 	11. To what does Jesus pay no attention? <br>
+            A. Who others are (Matthew 22:16)  <br><br>
+        
+        G 	12. What does Jesus teach in accordance with the truth? <br>
+            A. The way of God (Matthew 22:16)  <br><br>
+        
+        V 	13. Finish this verse: "Jesus replied, "You are in. . ." <br>
+            A. "... error because you do not know the Scriptures or the power of God." (Matthew 22:29)  <br><br>
+        
+        G 	14. What was filled with guests? <br>
+            A. The wedding hall (Matthew 22:10)  <br><br>
+        
+        S 	15. Situation question: who said it, to whom, and what was the reply: "Whose image is this? And whose inscription?" <br>
+            A. Jesus said it to the Pharisees' disciples and the Herodians, and the reply was, "Caesar's." (Matthew 22:20-21)  <br><br>
+        
+        G 	16. With what did the Sadducees come to Jesus? <br>
+            A. A question (Matthew 22:23)  <br><br>
+        
+        G 	17. Whom did the Pharisees lay plans to trap in his words? <br>
+            A. Jesus (Matthew 22:15)  <br><br>
+        
+        A 	18. According to Matthew, chapter 22, verse 44, where will I put your enemies? <br>
+            A. Under your feet (Matthew 22:44)  <br><br>
+        
+        G 	19. What did a king prepare for his son? <br>
+            A. A wedding banquet (Matthew 22:2)  <br><br>
+        
+        A 	20. According to Matthew, chapter 22, verse 5, where did one go? <br>
+            A. To his field (Matthew 22:5)  <br><br>
+        
+        </p>
+
+</body>
+</html>

@@ -1,0 +1,904 @@
+<!DOCTYPE html>
+<html> 
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+
+        h1{
+            background-color: black;
+            text-align: center;
+            font-size: 120px;
+            margin: 0px;
+            padding: 30px;
+            color: rgb(0, 172, 172);
+            font-family: 'Impact', Haettenschweiler, Arial Narrow Bold, sans-serif;
+            top: 0px;
+            left: 0px;
+            text-emphasis: bold;
+        }
+
+        head{
+            background-color: black;
+            margin: 0px;
+            padding: 20px;
+        }
+
+        nav{
+            left: 0px;
+            margin: 0px;
+            padding: 20px;
+            background-color: rgb(0, 172, 172);
+            color: black;
+            text-align: left;
+            display: inline-block;
+            height: auto;
+        }
+
+        nav a{
+            color: black;
+            text-decoration: none;
+            margin: 10px 15px;
+            padding: 8px;
+            font-size: 24px;
+            display: inline-block;
+            box-shadow: 0px 0px 10px 5px black;
+            background-color: #b3b3b3;
+            border-radius: 5px;
+        }
+
+        body{
+            background-image: url('data:image/jpeg;base64,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');
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-attachment: fixed;
+        }
+
+        h2{
+            text-align: center;
+            color: white;
+            font-size: 32px;
+            text-emphasis: bold;
+            margin: 10px;
+            background-color: black;
+            padding: 10px;
+            border: double 3px black;
+        }
+
+        .bookmarks{
+            background-color: rgb(0, 172, 172);
+            position: absolute;
+            top: 290px;
+            left: 26%;
+            text-align: center;
+            padding: 10px 20px;
+            border: solid black 5px;
+            border-radius: 25px;
+        }
+
+        .bookmarks a{
+            display: inline-block;
+            background-color: black;
+            color: white;
+            text-emphasis: bold;
+            font-size: 24px;
+            margin: 10px;
+            padding: 10px;
+            border-radius: 10px;
+        }
+
+        h3{
+            font-size: 68px;
+            position: absolute;
+            float: center;
+            top: 350px;
+            left: 48%;
+            text-emphasis: bold;
+            text-align: center;
+            font-family: 'Times New Roman', Times, serif;
+        }
+
+        .verses a{
+            position: absolute;
+            color: rgb(0, 172, 172);
+            background-color: black;
+            font-size: 32px;
+            font-family: Arial, Helvetica, sans-serif;
+            left: 38%;
+            padding: 10px 100px;
+            text-decoration: none;
+            text-align: center;
+            top: 220px;
+            text-emphasis: bold;
+        }
+
+        #myBtn {
+            display: none; /* Hidden by default */
+            position: fixed; /* Fixed/sticky position */
+            bottom: 65px; /* Place the button at the bottom of the page */
+            left: 50px; /* Place the button 30px from the right */
+            z-index: 99; /* Make sure it does not overlap */
+            border: none; /* Remove borders */
+            outline: none; /* Remove outline */
+            background-color: rgb(0, 172, 172); /* Set a background color */
+            color: black; /* Text color */
+            cursor: pointer; /* Add a mouse pointer on hover */
+            padding: 10px; /* Some padding */
+            padding-bottom: 0px;
+            border-radius: 10px; /* Rounded corners */
+            border: solid black 5px;
+            font-size: 72px; /* Increase font size */
+        }
+
+        #myBtn:hover {
+            display: none; /* Hidden by default */
+            position: fixed; /* Fixed/sticky position */
+            bottom: 65px; /* Place the button at the bottom of the page */
+            left: 50px; /* Place the button 30px from the right */
+            z-index: 99; /* Make sure it does not overlap */
+            border: none; /* Remove borders */
+            outline: none; /* Remove outline */
+            background-color: rgb(0, 0, 0); /* Set a background color */
+            color: rgb(0, 172, 172); /* Text color */
+            cursor: pointer; /* Add a mouse pointer on hover */
+            padding: 10px; /* Some padding */
+            padding-bottom: 0px;
+            border-radius: 10px; /* Rounded corners */
+            border: solid rgb(0, 172, 172) 5px;
+            font-size: 72px; /* Increase font size */
+        }
+
+        p{
+            font-size: 22px;
+            position: absolute;
+            top: 500px;
+            left: 30%;
+        }
+
+        h7{
+            font-size: 32px;
+            text-emphasis: bold;
+        }
+
+    </style>
+    <button onclick="topFunction()" id="myBtn" title="Go to top"><b>^</b></button>
+<head> 
+    <h1>Questions</h1>
+    <div class="verses">
+        <a href="Quizzing.html">Click here for memory verses.</a>        
+   </div>
+</head>
+<body>
+   
+    <script>
+        //Get the button
+        var mybutton = document.getElementById("myBtn");
+        
+        // When the user scrolls down 20px from the top of the document, show the button
+        window.onscroll = function() {scrollFunction()};
+        
+        function scrollFunction() {
+          if (document.body.scrollTop > 1750 || document.documentElement.scrollTop > 1750) {
+            mybutton.style.display = "block";
+          } else {
+            mybutton.style.display = "none";
+          }
+        }
+        
+        // When the user clicks on the button, scroll to the top of the document
+        function topFunction() {
+          document.body.scrollTop = 0;
+          document.documentElement.scrollTop = 0;
+        }
+        </script>
+
+    <nav>
+
+        <h2>Select a Chapter</h2>
+        <br>
+
+        <a href="Quizzing_Questions_1.html">Matthew 1</a>
+        <br>
+        <a href="Quizzing_Questions_2.html">Matthew 2</a>
+        <br>
+        <a href="Quizzing_Questions_3.html">Matthew 3</a>
+        <br>
+        <a href="Quizzing_Questions_4.html">Matthew 4</a>
+        <br>
+        <a href="Quizzing_Questions_5.html">Matthew 5</a>
+        <br>
+        <a href="Quizzing_Questions_6.html">Matthew 6</a>
+        <br>
+        <a href="Quizzing_Questions_7.html">Matthew 7</a>
+        <br>
+        <a href="Quizzing_Questions_8.html">Matthew 8</a>
+        <br>
+        <a href="Quizzing_Questions_9.html">Matthew 9</a>
+        <br>
+        <a href="Quizzing_Questions_10.html">Matthew 10</a>
+        <br>
+        <a href="Quizzing_Questions_11.html">Matthew 11</a>
+        <br>
+        <a href="Quizzing_Questions_12.html">Matthew 12</a>
+        <br>
+        <a href="Quizzing_Questions_13.html">Matthew 13</a>
+        <br>
+        <a href="Quizzing_Questions_14.html">Matthew 14</a>
+        <br>
+        <a href="Quizzing_Questions_15.html">Matthew 15</a>
+        <br>
+        <a href="Quizzing_Questions_16.html">Matthew 16</a>
+        <br>
+        <a href="Quizzing_Questions_17.html">Matthew 17</a>
+        <br>
+        <a href="Quizzing_Questions_18.html">Matthew 18</a>
+        <br>
+        <a href="Quizzing_Questions_19.html">Matthew 19</a>
+        <br>
+        <a href="Quizzing_Questions_20.html">Matthew 20</a>
+        <br>
+        <a href="Quizzing_Questions_21.html">Matthew 21</a>
+        <br>
+        <a href="Quizzing_Questions_22.html">Matthew 22</a>
+        <br>
+        <a href="Quizzing_Questions_23.html">Matthew 23</a>
+        <br>
+        <a href="Quizzing_Questions_24.html">Matthew 24</a>
+        <br>
+        <a href="Quizzing_Questions_25.html">Matthew 25</a>
+        <br>
+        <a href="Quizzing_Questions_26.html">Matthew 26</a>
+        <br>
+        <a href="Quizzing_Questions_27.html">Matthew 27</a>
+        <br>
+        <a href="Quizzing_Questions_28.html">Matthew 28</a>
+    </nav>
+
+    <div class="bookmarks">
+        <a href="#1">Set 1</a>
+        <a href="#2">Set 2</a>
+        <a href="#3">Set 3</a>
+        <a href="#4">Set 4</a>
+        <a href="#5">Set 5</a>
+        <a href="#6">Set 6</a>
+        <a href="#7">Set 7</a>
+        <a href="#8">Set 8</a>
+        <a href="#9">Set 9</a>
+        <a href="#10">Set 10</a>
+    </div>
+
+    <h3>Matthew 24</h3>
+
+    <p><h7 id="1">SET #1</h7>   <br><br>
+
+        G 	1. Who will come in Jesus' name, claiming, "I am the Messiah"? <br>
+            A. Many (Matthew 24:5)  <br><br>
+        
+        A 	2. According to Matthew, chapter 24, verse 19, what will it be in those days? <br>
+            A. Dreadful for pregnant women and nursing mothers (Matthew 24:19)  <br><br>
+        
+        G 	3. Who will be left in the field? <br>
+            A. The other man (Matthew 24:40)  <br><br>
+        
+        R 	4. Finish this verse and give the reference: ""Then will appear the sign. . ." <br>
+            A. ". . .of the Son of Man in heaven. And then all the peoples of the earth will mourn when they see the Son of Man coming on the clouds of heaven, with power and great glory. " (Matthew 24:30)  <br><br>
+        
+        A 	5. According to Matthew, chapter 24, verse 32, what should you learn? <br>
+            A. This lesson from the fig tree: As soon as its twigs get tender and its leaves come out, you know that summer is near (Matthew 24:32)  <br><br>
+        
+        S 	6. Situation question: who said it, and to whom: "Watch out that no one deceives you."? <br>
+            A. Jesus said it to the disciples (Matthew 24:4)  <br><br>
+        
+        G 	7. When were people marrying and giving in marriage, up to the day Noah entered the ark? <br>
+            A. In the days before the flood (Matthew 24:38)  <br><br>
+        
+        G 	8. Where will you see the abomination that causes desolation? <br>
+            A. Standing in the holy place (Matthew 24:15)  <br><br>
+        
+        V 	9. Finish this verse: ""But about that day or. . ." <br>
+            A. ". . .hour no one knows, not even the angels in heaven, nor the Son, but only the Father." (Matthew 24:36)  <br><br>
+        
+        X 	10. In Matthew, chapter 24, what will increase? <br>
+            A. Wickedness (Matthew 24:12)  <br><br>
+        
+        A 	11. According to Matthew, chapter 24, verse 26, when should you not believe it? <br>
+            A. If anyone tells you, "Here he is, in the inner rooms" (Matthew 24:26)  <br><br>
+        
+        G 	12. Who will betray and hate each other at that time? <br>
+            A. Many (Matthew 24:10)  <br><br>
+        
+        G 	13. Who will appear and perform great signs and wonders to deceive, if possible, even the elect? <br>
+            A. False messiahs and false prophets (Matthew 24:24)  <br><br>
+        
+        Q 	14. Quote Matthew, chapter 24, verse 35. <br>
+            A. "Heaven and earth will pass away, but my words will never pass away." (Matthew 24:35)  <br><br>
+        
+        G 	15. Whom will the master assign a place with the hypocrites? <br>
+            A. That servant (Matthew 24:51)  <br><br>
+        
+        G 	16. What rumors will you hear? <br>
+            A. Rumors of wars (Matthew 24:6)  <br><br>
+        
+        A 	17. According to Matthew, chapter 24, verse 29, what will be shaken? <br>
+            A. The heavenly bodies (Matthew 24:29)  <br><br>
+        
+        G 	18. Who came up to Jesus to call his attention to the temple's buildings? <br>
+            A. His disciples (Matthew 24:1)  <br><br>
+        
+        G 	19. Who would have kept watch and would not have let his house be broken into if he knew at what time of night the thief was coming? <br>
+            A. The owner of the house (Matthew 24:43)  <br><br>
+        
+        G 	20. To whom will this gospel of the kingdom be preached in the whole world as a testimony? <br>
+            A. All nations (Matthew 24:14)  <br><br>
+        <br><br>
+        
+         <h7 id="2">SET #2</h7>   <br><br>
+        
+        A 	1. According to Matthew, chapter 24, verse 23, when should you not believe it? <br>
+            A. If anyone says to you at that time, "Look, here is the Messiah!", or, "There he is!" (Matthew 24:23)  <br><br>
+        
+        G 	2. Whom will many betray and hate at that time? <br>
+            A. Each other (Matthew 24:10)  <br><br>
+        
+        S 	3. Situation question: who said it, and to whom: "Do you see all these things? Truly I tell you, not one stone here will be left on another; every one will be thrown down."? <br>
+            A. Jesus said it to his disciples (Matthew 24:1-2)  <br><br>
+        
+        V 	4. Finish this verse: "And this gospel of the. . ." <br>
+            A. ". . .kingdom will be preached in the whole world as a testimony to all nations, and then the end will come." (Matthew 24:14)  <br><br>
+        
+        G 	5. What took the people all away? <br>
+            A. The flood (Matthew 24:39)  <br><br>
+        
+        G 	6. What do you know as soon as the fig tree's twigs get tender and its leaves come out? <br>
+            A. That summer is near (Matthew 24:32)  <br><br>
+        
+        A 	7. According to Matthew, chapter 24, verse 29, what will not give its light? <br>
+            A. The moon (Matthew 24:29)  <br><br>
+        
+        G 	8. With whom will the master assign that servant a place? <br>
+            A. The hypocrites (Matthew 24:51)  <br><br>
+        
+        G 	9. At what will it be as it was in the days of Noah? <br>
+            A. The coming of the Son of Man (Matthew 24:37)  <br><br>
+        
+        R 	10. Finish this verse and give the reference: ""Then will appear the sign. . ." <br>
+            A. ". . .of the Son of Man in heaven. And then all the peoples of the earth will mourn when they see the Son of Man coming on the clouds of heaven, with power and great glory. " (Matthew 24:30)  <br><br>
+        
+        G 	11. Why will you be hated by all nations? <br>
+            A. Because of Jesus (Matthew 24:9)  <br><br>
+        
+        G 	12. Where will there be famines and earthquakes? <br>
+            A. In various places (Matthew 24:7)  <br><br>
+        
+        A 	13. According to Matthew, chapter 24, verse 1, who came up to Jesus? <br>
+            A. Jesus' disciples (Matthew 24:1)  <br><br>
+        
+        G 	14. Whom has the master put in charge of the servants in his household? <br>
+            A. The faithful and wise servant (Matthew 24:45)  <br><br>
+        
+        Q 	15. Quote Matthew, chapter 24, verses 12 through 13. <br>
+            A. "Because of the increase of wickedness, the love of most will grow cold, but the one who stands firm to the end will be saved." (Matthew 24:12-13)  <br><br>
+        
+        G 	16. What will never pass away? <br>
+            A. Jesus' words (Matthew 24:35)  <br><br>
+        
+        G 	17. Who will be grinding with a hand mill? <br>
+            A. Two women (Matthew 24:41)  <br><br>
+        
+        A 	18. According to Matthew, chapter 24, verse 36, who knows about that day or hour? <br>
+            A. Only the Father (no one else, not even the angels in heaven, nor the Son) (Matthew 24:36)  <br><br>
+        
+        X 	19. Two-part answer: in Matthew, chapter 24, for whom will it be dreadful in those days? <br>
+            A. 1) Pregnant women ; 2) Nursing mothers (Matthew 24:19)  <br><br>
+        
+        G 	20. Why must you also be ready? <br>
+            A. Because the Son of Man will come at an hour when you do not expect him (Matthew 24:44)  <br><br>
+        <br>
+        <br>
+        
+         <h7 id="3">SET #3</h7>   <br><br>
+        
+        G 	1. Where is lightning that comes from the east visible? <br>
+            A. Even in the west (Matthew 24:27)  <br><br>
+        
+        V 	2. Finish this verse: ""Then will appear the sign. . ." <br>
+            A. ". . .of the Son of Man in heaven. And then all the peoples of the earth will mourn when they see the Son of Man coming on the clouds of heaven, with power and great glory." (Matthew 24:30) <br><br> 
+        
+        G 	3. What will this generation certainly not do until all these things have happened? <br>
+            A. Pass away (Matthew 24:34)  <br><br>
+        
+        A 	4. According to Matthew, chapter 24, verse 9, why will you be handed over? <br>
+            A. To be persecuted and put to death (Matthew 24:9)  <br><br>
+        
+        G 	5. What will the love of most grow because of the increase of wickedness? <br>
+            A. Cold (Matthew 24:12)  <br><br>
+        
+        G 	6. Through whom was the abomination that causes desolation spoken of? <br>
+            A. The prophet Daniel (Matthew 24:15)  <br><br>
+        
+        S 	7. Situation question: who said it, and to whom: "Watch out that no one deceives you."? <br>
+            A. Jesus said it to the disciples (Matthew 24:4)  <br><br>
+        
+        G 	8. Who will assign that servant a place with the hypocrites? <br>
+            A. The master (Matthew 24:51)  <br><br>
+        
+        A 	9. According to Matthew, chapter 24, verse 3, who came to Jesus privately? <br>
+            A. The disciples (Matthew 24:3)  <br><br>
+        
+        G 	10. What will it be for that servant whose master finds him doing so when he returns? <br>
+            A. Good (Matthew 24:46)  <br><br>
+        
+        G 	11. What were people doing in the days before the flood up to the day Noah entered the ark? <br>
+            A. Eating and drinking, marrying and giving in marriage (Matthew 24:38)  <br><br>
+        
+        Q 	12. Quote Matthew, chapter 24, verse 35. <br>
+            A. "Heaven and earth will pass away, but my words will never pass away." (Matthew 24:35)  <br><br>
+        
+        G 	13. Whom will the Son of Man's angels gather from the four winds, from one end of the heavens to the other? <br>
+            A. The Son of Man's elect (Matthew 24:31)  <br><br>
+        
+        A 	14. According to Matthew, chapter 24, verse 14, how will this gospel of the kingdom be preached in the whole world? <br>
+            A. As a testimony to all nations (Matthew 24:14)  <br><br>
+        
+        G 	15. Why did Jesus' disciples come up to Jesus when he left the temple and was walking away? <br>
+            A. To call his attention to the temple's buildings (Matthew 24:1)  <br><br>
+        
+        G 	16. What will rise against kingdom? <br>
+            A. Kingdom (Matthew 24:7)  <br><br>
+        
+        X 	17. Complete, in essence, the following: "If those days had not . . ." <br>
+            A. ". . . been cut short, no one would survive, but for the sake of the elect those days will be shortened." (Matthew 24:22)  <br><br>
+        
+        A 	18. According to Matthew, chapter 24, verse 39, what came? <br>
+            A. The flood (Matthew 24:39)  <br><br>
+        
+        G 	19. Who will put that servant in charge of all his possessions? <br>
+            A. The master (Matthew 24:47)  <br><br>
+        
+        R 	20. Finish this verse and give the reference: ""But about that day or. . ." <br>
+            A. ". . .hour no one knows, not even the angels in heaven, nor the Son, but only the Father. " (Matthew 24:36)  <br><br>
+        <br><br>
+        
+         <h7 id="4">SET #4</h7>   <br><br>
+        
+        G 	1. Who will send his angels with a loud trumpet call? <br>
+            A. The Son of Man (Matthew 24:31)  <br><br>
+        
+        G 	2. What will be shaken immediately after the distress of those days? <br>
+            A. The heavenly bodies (Matthew 24:29)  <br><br>
+        
+        Q 	3. Quote Matthew, chapter 24, verse 14. <br>
+            A. "And this gospel of the kingdom will be preached in the whole world as a testimony to all nations, and then the end will come." (Matthew 24:14)  <br><br>
+        
+        G 	4. Who knows about that day or hour? <br>
+            A. Only the Father (no one else, not even the angels in heaven, nor the Son) (Matthew 24:36)  <br><br>
+        
+        A 	5. According to Matthew, chapter 24, verse 10, when will many hate each other? <br>
+            A. At that time (Matthew 24:10)  <br><br>
+        
+        R 	6. Finish these verses and give the reference: "Because of the increase of. . ." <br>
+            A. ". . .wickedness, the love of most will grow cold, but the one who stands firm to the end will be saved. " (Matthew 24:12-13)  <br><br>
+        
+        G 	7. About what did people know nothing until the flood came and took them all away? <br>
+            A. What would happen (Matthew 24:39)  <br><br>
+        
+        G 	8. When will Jesus' words pass away? <br>
+            A. Never (Matthew 24:35)  <br><br>
+        
+        V 	9. Finish this verse: ""Then will appear the sign. . ." <br>
+            A. ". . .of the Son of Man in heaven. And then all the peoples of the earth will mourn when they see the Son of Man coming on the clouds of heaven, with power and great glory." (Matthew 24:30)  <br><br>
+        
+        A 	10. According to Matthew, chapter 24, verse 9, why will you be hated by all nations? <br>
+            A. Because of me (Matthew 24:9)  <br><br>
+        
+        G 	11. Where will not one stone here be left? <br>
+            A. On another stone (Matthew 24:2)  <br><br>
+        
+        A 	12. According to Matthew, chapter 24, verse 46, for whom will it be good? <br>
+            A. That servant whose master finds him doing so when he returns (Matthew 24:46) <br><br> 
+        
+        G 	13. When will it be dreadful for pregnant women and nursing mothers? <br>
+            A. In those days (Matthew 24:19)  <br><br>
+        
+        S 	14. Situation question: who said it, and to whom: "Do you see all these things? Truly I tell you, not one stone here will be left on another; every one will be thrown down."? <br>
+            A. Jesus said it to his disciples (Matthew 24:1-2)  <br><br>
+        
+        A 	15. According to Matthew, chapter 24, verse 20, what should you pray? <br>
+            A. That your flight will not take place in winter or on the Sabbath (Matthew 24:20)  <br><br>
+        
+        G 	16. Who should flee to the mountains when you see standing in the holy place "the abomination that causes desolation"? <br>
+            A. Those who are in Judea (Matthew 24:15-16)  <br><br>
+        
+        G 	17. What should no one on the housetop do when you see standing in the holy place "the abomination that causes desolation"? <br>
+            A. Go down to take anything out of the house (Matthew 24:15-17)  <br><br>
+        
+        X 	18. Two-part answer: in Matthew, chapter 24, who will perform great signs and wonders? <br>
+            A. 1) False messiahs; 2) False prophets (Matthew 24:24)  <br><br>
+        
+        G 	19. When should no one in the field go back to get their cloak? <br>
+            A. When you see standing in the holy place "the abomination that causes desolation" (Matthew 24:15-18)  <br><br>
+        
+        G 	20. Who said, "Tell us, when will this happen, and what will be the sign of your coming and of the end of the age?" <br>
+            A. The disciples (Matthew 24:3)  <br><br>
+        <br><br>
+        
+         <h7 id="5">SET #5</h7>   <br><br>
+        
+        G 	1. What will come when this gospel of the kingdom is preached in the whole world as a testimony to all nations? <br>
+            A. The end (Matthew 24:14)  <br><br>
+        
+        A 	2. According to Matthew, chapter 24, verse 24, who will perform great signs and wonders? <br>
+            A. False messiahs and false prophets (Matthew 24:24)  <br><br>
+        
+        G 	3. To whom did the disciples come privately? <br>
+            A. Jesus (Matthew 24:3)  <br><br>
+        
+        G 	4. Why will false messiahs and false prophets perform great signs and wonders? <br>
+            A. To deceive, if possible, even the elect (Matthew 24:24)  <br><br>
+        
+        Q 	5. Quote Matthew, chapter 24, verse 30. <br>
+            A. "Then will appear the sign of the Son of Man in heaven. And then all the peoples of the earth will mourn when they see the Son of Man coming on the clouds of heaven, with power and great glory. (Matthew 24:30)  <br><br>
+        
+        G 	6. Who should go down to take anything out of the house when you see standing in the holy place "the abomination that causes desolation"? <br>
+            A. No one on the housetop (Matthew 24:15-17)  <br><br>
+        
+        X 	7. Two-part question: what if anyone tells you, "There he is, out in the wilderness," and what if anyone tells you, "Here he is, in the inner rooms."? <br>
+            A. 1) Do not go out; 2) Do not believe it (Matthew 24:26)  <br><br>
+        
+        G 	8. What will be shortened for the sake of the elect? <br>
+            A. Those days (Matthew 24:22)  <br><br>
+        
+        G 	9. When should you pray that your flight will not take place? <br>
+            A. In winter or on the Sabbath (Matthew 24:20)  <br><br>
+        
+        R 	10. Finish this verse and give the reference: "Heaven and earth will pass. . ." <br>
+            A. ". . .away, but my words will never pass away. " (Matthew 24:35)  <br><br>
+        
+        S 	11. Situation question: who said it, and to whom: "Watch out that no one deceives you."? <br>
+            A. Jesus said it to the disciples (Matthew 24:4)  <br><br>
+        
+        G 	12. When would no one survive? <br>
+            A. If those days had not been cut short (Matthew 24:22)  <br><br>
+        
+        A 	13. According to Matthew, chapter 24, verse 1, who was walking away? <br>
+            A. Jesus (Matthew 24:1)  <br><br>
+        
+        G 	14. When will the stars fall from the sky? <br>
+            A. Immediately after the distress of those days (Matthew 24:29)  <br><br>
+        
+        V 	15. Finish this verse: ""But about that day or. . ." <br>
+            A. ". . .hour no one knows, not even the angels in heaven, nor the Son, but only the Father." (Matthew 24:36)  <br><br>
+        
+        A 	16. According to Matthew, chapter 24, verse 28, what will gather there? <br>
+            A. The vultures (Matthew 24:28)  <br><br>
+        
+        G 	17. Where will the vultures gather? <br>
+            A. Wherever there is a carcass (Matthew 24:28)  <br><br>
+        
+        G 	18. For whose sake will those days be shortened? <br>
+            A. The elect's (Matthew 24:22)  <br><br>
+        
+        A 	19. According to Matthew, chapter 24, verse 25, how have I told you? <br>
+            A. Ahead of time (Matthew 24:25)  <br><br>
+        
+        G 	20. What if anyone says to you at that time, "Look, here is the Messiah!", or, "There he is!"? <br>
+            A. Do not believe it (Matthew 24:23)  <br><br>
+        <br><br>
+        
+         <h7 id="6">SET #6</h7>  <br><br>
+        
+        G 	1. Who said, "Tell us, when will this happen, and what will be the sign of your coming and of the end of the age?" <br>
+            A. The disciples (Matthew 24:3)  <br><br>
+        
+        A 	2. According to Matthew, chapter 24, verse 31, how will he send his angels? <br>
+            A. With a loud trumpet call (Matthew 24:31)  <br><br>
+        
+        G 	3. Why will you be hated by all nations? <br>
+            A. Because of Jesus (Matthew 24:9)  <br><br>
+        
+        G 	4. What will the moon not give immediately after the distress of those days? <br>
+            A. Its light (Matthew 24:29)  <br><br>
+        
+        R 	5. Finish these verses and give the reference: "Because of the increase of. . ." <br>
+            A. ". . .wickedness, the love of most will grow cold, but the one who stands firm to the end will be saved. " (Matthew 24:12-13)  <br><br>
+        
+        A 	6. According to Matthew, chapter 24, verse 21, what will never be equaled again? <br>
+            A. Great distress (Matthew 24:21)  <br><br>
+        
+        G 	7. Who came up to Jesus to call his attention to the temple's buildings? <br>
+            A. His disciples (Matthew 24:1)  <br><br>
+        
+        G 	8. What rumors will you hear? <br>
+            A. Rumors of wars (Matthew 24:6)  <br><br>
+        
+        Q 	9. Quote Matthew, chapter 24, verse 35. <br>
+            A. "Heaven and earth will pass away, but my words will never pass away." (Matthew 24:35)  <br><br>
+        
+        S 	10. Situation question: who said it, and to whom: "Do you see all these things? Truly I tell you, not one stone here will be left on another; every one will be thrown down."? <br>
+            A. Jesus said it to his disciples (Matthew 24:1-2)  <br><br>
+        
+        G 	11. Who would have kept watch and would not have let his house be broken into if he knew at what time of night the thief was coming? <br>
+            A. The owner of the house (Matthew 24:43)  <br><br>
+        
+        X 	12. Complete, in essence, the following: "For as lightning that comes . . ." <br>
+            A. ". . . from the east is visible even in the west, so will be the coming of the Son of Man." (Matthew 24:27)  <br><br>
+        
+        G 	13. Why must you also be ready? <br>
+            A. Because the Son of Man will come at an hour when you do not expect him (Matthew 24:44)  <br><br>
+        
+        V 	14. Finish this verse: "And this gospel of the. . ." <br>
+            A. ". . .kingdom will be preached in the whole world as a testimony to all nations, and then the end will come." (Matthew 24:14)  <br><br>
+        
+        G 	15. Who will be left in the field? <br>
+            A. The other man (Matthew 24:40)  <br><br>
+        
+        G 	16. Who will come in Jesus' name, claiming, "I am the Messiah"? <br>
+            A. Many (Matthew 24:5)  <br><br>
+        
+        A 	17. According to Matthew, chapter 24, verse 32, what is near? <br>
+            A. Summer (Matthew 24:32)  <br><br>
+        
+        G 	18. What will rise against kingdom? <br>
+            A. Kingdom (Matthew 24:7)  <br><br>
+        
+        G 	19. Whom will many betray and hate at that time? <br>
+            A. Each other (Matthew 24:10)  <br><br>
+        
+        A 	20. According to Matthew, chapter 24, verse 30, what will all the peoples of the earth see? <br>
+            A. The Son of Man coming on the clouds of heaven, with power and great glory (Matthew 24:30)  <br><br>
+        <br><br>
+        
+         <h7 id="7">SET #7</h7>  <br><br>
+        
+        G 	1. What will the love of most grow because of the increase of wickedness? <br>
+            A. Cold (Matthew 24:12)  <br><br>
+        
+        G 	2. Who should flee to the mountains when you see standing in the holy place "the abomination that causes desolation"? <br>
+            A. Those who are in Judea (Matthew 24:15-16)  <br><br>
+        
+        R 	3. Finish this verse and give the reference: ""But about that day or. . ." <br>
+            A. ". . .hour no one knows, not even the angels in heaven, nor the Son, but only the Father. " (Matthew 24:36)  <br><br>
+        
+        A 	4. According to Matthew, chapter 24, verse 15, what will you see standing in the holy place? <br>
+            A. The abomination that causes desolation (Matthew 24:15)  <br><br>
+        
+        G 	5. Who will be grinding with a hand mill? <br>
+            A. Two women (Matthew 24:41)  <br><br>
+        
+        A 	6. According to Matthew, chapter 24, verse 34, what will certainly not pass away until all these things have happened? <br>
+            A. This generation (Matthew 24:34)  <br><br>
+        
+        V 	7. Finish this verse: ""Then will appear the sign. . ." <br>
+            A. ". . .of the Son of Man in heaven. And then all the peoples of the earth will mourn when they see the Son of Man coming on the clouds of heaven, with power and great glory." (Matthew 24:30)  <br><br>
+        
+        G 	8. Whom has the master put in charge of the servants in his household? <br>
+            A. The faithful and wise servant (Matthew 24:45)  <br><br>
+        
+        G 	9. What will it be for that servant whose master finds him doing so when he returns? <br>
+            A. Good (Matthew 24:46)  <br><br>
+        
+        Q 	10. Quote Matthew, chapter 24, verse 35. <br>
+            A. "Heaven and earth will pass away, but my words will never pass away." (Matthew 24:35)  <br><br>
+        
+        G 	11. Where will there be famines and earthquakes? <br>
+            A. In various places (Matthew 24:7)  <br><br>
+        
+        X 	12. Complete, in essence, the following Old Testament quotation: "The sun will be darkened, . . ." <br>
+            A. ". . . and the moon will not give its light; the stars will fall from the sky, and the heavenly bodies will be shaken." (Matthew 24:29)  <br><br>
+        
+        S 	13. Situation question: who said it, and to whom: "Watch out that no one deceives you."? <br>
+            A. Jesus said it to the disciples (Matthew 24:4)  <br><br>
+        
+        G 	14. To whom will this gospel of the kingdom be preached in the whole world as a testimony? <br>
+            A. All nations (Matthew 24:14)  <br><br>
+        
+        G 	15. Whom will the master assign a place with the hypocrites? <br>
+            A. That servant (Matthew 24:51)  <br><br>
+        
+        A 	16. According to Matthew, chapter 24, verse 16, to where should those who are in Judea flee? <br>
+            A. The mountains (Matthew 24:16)  <br><br>
+        
+        G 	17. Why did Jesus' disciples come up to Jesus when he left the temple and was walking away? <br>
+            A. To call his attention to the temple's buildings (Matthew 24:1)  <br><br>
+        
+        G 	18. What were people doing in the days before the flood up to the day Noah entered the ark? <br>
+            A. Eating and drinking, marrying and giving in marriage (Matthew 24:38)  <br><br>
+        
+        A 	19. According to Matthew, chapter 24, verse 33, when do you know that it is near, right at the door? <br>
+            A. When you see all these things (Matthew 24:33)  <br><br>
+        
+        G 	20. What do you know as soon as the fig tree's twigs get tender and its leaves come out? <br>
+            A. That summer is near (Matthew 24:32)  <br><br>
+        <br><br>
+        
+         <h7 id="8">SET #8</h7>   <br><br>
+        
+        G 	1. When will it be dreadful for pregnant women and nursing mothers? <br>
+            A. In those days (Matthew 24:19)  <br><br>
+        
+        V 	2. Finish these verses: "Because of the increase of. . ." <br>
+            A. ". . .wickedness, the love of most will grow cold, but the one who stands firm to the end will be saved." (Matthew 24:12-13)  <br><br>
+        
+        G 	3. With whom will the master assign that servant a place? <br>
+            A. The hypocrites (Matthew 24:51)  <br><br>
+        
+        G 	4. Who will betray and hate each other at that time? <br>
+            A. Many (Matthew 24:10)  <br><br>
+        
+        R 	5. Finish this verse and give the reference: ""Then will appear the sign. . ." <br>
+            A. ". . .of the Son of Man in heaven. And then all the peoples of the earth will mourn when they see the Son of Man coming on the clouds of heaven, with power and great glory. " (Matthew 24:30)  <br><br>
+        
+        A 	6. According to Matthew, chapter 24, verse 36, who are in heaven? <br>
+            A. The angels (Matthew 24:36)  <br><br>
+        
+        G 	7. What will this generation certainly not do until all these things have happened? <br>
+            A. Pass away (Matthew 24:34)  <br><br>
+        
+        G 	8. What will not give its light immediately after the distress of those days? <br>
+            A. The moon (Matthew 24:29)  <br><br>
+        
+        A 	9. According to Matthew, chapter 24, verse 2, what will be thrown down? <br>
+            A. Every stone (Matthew 24:2)  <br><br>
+        
+        G 	10. What took the people all away? <br>
+            A. The flood (Matthew 24:39)  <br><br>
+        
+        G 	11. Where will the vultures gather? <br>
+            A. Wherever there is a carcass (Matthew 24:28)  <br><br>
+        
+        Q 	12. Quote Matthew, chapter 24, verse 14. <br>
+            A. "And this gospel of the kingdom will be preached in the whole world as a testimony to all nations, and then the end will come." (Matthew 24:14)  <br><br>
+        
+        A 	13. According to Matthew, chapter 24, verse 15, who should understand? <br>
+            A. The reader (Matthew 24:15)  <br><br>
+        
+        S 	14. Situation question: who said it, and to whom: "Do you see all these things? Truly I tell you, not one stone here will be left on another; every one will be thrown down."? <br>
+            A. Jesus said it to his disciples (Matthew 24:1-2)  <br><br>
+        
+        G 	15. At what will it be as it was in the days of Noah? <br>
+            A. The coming of the Son of Man (Matthew 24:37)  <br><br>
+        
+        A 	16. According to Matthew, chapter 24, verse 35, what will pass away? <br>
+            A. Heaven and earth (Matthew 24:35)  <br><br>
+        
+        G 	17. Who will put that servant in charge of all his possessions? <br>
+            A. The master (Matthew 24:47)  <br><br>
+        
+        G 	18. When should no one in the field go back to get their cloak? <br>
+            A. When you see standing in the holy place "the abomination that causes desolation" (Matthew 24:15-18)  <br><br>
+        
+        X 	19. In Matthew, chapter 24, how will the Son of Man send his angels? <br>
+            A. With a loud trumpet call (Matthew 24:31)  <br><br>
+        
+        G 	20. What should no one on the housetop do when you see standing in the holy place "the abomination that causes desolation"? <br>
+            A. Go down to take anything out of the house (Matthew 24:15-17)  <br><br>
+            <br><br>
+        
+        
+         <h7 id="9">SET #9</h7>   <br><br>
+        
+        G 	1. To whom did the disciples come privately? <br>
+            A. Jesus (Matthew 24:3)  <br><br>
+        
+        G 	2. What will be shaken immediately after the distress of those days? <br>
+            A. The heavenly bodies (Matthew 24:29)  <br><br>
+        
+        R 	3. Finish this verse and give the reference: "Heaven and earth will pass. . ." <br>
+            A. ". . .away, but my words will never pass away. " (Matthew 24:35)  <br><br>
+        
+        G 	4. Who will assign that servant a place with the hypocrites? <br>
+            A. The master (Matthew 24:51)  <br><br>
+        
+        A 	5. According to Matthew, chapter 24, verse 40, where will two men be? <br>
+            A. In the field (Matthew 24:40)  <br><br>
+        
+        G 	6. When should you pray that your flight will not take place? <br>
+            A. In winter or on the Sabbath (Matthew 24:20)  <br><br>
+        
+        S 	7. Situation question: who said it, and to whom: "Watch out that no one deceives you."? <br>
+            A. Jesus said it to the disciples (Matthew 24:4)  <br><br>
+        
+        A 	8. According to Matthew, chapter 24, verse 2, what do I truly tell you? <br>
+            A. "Not one stone here will be left on another; every one will be thrown down." (Matthew 24:2)  <br><br>
+        
+        G 	9. Where is lightning that comes from the east visible? <br>
+            A. Even in the west (Matthew 24:27)  <br><br>
+        
+        G 	10. Whom will the Son of Man's angels gather from the four winds, from one end of the heavens to the other? <br>
+            A. The Son of Man's elect (Matthew 24:31)  <br><br>
+        
+        Q 	11. Quote Matthew, chapter 24, verse 30. <br>
+            A. "Then will appear the sign of the Son of Man in heaven. And then all the peoples of the earth will mourn when they see the Son of Man coming on the clouds of heaven, with power and great glory. (Matthew 24:30)  <br><br>
+        
+        X 	12. Four-part answer: what were people doing before the flood, up to the day Noah entered the ark? <br>
+            A. 1) Eating; 2) Drinking; 3) Marrying; 4) Giving in marriage (Matthew 24:38)  <br><br>
+        
+        A 	13. According to Matthew, chapter 24, verse 14, what will be preached in the whole world? <br>
+            A. This gospel of the kingdom (Matthew 24:14)  <br><br>
+        
+        G 	14. Who will appear and perform great signs and wonders to deceive, if possible, even the elect? <br>
+            A. False messiahs and false prophets (Matthew 24:24)  <br><br>
+        
+        G 	15. When would no one survive? <br>
+            A. If those days had not been cut short (Matthew 24:22)  <br><br>
+        
+        A 	16. According to Matthew, chapter 24, verse 39, about what did they know nothing? <br>
+            A. What would happen (Matthew 24:39)  <br><br>
+        
+        V 	17. Finish this verse: ""But about that day or. . ." <br>
+            A. ". . .hour no one knows, not even the angels in heaven, nor the Son, but only the Father." (Matthew 24:36)  <br><br>
+        
+        G 	18. Where will you see the abomination that causes desolation? <br>
+            A. Standing in the holy place (Matthew 24:15)  <br><br>
+        
+        G 	19. What if anyone says to you at that time, "Look, here is the Messiah!", or, "There he is!"? <br>
+            A. Do not believe it (Matthew 24:23)  <br><br>
+        
+        G 	20. Who should go down to take anything out of the house when you see standing in the holy place "the abomination that causes desolation"? <br>
+            A. No one on the housetop (Matthew 24:15-17)  <br><br>
+        <br><br>
+        
+         <h7 id="10">SET #10</h7>   <br><br>
+        
+        G 	1. Through whom was the abomination that causes desolation spoken of? <br>
+            A. The prophet Daniel (Matthew 24:15)  <br><br>
+        
+        A 	2. According to Matthew, chapter 24, verse 42, what do you not know? <br>
+            A. On what day your Lord will come (Matthew 24:42)  <br><br>
+        
+        Q 	3. Quote Matthew, chapter 24, verses 12 through 13. <br>
+            A. "Because of the increase of wickedness, the love of most will grow cold, but the one who stands firm to the end will be saved." (Matthew 24:12-13) <br><br> 
+        
+        G 	4. For whose sake will those days be shortened? <br>
+            A. The elect's (Matthew 24:22)  <br><br>
+        
+        S 	5. Situation question: who said it, and to whom: "Do you see all these things? Truly I tell you, not one stone here will be left on another; every one will be thrown down."? <br>
+            A. Jesus said it to his disciples (Matthew 24:1-2)  <br><br>
+        
+        A 	6. According to Matthew, chapter 24, verse 4, what did Jesus answer? <br>
+            A. "Watch out that no one deceives you." (Matthew 24:4)  <br><br>
+        
+        X 	7. In Matthew, chapter 24, when will one woman be taken and the other left? <br>
+            A. At the coming of the Son of Man (Matthew 24:39-41)  <br><br>
+        
+        G 	8. When will the stars fall from the sky? <br>
+            A. Immediately after the distress of those days (Matthew 24:29)  <br><br>
+        
+        G 	9. Why will false messiahs and false prophets perform great signs and wonders? <br>
+            A. To deceive, if possible, even the elect (Matthew 24:24)  <br><br>
+        
+        R 	10. Finish this verse and give the reference: ""Then will appear the sign. . ." <br>
+            A. ". . .of the Son of Man in heaven. And then all the peoples of the earth will mourn when they see the Son of Man coming on the clouds of heaven, with power and great glory. " (Matthew 24:30)  <br><br>
+        
+        G 	11. Who will send his angels with a loud trumpet call? <br>
+            A. The Son of Man (Matthew 24:31)  <br><br>
+        
+        G 	12. When were people marrying and giving in marriage, up to the day Noah entered the ark? <br>
+            A. In the days before the flood (Matthew 24:38)  <br><br>
+        
+        V 	13. Finish this verse: "And this gospel of the. . ." <br>
+            A. ". . .kingdom will be preached in the whole world as a testimony to all nations, and then the end will come." (Matthew 24:14)  <br><br>
+        
+        A 	14. According to Matthew, chapter 24, verse 40, who will be taken? <br>
+            A. One of the two men in the field (Matthew 24:40)  <br><br>
+        
+        G 	15. Where will not one stone here be left? <br>
+            A. On another stone (Matthew 24:2)  <br><br>
+        
+        G 	16. What will never pass away? <br>
+            A. Jesus' words (Matthew 24:35)  <br><br>
+        
+        A 	17. According to Matthew, chapter 24, verse 41, what will two women be doing? <br>
+            A. Grinding with a hand mill (Matthew 24:41)  <br><br>
+        
+        G 	18. What will be shortened for the sake of the elect? <br>
+            A. Those days (Matthew 24:22)  <br><br>
+        
+        G 	19. Who knows about that day or hour? <br>
+            A. Only the Father (no one else, not even the angels in heaven, nor the Son) (Matthew 24:36)  <br><br>
+        
+        G 	20. About what did people know nothing until the flood came and took them all away? <br>
+            A. What would happen (Matthew 24:39)  <br><br>
+        
+        </p>
+
+</body>
+</html>

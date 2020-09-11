@@ -1,0 +1,902 @@
+<!DOCTYPE html>
+<html> 
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+
+        h1{
+            background-color: black;
+            text-align: center;
+            font-size: 120px;
+            margin: 0px;
+            padding: 30px;
+            color: rgb(0, 172, 172);
+            font-family: 'Impact', Haettenschweiler, Arial Narrow Bold, sans-serif;
+            top: 0px;
+            left: 0px;
+            text-emphasis: bold;
+        }
+
+        head{
+            background-color: black;
+            margin: 0px;
+            padding: 20px;
+        }
+
+        nav{
+            left: 0px;
+            margin: 0px;
+            padding: 20px;
+            background-color: rgb(0, 172, 172);
+            color: black;
+            text-align: left;
+            display: inline-block;
+            height: auto;
+        }
+
+        nav a{
+            color: black;
+            text-decoration: none;
+            margin: 10px 15px;
+            padding: 8px;
+            font-size: 24px;
+            display: inline-block;
+            box-shadow: 0px 0px 10px 5px black;
+            background-color: #b3b3b3;
+            border-radius: 5px;
+        }
+
+        body{
+            background-image: url('data:image/jpeg;base64,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');
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-attachment: fixed;
+        }
+
+        h2{
+            text-align: center;
+            color: white;
+            font-size: 32px;
+            text-emphasis: bold;
+            margin: 10px;
+            background-color: black;
+            padding: 10px;
+            border: double 3px black;
+        }
+
+        .bookmarks{
+            background-color: rgb(0, 172, 172);
+            position: absolute;
+            top: 290px;
+            left: 26%;
+            text-align: center;
+            padding: 10px 20px;
+            border: solid black 5px;
+            border-radius: 25px;
+        }
+
+        .bookmarks a{
+            display: inline-block;
+            background-color: black;
+            color: white;
+            text-emphasis: bold;
+            font-size: 24px;
+            margin: 10px;
+            padding: 10px;
+            border-radius: 10px;
+        }
+
+        h3{
+            font-size: 68px;
+            position: absolute;
+            float: center;
+            top: 350px;
+            left: 48%;
+            text-emphasis: bold;
+            text-align: center;
+            font-family: 'Times New Roman', Times, serif;
+        }
+
+        .verses a{
+            position: absolute;
+            color: rgb(0, 172, 172);
+            background-color: black;
+            font-size: 32px;
+            font-family: Arial, Helvetica, sans-serif;
+            left: 38%;
+            padding: 10px 100px;
+            text-decoration: none;
+            text-align: center;
+            top: 220px;
+            text-emphasis: bold;
+        }
+
+        #myBtn {
+            display: none; /* Hidden by default */
+            position: fixed; /* Fixed/sticky position */
+            bottom: 65px; /* Place the button at the bottom of the page */
+            left: 50px; /* Place the button 30px from the right */
+            z-index: 99; /* Make sure it does not overlap */
+            border: none; /* Remove borders */
+            outline: none; /* Remove outline */
+            background-color: rgb(0, 172, 172); /* Set a background color */
+            color: black; /* Text color */
+            cursor: pointer; /* Add a mouse pointer on hover */
+            padding: 10px; /* Some padding */
+            padding-bottom: 0px;
+            border-radius: 10px; /* Rounded corners */
+            border: solid black 5px;
+            font-size: 72px; /* Increase font size */
+        }
+
+        #myBtn:hover {
+            display: none; /* Hidden by default */
+            position: fixed; /* Fixed/sticky position */
+            bottom: 65px; /* Place the button at the bottom of the page */
+            left: 50px; /* Place the button 30px from the right */
+            z-index: 99; /* Make sure it does not overlap */
+            border: none; /* Remove borders */
+            outline: none; /* Remove outline */
+            background-color: rgb(0, 0, 0); /* Set a background color */
+            color: rgb(0, 172, 172); /* Text color */
+            cursor: pointer; /* Add a mouse pointer on hover */
+            padding: 10px; /* Some padding */
+            padding-bottom: 0px;
+            border-radius: 10px; /* Rounded corners */
+            border: solid rgb(0, 172, 172) 5px;
+            font-size: 72px; /* Increase font size */
+        }
+
+        p{
+            font-size: 22px;
+            position: absolute;
+            top: 500px;
+            left: 30%;
+        }
+
+        h7{
+            font-size: 32px;
+            text-emphasis: bold;
+        }
+
+    </style>
+    <button onclick="topFunction()" id="myBtn" title="Go to top"><b>^</b></button>
+<head> 
+    <h1>Questions</h1>
+    <div class="verses">
+        <a href="Quizzing.html">Click here for memory verses.</a>        
+   </div>
+</head>
+<body>
+   
+    <script>
+        //Get the button
+        var mybutton = document.getElementById("myBtn");
+        
+        // When the user scrolls down 20px from the top of the document, show the button
+        window.onscroll = function() {scrollFunction()};
+        
+        function scrollFunction() {
+          if (document.body.scrollTop > 1750 || document.documentElement.scrollTop > 1750) {
+            mybutton.style.display = "block";
+          } else {
+            mybutton.style.display = "none";
+          }
+        }
+        
+        // When the user clicks on the button, scroll to the top of the document
+        function topFunction() {
+          document.body.scrollTop = 0;
+          document.documentElement.scrollTop = 0;
+        }
+        </script>
+
+    <nav>
+
+        <h2>Select a Chapter</h2>
+        <br>
+
+        <a href="Quizzing_Questions_1.html">Matthew 1</a>
+        <br>
+        <a href="Quizzing_Questions_2.html">Matthew 2</a>
+        <br>
+        <a href="Quizzing_Questions_3.html">Matthew 3</a>
+        <br>
+        <a href="Quizzing_Questions_4.html">Matthew 4</a>
+        <br>
+        <a href="Quizzing_Questions_5.html">Matthew 5</a>
+        <br>
+        <a href="Quizzing_Questions_6.html">Matthew 6</a>
+        <br>
+        <a href="Quizzing_Questions_7.html">Matthew 7</a>
+        <br>
+        <a href="Quizzing_Questions_8.html">Matthew 8</a>
+        <br>
+        <a href="Quizzing_Questions_9.html">Matthew 9</a>
+        <br>
+        <a href="Quizzing_Questions_10.html">Matthew 10</a>
+        <br>
+        <a href="Quizzing_Questions_11.html">Matthew 11</a>
+        <br>
+        <a href="Quizzing_Questions_12.html">Matthew 12</a>
+        <br>
+        <a href="Quizzing_Questions_13.html">Matthew 13</a>
+        <br>
+        <a href="Quizzing_Questions_14.html">Matthew 14</a>
+        <br>
+        <a href="Quizzing_Questions_15.html">Matthew 15</a>
+        <br>
+        <a href="Quizzing_Questions_16.html">Matthew 16</a>
+        <br>
+        <a href="Quizzing_Questions_17.html">Matthew 17</a>
+        <br>
+        <a href="Quizzing_Questions_18.html">Matthew 18</a>
+        <br>
+        <a href="Quizzing_Questions_19.html">Matthew 19</a>
+        <br>
+        <a href="Quizzing_Questions_20.html">Matthew 20</a>
+        <br>
+        <a href="Quizzing_Questions_21.html">Matthew 21</a>
+        <br>
+        <a href="Quizzing_Questions_22.html">Matthew 22</a>
+        <br>
+        <a href="Quizzing_Questions_23.html">Matthew 23</a>
+        <br>
+        <a href="Quizzing_Questions_24.html">Matthew 24</a>
+        <br>
+        <a href="Quizzing_Questions_25.html">Matthew 25</a>
+        <br>
+        <a href="Quizzing_Questions_26.html">Matthew 26</a>
+        <br>
+        <a href="Quizzing_Questions_27.html">Matthew 27</a>
+        <br>
+        <a href="Quizzing_Questions_28.html">Matthew 28</a>
+    </nav>
+
+    <div class="bookmarks">
+        <a href="#1">Set 1</a>
+        <a href="#2">Set 2</a>
+        <a href="#3">Set 3</a>
+        <a href="#4">Set 4</a>
+        <a href="#5">Set 5</a>
+        <a href="#6">Set 6</a>
+        <a href="#7">Set 7</a>
+        <a href="#8">Set 8</a>
+        <a href="#9">Set 9</a>
+        <a href="#10">Set 10</a>
+    </div>
+
+    <h3>Matthew 27</h3>
+
+    <p><h7 id="1">SET #1 </h7>  <br><br>
+
+        G 	1. What is against the law to put into the treasury? <br> 
+            A. The coins [OR the money Judas threw into the temple] (Matthew 27:6)  <br><br>
+        
+        R 	2. Finish these verses and give the reference: "At that moment the curtain. . ." <br>
+            A. ". . .of the temple was torn in two from top to bottom. The earth shook, the rocks split and the tombs broke open. The bodies of many holy people who had died were raised to life. " (Matthew 27:51-52)  <br><br>
+        
+        A 	3. According to Matthew, chapter 27, verse 66, what did they make secure? <br>
+            A. The tomb (Matthew 27:66)  <br><br>
+        
+        G 	4. Over whom did the soldiers keep watch there? <br>
+            A. Jesus (Matthew 27:36)  <br><br>
+        
+        G 	5. Who asked, "Which of the two do you want me to release to you?" <br>
+            A. The governor [OR Pilate] (Matthew 27:21)  <br><br>
+        
+        A 	6. According to Matthew, chapter 27, verse 40, what were they saying? <br>
+            A. "You who are going to destroy the temple and build it in three days, save yourself! Come down from the cross, if you are the Son of God!" (Matthew 27:40)  <br><br>
+        
+        X 	7. Complete, in essence, the following: "There they offered Jesus wine . . ." <br>
+            A. ". . . to drink, mixed with gall; but after tasting it, he refused to drink it." (Matthew 27:34)  <br><br>
+        
+        G 	8. To whom did Pilate order that Jesus' body be given? <br>
+            A. Joseph (from Arimathea) (Matthew 27:58)  <br><br>
+        
+        V 	9. Finish this verse: "About three in the afternoon. . ." <br>
+            A. ". . .Jesus cried out in a loud voice, "Eli, Eli, lema sabachthani?" (which means "My God, my God, why have you forsaken me?")." (Matthew 27:46)  <br><br>
+        
+        A 	10. According to Matthew, chapter 27, verse 57, who was named Joseph? <br>
+            A. A rich man from Arimathea (Matthew 27:57)  <br><br>
+        
+        G 	11. How did the chief priests decide to use the money? <br>
+            A. To buy the potter's field as a burial place for foreigners (Matthew 27:7)  <br><br>
+        
+        G 	12. Who said, "Sir, we remember that while he was still alive that deceiver said, 'After three days I will rise again.'"? <br>
+            A. The chief priests and the Pharisees (Matthew 27:63)  <br><br>
+        
+        Q 	13. Quote Matthew, chapter 27, verse 50. <br>
+            A. "And when Jesus had cried out again in a loud voice, he gave up his spirit." (Matthew 27:50)  <br><br>
+        
+        G 	14. Who said, "He's calling Elijah"? <br>
+            A. Some of those standing there (Matthew 27:47)  <br><br>
+        
+        S 	15. Situation question: who said it, and about whom: "Hail, king of the Jews!"? <br>
+            A. The soldiers said it about Jesus (Matthew 27:29)  <br><br>
+        
+        G 	16. To whom did many holy people who had died and were raised to life appear in the holy city? <br>
+            A. Many people (Matthew 27:53)  <br><br>
+        
+        G 	17. Whose bodies were raised to life when the tombs broke open? <br>
+            A. The bodies of many holy people who had died (Matthew 27:52)  <br><br>
+        
+        A 	18. According to Matthew, chapter 27, verse 18, what did he know? <br>
+            A. It was out of self-interest that they had handed Jesus over to him (Matthew 27:18)  <br><br>
+        
+        G 	19. Over what did darkness come from noon until three in the afternoon? <br>
+            A. All the land (Matthew 27:45)  <br><br>
+        
+        G 	20. What curtain was torn in two from top to bottom? <br>
+            A. The curtain of the temple (Matthew 27:51)  <br><br>
+        
+         <br><br>
+          <h7 id="2">SET #2</h7><br><br>
+        
+        G 	1. What were those who passed by shaking? <br>
+            A. Their heads (Matthew 27:39)  <br><br>
+        
+        G 	2. Who was the mother of James and Joseph? <br>
+            A. Mary (Matthew 27:56)  <br><br>
+        
+        A 	3. According to Matthew, chapter 27, verse 37, what is Jesus? <br>
+            A. The king of the Jews (Matthew 27:37)  <br><br>
+        
+        G 	4. When did Pilate ask them, "Which one do you want me to release to you: Jesus Barabbas, or Jesus who is called the Messiah?" <br>
+            A. When the crowd had gathered (Matthew 27:17)  <br><br>
+        
+        A 	5. According to Matthew, chapter 27, verse 34, what did Jesus taste? <br>
+            A. Wine, mixed with gall (Matthew 27:34)  <br><br>
+        
+        G 	6. Where did one of them put a sponge filled with wine vinegar? <br>
+            A. On a staff (Matthew 27:48)  <br><br>
+        
+        S 	7. Situation question: who said it, to whom, and in reply to what: "What is that to us? That's your responsibility."? <br>
+            A. The chief priests and the elders said it to Judas, in reply to, "I have sinned, for I have betrayed innocent blood." (Matthew 27:4)  <br><br>
+        
+        G 	8. What did the soldiers force Simon to carry? <br>
+            A. The cross (Matthew 27:32)  <br><br>
+        
+        G 	9. Who came out of the tombs after Jesus' resurrection? <br>
+            A. Many holy people who had died and were raised to life (Matthew 27:53)  <br><br>
+        
+        V 	10. Finish this verse: "And when Jesus had cried. . ." <br>
+            A. ". . .out again in a loud voice, he gave up his spirit." (Matthew 27:50)  <br><br>
+        
+        X 	11. Of what did Pilate say he was innocent? <br>
+            A. Jesus' blood (Matthew 27:24)  <br><br>
+        
+        G 	12. What broke open? <br>
+            A. The tombs (Matthew 27:52)  <br><br>
+        
+        R 	13. Finish this verse and give the reference: "About three in the afternoon. . ." <br>
+            A. ". . .Jesus cried out in a loud voice, "Eli, Eli, lema sabachthani?" (which means "My God, my God, why have you forsaken me?"). " (Matthew 27:46) <br><br> 
+        
+        G 	14. Who had followed Jesus from Galilee to care for his needs? <br>
+            A. Many women (Matthew 27:55)  <br><br>
+        
+        G 	15. What had Joseph cut out of the rock? <br>
+            A. His own new tomb (Matthew 27:60)  <br><br>
+        
+        Q 	16. Quote Matthew, chapter 27, verses 51 through 52. <br>
+            A. "At that moment the curtain of the temple was torn in two from top to bottom. The earth shook, the rocks split and the tombs broke open. The bodies of many holy people who had died were raised to life." (Matthew 27:51-52)  <br><br>
+        
+        G 	17. What did the chief priests and the Pharisees put on the stone? <br>
+            A. A seal (Matthew 27:66)  <br><br>
+        
+        A 	18. According to Matthew, chapter 27, verse 30, where did they strike him again and again? <br>
+            A. On the head (Matthew 27:30)  <br><br>
+        
+        G 	19. What did the centurion and those with him who were guarding Jesus exclaim? <br>
+            A. "Surely he was the Son of God!" (Matthew 27:54)  <br><br>
+        
+        A 	20. According to Matthew, chapter 27, verse 29, what did they say? <br>
+            A. "Hail, king of the Jews!" (Matthew 27:29)  <br><br>
+         <br><br>
+        
+          <h7 id="3">SET #3</h7><br><br>
+        
+        A 	1. According to Matthew, chapter 27, verse 29, what did they set on his head? <br>
+            A. A crown of thorns (Matthew 27:29)  <br><br>
+        
+        G 	2. On whom did the soldiers put a scarlet robe? <br>
+            A. Jesus (Matthew 27:28)  <br><br>
+        
+        G 	3. Who was from Arimathea? <br>
+            A. A rich man named Joseph (Matthew 27:57)  <br><br>
+        
+        S 	4. Situation question: who said it, to whom, and why: "Which one do you want me to release to you: Jesus Barabbas, or Jesus who is called the Messiah?" <br>
+            A. Pilate said it to the crowd, because he knew it was out of self-interest that they had handed Jesus over to him (Matthew 27:17-18)  <br><br>
+        
+        G 	5. Out of what had they handed Jesus over to Pilate? <br>
+            A. Self-interest (Matthew 27:18)  <br><br>
+        
+        Q 	6. Quote Matthew, chapter 27, verse 50. <br>
+            A. "And when Jesus had cried out again in a loud voice, he gave up his spirit." (Matthew 27:50)  <br><br>
+        
+        A 	7. According to Matthew, chapter 27, verse 4, what did he say? <br>
+            A. "I have sinned, for I have betrayed innocent blood." (Matthew 27:4)  <br><br>
+        
+        G 	8. Who exclaimed, "Surely he was the Son of God!"? <br>
+            A. The centurion and those with him who were guarding Jesus (Matthew 27:54)  <br><br>
+        
+        G 	9. Who asked, "What shall I do, then, with Jesus who is called the Messiah?" <br>
+            A. Pilate (Matthew 27:22)  <br><br>
+        
+        R 	10. Finish these verses and give the reference: "At that moment the curtain. . ." <br>
+            A. ". . .of the temple was torn in two from top to bottom. The earth shook, the rocks split and the tombs broke open. The bodies of many holy people who had died were raised to life. " (Matthew 27:51-52)  <br><br>
+        
+        G 	11. How did the chief priests and the Pharisees make the tomb secure? <br>
+            A. By putting a seal on the stone and posting the guard (Matthew 27:66)  <br><br>
+        
+        G 	12. Who should take a guard and make the tomb as secure as they know how? <br>
+            A. The chief priests and the Pharisees (Matthew 27:65)  <br><br>
+        
+        A 	13. According to Matthew, chapter 27, verse 41, who mocked him? <br>
+            A. The chief priests, the teachers of the law and the elders (Matthew 27:41)  <br><br>
+        
+        G 	14. Where did Joseph roll a big stone? <br>
+            A. In front of the entrance to the tomb (Matthew 27:60)  <br><br>
+        
+        G 	15. For whom did the chief priests and the elders persuade the crowd to ask? <br>
+            A. Barabbas (Matthew 27:20)  <br><br>
+        
+        X 	16. Two-part answer: where were two rebels crucified? <br>
+            A. 1) One on Jesus' right; 2) One on Jesus' left (Matthew 27:38)  <br><br>
+        
+        A 	17. According to Matthew, chapter 27, verse 47, who heard this? <br>
+            A. Some of those standing there (Matthew 27:47)  <br><br>
+        
+        V 	18. Finish this verse: "About three in the afternoon. . ." <br>
+            A. ". . .Jesus cried out in a loud voice, "Eli, Eli, lema sabachthani?" (which means "My God, my God, why have you forsaken me?")." (Matthew 27:46)  <br><br>
+        
+        G 	19. From where were many women watching? <br>
+            A. A distance (Matthew 27:55)  <br><br>
+        
+        G 	20. Whom did the soldiers strike on the head again and again? <br>
+            A. Jesus (Matthew 27:30)  <br><br>
+        
+         <br><br>
+          <h7 id="4">SET #4</h7><br><br>
+        
+        A 	1. According to Matthew, chapter 27, verse 3, who was condemned? <br>
+            A. Jesus (Matthew 27:3)  <br><br>
+        
+        G 	2. On what day did the chief priests and the Pharisees go to Pilate? <br>
+            A. The next day, the one after Preparation Day (Matthew 27:62)  <br><br>
+        
+        R 	3. Finish this verse and give the reference: "And when Jesus had cried. . ." <br>
+            A. ". . .out again in a loud voice, he gave up his spirit. " (Matthew 27:50)  <br><br>
+        
+        G 	4. What came over all the land from noon until three in the afternoon? <br>
+            A. Darkness (Matthew 27:45)  <br><br>
+        
+        G 	5. To whom did all the chief priests and the elders of the people hand Jesus over? <br>
+            A. Pilate the governor (Matthew 27:2)  <br><br>
+        
+        Q 	6. Quote Matthew, chapter 27, verse 46. <br>
+            A. "About three in the afternoon Jesus cried out in a loud voice, "Eli, Eli, lema sabachthani?" (which means "My God, my God, why have you forsaken me?")." (Matthew 27:46)  <br><br>
+        
+        S 	7. Situation question: who said it, to whom, and what was the reply: "Which of the two do you want me to release to you?" <br>
+            A. Pilate said it to the crowd, and the reply was, "Barabbas." (Matthew 27:21)  <br><br>
+        
+        G 	8. Who were among the many women there, watching from a distance? <br>
+            A. Mary Magdalene, Mary the mother of James and Joseph, and the mother of Zebedee's sons (Matthew 27:55-56)  <br><br>
+        
+        G 	9. Who knew it was out of self-interest that they had handed Jesus over to him? <br>
+            A. Pilate (Matthew 27:18)  <br><br>
+        
+        A 	10. According to Matthew, chapter 27, verse 32, who was named Simon? <br>
+            A. A man from Cyrene (Matthew 27:32)  <br><br>
+        
+        X 	11. Four-part answer: in Matthew, chapter 27, who mocked Jesus? <br>
+            A. 1) The soldiers; 2) The chief priests; 3) The teachers of the law; 4) The elders (Matthew 27:29, 41)  <br><br>
+        
+        G 	12. Of whom had a rich man from Arimathea named Joseph himself become a disciple? <br>
+            A. Jesus (Matthew 27:57)  <br><br>
+        
+        G 	13. Into what is it against the law to put the coins? <br>
+            A. The treasury (Matthew 27:6)  <br><br>
+        
+        V 	14. Finish these verses: "At that moment the curtain. . ." <br>
+            A. ". . .of the temple was torn in two from top to bottom. The earth shook, the rocks split and the tombs broke open. The bodies of many holy people who had died were raised to life." (Matthew 27:51-52)  <br><br>
+        
+        G 	15. Who made the tomb secure by putting a seal on the stone and posting the guard? <br>
+            A. The chief priests and the Pharisees (Matthew 27:66)  <br><br>
+        
+        A 	16. According to Matthew, chapter 27, verse 4, what have I betrayed? <br>
+            A. Innocent blood (Matthew 27:4)  <br><br>
+        
+        G 	17. Whom did the governor ask, "Are you the king of the Jews?" <br>
+            A. Jesus (Matthew 27:11)  <br><br>
+        
+        G 	18. Who twisted together a crown of thorns and set it on Jesus' head? <br>
+            A. The soldiers (Matthew 27:29)  <br><br>
+        
+        A 	19. According to Matthew, chapter 27, verse 35, what did they divide up? <br>
+            A. His clothes (Matthew 27:35)  <br><br>
+        
+        G 	20. Who ordered that Jesus' body be given to Joseph? <br>
+            A. Pilate (Matthew 27:58)  <br><br>
+        
+         <br><br>
+          <h7 id="5">SET #5</h7><br><br>
+        
+        G 	1. Who wrapped the body in a clean linen cloth and placed it in his own new tomb that he had cut out of the rock? <br>
+            A. Joseph (from Arimathea) (Matthew 27:59-60)  <br><br>
+        
+        G 	2. Where did the soldiers kneel? <br>
+            A. In front of Jesus (Matthew 27:29)  <br><br>
+        
+        S 	3. Situation question: who said it, about whom, and when: "Surely he was the Son of God!"? <br>
+            A. The centurion and those with him who were guarding Jesus said it about Jesus, when they saw the earthquake and all that had happened (Matthew 27:54)  <br><br>
+        
+        G 	4. Why has the potter's field been called the Field of Blood to this day? <br>
+            A. Because the chief priests decided to use the money to buy the potter's field as a burial place for foreigners (Matthew 27:7-8)  <br><br>
+        
+        G 	5. Who said, "Now leave him alone. Let's see if Elijah comes to save him."? <br>
+            A. The rest (of those standing there) (Matthew 27:49)  <br><br>
+        
+        A 	6. According to Matthew, chapter 27, verse 17, who had gathered? <br>
+            A. The crowd (Matthew 27:17)  <br><br>
+        
+        G 	7. Who said, "It is against the law to put this into the treasury, since it is blood money."? <br>
+            A. The chief priests (Matthew 27:6)  <br><br>
+        
+        A 	8. According to Matthew, chapter 27, verse 2, what was Pilate? <br>
+            A. The governor (Matthew 27:2)  <br><br>
+        
+        G 	9. In whom does Jesus trust? <br>
+            A. God (Matthew 27:43)  <br><br>
+        
+        Q 	10. Quote Matthew, chapter 27, verse 50. <br>
+            A. "And when Jesus had cried out again in a loud voice, he gave up his spirit." (Matthew 27:50)  <br><br>
+        
+        X 	11. In Matthew, chapter 27, why did Judas say he had sinned? <br>
+            A. Because he had betrayed innocent blood (Matthew 27:4)  <br><br>
+        
+        G 	12. Whom had the soldiers crucified? <br>
+            A. Jesus (Matthew 27:35)  <br><br>
+        
+        G 	13. Who shouted all the louder, "Crucify him!"? <br>
+            A. The crowd (Matthew 27:23)  <br><br>
+        
+        R 	14. Finish this verse and give the reference: "About three in the afternoon. . ." <br>
+            A. ". . .Jesus cried out in a loud voice, "Eli, Eli, lema sabachthani?" (which means "My God, my God, why have you forsaken me?"). " (Matthew 27:46)  <br><br>
+        
+        G 	15. How did the rebels who were crucified with Jesus also heap insults on him? <br>
+            A. In the same way (Matthew 27:44)  <br><br>
+        
+        A 	16. According to Matthew, chapter 27, verse 20, whom did the chief priests and the elders persuade? <br>
+            A. The crowd (Matthew 27:20)  <br><br>
+        
+        V 	17. Finish these verses: "At that moment the curtain. . ." <br>
+            A. ". . .of the temple was torn in two from top to bottom. The earth shook, the rocks split and the tombs broke open. The bodies of many holy people who had died were raised to life." (Matthew 27:51-52)  <br><br>
+        
+        A 	18. According to Matthew, chapter 27, verse 27, what did the governor's soldiers do? <br>
+            A. They took Jesus into the Praetorium and gathered the whole company of soldiers around him (Matthew 27:27)  <br>
+        
+        G 	19. What did the chief priests and the Pharisees make secure by putting a seal on the stone and posting the guard? <br>
+            A. The tomb (Matthew 27:66)  <br><br>
+        
+        G 	20. What did Joseph wrap in a clean linen cloth? <br>
+            A. Jesus' body (Matthew 27:59)  <br><br>
+        
+         <br><br>
+          <h7 id="6">SET #6</h7><br><br>
+        
+        G 	1. Who has betrayed innocent blood? <br>
+            A. Judas (Matthew 27:4)  <br><br>
+        
+        S 	2. Situation question: who said it, to whom, and what was the response: "Don't you hear the testimony they are bringing against you?" <br>
+            A. Pilate said it to Jesus, and Jesus made no reply, not even to a single charge (Matthew 27:13-14)  <br><br>
+        
+        G 	3. Who led Jesus away to crucify him? <br>
+            A. The soldiers (Matthew 27:31)  <br><br>
+        
+        G 	4. Who struck Jesus on the head again and again? <br>
+            A. The soldiers (Matthew 27:30)  <br><br>
+        
+        X 	5. Complete, in essence, the following: "The bodies of many holy . . ." <br>
+            A. ". . . people who had died were raised to life." (Matthew 27:52)  <br><br>
+        
+        A 	6. According to Matthew, chapter 27, verse 24, what did Pilate say? <br>
+            A. "I am innocent of this man's blood. It is your responsibility!" (Matthew 27:24)  <br><br>
+        
+        V 	7. Finish these verses: "At that moment the curtain. . ." <br>
+            A. ". . .of the temple was torn in two from top to bottom. The earth shook, the rocks split and the tombs broke open. The bodies of many holy people who had died were raised to life." (Matthew 27:51-52)  <br><br>
+        
+        A 	8. According to Matthew, chapter 27, verse 21, what did the governor ask? <br>
+            A. "Which of the two do you want me to release to you?" (Matthew 27:21)  <br><br>
+        
+        G 	9. What message did Pilate's wife send Pilate while he was sitting on the judge's seat? <br>
+            A. "Don't have anything to do with that innocent man, for I have suffered a great deal today in a dream because of him."? (Matthew 27:19)  <br><br>
+        
+        G 	10. Who stripped Jesus and put a scarlet robe on him? <br>
+            A. The soldiers (Matthew 27:28)  <br><br>
+        
+        R 	11. Finish this verse and give the reference: "And when Jesus had cried. . ." <br>
+            A. ". . .out again in a loud voice, he gave up his spirit. " (Matthew 27:50)  <br><br>
+        
+        G 	12. What has been called the Field of Blood to this day? <br>
+            A. The potter's field (Matthew 27:8)  <br><br>
+        
+        A 	13. According to Matthew, chapter 27, verse 44, who also heaped insults on him? <br>
+            A. The rebels who were crucified with him (Matthew 27:44)  <br><br>
+        
+        G 	14. Whom did Pilate ask, "Which one do you want me to release to you: Jesus Barabbas, or Jesus who is called the Messiah?" <br>
+            A. The crowd (Matthew 27:17)  <br><br>
+        
+        G 	15. Who asked Jesus, "Are you the king of the Jews?" <br>
+            A. The governor [OR Pilate] (Matthew 27:11)  <br><br>
+        
+        A 	16. According to Matthew, chapter 27, verse 42, what did they say? <br>
+            A. "He saved others, but he can't save himself! He's the King of Israel! Let him come down now from the cross, and we will believe in him." (Matthew 27:42) <br><br>
+        
+        G 	17. What did Joseph place in his own new tomb that he had cut out of the rock? <br>
+            A. Jesus' body (Matthew 27:60)  <br><br>
+        
+        Q 	18. Quote Matthew, chapter 27, verse 46. <br>
+            A. "About three in the afternoon Jesus cried out in a loud voice, "Eli, Eli, lema sabachthani?" (which means "My God, my God, why have you forsaken me?")." (Matthew 27:46)  <br><br>
+        
+        G 	19. Who threw the money into the temple and left? <br>
+            A. Judas (Matthew 27:5)  <br><br>
+        
+        G 	20. When did all the chief priests and the elders of the people make their plans how to have Jesus executed? <br>
+            A. Early in the morning (Matthew 27:1)  <br><br>
+        
+         <br><br>
+          <h7 id="7">SET #7</h7><br><br>
+        
+        A 	1. According to Matthew, chapter 27, verse 1, what did all the chief priests and the elders of the people make? <br>
+            A. Their plans how to have Jesus executed (Matthew 27:1)  <br><br>
+        
+        G 	2. How was the curtain of the temple torn in two? <br>
+            A. From top to bottom (Matthew 27:51)  <br><br>
+        
+        A 	3. According to Matthew, chapter 27, verse 48, what did one of them offer to Jesus to drink? <br>
+            A. A sponge filled with wine vinegar (Matthew 27:48)  <br><br>
+        
+        G 	4. What does Golgotha mean? <br>
+            A. "The place of the skull" (Matthew 27:33)  <br><br>
+        
+        G 	5. Who made no reply, not even to a single charge? <br>
+            A. Jesus (Matthew 27:14)  <br><br>
+        
+        R 	6. Finish this verse and give the reference: "And when Jesus had cried. . ." <br>
+            A. ". . .out again in a loud voice, he gave up his spirit. " (Matthew 27:50)  <br><br>
+        
+        S 	7. Situation question: who said it, to whom, and what was the reply: "Why? What crime has he committed?" <br>
+            A. Pilate said it to the crowd, and the reply was, "Crucify him!" (Matthew 27:23)  <br><br>
+        
+        G 	8. Who gave no answer when he was accused by the chief priests and the elders? <br>
+            A. Jesus (Matthew 27:12)  <br><br>
+        
+        G 	9. Who asked Jesus, "Don't you hear the testimony they are bringing against you?" <br>
+            A. Pilate (Matthew 27:13)  <br><br>
+        
+        Q 	10. Quote Matthew, chapter 27, verse 46. <br>
+            A. "About three in the afternoon Jesus cried out in a loud voice, "Eli, Eli, lema sabachthani?" (which means "My God, my God, why have you forsaken me?")." (Matthew 27:46)  <br><br>
+        
+        X 	11. Complete, in essence, the following: "He rolled a big stone . . ." <br>
+            A. ". . . in front of the entrance to the tomb and went away." (Matthew 27:60)  <br><br>
+        
+        G 	12. Who led Jesus away and handed him over to Pilate the governor? <br>
+            A. All the chief priests and the elders of the people (Matthew 27:2)  <br><br>
+        
+        G 	13. When did Jesus refuse to drink wine mixed with gall? <br>
+            A. After tasting it (Matthew 27:34)  <br><br>
+        
+        A 	14. According to Matthew, chapter 27, verse 45, where did darkness come? <br>
+            A. Over all the land (Matthew 27:45)  <br><br>
+        
+        G 	15. How has Pilate's wife suffered today in a dream because of Jesus? <br>
+            A. A great deal (Matthew 27:19)  <br><br>
+        
+        G 	16. Who were shaking their heads and saying, "You who are going to destroy the temple and build it in three days, save yourself! Come down from the cross, if you are the Son of God!"? <br>
+            A. Those who passed by (Matthew 27:39-40)  <br><br>
+        
+        A 	17. According to Matthew, chapter 27, verse 32, whom did they meet? <br>
+            A. A man from Cyrene named Simon (Matthew 27:32)  <br><br>
+        
+        V 	18. Finish these verses: "At that moment the curtain. . ." <br>
+            A. ". . .of the temple was torn in two from top to bottom. The earth shook, the rocks split and the tombs broke open. The bodies of many holy people who had died were raised to life." (Matthew 27:51-52)  <br><br>
+        
+        G 	19. Whose custom was it to release a prisoner chosen by the crowd at the festival? <br>
+            A. The governor's (Matthew 27:15)  <br><br>
+        
+        G 	20. Where did Judas throw the money? <br>
+            A. Into the temple (Matthew 27:5)  <br><br>
+         <br><br>
+        
+          <h7 id="8">SET #8</h7><br><br>
+        
+        G 	1. At whom did those who passed by hurl insults? <br>
+            A. Jesus (Matthew 27:39)  <br><br>
+        
+        G 	2. When was it the governor's custom to release a prisoner chosen by the crowd? <br>
+            A. At the festival (Matthew 27:15)  <br><br>
+        
+        A 	3. According to Matthew, chapter 27, verse 49, what did the rest say? <br>
+            A. "Now leave him alone. Let's see if Elijah comes to save him." (Matthew 27:49)  <br><br>
+        
+        G 	4. What did the soldiers place above Jesus' head? <br>
+            A. The written charge against him: THIS IS JESUS, THE KING OF THE JEWS (Matthew 27:37)  <br><br>
+        
+        V 	5. Finish this verse: "About three in the afternoon. . ." <br>
+            A. ". . .Jesus cried out in a loud voice, "Eli, Eli, lema sabachthani?" (which means "My God, my God, why have you forsaken me?")." (Matthew 27:46)  <br><br>
+        
+        G 	6. Whom did the chief priests and the elders persuade to ask for Barabbas and to have Jesus executed? <br>
+            A. The crowd (Matthew 27:20)  <br><br>
+        
+        X 	7. Two-part answer: who were sitting opposite the tomb? <br>
+            A. 1) Mary Magdalene; 2) The other Mary (Matthew 27:61)  <br><br>
+        
+        R 	8. Finish these verses and give the reference: "At that moment the curtain. . ." <br>
+            A. ". . .of the temple was torn in two from top to bottom. The earth shook, the rocks split and the tombs broke open. The bodies of many holy people who had died were raised to life. " (Matthew 27:51-52)  <br><br>
+        
+        G 	9. Who said, "I have sinned, for I have betrayed innocent blood."? <br>
+            A. Judas (Matthew 27:4)  <br><br>
+        
+        G 	10. Whom did all the chief priests and the elders of the people bind, lead away and hand over to Pilate the governor? <br>
+            A. Jesus (Matthew 27:2)  <br><br>
+        
+        Q 	11. Quote Matthew, chapter 27, verse 50. <br>
+            A. "And when Jesus had cried out again in a loud voice, he gave up his spirit." (Matthew 27:50)  <br><br>
+        
+        G 	12. When did Pilate ask Jesus, "Don't you hear the testimony they are bringing against you?" <br>
+            A. When Jesus was accused by the chief priests and the elders and he gave no answer (Matthew 27:13)  <br><br>
+        
+        G 	13. What plans did all the chief priests and the elders of the people make early in the morning? <br>
+            A. Their plans how to have Jesus executed (Matthew 27:1)  <br><br>
+        
+        A 	14. According to Matthew, chapter 27, verse 19, where was Pilate sitting? <br>
+            A. On the judge's seat (Matthew 27:19)  <br><br>
+        
+        G 	15. Who said, "I am innocent of this man's blood. It is your responsibility!"? <br>
+            A. Pilate (Matthew 27:24)  <br><br>
+        
+        G 	16. Who rolled a big stone in front of the entrance to the tomb and went away? <br>
+            A. Joseph (from Arimathea) (Matthew 27:60)  <br><br>
+        
+        A 	17. According to Matthew, chapter 27, verse 51, what split? <br>
+            A. The rocks (Matthew 27:51)  <br><br>
+        
+        S 	18. Situation question: who said it, to whom, and in reply to what: "His blood is on us and on our children!"? <br>
+            A. All the people [OR the crowd] said it to Pilate, in reply to, "I am innocent of this man's blood. It is your responsibility!"? (Matthew 27:24-25)  <br><br>
+        
+        A 	19. According to Matthew, chapter 27, verse 52, who had died? <br>
+            A. Many holy people (Matthew 27:52)  <br><br>
+        
+        G 	20. Where were two rebels crucified with Jesus? <br>
+            A. One on Jesus' right and one on his left (Matthew 27:38)  <br><br>
+        
+         <br><br>
+          <h7 id="9">SET #9</h7><br><br>
+        
+        G 	1. Who had Jesus flogged and handed him over to be crucified? <br>
+            A. Pilate (Matthew 27:26)  <br><br>
+        
+        G 	2. What did the soldiers cast? <br>
+            A. Lots (Matthew 27:35)  <br><br>
+        
+        R 	3. Finish these verses and give the reference: "At that moment the curtain. . ." <br>
+            A. ". . .of the temple was torn in two from top to bottom. The earth shook, the rocks split and the tombs broke open. The bodies of many holy people who had died were raised to life. " (Matthew 27:51-52)  <br><br>
+        
+        S 	4. Situation question: who said it, and about whom: "Now leave him alone. Let's see if Elijah comes to save him."? <br>
+            A. The rest of those standing there said it about Jesus (Matthew 27:49)  <br><br>
+        
+        G 	5. Who had betrayed Jesus? <br>
+            A. Judas (Matthew 27:3)  <br><br>
+        
+        G 	6. Where did the soldiers set a crown of thorns? <br>
+            A. On Jesus' head (Matthew 27:29)  <br><br>
+        
+        Q 	7. Quote Matthew, chapter 27, verse 50. <br>
+            A. "And when Jesus had cried out again in a loud voice, he gave up his spirit." (Matthew 27:50)  <br><br>
+        
+        G 	8. How did the soldiers strike Jesus on the head? <br>
+            A. Again and again (Matthew 27:30)  <br><br>
+        
+        A 	9. According to Matthew, chapter 27, verse 19, why should Pilate not have anything to do with that innocent man? <br>
+            A. For Pilate's wife has suffered a great deal today in a dream because of him (Matthew 27:19)  <br><br>
+        
+        G 	10. Where did the soldiers place the written charge against Jesus? <br>
+            A. Above Jesus' head (Matthew 27:37)  <br><br>
+        
+        G 	11. Who gathered the whole company of soldiers around Jesus? <br>
+            A. The governor's soldiers (Matthew 27:27)  <br><br>
+        
+        A 	12. According to Matthew, chapter 27, verse 54, what did the centurion and those with him who were guarding Jesus exclaim? <br>
+            A. "Surely he was the Son of God!" (Matthew 27:54)  <br><br>
+        
+        G 	13. What did Jesus refuse to drink after tasting it? <br>
+            A. Wine mixed with gall (Matthew 27:34)  <br><br>
+        
+        V 	14. Finish this verse: "About three in the afternoon. . ." <br>
+            A. ". . .Jesus cried out in a loud voice, "Eli, Eli, lema sabachthani?" (which means "My God, my God, why have you forsaken me?")." (Matthew 27:46)  <br><br>
+        
+        G 	15. Who forced Simon to carry the cross? <br>
+            A. The soldiers (Matthew 27:32)  <br><br>
+        
+        A 	16. According to Matthew, chapter 27, verse 22, what did Pilate ask? <br>
+            A. "What shall I do, then, with Jesus who is called the Messiah?" (Matthew 27:22)  <br><br>
+        
+        G 	17. When did Pilate take water and wash his hands in front of the crowd? <br>
+            A. When he saw that he was getting nowhere, but that instead an uproar was starting (Matthew 27:24)  <br><br>
+        
+        X 	18. Two-part answer: how did they make the tomb secure? <br>
+            A. 1) By putting a seal on the stone; 2) By posting the guard (Matthew 27:66)  <br><br>
+        
+        G 	19. Who answered, "His blood is on us and on our children!"? <br>
+            A. All the people (Matthew 27:25)  <br><br>
+        
+        A 	20. According to Matthew, chapter 27, verse 53, to whom did they appear? <br>
+            A. Many people (Matthew 27:53)  <br><br>
+        
+         <br><br>
+          <h7 id="10">SET #10</h7><br><br>
+        
+        G 	1. With what was Judas seized when he saw that Jesus was condemned? <br>
+            A. Remorse (Matthew 27:3)  <br><br>
+        
+        V 	2. Finish this verse: "About three in the afternoon. . ." <br>
+            A. ". . .Jesus cried out in a loud voice, "Eli, Eli, lema sabachthani?" (which means "My God, my God, why have you forsaken me?")." (Matthew 27:46)  <br><br>
+        
+        G 	3. In front of whom did the soldiers kneel? <br>
+            A. Jesus (Matthew 27:29)  <br><br>
+        
+        G 	4. Because of whom has Pilate's wife suffered a great deal today in a dream? <br>
+            A. Jesus (Matthew 27:19)  <br><br>
+        
+        X 	5. How was the potter's field used? <br>
+            A. As a burial place for foreigners (Matthew 27:7)  <br><br>
+        
+        R 	6. Finish these verses and give the reference: "At that moment the curtain. . ." <br>
+            A. ". . .of the temple was torn in two from top to bottom. The earth shook, the rocks split and the tombs broke open. The bodies of many holy people who had died were raised to life. " (Matthew 27:51-52)  <br><br>
+        
+        A 	7. According to Matthew, chapter 27, verse 55, who were there? <br>
+            A. Many women (Matthew 27:55)  <br><br>
+        
+        G 	8. Whom did the soldiers offer wine to drink, mixed with gall? <br>
+            A. Jesus (Matthew 27:34)  <br><br>
+        
+        G 	9. Who sent Pilate this message: "Don't have anything to do with that innocent man, for I have suffered a great deal today in a dream because of him."? <br>
+            A. Pilate's wife (Matthew 27:19)  <br><br>
+        
+        A 	10. According to Matthew, chapter 27, verse 24, what did Pilate see? <br>
+            A. That he was getting nowhere, but that instead an uproar was starting (Matthew 27:24)  <br><br>
+        
+        S 	11. Situation question: who said it, and what was the result: "It is against the law to put this into the treasury, since it is blood money."? <br>
+            A. The chief priests said it, and they decided to use the money to buy the potter's field as a burial place for foreigners (Matthew 27:6-7)  <br><br>
+        
+        G 	12. Who saw that Jesus was condemned? <br>
+            A. Judas (Matthew 27:3)  <br><br>
+        
+        G 	13. Whom did Pilate hand over to be crucified? <br>
+            A. Jesus (Matthew 27:26)  <br><br>
+        
+        Q 	14. Quote Matthew, chapter 27, verse 50. <br>
+            A. "And when Jesus had cried out again in a loud voice, he gave up his spirit." (Matthew 27:50)  <br><br>
+        
+        G 	15. Whom did Pilate release to the crowd? <br>
+            A. Barabbas (Matthew 27:26)  <br><br>
+        
+        G 	16. When did Judas return the thirty pieces of silver to the chief priests and the elders? <br>
+            A. When he saw that Jesus was condemned (Matthew 27:3)  <br><br>
+        
+        A 	17. According to Matthew, chapter 27, verse 56, of whom was Mary the mother? <br>
+            A. James and Joseph (Matthew 27:56)  <br><br>
+        
+        G 	18. Where was Pilate sitting? <br>
+            A. On the judge's seat (Matthew 27:19)  <br><br>
+        
+        G 	19. Who said, "Hail, king of the Jews!"? <br>
+            A. The soldiers (Matthew 27:29)  <br><br>
+        
+        A 	20. According to Matthew, chapter 27, verse 14, to what did Jesus not even make a reply? <br>
+            A. A single charge (Matthew 27:14)  <br><br>
+        
+        </p>
+
+</body>
+</html>

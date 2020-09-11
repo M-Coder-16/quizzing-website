@@ -1,0 +1,720 @@
+<!DOCTYPE html>
+<html> 
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+
+        h1{
+            background-color: black;
+            text-align: center;
+            font-size: 120px;
+            margin: 0px;
+            padding: 30px;
+            color: rgb(0, 172, 172);
+            font-family: 'Impact', Haettenschweiler, Arial Narrow Bold, sans-serif;
+            top: 0px;
+            left: 0px;
+            text-emphasis: bold;
+        }
+
+        head{
+            background-color: black;
+            margin: 0px;
+            padding: 20px;
+        }
+
+        nav{
+            left: 0px;
+            margin: 0px;
+            padding: 20px;
+            background-color: rgb(0, 172, 172);
+            color: black;
+            text-align: left;
+            display: inline-block;
+            height: auto;
+        }
+
+        nav a{
+            color: black;
+            text-decoration: none;
+            margin: 10px 15px;
+            padding: 8px;
+            font-size: 24px;
+            display: inline-block;
+            box-shadow: 0px 0px 10px 5px black;
+            background-color: #b3b3b3;
+            border-radius: 5px;
+        }
+
+        body{
+            background-image: url('data:image/jpeg;base64,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');
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-attachment: fixed;
+        }
+
+        h2{
+            text-align: center;
+            color: white;
+            font-size: 32px;
+            text-emphasis: bold;
+            margin: 10px;
+            background-color: black;
+            padding: 10px;
+            border: double 3px black;
+        }
+
+        .bookmarks{
+            background-color: rgb(0, 172, 172);
+            position: absolute;
+            top: 290px;
+            left: 26%;
+            text-align: center;
+            padding: 10px 20px;
+            border: solid black 5px;
+            border-radius: 25px;
+        }
+
+        .bookmarks a{
+            display: inline-block;
+            background-color: black;
+            color: white;
+            text-emphasis: bold;
+            font-size: 24px;
+            margin: 10px;
+            padding: 10px;
+            border-radius: 10px;
+        }
+
+        h3{
+            font-size: 68px;
+            position: absolute;
+            float: center;
+            top: 350px;
+            left: 48%;
+            text-emphasis: bold;
+            text-align: center;
+            font-family: 'Times New Roman', Times, serif;
+        }
+
+        .verses a{
+            position: absolute;
+            color: rgb(0, 172, 172);
+            background-color: black;
+            font-size: 32px;
+            font-family: Arial, Helvetica, sans-serif;
+            left: 38%;
+            padding: 10px 100px;
+            text-decoration: none;
+            text-align: center;
+            top: 220px;
+            text-emphasis: bold;
+        }
+
+        #myBtn {
+            display: none; /* Hidden by default */
+            position: fixed; /* Fixed/sticky position */
+            bottom: 65px; /* Place the button at the bottom of the page */
+            left: 50px; /* Place the button 30px from the right */
+            z-index: 99; /* Make sure it does not overlap */
+            border: none; /* Remove borders */
+            outline: none; /* Remove outline */
+            background-color: rgb(0, 172, 172); /* Set a background color */
+            color: black; /* Text color */
+            cursor: pointer; /* Add a mouse pointer on hover */
+            padding: 10px; /* Some padding */
+            padding-bottom: 0px;
+            border-radius: 10px; /* Rounded corners */
+            border: solid black 5px;
+            font-size: 72px; /* Increase font size */
+        }
+
+        #myBtn:hover {
+            display: none; /* Hidden by default */
+            position: fixed; /* Fixed/sticky position */
+            bottom: 65px; /* Place the button at the bottom of the page */
+            left: 50px; /* Place the button 30px from the right */
+            z-index: 99; /* Make sure it does not overlap */
+            border: none; /* Remove borders */
+            outline: none; /* Remove outline */
+            background-color: rgb(0, 0, 0); /* Set a background color */
+            color: rgb(0, 172, 172); /* Text color */
+            cursor: pointer; /* Add a mouse pointer on hover */
+            padding: 10px; /* Some padding */
+            padding-bottom: 0px;
+            border-radius: 10px; /* Rounded corners */
+            border: solid rgb(0, 172, 172) 5px;
+            font-size: 72px; /* Increase font size */
+        }
+
+        p{
+            font-size: 22px;
+            position: absolute;
+            top: 500px;
+            left: 30%;
+        }
+
+        h7{
+            font-size: 32px;
+            text-emphasis: bold;
+        }
+
+    </style>
+    <button onclick="topFunction()" id="myBtn" title="Go to top"><b>^</b></button>
+<head> 
+    <h1>Questions</h1>
+    <div class="verses">
+        <a href="Quizzing.html">Click here for memory verses.</a>        
+   </div>
+</head>
+<body>
+   
+    <script>
+        //Get the button
+        var mybutton = document.getElementById("myBtn");
+        
+        // When the user scrolls down 20px from the top of the document, show the button
+        window.onscroll = function() {scrollFunction()};
+        
+        function scrollFunction() {
+          if (document.body.scrollTop > 1750 || document.documentElement.scrollTop > 1750) {
+            mybutton.style.display = "block";
+          } else {
+            mybutton.style.display = "none";
+          }
+        }
+        
+        // When the user clicks on the button, scroll to the top of the document
+        function topFunction() {
+          document.body.scrollTop = 0;
+          document.documentElement.scrollTop = 0;
+        }
+        </script>
+
+    <nav>
+
+        <h2>Select a Chapter</h2>
+        <br>
+
+        <a href="Quizzing_Questions_1.html">Matthew 1</a>
+        <br>
+        <a href="Quizzing_Questions_2.html">Matthew 2</a>
+        <br>
+        <a href="Quizzing_Questions_3.html">Matthew 3</a>
+        <br>
+        <a href="Quizzing_Questions_4.html">Matthew 4</a>
+        <br>
+        <a href="Quizzing_Questions_5.html">Matthew 5</a>
+        <br>
+        <a href="Quizzing_Questions_6.html">Matthew 6</a>
+        <br>
+        <a href="Quizzing_Questions_7.html">Matthew 7</a>
+        <br>
+        <a href="Quizzing_Questions_8.html">Matthew 8</a>
+        <br>
+        <a href="Quizzing_Questions_9.html">Matthew 9</a>
+        <br>
+        <a href="Quizzing_Questions_10.html">Matthew 10</a>
+        <br>
+        <a href="Quizzing_Questions_11.html">Matthew 11</a>
+        <br>
+        <a href="Quizzing_Questions_12.html">Matthew 12</a>
+        <br>
+        <a href="Quizzing_Questions_13.html">Matthew 13</a>
+        <br>
+        <a href="Quizzing_Questions_14.html">Matthew 14</a>
+        <br>
+        <a href="Quizzing_Questions_15.html">Matthew 15</a>
+        <br>
+        <a href="Quizzing_Questions_16.html">Matthew 16</a>
+        <br>
+        <a href="Quizzing_Questions_17.html">Matthew 17</a>
+        <br>
+        <a href="Quizzing_Questions_18.html">Matthew 18</a>
+        <br>
+        <a href="Quizzing_Questions_19.html">Matthew 19</a>
+        <br>
+        <a href="Quizzing_Questions_20.html">Matthew 20</a>
+        <br>
+        <a href="Quizzing_Questions_21.html">Matthew 21</a>
+        <br>
+        <a href="Quizzing_Questions_22.html">Matthew 22</a>
+        <br>
+        <a href="Quizzing_Questions_23.html">Matthew 23</a>
+        <br>
+        <a href="Quizzing_Questions_24.html">Matthew 24</a>
+        <br>
+        <a href="Quizzing_Questions_25.html">Matthew 25</a>
+        <br>
+        <a href="Quizzing_Questions_26.html">Matthew 26</a>
+        <br>
+        <a href="Quizzing_Questions_27.html">Matthew 27</a>
+        <br>
+        <a href="Quizzing_Questions_28.html">Matthew 28</a>
+    </nav>
+
+    <div class="bookmarks">
+        <a href="#1">Set 1</a>
+        <a href="#2">Set 2</a>
+        <a href="#3">Set 3</a>
+        <a href="#4">Set 4</a>
+        <a href="#5">Set 5</a>
+        <a href="#6">Set 6</a>
+        <a href="#7">Set 7</a>
+        <a href="#8">Set 8</a>
+        <a href="#9">Set 9</a>
+        <a href="#10">Set 10</a>
+    </div>
+
+    <h3>Matthew 14</h3>
+
+    <p> <h7 id="1">SET #1</h7>  <br><br>
+
+        G 1. Who saw the wind?<br>
+        A. Peter (Matthew 14:30) <br><br>
+        R 2. Finish this verse and give the reference: "Immediately Jesus reached out his. . ."<br>
+        A. ". . .hand and caught him. "You of little faith," he said, "why did you doubt?" " (Matthew 14:31) <br><br>
+        G 3. Who followed Jesus on foot from the towns?<br>
+        A. The crowds (Matthew 14:13) <br><br>
+        G 4. Whose wife was Herodias?<br>
+        A. Herod's brother Philip's (Matthew 14:3) <br><br>
+        V 5. Finish this verse: "Immediately Jesus reached out his. . ."<br>
+        A. ". . .hand and caught him. "You of little faith," he said, "why did you doubt?" (Matthew 14:31) <br><br>
+        A 6. According to Matthew, chapter 14, verse 20, what were they?<br>
+        A. Satisfied (Matthew 14:20) <br><br>
+        G 7. To whom did people bring all their sick?<br>
+        A. Jesus (Matthew 14:35) <br><br>
+        X 8. Complete, in essence, the following: "On Herod's birthday the daughter . . ."<br>
+        A. ". . . of Herodias danced for the guests and pleased Herod so much that he promised with an oath to give her whatever she asked." (Matthew
+        14:6-7) <br><br>
+        G 9. Who said, "Give me here on a platter the head of John the Baptist."?<br>
+        A. The daughter of Herodias (Matthew 14:8) <br><br>
+        A 10. According to Matthew, chapter 14, verse 19, what did he direct the people to do? <br>
+        A. Sit down on the grass (Matthew 14:19) <br><br>
+        S 11. Situation question: who said it, and to whom: "This is a remote place, and it's already getting late. Send the crowds away, so they can go to
+        the villages and buy themselves some food."?<br>
+        A. The disciples said it to Jesus (Matthew 14:15) <br><br>
+        G 12. Whom did the disciples see walking on the lake?<br>
+        A. Jesus (Matthew 14:26) <br><br>
+        G 13. What died down when Jesus and Peter climbed into the boat?<br>
+        A. The wind (Matthew 14:32) <br><br>
+        Q 14. Quote Matthew, chapter 14, verse 31. <br>
+        A. "Immediately Jesus reached out his hand and caught him. "You of little faith," he said, "why did you doubt?"" (Matthew 14:31) <br><br>
+        G 15. What is not lawful for Herod? <br>
+        A. To have Herodias (Matthew 14:4) <br><br>
+        A 16. According to Matthew, chapter 14, verse 24, against what was the wind?<br>
+        A. The boat (Matthew 14:24) <br><br>
+        G 17. Who considered John a prophet? <br>
+        A. The people (Matthew 14:5) <br><br>
+        G 18. Whose request did the king order be granted? <br>
+        A. The daughter of Herodias' (Matthew 14:9) <br><br>
+        A 19. According to Matthew, chapter 14, verse 25, who was walking on the lake?<br>
+        A. Jesus (Matthew 14:25) <br><br>
+        G 20. Who got down out of the boat, walked on the water and came toward Jesus? <br>
+        A. Peter (Matthew 14:29) <br><br>
+        <br><br>
+        
+         <h7 id="2">SET #2</h7>  <br><br>
+        
+        G 1. Who worshiped Jesus, saying, "Truly you are the Son of God."? <br>
+        A. Those who were in the boat (Matthew 14:33)  <br><br>
+        X 2. In Matthew, chapter 14, why did the disciples ask Jesus to send the crowds away? <br>
+        A. So they could go to the villages and buy themselves some food (Matthew 14:15) <br><br>
+        A 3. According to Matthew, chapter 14, verse 16, what do they not need to do? <br>
+        A. Go away (Matthew 14:16) <br><br>
+        G 4. Who answered, "We have here only five loaves of bread and two fish."? <br>
+        A. The disciples (Matthew 14:17) <br><br>
+        G 5. How did Jesus go out to the disciples shortly before dawn? <br>
+        A. Walking on the lake (Matthew 14:25) <br><br>
+        Q 6. Quote Matthew, chapter 14, verse 31. <br>
+        A. "Immediately Jesus reached out his hand and caught him. "You of little faith," he said, "why did you doubt?"" (Matthew 14:31) <br><br>
+        G 7. Who was Herodias? <br>
+        A. Herod's brother Philip's wife (Matthew 14:3) <br><br>
+        
+        G 8. Who ordered that the daughter of Herodias' request be granted? <br>
+        A. The king [OR Herod] (Matthew 14:9) <br><br>
+        S 9. Situation question: who said it, about whom, and what was the reply: "It's a ghost."? <br>
+        A. The disciples said it about Jesus, and the reply was, "Take courage! It is I. Don't be afraid." (Matthew 14:26-27) <br><br>
+        G 10. Whom did Herod want to kill? <br>
+        A. John (the Baptist) (Matthew 14:5) <br><br>
+        G 11. Who came and took John's body and buried it? <br>
+        A. John's disciples (Matthew 14:12) <br> <br>
+        A 12. According to Matthew, chapter 14, verse 27, when did Jesus say to them: "Take courage! It is I. Don't be afraid."? <br>
+        A. Immediately (Matthew 14:27) <br> <br>
+        G 13. What did Peter cry out as he was beginning to sink? <br>
+        A. "Lord, save me!" (Matthew 14:30) <br> <br>
+        V 14. Finish this verse: "Immediately Jesus reached out his. . ." <br>
+        A. ". . .hand and caught him. "You of little faith," he said, "why did you doubt?" (Matthew 14:31) <br><br>
+        G 15. What did Herod the tetrarch hear? <br>
+        A. The reports about Jesus (Matthew 14:1) <br><br>
+        G 16. Who immediately made the disciples get into the boat and go on ahead of him to the other side? <br>
+        A. Jesus (Matthew 14:22) <br><br>
+        A 17. According to Matthew, chapter 14, verse 11, what did the girl do? <br>
+        A. Carried his head (on a platter) to her mother (Matthew 14:11) <br><br>
+        R 18. Finish this verse and give the reference: "Immediately Jesus reached out his. . ." <br>
+        A. ". . .hand and caught him. "You of little faith," he said, "why did you doubt?" " (Matthew 14:31) <br><br>
+        A 19. According to Matthew, chapter 14, verse 13, who withdrew by boat? <br>
+        A. Jesus (Matthew 14:13) <br><br>
+        G 20. Whom is it not lawful for Herod to have? <br>
+        A. Herodias (Matthew 14:4) <br><br>
+        <br><br>
+        
+        <h7 id="3">SET #3</h7>  <br><br>
+        A 1. According to Matthew, chapter 14, verse 17, what do we have here? <br>
+        A. Only five loaves of bread and two fish (Matthew 14:17) <br><br>
+        G 2. What was against the boat? <br>
+        A. The wind (Matthew 14:24) <br><br>
+        R 3. Finish this verse and give the reference: "Immediately Jesus reached out his. . ." <br>
+        A. ". . .hand and caught him. "You of little faith," he said, "why did you doubt?" " (Matthew 14:31) <br><br>
+        G 4. Who landed at Gennesaret? <br>
+        A. Jesus and the disciples (Matthew 14:34) <br><br>
+        G 5. How did Herod promise to give the daughter of Herodias whatever she wanted? <br>
+        A. With an oath (Matthew 14:7) <br><br>
+        X 6. Complete, in essence, the following: "Then Peter got down out . . ." <br>
+        A. ". . . of the boat, walked on the water and came toward Jesus." (Matthew 14:29) <br><br>
+        A 7. According to Matthew, chapter 14, verse 23, why did he go up on a mountainside by himself? <br>
+        A. To pray (Matthew 14:23) <br><br>
+        G 8. For whom did the daughter of Herodias dance? <br>
+        A. The guests (Matthew 14:6) <br><br>
+        G 9. Where did the king have John beheaded? <br>
+        A. In the prison (Matthew 14:10) <br> <br>
+        Q 10. Quote Matthew, chapter 14, verse 31. <br>
+        A. "Immediately Jesus reached out his hand and caught him. "You of little faith," he said, "why did you doubt?"" (Matthew 14:31) <br><br>
+        S 11. Situation question: who said it, to whom, and in reply to what: "They do not need to go away. You give them something to eat."? <br>
+        A. Jesus said it to the disciples, in reply to, "This is a remote place, and it's already getting late. Send the crowds away, so they can go to the
+        villages and buy themselves some food." (Matthew 14:15-16) <br> <br>
+        A 12. According to Matthew, chapter 14, verse 19, where did he look? <br>
+        A. Up to heaven (Matthew 14:19) <br><br>
+        G 13. Why was Herod afraid of the people? <br>
+        A. Because they considered John a prophet (Matthew 14:5) <br><br>
+        V 14. Finish this verse: "Immediately Jesus reached out his. . ." <br>
+        A. ". . .hand and caught him. "You of little faith," he said, "why did you doubt?" (Matthew 14:31) <br><br>
+        G 15. Whom did the crowds follow on foot from the towns? <br>
+        A. Jesus (Matthew 14:13) <br><br>
+        G 16. Who said, "Take courage! It is I. Don't be afraid."? <br>
+        A. Jesus (Matthew 14:27) <br>br
+
+        
+        A 17. According to Matthew, chapter 14, verse 2, what did he say to his attendants? <br>
+        A. "This is John the Baptist; he has risen from the dead! That is why miraculous powers are at work in him." (Matthew 14:2) <br><br>
+        G 18. Who buried John's body? <br>
+        A. John's disciples (Matthew 14:12) <br><br>
+        G 19. Who sent word to all the surrounding country when they recognized Jesus? <br>
+        A. The men of that place (Gennesaret) (Matthew 14:35) <br><br>
+        G 20. Who had bound John and put him in prison? <br>
+        A. Herod (the tetrarch) (Matthew 14:3) <br><br>
+        <br><br>
+        
+        <h7 id="4">SET #4</h7>  <br><br>
+        
+        G 1. Whom did the daughter of Herodias please so much that he promised with an oath to give her whatever she asked? <br>
+        A. Herod (the tetrarch) (Matthew 14:6-7) <br><br>
+        G 2. By whom was the daughter of Herodias prompted? <br>
+        A. Her mother (Herodias) (Matthew 14:8) <br><br>
+        Q 3. Quote Matthew, chapter 14, verse 31. <br>
+        A. "Immediately Jesus reached out his hand and caught him. "You of little faith," he said, "why did you doubt?"" (Matthew 14:31) <br><br>
+        S 4. Situation question: who said it, to whom, and in reply to what: "We have here only five loaves of bread and two fish."? <br>
+        A. The disciples said it to Jesus, in reply to, "They do not need to go away. You give them something to eat." (Matthew 14:16-17) <br><br>
+        G 5. Who went up on a mountainside by himself to pray? <br>
+        A. Jesus (Matthew 14:23) <br><br>
+        V 6. Finish this verse: "Immediately Jesus reached out his. . ." <br>
+        A. ". . .hand and caught him. "You of little faith," he said, "why did you doubt?" (Matthew 14:31) <br><br>
+        G 7. Who saw Jesus walking on the lake? <br>
+        A. The disciples (Matthew 14:26) <br><br>
+        G 8. Who directed the people to sit down on the grass? <br>
+        A. Jesus (Matthew 14:19) <br><br>
+        A 9. According to Matthew, chapter 14, verse 30, what did he cry out? <br>
+        A. "Lord, save me!" (Matthew 14:30) <br><br>
+        G 10. Because of whom had Herod arrested John and bound him and put him in prison? <br>
+        A. Herodias (Herod's brother Philip's wife) (Matthew 14:3) <br><br>
+        X 11. Two-part question: because of whom did Herod put John in prison, and what had John been saying to Herod? <br>
+        A. 1) Herodias (Herod's brother Philip's wife); 2) "It is not lawful for you to have Herodias" (Matthew 14:3-4) <br><br>
+        G 12. Whom did people beg to let the sick just touch the edge of his cloak? <br>
+        A. Jesus (Matthew 14:36) <br><br>
+        G 13. Who do not need to go away? <br>
+        A. The crowds (Matthew 14:16) <br><br>
+        A 14. According to Matthew, chapter 14, verse 25, how did Jesus go out to them? <br>
+        A. Walking on the lake (Matthew 14:25) <br> <br>
+        R 15. Finish this verse and give the reference: "Immediately Jesus reached out his. . ." <br>
+        A. ". . .hand and caught him. "You of little faith," he said, "why did you doubt?" " (Matthew 14:31) <br><br>
+        G 16. On what was John's head brought in? <br>
+        A. A platter (Matthew 14:11) <br><br>
+        G 17. By what was the boat buffeted? <br>
+        A. The waves (Matthew 14:24) <br><br>
+        A 18. According to Matthew, chapter 14, verse 20, what were left over? <br>
+        A. Twelve basketfuls of broken pieces (Matthew 14:20) <br><br>
+        G 19. To where did Jesus withdraw by boat privately? <br>
+        A. A solitary place (Matthew 14:13) <br><br>
+        A 20. According to Matthew, chapter 14, verse 7, with what did he promise to give her whatever she asked? <br>
+        A. An oath (Matthew 14:7) <br><br>
+        <br><br>
+        
+        <h7 id="5">SET #5</h7>  <br><br>
+        A 1. According to Matthew, chapter 14, verse 12, whom did John's disciples tell? <br>
+        A. Jesus (Matthew 14:12) <br><br>
+        V 2. Finish this verse: "Immediately Jesus reached out his. . ." <br>
+        A. ". . .hand and caught him. "You of little faith," he said, "why did you doubt?" (Matthew 14:31) <br><br>
+        G 3. Who picked up twelve basketfuls of broken pieces that were left over? <br>
+        A. The disciples (Matthew 14:20) <br><br>
+        G 4. To whom did Herod the tetrarch say, "This is John the Baptist; he has risen from the dead! That is why miraculous powers are at work in
+        him."?<br>
+        A. His attendants (Matthew 14:2) <br><br>
+        R 5. Finish this verse and give the reference: "Immediately Jesus reached out his. . ."<br>
+        A. ". . .hand and caught him. "You of little faith," he said, "why did you doubt?" " (Matthew 14:31) <br><br>
+        G 6. What was brought in on a platter and given to the girl?<br>
+        A. John's head (Matthew 14:11) <br><br>
+        G 7. To whom was John's head given?<br>
+        A. The girl (the daughter of Herodias) (Matthew 14:11) <br><br>
+        A 8. According to Matthew, chapter 14, verse 29, what did Peter do?<br>
+        A. Got down out of the boat, walked on the water and came toward Jesus (Matthew 14:29) <br><br>
+        S 9. Situation question: who said it, and to whom: "Bring them here to me."?<br>
+        A. Jesus said it to the disciples (Matthew 14:18) <br><br>
+        G 10. Who should give the crowds something to eat?<br>
+        A. The disciples (Matthew 14:16) <br><br>
+        A 11. According to Matthew, chapter 14, verse 26, how did the disciples cry out?<br>
+        A. In fear (Matthew 14:26) <br><br>
+        G 12. When did Jesus go out to the disciples, walking on the lake?<br>
+        A. Shortly before dawn (Matthew 14:25) <br><br>
+        A 13. According to Matthew, chapter 14, verse 5, who was afraid of the people?<br>
+        A. Herod (Matthew 14:5) <br><br>
+        G 14. Whom had Herod bound and put in prison?<br>
+        A. John (the Baptist) (Matthew 14:3) <br><br>
+        G 15. Into what did Jesus immediately make the disciples get?<br>
+        A. The boat (Matthew 14:22) <br><br>
+        Q 16. Quote Matthew, chapter 14, verse 31. <br>
+        A. "Immediately Jesus reached out his hand and caught him. "You of little faith," he said, "why did you doubt?"" (Matthew 14:31) <br><br>
+        G 17. Whom did Jesus immediately make get into the boat and go on ahead of him to the other side?<br>
+        A. The disciples (Matthew 14:22) <br><br>
+        X 18. Who asked for the head of John the Baptist on a platter?<br>
+        A. The daughter of Herodias (Matthew 14:8) <br><br>
+        G 19. Where had Herod put John?<br>
+        A. In prison (Matthew 14:3) <br><br>
+        G 20. Who caught Peter?<br>
+        A. Jesus (Matthew 14:31) <br><br>
+        <br><br>
+
+        <h7 id="6">SET #6</h7>  <br><br>
+        A 1. According to Matthew, chapter 14, verse 13, from where did the crowds follow Jesus?<br>
+        A. The towns (Matthew 14:13) <br><br>
+        G 2. Who answered, "We have here only five loaves of bread and two fish."?<br>
+        A. The disciples (Matthew 14:17) <br><br>
+        G 3. Who cried out in fear when they saw Jesus walking on the lake?<br>
+        A. The disciples (Matthew 14:26) <br><br>
+        X 4. Two-part question: to whom was John's head given, and to whom did she carry it?<br>
+        A. 1) The daughter of Herodias; 2) Herodias (Matthew 14:11) <br><br>
+        G 5. Who had bound John and put him in prison? <br>
+        A. Herod (the tetrarch) (Matthew 14:3) <br><br>
+        Q 6. Quote Matthew, chapter 14, verse 31. <br>
+        A. "Immediately Jesus reached out his hand and caught him. "You of little faith," he said, "why did you doubt?"" (Matthew 14:31) <br><br>
+        S 7. Situation question: who said it, and to whom: "Lord, save me!"?<br>
+        A. Peter said it to Jesus (Matthew 14:30) <br><br>
+        G 8. Whom did the daughter of Herodias please so much that he promised with an oath to give her whatever she asked?<br>
+        A. Herod (the tetrarch) (Matthew 14:6-7) <br><br>
+        G 9. Who landed at Gennesaret?<br>
+        A. Jesus and the disciples (Matthew 14:34) <br><br>
+        A 10. According to Matthew, chapter 14, verse 22, what did Jesus Immediately make the disciples do?<br>
+        A. Get into the boat and go on ahead of him to the other side (Matthew 14:22) <br><br>
+        G 11. Who came and took John's body and buried it? <br>
+        A. John's disciples (Matthew 14:12) <br><br>
+        R 12. Finish this verse and give the reference: "Immediately Jesus reached out his. . ." <br>
+        A. ". . .hand and caught him. "You of little faith," he said, "why did you doubt?" " (Matthew 14:31) <br><br>
+        G 13. Who worshiped Jesus, saying, "Truly you are the Son of God."?<br>
+        
+        A. Those who were in the boat (Matthew 14:33) <br><br>
+        A 14. According to Matthew, chapter 14, verse 9, what was the king? <br>
+        A. Distressed (Matthew 14:9) <br><br>
+        G 15. Whom did people beg to let the sick just touch the edge of his cloak? <br>
+        A. Jesus (Matthew 14:36) <br><br>
+        V 16. Finish this verse: "Immediately Jesus reached out his. . ." <br>
+        A. ". . .hand and caught him. "You of little faith," he said, "why did you doubt?" (Matthew 14:31) <br><br>
+        G 17. Who picked up twelve basketfuls of broken pieces that were left over? <br>
+        A. The disciples (Matthew 14:20) <br><br>
+        A 18. According to Matthew, chapter 14, verse 5, what did the people consider John?<br>
+        A. A prophet (Matthew 14:5) <br><br>
+        G 19. Who do not need to go away? <br>
+        A. The crowds (Matthew 14:16) <br> <br>
+        G 20. How did Jesus go out to the disciples shortly before dawn?<br>
+        A. Walking on the lake (Matthew 14:25) <br><br>
+        <br><br>
+        
+        <h7 id="7">SET #7</h7>  <br><br>
+        
+        G 1. Why was Herod afraid of the people?<br>
+        A. Because they considered John a prophet (Matthew 14:5) <br><br>
+        R 2. Finish this verse and give the reference: "Immediately Jesus reached out his. . ." <br>
+        A. ". . .hand and caught him. "You of little faith," he said, "why did you doubt?" " (Matthew 14:31) <br><br>
+        A 3. According to Matthew, chapter 14, verse 26, who were terrified?<br> 
+        A. The disciples (Matthew 14:26) <br><br>
+        G 4. What was brought in on a platter and given to the girl?<br>
+        A. John's head (Matthew 14:11) <br><br>
+        V 5. Finish this verse: "Immediately Jesus reached out his. . ." <br>
+        A. ". . .hand and caught him. "You of little faith," he said, "why did you doubt?" (Matthew 14:31) <br><br>
+        G 6. Who was Herodias? <br>
+        A. Herod's brother Philip's wife (Matthew 14:3) <br><br>
+        A 7. According to Matthew, chapter 14, verse 22, whom did Jesus dismiss? <br>
+        A. The crowd (Matthew 14:22) <br><br>
+        S 8. Situation question: who said it, to whom, and what was the reply: "Lord, save me!"? <br>
+        A. Peter said it to Jesus, and the reply was, "You of little faith, why did you doubt?" (Matthew 14:30-31) <br><br>
+        G 9. Who buried John's body? <br>   
+        A. John's disciples (Matthew 14:12) <br><br>
+        G 10. Who said, "Take courage! It is I. Don't be afraid."? <br>
+        A. Jesus (Matthew 14:27) <br><br>
+        A 11. According to Matthew, chapter 14, verse 28, what did Peter reply? <br>
+        A. "Lord, if it's you, tell me to come to you on the water." (Matthew 14:28) <br><br>
+        G 12. Who should give the crowds something to eat?<br>
+        A. The disciples (Matthew 14:16) <br><br>
+        Q 13. Quote Matthew, chapter 14, verse 31. <br>
+        A. "Immediately Jesus reached out his hand and caught him. "You of little faith," he said, "why did you doubt?"" (Matthew 14:31) <br><br>
+        G 14. How did Herod promise to give the daughter of Herodias whatever she wanted? <br>
+        A. With an oath (Matthew 14:7) <br><br>
+        G 15. Whom is it not lawful for Herod to have? <br>
+        A. Herodias (Matthew 14:4) <br><br>
+        X 16. Two-part answer: why did Herod the tetrarch order that the daughter of Herodias' request be granted? <br>
+        A. 1) Because of his oaths; 2) Because of his dinner guests (Matthew 14:9) <br><br>
+        G 17. When did Jesus go out to the disciples, walking on the lake? <br>
+        A. Shortly before dawn (Matthew 14:25) <br><br>
+        A 18. According to Matthew, chapter 14, verse 13, to where did Jesus withdraw by boat? <br>
+        A. A solitary place (Matthew 14:13) <br><br>
+        G 19. Who directed the people to sit down on the grass? <br>
+        A. Jesus (Matthew 14:19) <br><br>
+        G 20. To whom did people bring all their sick? <br>
+        A. Jesus (Matthew 14:35) <br><br>
+        <br><br>
+        
+        <h7 id="8">SET #8</h7><br><br>
+        
+        G 1. To whom was John's head given? <br>
+        A. The girl (the daughter of Herodias) (Matthew 14:11) <br><br>
+        X 2. Complete, in essence, the following: "Then Peter got down out . . ." <br>
+        A. ". . . of the boat, walked on the water and came toward Jesus." (Matthew 14:29) <br><br>
+        A 3. According to Matthew, chapter 14, verse 26, who cried out in fear? <br>
+        A. The disciples (Matthew 14:26) <br><br>
+        G 4. Whose wife was Herodias? <br>
+        A. Herod's brother Philip's (Matthew 14:3) <br><br>
+        G 5. What is not lawful for Herod?<br>
+        A. To have Herodias (Matthew 14:4) <br><br>
+        Q 6. Quote Matthew, chapter 14, verse 31. <br>
+        A. "Immediately Jesus reached out his hand and caught him. "You of little faith," he said, "why did you doubt?"" (Matthew 14:31) <br><br>
+        G 7. Who immediately made the disciples get into the boat and go on ahead of him to the other side? <br>
+        A. Jesus (Matthew 14:22) <br><br>
+        G 8. Who saw the wind? <br>
+        A. Peter (Matthew 14:30) <br><br>
+        R 9. Finish this verse and give the reference: "Immediately Jesus reached out his. . ." <br>
+        A. ". . .hand and caught him. "You of little faith," he said, "why did you doubt?" " (Matthew 14:31) <br><br>
+        S 10. Situation question: who said it, and to whom: "This is John the Baptist; he has risen from the dead! That is why miraculous powers are at
+        work in him."? <br>
+        A. Herod the tetrarch said it to his attendants (Matthew 14:2) <br><br>
+        G 11. Where did the king have John beheaded? <br>
+        A. In the prison (Matthew 14:10) <br><br>
+        G 12. What was against the boat? <br>
+        A. The wind (Matthew 14:24) <br> <br>
+        V 13. Finish this verse: "Immediately Jesus reached out his. . ." <br>
+        A. ". . .hand and caught him. "You of little faith," he said, "why did you doubt?" (Matthew 14:31) <br><br>
+        G 14. Who sent word to all the surrounding country when they recognized Jesus? <br>
+        A. The men of that place (Gennesaret) (Matthew 14:35) <br><br>
+        G 15. Who considered John a prophet? <br> 
+        A. The people (Matthew 14:5) <br><br>
+        A 16. According to Matthew, chapter 14, verse 9, what did the king order? <br>
+        A. That her request be granted (Matthew 14:9) <br><br>
+        G 17. What died down when Jesus and Peter climbed into the boat? <br>
+        A. The wind (Matthew 14:32) <br><br>
+        A 18. According to Matthew, chapter 14, verse 15, what did the disciples say? <br>
+        A. "This is a remote place, and it's already getting late. Send the crowds away, so they can go to the villages and buy themselves some food."
+        (Matthew 14:15) <br><br>
+        G 19. By whom was the daughter of Herodias prompted? <br>
+        A. Her mother (Herodias) (Matthew 14:8) <br><br>
+        A 20. According to Matthew, chapter 14, verse 13, how did the crowds follow Jesus from the towns? <br>
+        A. On foot (Matthew 14:13) <br><br>
+        <br><br>
+        
+        <h7 id="9">SET #9</h7>  <br><br>
+        A 1. According to Matthew, chapter 14, verse 14, whom did Jesus heal? <br>
+        A. Their sick (Matthew 14:14) <br><br>
+        G 2. Whom did the disciples see walking on the lake? <br>
+        A. Jesus (Matthew 14:26) <br><br>
+        R 3. Finish this verse and give the reference: "Immediately Jesus reached out his. . ." <br>
+        A. ". . .hand and caught him. "You of little faith," he said, "why did you doubt?" " (Matthew 14:31) <br><br>
+        A 4. According to Matthew, chapter 14, verse 30, when was he afraid? <br>
+        A. When he saw the wind (Matthew 14:30) <br><br>
+        G 5. Whom had Herod bound and put in prison?<br>
+        A. John (the Baptist) (Matthew 14:3) <br><br>
+        G 6. Who followed Jesus on foot from the towns?<br>
+        A. The crowds (Matthew 14:13) <br><br>
+        A 7. According to Matthew, chapter 14, verse 32, into what did they climb?<br><br>
+        A. The boat (Matthew 14:32) <br><br>
+        G 8. To whom did Herod the tetrarch say, "This is John the Baptist; he has risen from the dead! That is why miraculous powers are at work in
+        him."?<br>
+        A. His attendants (Matthew 14:2) <br><br>
+        
+        G 9. On what was John's head brought in? <br>
+        A. A platter (Matthew 14:11) <br><br>
+        Q 10. Quote Matthew, chapter 14, verse 31. <br>
+        A. "Immediately Jesus reached out his hand and caught him. "You of little faith," he said, "why did you doubt?"" (Matthew 14:31) <br><br>
+        G 11. Into what did Jesus immediately make the disciples get? <br>
+        A. The boat (Matthew 14:22) <br><br>
+        G 12. For whom did the daughter of Herodias dance? <br>
+        A. The guests (Matthew 14:6) <br><br>
+        X 13. In Matthew, chapter 14, why did the disciples ask Jesus to send the crowds away?<br>
+        A. So they could go to the villages and buy themselves some food (Matthew 14:15) <br><br>
+        V 14. Finish this verse: "Immediately Jesus reached out his. . ." <br>
+        A. ". . .hand and caught him. "You of little faith," he said, "why did you doubt?" (Matthew 14:31) <br><br>
+        G 15. Whom did Herod want to kill?<br>
+        A. John (the Baptist) (Matthew 14:5) <br><br>
+        G 16. Whose request did the king order be granted?<br>
+        A. The daughter of Herodias' (Matthew 14:9) <br><br>
+        S 17. Situation question: who said it, and to whom: "Give me here on a platter the head of John the Baptist."?<br>
+        A. The daughter of Herodias said it to Herod (the tetrarch) (Matthew 14:8) <br><br>
+        G 18. By what was the boat buffeted?<br>
+        A. The waves (Matthew 14:24) <br><br>
+        G 19. What did Herod the tetrarch hear?<br>
+        A. The reports about Jesus (Matthew 14:1) <br><br>
+        A 20. According to Matthew, chapter 14, verse 29, toward whom did Peter come? <br>
+        A. Jesus (Matthew 14:29) <br><br>
+        <br><br>
+
+        <h7 id="10">SET #10</h7>  <br><br>
+        G 1. Whom did Jesus immediately make get into the boat and go on ahead of him to the other side?<br>
+        A. The disciples (Matthew 14:22) <br><br>
+        G 2. Who went up on a mountainside by himself to pray? <br>
+        A. Jesus (Matthew 14:23) <br><br>
+        A 3. According to Matthew, chapter 14, verse 29, who got down out of the boat? <br>
+        A. Peter (Matthew 14:29) <br><br>
+        G 4. Whom did the crowds follow on foot from the towns? <br>
+        A. Jesus (Matthew 14:13) <br><br>
+        G 5. Where had Herod put John?<br>
+        A. In prison (Matthew 14:3) <br><br>
+        R 6. Finish this verse and give the reference: "Immediately Jesus reached out his. . ." <br>
+        A. ". . .hand and caught him. "You of little faith," he said, "why did you doubt?" " (Matthew 14:31) <br><br>
+        S 7. Situation question: who said it, to whom, and when: "This is John the Baptist; he has risen from the dead! That is why miraculous powers are
+        at work in him."?<br>
+        A. Herod the tetrarch said it to his attendants, when he heard the reports about Jesus (Matthew 14:1-2) <br><br>
+        X 8. Two-part question: because of whom did Herod put John in prison, and what had John been saying to Herod?<br>
+        A. 1) Herodias (Herod's brother Philip's wife); 2) "It is not lawful for you to have Herodias" (Matthew 14:3-4) <br><br>
+        G 9. To where did Jesus withdraw by boat privately?<br>
+        A. A solitary place (Matthew 14:13) <br><br>
+        G 10. Who ordered that the daughter of Herodias' request be granted?<br>
+        A. The king [OR Herod] (Matthew 14:9) <br><br>
+        V 11. Finish this verse: "Immediately Jesus reached out his. . ." <br>
+        A. ". . .hand and caught him. "You of little faith," he said, "why did you doubt?" (Matthew 14:31) <br><br>
+        G 12. Who saw Jesus walking on the lake?<br>
+        A. The disciples (Matthew 14:26) <br><br>
+        A 13. According to Matthew, chapter 14, verse 32, what died down? <br>
+        A. The wind (Matthew 14:32) <br><br>
+        G 14. Whom did Jesus catch?<br>
+        A. Peter (Matthew 14:31) <br><br>
+        G 15. Who caught Peter? <br>
+        A. Jesus (Matthew 14:31) <br><br>
+        A 16. According to Matthew, chapter 14, verse 33, how did those who were in the boat worship him?<br>
+        A. Saying, "Truly you are the Son of God." (Matthew 14:33) <br><br>
+        G 17. What did Peter cry out as he was beginning to sink? <br> 
+        A. "Lord, save me!" (Matthew 14:30) <br><br>
+        
+        Q 18. Quote Matthew, chapter 14, verse 31. <br>
+        A. "Immediately Jesus reached out his hand and caught him. "You of little faith," he said, "why did you doubt?"" (Matthew 14:31) <br><br> 
+        A 19. According to Matthew, chapter 14, verse 35, whom did people bring to Jesus? <br>
+        A. All their sick (Matthew 14:35) <br><br>
+        G 20. Who said, "Give me here on a platter the head of John the Baptist."? <br>
+        A. The daughter of Herodias (Matthew 14:8) <br><br>
+    </p>
+
+</body>
+</html>

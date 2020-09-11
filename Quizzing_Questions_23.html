@@ -1,0 +1,873 @@
+<!DOCTYPE html>
+<html> 
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+
+        h1{
+            background-color: black;
+            text-align: center;
+            font-size: 120px;
+            margin: 0px;
+            padding: 30px;
+            color: rgb(0, 172, 172);
+            font-family: 'Impact', Haettenschweiler, Arial Narrow Bold, sans-serif;
+            top: 0px;
+            left: 0px;
+            text-emphasis: bold;
+        }
+
+        head{
+            background-color: black;
+            margin: 0px;
+            padding: 20px;
+        }
+
+        nav{
+            left: 0px;
+            margin: 0px;
+            padding: 20px;
+            background-color: rgb(0, 172, 172);
+            color: black;
+            text-align: left;
+            display: inline-block;
+            height: auto;
+        }
+
+        nav a{
+            color: black;
+            text-decoration: none;
+            margin: 10px 15px;
+            padding: 8px;
+            font-size: 24px;
+            display: inline-block;
+            box-shadow: 0px 0px 10px 5px black;
+            background-color: #b3b3b3;
+            border-radius: 5px;
+        }
+
+        body{
+            background-image: url('data:image/jpeg;base64,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');
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-attachment: fixed;
+        }
+
+        h2{
+            text-align: center;
+            color: white;
+            font-size: 32px;
+            text-emphasis: bold;
+            margin: 10px;
+            background-color: black;
+            padding: 10px;
+            border: double 3px black;
+        }
+
+        .bookmarks{
+            background-color: rgb(0, 172, 172);
+            position: absolute;
+            top: 290px;
+            left: 26%;
+            text-align: center;
+            padding: 10px 20px;
+            border: solid black 5px;
+            border-radius: 25px;
+        }
+
+        .bookmarks a{
+            display: inline-block;
+            background-color: black;
+            color: white;
+            text-emphasis: bold;
+            font-size: 24px;
+            margin: 10px;
+            padding: 10px;
+            border-radius: 10px;
+        }
+
+        h3{
+            font-size: 68px;
+            position: absolute;
+            float: center;
+            top: 350px;
+            left: 48%;
+            text-emphasis: bold;
+            text-align: center;
+            font-family: 'Times New Roman', Times, serif;
+        }
+
+        .verses a{
+            position: absolute;
+            color: rgb(0, 172, 172);
+            background-color: black;
+            font-size: 32px;
+            font-family: Arial, Helvetica, sans-serif;
+            left: 38%;
+            padding: 10px 100px;
+            text-decoration: none;
+            text-align: center;
+            top: 220px;
+            text-emphasis: bold;
+        }
+
+        #myBtn {
+            display: none; /* Hidden by default */
+            position: fixed; /* Fixed/sticky position */
+            bottom: 65px; /* Place the button at the bottom of the page */
+            left: 50px; /* Place the button 30px from the right */
+            z-index: 99; /* Make sure it does not overlap */
+            border: none; /* Remove borders */
+            outline: none; /* Remove outline */
+            background-color: rgb(0, 172, 172); /* Set a background color */
+            color: black; /* Text color */
+            cursor: pointer; /* Add a mouse pointer on hover */
+            padding: 10px; /* Some padding */
+            padding-bottom: 0px;
+            border-radius: 10px; /* Rounded corners */
+            border: solid black 5px;
+            font-size: 72px; /* Increase font size */
+        }
+
+        #myBtn:hover {
+            display: none; /* Hidden by default */
+            position: fixed; /* Fixed/sticky position */
+            bottom: 65px; /* Place the button at the bottom of the page */
+            left: 50px; /* Place the button 30px from the right */
+            z-index: 99; /* Make sure it does not overlap */
+            border: none; /* Remove borders */
+            outline: none; /* Remove outline */
+            background-color: rgb(0, 0, 0); /* Set a background color */
+            color: rgb(0, 172, 172); /* Text color */
+            cursor: pointer; /* Add a mouse pointer on hover */
+            padding: 10px; /* Some padding */
+            padding-bottom: 0px;
+            border-radius: 10px; /* Rounded corners */
+            border: solid rgb(0, 172, 172) 5px;
+            font-size: 72px; /* Increase font size */
+        }
+
+        p{
+            font-size: 22px;
+            position: absolute;
+            top: 500px;
+            left: 30%;
+        }
+
+        h7{
+            font-size: 32px;
+            text-emphasis: bold;
+        }
+
+    </style>
+    <button onclick="topFunction()" id="myBtn" title="Go to top"><b>^</b></button>
+<head> 
+    <h1>Questions</h1>
+    <div class="verses">
+        <a href="Quizzing.html">Click here for memory verses.</a>        
+   </div>
+</head>
+<body>
+   
+    <script>
+        //Get the button
+        var mybutton = document.getElementById("myBtn");
+        
+        // When the user scrolls down 20px from the top of the document, show the button
+        window.onscroll = function() {scrollFunction()};
+        
+        function scrollFunction() {
+          if (document.body.scrollTop > 1750 || document.documentElement.scrollTop > 1750) {
+            mybutton.style.display = "block";
+          } else {
+            mybutton.style.display = "none";
+          }
+        }
+        
+        // When the user clicks on the button, scroll to the top of the document
+        function topFunction() {
+          document.body.scrollTop = 0;
+          document.documentElement.scrollTop = 0;
+        }
+        </script>
+
+    <nav>
+
+        <h2>Select a Chapter</h2>
+        <br>
+
+        <a href="Quizzing_Questions_1.html">Matthew 1</a>
+        <br>
+        <a href="Quizzing_Questions_2.html">Matthew 2</a>
+        <br>
+        <a href="Quizzing_Questions_3.html">Matthew 3</a>
+        <br>
+        <a href="Quizzing_Questions_4.html">Matthew 4</a>
+        <br>
+        <a href="Quizzing_Questions_5.html">Matthew 5</a>
+        <br>
+        <a href="Quizzing_Questions_6.html">Matthew 6</a>
+        <br>
+        <a href="Quizzing_Questions_7.html">Matthew 7</a>
+        <br>
+        <a href="Quizzing_Questions_8.html">Matthew 8</a>
+        <br>
+        <a href="Quizzing_Questions_9.html">Matthew 9</a>
+        <br>
+        <a href="Quizzing_Questions_10.html">Matthew 10</a>
+        <br>
+        <a href="Quizzing_Questions_11.html">Matthew 11</a>
+        <br>
+        <a href="Quizzing_Questions_12.html">Matthew 12</a>
+        <br>
+        <a href="Quizzing_Questions_13.html">Matthew 13</a>
+        <br>
+        <a href="Quizzing_Questions_14.html">Matthew 14</a>
+        <br>
+        <a href="Quizzing_Questions_15.html">Matthew 15</a>
+        <br>
+        <a href="Quizzing_Questions_16.html">Matthew 16</a>
+        <br>
+        <a href="Quizzing_Questions_17.html">Matthew 17</a>
+        <br>
+        <a href="Quizzing_Questions_18.html">Matthew 18</a>
+        <br>
+        <a href="Quizzing_Questions_19.html">Matthew 19</a>
+        <br>
+        <a href="Quizzing_Questions_20.html">Matthew 20</a>
+        <br>
+        <a href="Quizzing_Questions_21.html">Matthew 21</a>
+        <br>
+        <a href="Quizzing_Questions_22.html">Matthew 22</a>
+        <br>
+        <a href="Quizzing_Questions_23.html">Matthew 23</a>
+        <br>
+        <a href="Quizzing_Questions_24.html">Matthew 24</a>
+        <br>
+        <a href="Quizzing_Questions_25.html">Matthew 25</a>
+        <br>
+        <a href="Quizzing_Questions_26.html">Matthew 26</a>
+        <br>
+        <a href="Quizzing_Questions_27.html">Matthew 27</a>
+        <br>
+        <a href="Quizzing_Questions_28.html">Matthew 28</a>
+    </nav>
+
+    <div class="bookmarks">
+        <a href="#1">Set 1</a>
+        <a href="#2">Set 2</a>
+        <a href="#3">Set 3</a>
+        <a href="#4">Set 4</a>
+        <a href="#5">Set 5</a>
+        <a href="#6">Set 6</a>
+        <a href="#7">Set 7</a>
+        <a href="#8">Set 8</a>
+        <a href="#9">Set 9</a>
+        <a href="#10">Set 10</a>
+    </div>
+
+    <h3>Matthew 23</h3>
+
+    <p><h7 id="1">SET #1</h7>   <br><br>
+
+        G 	1. Whom will the teachers of the law and Pharisees pursue from town to town? <br>
+            A. Others of the prophets and sages and teachers Jesus is sending them (Matthew 23:34)  <br><br>
+        
+        V 	2. Finish this verse: "For those who exalt themselves. . ." <br>
+            A. ". . .will be humbled, and those who humble themselves will be exalted." (Matthew 23:12)  <br><br>
+        
+        G 	3. Who put heavy, cumbersome loads on other people's shoulders? <br>
+            A. The teachers of the law and the Pharisees (Matthew 23:4)  <br><br>
+        
+        G 	4. Where do the teachers of the law and the Pharisees love the place of honor? <br>
+            A. At banquets (Matthew 23:6)  <br><br>
+        
+        A 	5. According to Matthew, chapter 23, verse 21, what does anyone who swears by the temple do? <br>
+            A. They swear by it and by the one who dwells in it (Matthew 23:21)  <br><br>
+        
+        A 	6. According to Matthew, chapter 23, verse 25, to whom is woe? <br>
+            A. You teachers of the law and Pharisees (Matthew 23:25)  <br><br>
+        
+        G 	7. Who do not practice what they preach? <br>
+            A. The teachers of the law and the Pharisees (Matthew 23:3)  <br><br>
+        
+        G 	8. Upon whom will all the righteous blood that has been shed on earth come? <br>
+            A. The teachers of the law and Pharisees (Matthew 23:35)  <br><br>
+        
+        G 	9. Whose children has Jesus often longed to gather together? <br>
+            A. Jerusalem's (Matthew 23:37)  <br><br>
+        
+        G 	10. Who will be exalted? <br>
+            A. Those who humble themselves (Matthew 23:12)  <br><br>
+        
+        Q 	11. Quote Matthew, chapter 23, verse 12. <br>
+            A. "For those who exalt themselves will be humbled, and those who humble themselves will be exalted." (Matthew 23:12) <br><br> 
+        
+        R 	12. Finish this verse and give the reference: "Blind Pharisee! First clean the. . ." <br>
+            A. ". . .inside of the cup and dish, and then the outside also will be clean. " (Matthew 23:26)  <br><br>
+        
+        X 	13. Complete, in essence, the following: "You travel over land and . . ." <br>
+            A. ". . . sea to win a single convert, and when you have succeeded, you make them twice as much a child of hell as you are." (Matthew 23:15)  <br><br>
+        
+        G 	14. Who are full of hypocrisy and wickedness on the inside? <br>
+            A. The teachers of the law and Pharisees (Matthew 23:28)  <br><br>
+        
+        A 	15. According to Matthew, chapter 23, verse 23, what have you neglected? <br>
+            A. The more important matters of the law - justice, mercy and faithfulness (Matthew 23:23)  <br><br>
+        
+        G 	16. What is left to Jerusalem desolate? <br>
+            A. Jerusalem's house (Matthew 23:38)  <br><br>
+        
+        G 	17. Why are you not to be called "Rabbi"? <br>
+            A. For you have one Teacher, and you are all brothers (Matthew 23:8)  <br><br>
+        
+        A 	18. According to Matthew, chapter 23, verse 23, who are hypocrites? <br>
+            A. You teachers of the law and Pharisees (Matthew 23:23)  <br><br>
+        
+        G 	19. What will the outside also be if you first clean the inside of the cup and dish? <br>
+            A. Clean (Matthew 23:26)  <br><br>
+        <br><br>
+        
+         <h7 id="2">SET #2</h7>   <br><br>
+        
+        G 	1. Who murdered Zechariah? <br>
+            A. The teachers of the law and Pharisees (Matthew 23:35)  <br><br>
+        
+        G 	2. For what is everything the teachers of the law and the Pharisees do done? <br>
+            A. For people to see (Matthew 23:5)  <br><br>
+        
+        G 	3. Whom should you not call "father"? <br>
+            A. Anyone on earth (Matthew 23:9)  <br><br>
+        
+        G 	4. Who has often longed to gather Jerusalem's children together? <br>
+            A. Jesus (Matthew 23:37)  <br><br>
+        
+        G 	5. Who decorate the graves of the righteous? <br>
+            A. The teachers of the law and Pharisees (Matthew 23:29)  <br><br>
+        
+        A 	6. According to Matthew, chapter 23, verse 27, who are hypocrites? <br>
+            A. You teachers of the law and Pharisees (Matthew 23:27)  <br><br>
+        
+        G 	7. How will the teachers of the law and Pharisees pursue others? <br>
+            A. From town to town (Matthew 23:34)  <br><br>
+        
+        G 	8. When will the outside of the cup and dish also be clean? <br>
+            A. If you first clean the inside of the cup and dish (Matthew 23:26)  <br><br>
+        
+        A 	9. According to Matthew, chapter 23, verse 18, what do you say means nothing? <br>
+            A. If anyone swears by the altar (Matthew 23:18)  <br><br>
+        
+        V 	10. Finish this verse: "Blind Pharisee! First clean the. . ." <br>
+            A. ". . .inside of the cup and dish, and then the outside also will be clean." (Matthew 23:26)  <br><br>
+        
+        Q 	11. Quote Matthew, chapter 23, verse 12. <br>
+            A. "For those who exalt themselves will be humbled, and those who humble themselves will be exalted." (Matthew 23:12)  <br><br>
+        
+        G 	12. Whom do the teachers of the law and Pharisees travel over land and sea to win? <br>
+            A. A single convert (Matthew 23:15)  <br><br>
+        
+        X 	13. In Matthew, chapter 23, than what is the altar greater? <br>
+            A. The gift on the altar (Matthew 23:18-19)  <br><br>
+        
+        A 	14. According to Matthew, chapter 23, verse 26, when will the outside also be clean? <br>
+            A. If you first clean the inside of the cup and dish (Matthew 23:26)  <br><br>
+        
+        G 	15. What if you first clean the inside of the cup and dish? <br>
+            A. Then the outside also will be clean (Matthew 23:26)  <br><br>
+        
+        A 	16. According to Matthew, chapter 23, verse 25, what are full of greed and self-indulgence? <br>
+            A. The inside of the cup and dish (Matthew 23:25)  <br><br>
+        
+        R 	17. Finish this verse and give the reference: "For those who exalt themselves. . ." <br>
+            A. ". . .will be humbled, and those who humble themselves will be exalted. " (Matthew 23:12) <br><br> 
+        
+        G 	18. Who will not see Jesus again until they say, "Blessed is he who comes in the name of the Lord."? <br>
+            A. Jerusalem (Matthew 23:39)  <br><br>
+        
+        G 	19. What do the teachers of the law and the Pharisees love in the synagogues? <br>
+            A. The most important seats (Matthew 23:6)  <br><br>
+            <br><br>
+        
+        
+         <h7 id="3">SET #3</h7>   <br><br>
+        
+        G 	1. Whom is Jesus sending the teachers of the law and Pharisees? <br>
+            A. Prophets and sages and teachers (Matthew 23:34)  <br><br>
+        
+        G 	2. What gathers her chicks under her wings? <br>
+            A. A hen (Matthew 23:37)  <br><br>
+        
+        A 	3. According to Matthew, chapter 23, verse 13, to whom is woe? <br>
+            A. You teachers of the law and Pharisees (Matthew 23:13)  <br><br>
+        
+        G 	4. Who say, "If we had lived in the days of our ancestors, we would not have taken part with them in shedding the blood of the prophets."? <br>
+            A. The teachers of the law and Pharisees (Matthew 23:30)  <br><br>
+        
+        G 	5. What will those who exalt themselves be? <br>
+            A. Humbled (Matthew 23:12)  <br><br>
+        
+        G 	6. What seats do the teachers of the law and the Pharisees love? <br>
+            A. The most important seats in the synagogues (Matthew 23:6)  <br><br>
+        
+        G 	7. Where do the teachers of the law and the Pharisees put heavy, cumbersome loads? <br>
+            A. On other people's shoulders (Matthew 23:4)  <br><br>
+        
+        G 	8. How has Jesus often longed to gather Jerusalem's children together? <br>
+            A. As a hen gathers her chicks under her wings (Matthew 23:37)  <br><br>
+        
+        G 	9. What does the temple make sacred? <br>
+            A. The gold (Matthew 23:17)  <br><br>
+        
+        R 	10. Finish this verse and give the reference: "For those who exalt themselves. . ." <br>
+            A. ". . .will be humbled, and those who humble themselves will be exalted. " (Matthew 23:12) <br><br> 
+        
+        G 	11. Where do the teachers of the law and the Pharisees love to be greeted with respect? <br>
+            A. In the marketplaces (Matthew 23:7)  <br><br>
+        
+        G 	12. Why should you not do what the teachers of the law and the Pharisees do? <br>
+            A. For they do not practice what they preach (Matthew 23:3)  <br><br>
+        
+        G 	13. By what does anyone who swears by the altar swear? <br>
+            A. The altar and by everything on the altar (Matthew 23:20) <br>  <br>
+        
+        Q 	14. Quote Matthew, chapter 23, verse 12. <br>
+            A. "For those who exalt themselves will be humbled, and those who humble themselves will be exalted." (Matthew 23:12)  <br><br>
+        
+        V 	15. Finish this verse: "Blind Pharisee! First clean the. . ." <br>
+            A. ". . .inside of the cup and dish, and then the outside also will be clean." (Matthew 23:26) <br><br> 
+        
+        X 	16. Complete, in essence, the following: "First clean the inside of . . ." <br>
+            A. ". . . the cup and dish, and then the outside also will be clean." (Matthew 23:26)  <br><br>
+        
+        A 	17. According to Matthew, chapter 23, verse 28, of what are you full on the inside? <br>
+            A. Hypocrisy and wickedness (Matthew 23:28)  <br><br>
+        
+        A 	18. According to Matthew, chapter 23, verse 27, like what are you teachers of the law and Pharisees? <br>
+            A. Whitewashed tombs (which look beautiful on the outside but on the inside are full of the bones of the dead and everything unclean) (Matthew 23:27)  <br><br>
+        
+        A 	19. According to Matthew, chapter 23, verse 15, to whom is woe? <br>
+            A. You teachers of the law and Pharisees (Matthew 23:15)  <br><br>
+        <br><br>
+        
+         <h7 id="4">SET #4</h7>   <br><br>
+        
+        R 	1. Finish this verse and give the reference: "For those who exalt themselves. . ." <br>
+            A. ". . .will be humbled, and those who humble themselves will be exalted. " (Matthew 23:12) <br><br> 
+        
+        G 	2. Who should go ahead and complete what their ancestors started? <br>
+            A. The teachers of the law and Pharisees (Matthew 23:32)  <br><br>
+        
+        G 	3. What do the teachers of the law and the Pharisees make wide? <br>
+            A. Their phylacteries (Matthew 23:5)  <br><br>
+        
+        G 	4. What are full of the bones of the dead and everything unclean on the inside? <br>
+            A. Whitewashed tombs (Matthew 23:27)  <br><br>
+        
+        A 	5. According to Matthew, chapter 23, verse 16, what do you say? <br>
+            A. "If anyone swears by the temple, it means nothing; but anyone who swears by the gold of the temple is bound by that oath." (Matthew 23:16) <br><br> 
+        
+        A 	6. According to Matthew, chapter 23, verse 19, what does the altar do? <br>
+            A. It makes the gift sacred (Matthew 23:19)  <br><br>
+        
+        G 	7. Where are whitewashed tombs full of the bones of the dead and everything unclean? <br>
+            A. On the inside (Matthew 23:27)  <br><br>
+        
+        G 	8. Where do the teachers of the law and Pharisees appear to people as righteous? <br>
+            A. On the outside (Matthew 23:28)  <br><br>
+        
+        A 	9. According to Matthew, chapter 23, verse 29, what do you build? <br>
+            A. Tombs for the prophets (Matthew 23:29)  <br><br>
+        
+        G 	10. What do the teachers of the law and the Pharisees love in the marketplaces? <br>
+            A. To be greeted with respect (Matthew 23:7)  <br><br>
+        
+        A 	11. According to Matthew, chapter 23, verse 3, what should you not do? <br>
+            A. What they do (Matthew 23:3)  <br><br>
+        
+        X 	12. Complete, in essence, the following: "You clean the outside of . . ." <br>
+            A. ". . . the cup and dish, but inside they are full of greed and self-indulgence." (Matthew 23:25)  <br><br>
+        
+        G 	13. Who was the son of Berekiah? <br>
+            A. Zechariah (Matthew 23:35)  <br><br>
+        
+        G 	14. To whom did Jesus say: "The teachers of the law and the Pharisees sit in Moses' seat."? <br>
+            A. The crowds and his disciples (Matthew 23:1-2)  <br><br>
+        
+        G 	15. Who make their phylacteries wide? <br>
+            A. The teachers of the law and the Pharisees (Matthew 23:5)  <br><br>
+        
+        Q 	16. Quote Matthew, chapter 23, verse 26. <br>
+            A. "Blind Pharisee! First clean the inside of the cup and dish, and then the outside also will be clean." (Matthew 23:26)  <br><br>
+        
+        G 	17. Who will flog others in their synagogues? <br>
+            A. The teachers of the law and Pharisees (Matthew 23:34)  <br><br>
+        
+        V 	18. Finish this verse: "Blind Pharisee! First clean the. . ." <br>
+            A. ". . .inside of the cup and dish, and then the outside also will be clean." (Matthew 23:26)  <br><br>
+        
+        G 	19. With what do the teachers of the law and the Pharisees love to be greeted in the marketplaces? <br>
+            A. Respect (Matthew 23:7)  <br><br>
+        <br><br>
+        
+         <h7 id="5">SET #5</h7>   <br><br>
+        
+        G 	1. Why are you not to be called instructors? <br>
+            A. For you have one Instructor, the Messiah (Matthew 23:10)  <br><br>
+        
+        G 	2. Who shut the door of the kingdom of heaven in people's faces? <br>
+            A. The teachers of the law and Pharisees (Matthew 23:13)  <br><br>
+        
+        X 	3. Two-part answer: of what are whitewashed tombs full on the inside? <br>
+            A. 1) The bones of the dead; 2) Everything unclean (Matthew 23:27)  <br><br>
+        
+        G 	4. Who are like whitewashed tombs, which look beautiful on the outside but on the inside are full of the bones of the dead and everything unclean? <br>
+            A. The teachers of the law and Pharisees (Matthew 23:27)  <br><br>
+        
+        G 	5. When do the teachers of the law and Pharisees make a convert twice as much a child of hell as they are? <br>
+            A. When they have succeeded in winning a convert (Matthew 23:15)  <br><br>
+        
+        A 	6. According to Matthew, chapter 23, verse 34, whom will you flog in your synagogues? <br>
+            A. Others of the prophets and sages and teachers I am sending you (Matthew 23:34)  <br><br>
+        
+        G 	7. Who make a convert twice as much a child of hell as they are? <br>
+            A. The teachers of the law and Pharisees (Matthew 23:15)  <br><br>
+        
+        G 	8. What do the teachers of the law and Pharisees themselves not enter? <br>
+            A. The kingdom of heaven (Matthew 23:13)  <br><br>
+        
+        A 	9. According to Matthew, chapter 23, verse 31, against whom do you testify? <br>
+            A. Yourselves (Matthew 23:31)  <br><br>
+        
+        V 	10. Finish this verse: "Blind Pharisee! First clean the. . ." <br>
+            A. ". . .inside of the cup and dish, and then the outside also will be clean." (Matthew 23:26)  <br><br>
+        
+        G 	11. By what do you blind guides say anyone who swears by the gold of the temple is bound? <br>
+            A. That oath (Matthew 23:16)  <br><br>
+        
+        G 	12. What does the altar make sacred? <br>
+            A. The gift (Matthew 23:19)  <br><br>
+        
+        R 	13. Finish this verse and give the reference: "For those who exalt themselves. . ." <br>
+            A. ". . .will be humbled, and those who humble themselves will be exalted. " (Matthew 23:12)  <br><br>
+        
+        A 	14. According to Matthew, chapter 23, verse 17, what are you? <br>
+            A. Blind fools (Matthew 23:17)  <br><br>
+        
+        G 	15. What do the teachers of the law and Pharisees decorate? <br>
+            A. The graves of the righteous (Matthew 23:29)  <br><br>
+        
+        A 	16. According to Matthew, chapter 23, verse 30, what do you say? <br>
+            A. "If we had lived in the days of our ancestors, we would not have taken part with them in shedding the blood of the prophets." (Matthew 23:30)  <br><br>
+        
+        Q 	17. Quote Matthew, chapter 23, verse 26. <br>
+            A. "Blind Pharisee! First clean the inside of the cup and dish, and then the outside also will be clean." (Matthew 23:26)  <br><br>
+        
+        G 	18. By what do you blind guides also say anyone who swears by the gift on the altar is bound? <br>
+            A. That oath (Matthew 23:18)  <br><br>
+        
+        G 	19. What will the teachers of the law and Pharisees not let those who are trying to enter the kingdom of heaven do? <br>
+            A. Enter (Matthew 23:13)  <br><br>
+        <br><br>
+        
+         <h7 id="6">SET #6</h7>   <br><br>
+        
+        Q 	1. Quote Matthew, chapter 23, verse 12. <br>
+            A. "For those who exalt themselves will be humbled, and those who humble themselves will be exalted." (Matthew 23:12)  <br><br>
+        
+        G 	2. What do the teachers of the law and Pharisees give? <br>
+            A. A tenth of their spices - mint, dill and cumin (Matthew 23:23)  <br><br>
+        
+        G 	3. Who sit in Moses' seat? <br>
+            A. The teachers of the law and the Pharisees (Matthew 23:2)  <br><br>
+        
+        A 	4. According to Matthew, chapter 23, verse 36, on whom will all this come? <br>
+            A. This generation (Matthew 23:36)  <br><br>
+        
+        G 	5. What are full of greed and self-indulgence? <br>
+            A. The inside of the cup and dish (Matthew 23:25)  <br><br>
+        
+        A 	6. According to Matthew, chapter 23, verse 35, what will come upon you? <br>
+            A. All the righteous blood that has been shed on earth, from the blood of righteous Abel to the blood of Zechariah (son of Berekiah) (Matthew 23:35)  <br><br>
+        
+        G 	7. Of what do the teachers of the law and Pharisees give a tenth? <br>
+            A. Their spices - mint, dill and cumin (Matthew 23:23)  <br><br>
+        
+        G 	8. What are justice, mercy and faithfulness? <br>
+            A. The more important matters of the law (Matthew 23:23)  <br><br>
+        
+        G 	9. Where are the cup and dish full of greed and self-indulgence? <br>
+            A. Inside (Matthew 23:25)  <br><br>
+        
+        G 	10. Who should have practiced the latter without neglecting the former? <br>
+            A. The teachers of the law and Pharisees (Matthew 23:23)  <br><br>
+        
+        G 	11. By whom does anyone who swears by heaven swear? <br>
+            A. The one who sits on God's throne (Matthew 23:22)  <br><br>
+        
+        A 	12. According to Matthew, chapter 23, verse 2, where do the teachers of the law and the Pharisees sit? <br>
+            A. In Moses' seat (Matthew 23:2)  <br><br>
+        
+        R 	13. Finish this verse and give the reference: "Blind Pharisee! First clean the. . ." <br>
+            A. ". . .inside of the cup and dish, and then the outside also will be clean. " (Matthew 23:26)  <br><br>
+        
+        A 	14. According to Matthew, chapter 23, verse 35, whom did you murder? <br>
+            A. Zechariah son of Berekiah (Matthew 23:35)  <br><br>
+        
+        V 	15. Finish this verse: "Blind Pharisee! First clean the. . ." <br>
+            A. ". . .inside of the cup and dish, and then the outside also will be clean." (Matthew 23:26)  <br><br>
+        
+        G 	16. What do you blind guides swallow? <br>
+            A. A camel (Matthew 23:24)  <br><br>
+        
+        G 	17. Who give a tenth of their spices? <br>
+            A. The teachers of the law and Pharisees (Matthew 23:23)  <br><br>
+        
+        X 	18. In Matthew, chapter 23, whom does Jesus repeatedly call hypocrites? <br>
+            A. The teachers of the law and Pharisees (Matthew 23:29)  <br><br>
+        
+        G 	19. Who swears by the temple and by the one who dwells in the temple? <br>
+            A. Anyone who swears by the temple (Matthew 23:21)  <br><br>
+        <br><br>
+        
+         <h7 id="7">SET #7</h7>   <br><br>
+        
+        G 	1. Who will be exalted? <br>
+            A. Those who humble themselves (Matthew 23:12)  <br><br>
+        
+        G 	2. What gathers her chicks under her wings? <br>
+            A. A hen (Matthew 23:37)  <br><br>
+        
+        G 	3. Where do the teachers of the law and the Pharisees love to be greeted with respect? <br>
+            A. In the marketplaces (Matthew 23:7)  <br><br>
+        
+        A 	4. According to Matthew, chapter 23, verse 39, who is blessed? <br>
+            A. He who comes in the name of the Lord (Matthew 23:39)  <br><br>
+        
+        Q 	5. Quote Matthew, chapter 23, verse 12. <br>
+            A. "For those who exalt themselves will be humbled, and those who humble themselves will be exalted." (Matthew 23:12)  <br><br>
+        
+        R 	6. Finish this verse and give the reference: "Blind Pharisee! First clean the. . ." <br>
+            A. ". . .inside of the cup and dish, and then the outside also will be clean. " (Matthew 23:26)  <br><br>
+        
+        G 	7. Who will not see Jesus again until they say, "Blessed is he who comes in the name of the Lord."? <br>
+            A. Jerusalem (Matthew 23:39)  <br><br>
+        
+        G 	8. Why are you not to be called instructors? <br>
+            A. For you have one Instructor, the Messiah (Matthew 23:10)  <br><br>
+        
+        G 	9. Who was the son of Berekiah? <br>
+            A. Zechariah (Matthew 23:35)  <br><br>
+        
+        G 	10. What will the outside also be if you first clean the inside of the cup and dish? <br>
+            A. Clean (Matthew 23:26)  <br><br>
+        
+        G 	11. How will the teachers of the law and Pharisees pursue others? <br>
+            A. From town to town (Matthew 23:34)  <br><br>
+        
+        G 	12. Where do the teachers of the law and the Pharisees love the place of honor? <br>
+            A. At banquets (Matthew 23:6)  <br><br>
+        
+        A 	13. According to Matthew, chapter 23, verse 38, what is left to you desolate? <br>
+            A. Your house (Matthew 23:38)  <br><br>
+        
+        G 	14. Where do the teachers of the law and the Pharisees put heavy, cumbersome loads? <br>
+            A. On other people's shoulders (Matthew 23:4)  <br><br>
+        
+        A 	15. According to Matthew, chapter 23, verse 39, what do I tell you? <br>
+            A. "You will not see me again until you say, 'Blessed is he who comes in the name of the Lord.'" (Matthew 23:39)  <br><br>
+        
+        V 	16. Finish this verse: "Blind Pharisee! First clean the. . ." <br>
+            A. ". . .inside of the cup and dish, and then the outside also will be clean." (Matthew 23:26) <br><br> 
+        
+        A 	17. According to Matthew, chapter 23, verse 37, what have I often longed to do? <br>
+            A. Gather Jerusalem's children together (Matthew 23:37)  <br><br>
+        
+        G 	18. Who should go ahead and complete what their ancestors started? <br>
+            A. The teachers of the law and Pharisees (Matthew 23:32)  <br><br>
+        
+        X 	19. In Matthew, chapter 23, whom does Jesus call a brood of vipers? <br>
+            A. The teachers of the law and Pharisees (Matthew 23:33)  <br><br>
+        <br><br>
+        
+         <h7 id="8">SET #8</h7>   <br><br>
+        
+        G 	1. Why are you not to be called "Rabbi"? <br>
+            A. For you have one Teacher, and you are all brothers (Matthew 23:8)  <br><br>
+        
+        G 	2. Whose children has Jesus often longed to gather together? <br>
+            A. Jerusalem's (Matthew 23:37)  <br><br>
+        
+        G 	3. What do the teachers of the law and the Pharisees make wide? <br>
+            A. Their phylacteries (Matthew 23:5)  <br><br>
+        
+        A 	4. According to Matthew, chapter 23, verse 10, what do you have? <br>
+            A. One Instructor (the Messiah) (Matthew 23:10)  <br><br>
+        
+        R 	5. Finish this verse and give the reference: "Blind Pharisee! First clean the. . ." <br>
+            A. ". . .inside of the cup and dish, and then the outside also will be clean. " (Matthew 23:26)  <br><br>
+        
+        Q 	6. Quote Matthew, chapter 23, verse 26. <br>
+            A. "Blind Pharisee! First clean the inside of the cup and dish, and then the outside also will be clean." (Matthew 23:26)  <br><br>
+
+        G 	7. Who will flog others in their synagogues? <br>
+            A. The teachers of the law and Pharisees (Matthew 23:34)  <br><br>
+        
+        G 	8. By what do you blind guides also say anyone who swears by the gift on the altar is bound? <br>
+            A. That oath (Matthew 23:18)  <br><br>
+        
+        V 	9. Finish this verse: "For those who exalt themselves. . ." <br>
+            A. ". . .will be humbled, and those who humble themselves will be exalted." (Matthew 23:12) <br><br> 
+        
+        X 	10. Where was Zechariah murdered? <br>
+            A. Between the temple and the altar (Matthew 23:35)  <br><br>
+        
+        A 	11. According to Matthew, chapter 23, verse 4, what do they tie up? <br>
+            A. Heavy, cumbersome loads (Matthew 23:4)  <br><br>
+        
+        G 	12. For what is everything the teachers of the law and the Pharisees do done? <br>
+            A. For people to see (Matthew 23:5)  <br><br>
+        
+        G 	13. Whom will the teachers of the law and Pharisees pursue from town to town? <br>
+            A. Others of the prophets and sages and teachers Jesus is sending them (Matthew 23:34)  <br><br>
+        
+        G 	14. Who put heavy, cumbersome loads on other people's shoulders? <br>
+            A. The teachers of the law and the Pharisees (Matthew 23:4)  <br><br>
+        
+        A 	15. According to Matthew, chapter 23, verse 6, what do they love? <br>
+            A. The place of honor at banquets and the most important seats in the synagogues (Matthew 23:6)  <br><br>
+        
+        G 	16. When will the outside of the cup and dish also be clean? <br>
+            A. If you first clean the inside of the cup and dish (Matthew 23:26) <br><br> 
+        
+        A 	17. According to Matthew, chapter 23, verse 8, what are you not to be called? <br>
+            A. "Rabbi" (Matthew 23:8)  <br><br>
+        
+        G 	18. Why should you not do what the teachers of the law and the Pharisees do? <br>
+            A. For they do not practice what they preach (Matthew 23:3)  <br><br>
+        
+        G 	19. What do the teachers of the law and Pharisees decorate? <br>
+            A. The graves of the righteous (Matthew 23:29)  <br><br>
+        <br><br>
+        
+         <h7 id="9">SET #9</h7>   <br><br>
+        
+        G 	1. What if you first clean the inside of the cup and dish? <br>
+            A. Then the outside also will be clean (Matthew 23:26)  <br><br>
+        
+        Q 	2. Quote Matthew, chapter 23, verse 26. <br>
+            A. "Blind Pharisee! First clean the inside of the cup and dish, and then the outside also will be clean." (Matthew 23:26)  <br><br>
+        
+        X 	3. Complete, in essence, the following: "They tie up heavy, cumbersome . . ." <br>
+            A. ". . . loads and put them on other people's shoulders, but they themselves are not willing to lift a finger to move them." (Matthew 23:4)  <br><br>
+        
+        V 	4. Finish this verse: "For those who exalt themselves. . ." <br>
+            A. ". . .will be humbled, and those who humble themselves will be exalted." (Matthew 23:12)  <br><br>
+        
+        G 	5. Who do not practice what they preach? <br>
+            A. The teachers of the law and the Pharisees (Matthew 23:3)  <br><br>
+        
+        A 	6. According to Matthew, chapter 23, verse 9, what should you not call anyone on earth? <br>
+            A. "Father" (Matthew 23:9)  <br><br>
+        
+        G 	7. Whom is Jesus sending the teachers of the law and Pharisees? <br>
+            A. Prophets and sages and teachers (Matthew 23:34)  <br><br>
+        
+        R 	8. Finish this verse and give the reference: "For those who exalt themselves. . ." <br>
+            A. ". . .will be humbled, and those who humble themselves will be exalted. " (Matthew 23:12)  <br><br>
+        
+        G 	9. What seats do the teachers of the law and the Pharisees love? <br>
+            A. The most important seats in the synagogues (Matthew 23:6)  <br><br>
+        
+        G 	10. Who make their phylacteries wide? <br>
+            A. The teachers of the law and the Pharisees (Matthew 23:5)  <br><br>
+        
+        G 	11. What do the teachers of the law and the Pharisees love in the marketplaces? <br>
+            A. To be greeted with respect (Matthew 23:7)  <br><br>
+        
+        A 	12. According to Matthew, chapter 23, verse 9, who is in heaven? <br>
+            A. The one Father you have (Matthew 23:9)  <br><br>
+        
+        G 	13. Where do the teachers of the law and Pharisees appear to people as righteous? <br>
+            A. On the outside (Matthew 23:28)  <br><br>
+        
+        G 	14. What are full of the bones of the dead and everything unclean on the inside? <br>
+            A. Whitewashed tombs (Matthew 23:27)  <br><br>
+        
+        A 	15. According to Matthew, chapter 23, verse 12, who will be humbled? <br>
+            A. Those who exalt themselves (Matthew 23:12)  <br><br>
+        
+        G 	16. Upon whom will all the righteous blood that has been shed on earth come? <br>
+            A. The teachers of the law and Pharisees (Matthew 23:35)  <br><br>
+        
+        G 	17. What do the teachers of the law and the Pharisees love in the synagogues? <br>
+            A. The most important seats (Matthew 23:6)  <br><br>
+        
+        A 	18. According to Matthew, chapter 23, verse 25, what are full of greed and self-indulgence? <br>
+            A. The inside of the cup and dish (Matthew 23:25)  <br><br>
+        
+        G 	19. How has Jesus often longed to gather Jerusalem's children together? <br>
+            A. As a hen gathers her chicks under her wings (Matthew 23:37)  <br><br>
+        <br><br>
+        
+         <h7 id="10">SET #10</h7>   <br><br>
+        
+        G 	1. Who has often longed to gather Jerusalem's children together? <br>
+            A. Jesus (Matthew 23:37)  <br><br>
+        
+        R 	2. Finish this verse and give the reference: "For those who exalt themselves. . ." <br>
+            A. ". . .will be humbled, and those who humble themselves will be exalted. " (Matthew 23:12)  <br><br>
+        
+        G 	3. What will the teachers of the law and Pharisees not let those who are trying to enter the kingdom of heaven do? <br>
+            A. Enter (Matthew 23:13)  <br><br>
+        
+        G 	4. To whom did Jesus say: "The teachers of the law and the Pharisees sit in Moses' seat."? <br>
+            A. The crowds and his disciples (Matthew 23:1-2)  <br><br>
+        
+        A 	5. According to Matthew, chapter 23, verse 27, who are hypocrites? <br>
+            A. You teachers of the law and Pharisees (Matthew 23:27)  <br><br>
+        
+        G 	6. What will those who exalt themselves be? <br>
+            A. Humbled (Matthew 23:12)  <br><br>
+        
+        G 	7. Who are like whitewashed tombs, which look beautiful on the outside but on the inside are full of the bones of the dead and everything unclean? <br>
+            A. The teachers of the law and Pharisees (Matthew 23:27)  <br><br>
+        
+        A 	8. According to Matthew, chapter 23, verse 27, like what are you teachers of the law and Pharisees? <br>
+            A. Whitewashed tombs (which look beautiful on the outside but on the inside are full of the bones of the dead and everything unclean) (Matthew 23:27)  <br><br>
+        
+        A 	9. According to Matthew, chapter 23, verse 23, what have you neglected? <br>
+            A. The more important matters of the law - justice, mercy and faithfulness (Matthew 23:23)  <br><br>
+        
+        G 	10. What is left to Jerusalem desolate? <br>
+            A. Jerusalem's house (Matthew 23:38)  <br><br>
+        
+        G 	11. Where are whitewashed tombs full of the bones of the dead and everything unclean? <br>
+            A. On the inside (Matthew 23:27)  <br><br>
+        
+        V 	12. Finish this verse: "Blind Pharisee! First clean the. . ." <br>
+            A. ". . .inside of the cup and dish, and then the outside also will be clean." (Matthew 23:26)  <br><br>
+        
+        G 	13. With what do the teachers of the law and the Pharisees love to be greeted in the marketplaces? <br>
+            A. Respect (Matthew 23:7)  <br><br>
+        
+        G 	14. Whom should you not call "father"? <br>
+            A. Anyone on earth (Matthew 23:9)  <br><br>
+        
+        A 	15. According to Matthew, chapter 23, verse 3, what should you not do? <br>
+            A. What they do (Matthew 23:3)  <br><br>
+        
+        X 	16. What are boxes containing Scripture verses, worn on the forehead and arm? <br>
+            A. Phylacteries (Matthew 23:5)  <br><br>
+        
+        Q 	17. Quote Matthew, chapter 23, verse 12. <br>
+            A. "For those who exalt themselves will be humbled, and those who humble themselves will be exalted." (Matthew 23:12)  <br><br>
+        
+        G 	18. Who murdered Zechariah? <br>
+            A. The teachers of the law and Pharisees (Matthew 23:35)  <br><br>
+        
+        G 	19. By what does anyone who swears by the altar swear? <br>
+            A. The altar and by everything on the altar (Matthew 23:20) <br><br> 
+        
+        </p>
+
+</body>
+</html>

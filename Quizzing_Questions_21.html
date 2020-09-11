@@ -1,0 +1,902 @@
+<!DOCTYPE html>
+<html> 
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+
+        h1{
+            background-color: black;
+            text-align: center;
+            font-size: 120px;
+            margin: 0px;
+            padding: 30px;
+            color: rgb(0, 172, 172);
+            font-family: 'Impact', Haettenschweiler, Arial Narrow Bold, sans-serif;
+            top: 0px;
+            left: 0px;
+            text-emphasis: bold;
+        }
+
+        head{
+            background-color: black;
+            margin: 0px;
+            padding: 20px;
+        }
+
+        nav{
+            left: 0px;
+            margin: 0px;
+            padding: 20px;
+            background-color: rgb(0, 172, 172);
+            color: black;
+            text-align: left;
+            display: inline-block;
+            height: auto;
+        }
+
+        nav a{
+            color: black;
+            text-decoration: none;
+            margin: 10px 15px;
+            padding: 8px;
+            font-size: 24px;
+            display: inline-block;
+            box-shadow: 0px 0px 10px 5px black;
+            background-color: #b3b3b3;
+            border-radius: 5px;
+        }
+
+        body{
+            background-image: url('data:image/jpeg;base64,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');
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-attachment: fixed;
+        }
+
+        h2{
+            text-align: center;
+            color: white;
+            font-size: 32px;
+            text-emphasis: bold;
+            margin: 10px;
+            background-color: black;
+            padding: 10px;
+            border: double 3px black;
+        }
+
+        .bookmarks{
+            background-color: rgb(0, 172, 172);
+            position: absolute;
+            top: 290px;
+            left: 26%;
+            text-align: center;
+            padding: 10px 20px;
+            border: solid black 5px;
+            border-radius: 25px;
+        }
+
+        .bookmarks a{
+            display: inline-block;
+            background-color: black;
+            color: white;
+            text-emphasis: bold;
+            font-size: 24px;
+            margin: 10px;
+            padding: 10px;
+            border-radius: 10px;
+        }
+
+        h3{
+            font-size: 68px;
+            position: absolute;
+            float: center;
+            top: 350px;
+            left: 48%;
+            text-emphasis: bold;
+            text-align: center;
+            font-family: 'Times New Roman', Times, serif;
+        }
+
+        .verses a{
+            position: absolute;
+            color: rgb(0, 172, 172);
+            background-color: black;
+            font-size: 32px;
+            font-family: Arial, Helvetica, sans-serif;
+            left: 38%;
+            padding: 10px 100px;
+            text-decoration: none;
+            text-align: center;
+            top: 220px;
+            text-emphasis: bold;
+        }
+
+        #myBtn {
+            display: none; /* Hidden by default */
+            position: fixed; /* Fixed/sticky position */
+            bottom: 65px; /* Place the button at the bottom of the page */
+            left: 50px; /* Place the button 30px from the right */
+            z-index: 99; /* Make sure it does not overlap */
+            border: none; /* Remove borders */
+            outline: none; /* Remove outline */
+            background-color: rgb(0, 172, 172); /* Set a background color */
+            color: black; /* Text color */
+            cursor: pointer; /* Add a mouse pointer on hover */
+            padding: 10px; /* Some padding */
+            padding-bottom: 0px;
+            border-radius: 10px; /* Rounded corners */
+            border: solid black 5px;
+            font-size: 72px; /* Increase font size */
+        }
+
+        #myBtn:hover {
+            display: none; /* Hidden by default */
+            position: fixed; /* Fixed/sticky position */
+            bottom: 65px; /* Place the button at the bottom of the page */
+            left: 50px; /* Place the button 30px from the right */
+            z-index: 99; /* Make sure it does not overlap */
+            border: none; /* Remove borders */
+            outline: none; /* Remove outline */
+            background-color: rgb(0, 0, 0); /* Set a background color */
+            color: rgb(0, 172, 172); /* Text color */
+            cursor: pointer; /* Add a mouse pointer on hover */
+            padding: 10px; /* Some padding */
+            padding-bottom: 0px;
+            border-radius: 10px; /* Rounded corners */
+            border: solid rgb(0, 172, 172) 5px;
+            font-size: 72px; /* Increase font size */
+        }
+
+        p{
+            font-size: 22px;
+            position: absolute;
+            top: 500px;
+            left: 30%;
+        }
+
+        h7{
+            font-size: 32px;
+            text-emphasis: bold;
+        }
+
+    </style>
+    <button onclick="topFunction()" id="myBtn" title="Go to top"><b>^</b></button>
+<head> 
+    <h1>Questions</h1>
+    <div class="verses">
+        <a href="Quizzing.html">Click here for memory verses.</a>        
+   </div>
+</head>
+<body>
+   
+    <script>
+        //Get the button
+        var mybutton = document.getElementById("myBtn");
+        
+        // When the user scrolls down 20px from the top of the document, show the button
+        window.onscroll = function() {scrollFunction()};
+        
+        function scrollFunction() {
+          if (document.body.scrollTop > 1750 || document.documentElement.scrollTop > 1750) {
+            mybutton.style.display = "block";
+          } else {
+            mybutton.style.display = "none";
+          }
+        }
+        
+        // When the user clicks on the button, scroll to the top of the document
+        function topFunction() {
+          document.body.scrollTop = 0;
+          document.documentElement.scrollTop = 0;
+        }
+        </script>
+
+    <nav>
+
+        <h2>Select a Chapter</h2>
+        <br>
+
+        <a href="Quizzing_Questions_1.html">Matthew 1</a>
+        <br>
+        <a href="Quizzing_Questions_2.html">Matthew 2</a>
+        <br>
+        <a href="Quizzing_Questions_3.html">Matthew 3</a>
+        <br>
+        <a href="Quizzing_Questions_4.html">Matthew 4</a>
+        <br>
+        <a href="Quizzing_Questions_5.html">Matthew 5</a>
+        <br>
+        <a href="Quizzing_Questions_6.html">Matthew 6</a>
+        <br>
+        <a href="Quizzing_Questions_7.html">Matthew 7</a>
+        <br>
+        <a href="Quizzing_Questions_8.html">Matthew 8</a>
+        <br>
+        <a href="Quizzing_Questions_9.html">Matthew 9</a>
+        <br>
+        <a href="Quizzing_Questions_10.html">Matthew 10</a>
+        <br>
+        <a href="Quizzing_Questions_11.html">Matthew 11</a>
+        <br>
+        <a href="Quizzing_Questions_12.html">Matthew 12</a>
+        <br>
+        <a href="Quizzing_Questions_13.html">Matthew 13</a>
+        <br>
+        <a href="Quizzing_Questions_14.html">Matthew 14</a>
+        <br>
+        <a href="Quizzing_Questions_15.html">Matthew 15</a>
+        <br>
+        <a href="Quizzing_Questions_16.html">Matthew 16</a>
+        <br>
+        <a href="Quizzing_Questions_17.html">Matthew 17</a>
+        <br>
+        <a href="Quizzing_Questions_18.html">Matthew 18</a>
+        <br>
+        <a href="Quizzing_Questions_19.html">Matthew 19</a>
+        <br>
+        <a href="Quizzing_Questions_20.html">Matthew 20</a>
+        <br>
+        <a href="Quizzing_Questions_21.html">Matthew 21</a>
+        <br>
+        <a href="Quizzing_Questions_22.html">Matthew 22</a>
+        <br>
+        <a href="Quizzing_Questions_23.html">Matthew 23</a>
+        <br>
+        <a href="Quizzing_Questions_24.html">Matthew 24</a>
+        <br>
+        <a href="Quizzing_Questions_25.html">Matthew 25</a>
+        <br>
+        <a href="Quizzing_Questions_26.html">Matthew 26</a>
+        <br>
+        <a href="Quizzing_Questions_27.html">Matthew 27</a>
+        <br>
+        <a href="Quizzing_Questions_28.html">Matthew 28</a>
+    </nav>
+
+    <div class="bookmarks">
+        <a href="#1">Set 1</a>
+        <a href="#2">Set 2</a>
+        <a href="#3">Set 3</a>
+        <a href="#4">Set 4</a>
+        <a href="#5">Set 5</a>
+        <a href="#6">Set 6</a>
+        <a href="#7">Set 7</a>
+        <a href="#8">Set 8</a>
+        <a href="#9">Set 9</a>
+        <a href="#10">Set 10</a>
+    </div>
+
+    <h3>Matthew 21</h3>
+
+    <p> <h7 id="1">SET #1</h7>   <br><br>
+
+        G 	1. To whom did Jesus say, "Go to the village ahead of you, and at once you will find a donkey tied there, with her colt by her. Untie them and bring them to me."? <br>
+            A. Two disciples (Matthew 21:1-2)  <br><br>
+        
+        G 	2. Who said, "They will respect my son."? <br>
+            A. A landowner (Matthew 21:37)  <br><br>
+        
+        Q 	3. Quote Matthew, chapter 21, verse 21. <br>
+            A. "Jesus replied, "Truly I tell you, if you have faith and do not doubt, not only can you do what was done to the fig tree, but also you can say to this mountain, 'Go, throw yourself into the sea,' and it will be done." (Matthew 21:21)  <br><br>
+        
+        G 	4. Why did the disciples place their cloaks on the donkey and the colt? <br>
+            A. For Jesus to sit on (Matthew 21:7)  <br><br>
+        
+        A 	5. According to Matthew, chapter 21, verse 3, what should you say? <br>
+            A. That the Lord needs them (Matthew 21:3)  <br><br>
+        
+        G 	6. What if the chief priests and the elders of the people say, "From heaven."? <br>
+            A. Jesus will ask, "Then why didn't you believe him?" (Matthew 21:25)  <br><br>
+        
+        S 	7. Situation question: who said it, to whom, and where: "By what authority are you doing these things? And who gave you this authority?" <br>
+            A. The chief priests and the elders of the people said it to Jesus, in the temple courts (Matthew 21:23)  <br><br>
+        
+        G 	8. Whom did the tax collectors and the prostitutes believe? <br>
+            A. John (Matthew 21:32)  <br><br>
+        
+        G 	9. Who was hungry early in the morning as he was on his way back to the city? <br>
+            A. Jesus (Matthew 21:18)  <br><br>
+        
+        X 	10. Complete, in essence, the following Old Testament quotation: "From the lips of children . . ." <br>
+            A. ". . . and infants you, Lord, have called forth your praise." (Matthew 21:16)  <br><br>
+        
+        A 	11. According to Matthew, chapter 21, verse 28, who was there? <br>
+            A. A man who had two sons (Matthew 21:28)  <br><br>
+        
+        G 	12. When will the owner of the vineyard bring those wretches to a wretched end? <br>
+            A. When the owner of the vineyard comes (Matthew 21:40-41)  <br><br>
+        
+        V 	13. Finish this verse: "The crowds that went ahead. . ." <br>
+            A. ". . .of him and those that followed shouted, "Hosanna to the Son of David!" "Blessed is he who comes in the name of the Lord!" "Hosanna in the highest heaven!" (Matthew 21:9)  <br><br>
+        
+        A 	14. According to Matthew, chapter 21, verse 2, what will they at once find? <br>
+            A. A donkey tied in the village ahead of them, with her colt by her (Matthew 21:2) <br><br> 
+        
+        G 	15. Who comes to Daughter Zion, gentle and riding on a donkey, on a colt, the foal of a donkey? <br>
+            A. Your king (Matthew 21:5)  <br><br>
+        
+        G 	16. Who built a watchtower? <br>
+            A. A landowner (Matthew 21:33)  <br><br>
+        
+        A 	17. According to Matthew, chapter 21, verse 44, who will be crushed? <br>
+            A. Anyone on whom this stone falls (Matthew 21:44)  <br><br>
+        
+        G 	18. When did a landowner send his servants to the tenants to collect his fruit? <br>
+            A. When the harvest time approached (Matthew 21:34)  <br><br>
+        
+        R 	19. Finish this verse and give the reference: "The crowds that went ahead. . ." <br>
+            A. ". . .of him and those that followed shouted, "Hosanna to the Son of David!" "Blessed is he who comes in the name of the Lord!" "Hosanna in the highest heaven!" " (Matthew 21:9)  <br><br>
+        
+        G 	20. What has the stone the builders rejected become? <br>
+            A. The cornerstone (Matthew 21:42)  <br><br>
+        <br><br>
+        
+         <h7 id="2">SET #2</h7>   <br><br>
+        
+        G 	1. Who believed John when he came to show them the way of righteousness? <br>
+            A. The tax collectors and the prostitutes (Matthew 21:32)  <br><br>
+        
+        R 	2. Finish this verse and give the reference: "The crowds that went ahead. . ." <br>
+            A. ". . .of him and those that followed shouted, "Hosanna to the Son of David!" "Blessed is he who comes in the name of the Lord!" "Hosanna in the highest heaven!" " (Matthew 21:9)  <br><br>
+        
+        G 	3. Who brought the donkey and the colt and placed their cloaks on them for Jesus to sit on? <br>
+            A. The disciples (Matthew 21:7)  <br><br>
+        
+        S 	4. Situation question: who said it, and to whom: "It is written, 'My house will be called a house of prayer', but you are making it 'a den of robbers.'"? <br>
+            A. Jesus said it to all who were buying and selling in the temple courts (Matthew 21:12-13)  <br><br>
+        
+        A 	5. According to Matthew, chapter 21, verse 25, what did they say? <br>
+            A. "If we say, 'From heaven,' he will ask, 'Then why didn't you believe him?'" (Matthew 21:25)  <br><br>
+        
+        G 	6. What will be taken away from you and given to a people who will produce its fruit? <br>
+            A. The kingdom of God (Matthew 21:43)  <br><br>
+        
+        G 	7. Who said to the first son, "Son, go and work today in the vineyard."? <br>
+            A. A man who had two sons (Matthew 21:28)  <br><br>
+        
+        V 	8. Finish this verse: "Jesus replied, "Truly I tell. . ." <br>
+            A. ". . .you, if you have faith and do not doubt, not only can you do what was done to the fig tree, but also you can say to this mountain, 'Go, throw yourself into the sea,' and it will be done." (Matthew 21:21)  <br><br>
+        
+        X 	9. In Matthew, chapter 21, why did the chief priests and the elders of the people answer Jesus, "We don't know."? <br>
+            A. Because if they say, "From heaven," Jesus will ask, "Then why didn't you believe him?" But if they say, "Of human origin" - they are afraid of the people (for they all hold that John was a prophet) (Matthew 21:25-27)  <br><br>
+        
+        A 	10. According to Matthew, chapter 21, verse 26, what do the people all hold? <br>
+            A. That John was a prophet (Matthew 21:26)  <br><br>
+        
+        G 	11. When did the first son change his mind and go? <br>
+            A. Later (Matthew 21:29)  <br><br>
+        
+        G 	12. Who spread their cloaks on the road? <br>
+            A. A very large crowd (Matthew 21:8)  <br><br>
+        
+        Q 	13. Quote Matthew, chapter 21, verse 21. <br>
+            A. "Jesus replied, "Truly I tell you, if you have faith and do not doubt, not only can you do what was done to the fig tree, but also you can say to this mountain, 'Go, throw yourself into the sea,' and it will be done." (Matthew 21:21)  <br><br>
+        
+        G 	14. Who planted a vineyard? <br>
+            A. A landowner (Matthew 21:33)  <br><br>
+        
+        A 	15. According to Matthew, chapter 21, verse 10, what did the whole city ask? <br>
+            A. "Who is this?" (Matthew 21:10)  <br><br>
+        
+        G 	16. Who will be broken to pieces? <br>
+            A. Anyone who falls on this stone (Matthew 21:44)  <br><br>
+        
+        G 	17. Who sent other servants to the tenants? <br>
+            A. A landowner (Matthew 21:36)  <br><br>
+        
+        A 	18. According to Matthew, chapter 21, verse 20, who saw this? <br>
+            A. The disciples (Matthew 21:20)  <br><br>
+        
+        G 	19. Out of what did the tenants throw the son? <br>
+            A. The vineyard (Matthew 21:39)  <br><br>
+        
+        G 	20. Whom did a landowner send to the tenants last of all? <br>
+            A. His son (Matthew 21:37)  <br><br>
+        <br><br>
+        
+          SET #3  <br><br>
+        
+        G 	1. What are you making my house? <br>
+            A. "A den of robbers" (Matthew 21:13) <br><br>  
+        
+        A 	2. According to Matthew, chapter 21, verse 28, to whom did a man go? <br>
+            A. The first son (Matthew 21:28)  <br><br>
+        
+        Q 	3. Quote Matthew, chapter 21, verse 21. <br>
+            A. "Jesus replied, "Truly I tell you, if you have faith and do not doubt, not only can you do what was done to the fig tree, but also you can say to this mountain, 'Go, throw yourself into the sea,' and it will be done." (Matthew 21:21)  <br><br>
+        
+        G 	4. Who later changed his mind and went? <br>
+            A. The first son (Matthew 21:29)  <br><br>
+        
+        G 	5. Why did a landowner send his servants to the tenants when the harvest time approached? <br>
+            A. To collect his fruit (Matthew 21:34)  <br><br>
+        
+        R 	6. Finish this verse and give the reference: "Jesus replied, "Truly I tell. . ." <br>
+            A. ". . .you, if you have faith and do not doubt, not only can you do what was done to the fig tree, but also you can say to this mountain, 'Go, throw yourself into the sea,' and it will be done. " (Matthew 21:21)  <br><br>
+        
+        G 	7. What did the tenants say to each other when they saw the son? <br>
+            A. "This is the heir. Come, let's kill him and take his inheritance." (Matthew 21:38)  <br><br>
+        
+        G 	8. What did John come to you to show you? <br>
+            A. The way of righteousness (Matthew 21:32)  <br><br>
+        
+        V 	9. Finish this verse: "The crowds that went ahead. . ." <br>
+            A. ". . .of him and those that followed shouted, "Hosanna to the Son of David!" "Blessed is he who comes in the name of the Lord!" "Hosanna in the highest heaven!" (Matthew 21:9) <br><br> 
+        
+        G 	10. To what will the owner of the vineyard bring those wretches? <br>
+            A. A wretched end (Matthew 21:41)  <br><br>
+        
+        G 	11. To what will anyone who falls on this stone be broken? <br>
+            A. Pieces (Matthew 21:44)  <br><br>
+        
+        X 	12. Two-part question: whom did Jesus drive out of the temple courts, and what did he overturn? <br>
+            A. 1) All who were buying and selling there; 2) The tables of the money changers and the benches of those selling doves (Matthew 21:12)  <br><br>
+        
+        A 	13. According to Matthew, chapter 21, verse 45, what did the chief priests and the Pharisees know? <br>
+            A. Jesus was talking about them (Matthew 21:45)  <br><br>
+        
+        G 	14. When did the chief priests and the elders of the people come to Jesus? <br>
+            A. While Jesus was teaching (Matthew 21:23)  <br><br>
+        
+        A 	15. According to Matthew, chapter 21, verse 22, what will you receive if you believe? <br>
+            A. Whatever you ask for in prayer (Matthew 21:22)  <br><br>
+        
+        G 	16. Where did a landowner dig a winepress? <br>
+            A. In a vineyard (Matthew 21:33)  <br><br>
+        
+        G 	17. How are the tax collectors and the prostitutes entering the kingdom of God? <br>
+            A. Ahead of you (Matthew 21:31) <br><br> 
+        
+        S 	18. Situation question: who said it, to whom, and in reply to what: "Yes, have you never read, 'From the lips of children and infants you, Lord, have called forth your praise.'"? <br>
+            A. Jesus said it to the chief priests and the teachers of the law, in reply to, "Do you hear what these children are saying?" (Matthew 21:16)  <br><br>
+        
+        G 	19. What did others cut from the trees and spread on the road? <br>
+            A. Branches (Matthew 21:8)  <br><br>
+        
+        A 	20. According to Matthew, chapter 21, verse 24, what will I also ask you? <br>
+            A. One question (Matthew 21:24)  <br><br>
+        <br><br>
+        
+         <h7 id="4">ET #4</h7> S  <br><br>
+        
+        G 	1. Who will also ask the chief priests and the elders of the people one question? <br>
+            A. Jesus (Matthew 21:24)  <br><br>
+        
+        G 	2. Who said to them, "It is written, 'My house will be called a house of prayer,' but you are making it 'a den of robbers.'"? <br>
+            A. Jesus (Matthew 21:13)  <br><br>
+        
+        A 	3. According to Matthew, chapter 21, verse 23, who entered the temple courts? <br>
+            A. Jesus (Matthew 21:23)  <br><br>
+        
+        G 	4. What did the chief priests and the Pharisees know when they heard Jesus' parables? <br>
+            A. Jesus was talking about them (Matthew 21:45)  <br><br>
+        
+        V 	5. Finish this verse: "Jesus replied, "Truly I tell. . ." <br>
+            A. ". . .you, if you have faith and do not doubt, not only can you do what was done to the fig tree, but also you can say to this mountain, 'Go, throw yourself into the sea,' and it will be done." (Matthew 21:21)  <br><br>
+        
+        G 	6. Why are the chief priests and the elders of the people afraid of the people if they say, "Of human origin."? <br>
+            A. For the people all hold that John was a prophet (Matthew 21:26)  <br><br>
+        
+        A 	7. According to Matthew, chapter 21, verse 29, what did he later do? <br>
+            A. Changed his mind and went (Matthew 21:29)  <br><br>
+        
+        G 	8. Whom did the tenants treat the same way? <br>
+            A. Other servants (Matthew 21:36)  <br><br>
+        
+        X 	9. Two-part answer: in Matthew, chapter 21, who were healed by Jesus at the temple? <br>
+            A. 1) The blind; 2) The lame (Matthew 21:14)  <br><br>
+        
+        G 	10. Who took the son and threw him out of the vineyard and killed him? <br>
+            A. The tenants (Matthew 21:39)  <br><br>
+        
+        G 	11. What did a landowner dig in a vineyard? <br>
+            A. A winepress (Matthew 21:33)  <br><br>
+        
+        R 	12. Finish this verse and give the reference: "The crowds that went ahead. . ." <br>
+            A. ". . .of him and those that followed shouted, "Hosanna to the Son of David!" "Blessed is he who comes in the name of the Lord!" "Hosanna in the highest heaven!" " (Matthew 21:9)  <br><br>
+        
+        S 	13. Situation question: who said it, to whom, and in reply to what: "I will also ask you one question. If you answer me, I will tell you by what authority I am doing these things." <br>
+            A. Jesus said it to the chief priests and the elders of the people, in reply to, "By what authority are you doing these things? And who gave you this authority?" (Matthew 21:23-24)  <br><br>
+        
+        A 	14. According to Matthew, chapter 21, verse 46, what did the people hold? <br>
+            A. That he was a prophet (Matthew 21:46)  <br><br>
+        
+        G 	15. Who answered, "I will, sir," but did not go? <br>
+            A. The other son (Matthew 21:30)  <br><br>
+        
+        A 	16. According to Matthew, chapter 21, verse 15, what did the chief priests and the teachers of the law see? <br>
+            A. The wonderful things he did and the children shouting in the temple courts, "Hosanna to the Son of David." (Matthew 21:15)  <br><br>
+        
+        Q 	17. Quote Matthew, chapter 21, verse 21. <br>
+            A. "Jesus replied, "Truly I tell you, if you have faith and do not doubt, not only can you do what was done to the fig tree, but also you can say to this mountain, 'Go, throw yourself into the sea,' and it will be done." (Matthew 21:21)  <br><br>
+        
+        G 	18. When should the two disciples say that the Lord needs the donkey and her colt? <br>
+            A. If anyone says anything to them (Matthew 21:3)  <br><br>
+        
+        G 	19. Who will give the owner of the vineyard his share of the crop at harvest time? <br>
+            A. Other tenants (Matthew 21:41)  <br><br>
+        
+        G 	20. Where did others spread branches? <br>
+            A. On the road (Matthew 21:8)  <br><br>
+        <br><br>
+        
+         <h7 id="5">SET #5</h7>   <br><br>
+        
+        A 	1. According to Matthew, chapter 21, verse 30, who did not go? <br>
+            A. The other son (Matthew 21:30)  <br><br>
+        
+        G 	2. Who should say that the Lord needs the donkey and her colt? <br>
+            A. The two disciples (Matthew 21:3)  <br><br>
+        
+        G 	3. Who will find a donkey tied in the village ahead of them, with her colt by her? <br>
+            A. Two disciples (Matthew 21:2)  <br><br>
+        
+        R 	4. Finish this verse and give the reference: "The crowds that went ahead. . ." <br>
+            A. ". . .of him and those that followed shouted, "Hosanna to the Son of David!" "Blessed is he who comes in the name of the Lord!" "Hosanna in the highest heaven!" " (Matthew 21:9)  <br><br>
+        
+        G 	5. On what did others spread branches? <br>
+            A. The road (Matthew 21:8)  <br><br>
+        
+        A 	6. According to Matthew, chapter 21, verse 23, who came to Jesus? <br>
+            A. The chief priests and the elders of the people (Matthew 21:23)  <br><br>
+        
+        Q 	7. Quote Matthew, chapter 21, verse 21. <br>
+            A. "Jesus replied, "Truly I tell you, if you have faith and do not doubt, not only can you do what was done to the fig tree, but also you can say to this mountain, 'Go, throw yourself into the sea,' and it will be done." (Matthew 21:21) <br><br> 
+        
+        S 	8. Situation question: who said it, and to whom: "John's baptism - where did it come from? Was it from heaven, or of human origin?" <br>
+            A. Jesus said it to the chief priests and the elders of the people (Matthew 21:25)  <br><br>
+        
+        G 	9. How did the tenants treat other servants? <br>
+            A. The same way (Matthew 21:36)  <br><br>
+        
+        X 	10. Two-part question: in Matthew, chapter 21, what did the first son answer, and what did he later do? <br>
+            A. 1) "I will not."; 2) He changed his mind and went (Matthew 21:29)  <br><br>
+        
+        G 	11. Whom will other tenants give his share of the crop at harvest time? <br>
+            A. The owner of the vineyard (Matthew 21:41)  <br><br>
+        
+        G 	12. Who knew Jesus was talking about them when they heard Jesus' parables? <br>
+            A. The chief priests and the Pharisees (Matthew 21:45)  <br><br>
+        
+        V 	13. Finish this verse: "Jesus replied, "Truly I tell. . ." <br>
+            A. ". . .you, if you have faith and do not doubt, not only can you do what was done to the fig tree, but also you can say to this mountain, 'Go, throw yourself into the sea,' and it will be done." (Matthew 21:21)  <br><br>
+        
+        G 	14. Which of the two did what his father wanted? <br>
+            A. The first son (Matthew 21:31)  <br><br>
+        
+        A 	15. According to Matthew, chapter 21, verse 5, who comes to you? <br>
+            A. Your king (Matthew 21:5)  <br><br>
+        
+        G 	16. Who sent two disciples as they approached Jerusalem and came to Bethphage? <br>
+            A. Jesus (Matthew 21:1)  <br><br>
+        
+        G 	17. To whom did a landowner rent the vineyard? <br>
+            A. Some farmers (Matthew 21:33)  <br><br>
+        
+        A 	18. According to Matthew, chapter 21, verse 15, what were the chief priests and the teachers of the law? <br>
+            A. Indignant (Matthew 21:15)  <br><br>
+        
+        G 	19. What if the chief priests and the elders of the people say, "Of human origin."? <br>
+            A. They are afraid of the people (for they all hold that John was a prophet) (Matthew 21:26) <br><br>
+        
+        G 	20. When did the whole city ask, "Who is this?" <br>
+            A. When Jesus entered Jerusalem (Matthew 21:10)  <br><br>
+        <br><br>
+        
+         <h7 id="6">SET #6</h7>   <br><br>
+        
+        G 	1. Who entered the temple courts and drove out all who were buying and selling there? <br>
+            A. Jesus (Matthew 21:12)  <br><br>
+        
+        Q 	2. Quote Matthew, chapter 21, verse 21. <br>
+            A. "Jesus replied, "Truly I tell you, if you have faith and do not doubt, not only can you do what was done to the fig tree, but also you can say to this mountain, 'Go, throw yourself into the sea,' and it will be done." (Matthew 21:21)  <br><br>
+        
+        G 	3. Who will neither tell the chief priests and the elders of the people by what authority he is doing these things? <br>
+            A. Jesus (Matthew 21:27)  <br><br>
+        
+        G 	4. Who were shouting in the temple courts, "Hosanna to the Son of David."? <br>
+            A. The children (Matthew 21:15)  <br><br>
+        
+        S 	5. Situation question: who said it, and to whom: "But if we say, 'Of human origin' - we are afraid of the people, for they all hold that John was a prophet."? <br>
+            A. The chief priests and the elders of the people said it to (among) themselves (Matthew 21:26)  <br><br>
+        
+        X 	6. When did Jesus send two disciples to find a donkey and her colt? <br>
+            A. As Jesus and his disciples approached Jerusalem and came to Bethphage (on the Mount of Olives) (Matthew 21:1-2)  <br><br>
+        
+        G 	7. What did the chief priests and the elders of the people discuss among themselves? <br>
+            A. Jesus' one question: "John's baptism - where did it come from? Was it from heaven, or of human origin?" (Matthew 21:24-25)  <br><br>
+        
+        A 	8. According to Matthew, chapter 21, verse 16, what did Jesus reply? <br>
+            A. "Yes, have you never read, 'From the lips of children and infants you, Lord, have called forth your praise.'"? (Matthew 21:16)  <br><br>
+        
+        G 	9. To whom did Jesus say, "It is written, 'My house will be called a house of prayer', but you are making it 'a den of robbers.'"? <br>
+            A. All who were buying and selling in the temple courts (Matthew 21:13)  <br><br>
+        
+        A 	10. According to Matthew, chapter 21, verse 43, to whom will the kingdom of God be given? <br>
+            A. A people who will produce its fruit (Matthew 21:43)  <br><br>
+        
+        G 	11. What will the owner of the vineyard rent to other tenants? <br>
+            A. The vineyard (Matthew 21:41)  <br><br>
+        
+        G 	12. Who healed the blind and the lame at the temple? <br>
+            A. Jesus (Matthew 21:14)  <br><br>
+        
+        R 	13. Finish this verse and give the reference: "Jesus replied, "Truly I tell. . ." <br>
+            A. ". . .you, if you have faith and do not doubt, not only can you do what was done to the fig tree, but also you can say to this mountain, 'Go, throw yourself into the sea,' and it will be done. " (Matthew 21:21)  <br><br>
+        
+        A 	14. According to Matthew, chapter 21, verse 36, whom did he send to the tenants? <br>
+            A. Other servants (more than the first time) (Matthew 21:36)  <br><br>
+        
+        G 	15. On what did Jesus find nothing except leaves? <br>
+            A. A fig tree (Matthew 21:19)  <br><br>
+        
+        V 	16. Finish this verse: "The crowds that went ahead. . ." <br>
+            A. ". . .of him and those that followed shouted, "Hosanna to the Son of David!" "Blessed is he who comes in the name of the Lord!" "Hosanna in the highest heaven!" (Matthew 21:9)  <br><br>
+        
+        G 	17. Who will ask, "Then why didn't you believe him?" <br>
+            A. Jesus (Matthew 21:25)  <br><br>
+        
+        A 	18. According to Matthew, chapter 21, verse 30, what did the father say? <br>
+            A. The same thing (Matthew 21:30)  <br><br>
+        
+        G 	19. Who spent the night at Bethany? <br>
+            A. Jesus (Matthew 21:17)  <br><br>
+        
+        G 	20. What should two disciples untie and bring to Jesus? <br>
+            A. A donkey and her colt (Matthew 21:2)  <br><br>
+        <br><br>
+        
+         <h7 id="7">SET #7</h7>   <br><br>
+        
+        G 	1. What were the children shouting in the temple courts? <br>
+            A. "Hosanna to the Son of David." (Matthew 21:15)  <br><br>
+        
+        G 	2. When will the disciples receive whatever they ask for in prayer? <br>
+            A. If they believe (Matthew 21:22)  <br><br>
+        
+        S 	3. Situation question: who said it, to whom, and in reply to what: "Neither will I tell you by what authority I am doing these things."? <br>
+            A. Jesus said it to the chief priests and the elders of the people, in reply to, "We don't know." (Matthew 21:27)  <br><br>
+        
+        Q 	4. Quote Matthew, chapter 21, verse 9. <br>
+            A. "The crowds that went ahead of him and those that followed shouted, "Hosanna to the Son of David!" "Blessed is he who comes in the name of the Lord!" "Hosanna in the highest heaven!"" (Matthew 21:9)  <br><br>
+        
+        X 	5. Complete, in essence, the following Old Testament quotation: "The stone the builders rejected . . ." <br>
+            A. ". . . has become the cornerstone; the Lord has done this, and it is marvelous in our eyes." (Matthew 21:42)  <br><br>
+        
+        A 	6. According to Matthew, chapter 21, verse 34, whom did he send to the tenants? <br>
+            A. His servants (Matthew 21:34)  <br><br>
+        
+        G 	7. What has the Lord called forth from the lips of children and infants? <br>
+            A. His praise (Matthew 21:16)  <br><br>
+        
+        G 	8. Who asked, "How did the fig tree wither so quickly?" <br>
+            A. The disciples (Matthew 21:20)  <br><br>
+        
+        R 	9. Finish this verse and give the reference: "Jesus replied, "Truly I tell. . ." <br>
+            A. ". . .you, if you have faith and do not doubt, not only can you do what was done to the fig tree, but also you can say to this mountain, 'Go, throw yourself into the sea,' and it will be done. " (Matthew 21:21) <br><br> 
+        
+        G 	10. Where will two disciples find a donkey tied, with her colt by her? <br>
+            A. In the village ahead of them (Matthew 21:2)  <br><br>
+        
+        A 	11. According to Matthew, chapter 21, verse 12, what did Jesus enter? <br>
+            A. The temple courts (Matthew 21:12)  <br><br>
+        
+        G 	12. Who saw the wonderful things Jesus did and the children shouting in the temple courts, "Hosanna to the Son of David."? <br>
+            A. The chief priests and the teachers of the law (Matthew 21:15)  <br><br>
+        
+        G 	13. Who found nothing on a fig tree except leaves? <br>
+            A. Jesus (Matthew 21:19)  <br><br>
+        
+        A 	14. According to Matthew, chapter 21, verse 13, what is written? <br>
+            A. "'My house will be called a house of prayer', but you are making it 'a den of robbers.'" (Matthew 21:13)  <br><br>
+        
+        G 	15. When will Jesus ask, "Then why didn't you believe him?" <br>
+            A. If the chief priests and the elders of the people say, "From heaven."? (Matthew 21:25)  <br><br>
+        
+        V 	16. Finish this verse: "The crowds that went ahead. . ." <br>
+            A. ". . .of him and those that followed shouted, "Hosanna to the Son of David!" "Blessed is he who comes in the name of the Lord!" "Hosanna in the highest heaven!" (Matthew 21:9)  <br><br>
+        
+        A 	17. According to Matthew, chapter 21, verse 31, what are the tax collectors and the prostitutes doing? <br>
+            A. Entering the kingdom of God ahead of you (Matthew 21:31)  <br><br>
+        
+        G 	18. From what has the Lord called forth his praise? <br>
+            A. The lips of children and infants (Matthew 21:16)  <br><br>
+        
+        G 	19. Who replied, "Yes, have you never read, 'From the lips of children and infants you, Lord, have called forth your praise.'"? <br>
+            A. Jesus (Matthew 21:16)  <br><br>
+        
+        G 	20. Whom will Jesus also ask one question? <br>
+            A. The chief priests and the elders of the people (Matthew 21:24)  <br><br>
+        <br><br>
+        
+         <h7 id="8">SET #8 </h7>  <br><br>
+        
+        G 	1. Who saw a fig tree by the road? <br>
+            A. Jesus (Matthew 21:19)  <br><br>
+        
+        A 	2. According to Matthew, chapter 21, verse 16, what have you, Lord, called forth? <br>
+            A. Your praise (Matthew 21:16)  <br><br>
+        
+        G 	3. Who will neither tell the chief priests and the elders of the people by what authority he is doing these things? <br>
+            A. Jesus (Matthew 21:27)  <br><br>
+        
+        G 	4. What will the owner of the vineyard rent to other tenants? <br>
+            A. The vineyard (Matthew 21:41)  <br><br>
+        
+        V 	5. Finish this verse: "The crowds that went ahead. . ." <b></b>
+            A. ". . .of him and those that followed shouted, "Hosanna to the Son of David!" "Blessed is he who comes in the name of the Lord!" "Hosanna in the highest heaven!" (Matthew 21:9)  <br><br>
+        
+        X 	6. Complete, in essence, the following Old Testament quotation: "My house will be called . . ." <br>
+            A. ". . . a house of prayer." (Matthew 21:13)  <br><br>
+        
+        A 	7. According to Matthew, chapter 21, verse 14, where did the blind and the lame come to him? <br>
+            A. At the temple (Matthew 21:14)  <br><br>
+        
+        G 	8. Who asked, "How did the fig tree wither so quickly?" <br>
+            A. The disciples (Matthew 21:20)  <br><br>
+        
+        A 	9. According to Matthew, chapter 21, verse 42, who has done this? <br>
+            A. The Lord (Matthew 21:42)  <br><br>
+        
+        G 	10. Whose benches did Jesus overturn? <br>
+            A. The benches of those selling doves (Matthew 21:12)  <br><br>
+        
+        G 	11. Who comes to Daughter Zion, gentle and riding on a donkey, on a colt, the foal of a donkey? <br>
+            A. Your king (Matthew 21:5)  <br><br>
+        
+        Q 	12. Quote Matthew, chapter 21, verse 21. <br>
+            A. "Jesus replied, "Truly I tell you, if you have faith and do not doubt, not only can you do what was done to the fig tree, but also you can say to this mountain, 'Go, throw yourself into the sea,' and it will be done." (Matthew 21:21)  <br><br>
+        
+        G 	13. What did others cut from the trees and spread on the road? <br>
+            A. Branches (Matthew 21:8)  <br><br>
+        
+        G 	14. Who sent two disciples as they approached Jerusalem and came to Bethphage? <br>
+            A. Jesus (Matthew 21:1)  <br> <br>
+        
+        R 	15. Finish this verse and give the reference: "The crowds that went ahead. . ." <br>
+            A. ". . .of him and those that followed shouted, "Hosanna to the Son of David!" "Blessed is he who comes in the name of the Lord!" "Hosanna in the highest heaven!" " (Matthew 21:9)  <br><br>
+        
+        G 	16. What will be taken away from you and given to a people who will produce its fruit? <br>
+            A. The kingdom of God (Matthew 21:43)  <br><br>
+        
+        G 	17. What if the chief priests and the elders of the people answer Jesus? <br>
+            A. Jesus will tell them by what authority he is doing these things (Matthew 21:24)  <br><br>
+        
+        A 	18. According to Matthew, chapter 21, verse 31, who are entering the kingdom of God ahead of you? <br>
+            A. The tax collectors and the prostitutes (Matthew 21:31)  <br><br>
+        
+        S 	19. Situation question: who said it, and what was the reply: "Therefore, when the owner of the vineyard comes, what will he do to those tenants?" <br>
+            A. Jesus said it and the reply was, "He will bring those wretches to a wretched end, and he will rent the vineyard to other tenants, who will give him his share of the crop at harvest time." (Matthew 21:40-41)  <br><br>
+        
+        G 	20. Who answered, "I will, sir," but did not go? <br>
+            A. The other son (Matthew 21:30)  <br><br>
+        <br><br>
+        
+         <h7 id="9">SET #9</h7>   <br><br>
+        
+        A 	1. According to Matthew, chapter 21, verse 11, what is Jesus? <br>
+            A. The prophet from Nazareth in Galilee (Matthew 21:11)  <br><br>
+        
+        G 	2. What has the stone the builders rejected become? <br>
+            A. The cornerstone (Matthew 21:42)  <br><br>
+        
+        V 	3. Finish this verse: "The crowds that went ahead. . ." <br>
+            A. ". . .of him and those that followed shouted, "Hosanna to the Son of David!" "Blessed is he who comes in the name of the Lord!" "Hosanna in the highest heaven!" (Matthew 21:9)  <br><br>
+        
+        S 	4. Situation question: who said it, to whom, and when: "Go to the village ahead of you, and at once you will find a donkey tied there, with her colt by her. Untie them and bring them to me."? <br>
+            A. Jesus said it to two disciples, as they approached Jerusalem and came to Bethphage (on the Mount of Olives) (Matthew 21:1-2)  <br><br>
+        
+        G 	5. Who later changed his mind and went? <br>
+            A. The first son (Matthew 21:29)  <br><br>
+        
+        G 	6. Who sent other servants to the tenants? <br>
+            A. A landowner (Matthew 21:36)  <br><br>
+        
+        R 	7. Finish this verse and give the reference: "Jesus replied, "Truly I tell. . ." <br>
+            A. ". . .you, if you have faith and do not doubt, not only can you do what was done to the fig tree, but also you can say to this mountain, 'Go, throw yourself into the sea,' and it will be done. " (Matthew 21:21)  <br><br>
+        
+        G 	8. Who said to the first son, "Son, go and work today in the vineyard."? <br>
+            A. A man who had two sons (Matthew 21:28)  <br><br>
+        
+        G 	9. From what has the Lord called forth his praise? <br>
+            A. The lips of children and infants (Matthew 21:16)  <br><br>
+        
+        X 	10. Complete, in essence, the following: "Anyone who falls on this . . ." <br>
+            A. ". . . stone will be broken to pieces; anyone on whom it falls will be crushed." (Matthew 21:44)  <br><br>
+        
+        G 	11. Why did the disciples place their cloaks on the donkey and the colt? <br>
+            A. For Jesus to sit on (Matthew 21:7)  <br><br>
+        
+        A 	12. According to Matthew, chapter 21, verse 31, what do I truly tell you? <br>
+            A. The tax collectors and the prostitutes are entering the kingdom of God ahead of you (Matthew 21:31)  <br><br>
+        
+        G 	13. Why are the chief priests and the elders of the people afraid of the people if they say, "Of human origin."? <br>
+            A. For the people all hold that John was a prophet (Matthew 21:26)  <br><br>
+        
+        A 	14. According to Matthew, chapter 21, verse 18, who was on his way back to the city? <br>
+            A. Jesus (Matthew 21:18)  <br><br>
+        
+        Q 	15. Quote Matthew, chapter 21, verse 21. <br>
+            A. "Jesus replied, "Truly I tell you, if you have faith and do not doubt, not only can you do what was done to the fig tree, but also you can say to this mountain, 'Go, throw yourself into the sea,' and it will be done." (Matthew 21:21)  <br><br>
+        
+        G 	16. Whom did the tax collectors and the prostitutes believe? <br>
+            A. John (Matthew 21:32)  <br><br>
+        
+        G 	17. To whom did Jesus say, "It is written, 'My house will be called a house of prayer', but you are making it 'a den of robbers.'"? <br>
+            A. All who were buying and selling in the temple courts (Matthew 21:13)  <br><br>
+        
+        A 	18. According to Matthew, chapter 21, verse 41, whom will he bring to a wretched end? <br>
+            A. Those wretches (Matthew 21:41)  <br><br>
+        
+        G 	19. Who spread their cloaks on the road? <br>
+            A. A very large crowd (Matthew 21:8)  <br><br>
+        
+        G 	20. When will the disciples receive whatever they ask for in prayer? <br>
+            A. If they believe (Matthew 21:22)  <br><br>
+        
+        
+         <h7 id="10">SET #10</h7>   <br><br>
+        
+        G 	1. When did a landowner send his servants to the tenants to collect his fruit? <br>
+            A. When the harvest time approached (Matthew 21:34)  <br><br>
+        
+        G 	2. On what did Jesus find nothing except leaves? <br>
+            A. A fig tree (Matthew 21:19)  <br><br>
+        
+        R 	3. Finish this verse and give the reference: "The crowds that went ahead. . ." <br>
+            A. ". . .of him and those that followed shouted, "Hosanna to the Son of David!" "Blessed is he who comes in the name of the Lord!" "Hosanna in the highest heaven!" " (Matthew 21:9)  <br><br>
+        
+        G 	4. Which of the two did what his father wanted? <br>
+            A. The first son (Matthew 21:31)  <br><br>
+        
+        A 	5. According to Matthew, chapter 21, verse 6, who went and did as Jesus had instructed them? <br>
+            A. The disciples (Matthew 21:6)  <br><br>
+        
+        G 	6. When did the chief priests and the elders of the people come to Jesus? <br>
+            A. While Jesus was teaching (Matthew 21:23)  <br><br>
+        
+        A 	7. According to Matthew, chapter 21, verse 32, who did believe John? <br>
+            A. The tax collectors and the prostitutes (Matthew 21:32)  <br><br>
+        
+        G 	8. What if the chief priests and the elders of the people say, "Of human origin."? <br>
+            A. They are afraid of the people (for they all hold that John was a prophet) (Matthew 21:26)  <br><br>
+        
+        S 	9. Situation question: who said it, to whom, and in reply to what: "Neither will I tell you by what authority I am doing these things."? <br>
+            A. Jesus said it to the chief priests and the elders of the people, in reply to, "We don't know." (Matthew 21:27)  <br><br>
+        
+        G 	10. Where did a landowner dig a winepress? <br>
+            A. In a vineyard (Matthew 21:33)  <br><br>
+        
+        G 	11. Who brought the donkey and the colt and placed their cloaks on them for Jesus to sit on? <br>
+            A. The disciples (Matthew 21:7)  <br><br>
+        
+        V 	12. Finish this verse: "The crowds that went ahead. . ." <br>
+            A. ". . .of him and those that followed shouted, "Hosanna to the Son of David!" "Blessed is he who comes in the name of the Lord!" "Hosanna in the highest heaven!" (Matthew 21:9)  <br><br>
+        
+        G 	13. Who will be broken to pieces? <br>
+            A. Anyone who falls on this stone (Matthew 21:44)  <br><br>
+        
+        X 	14. From what Old Testament book does the following quotation come: "See, your king comes to you, gentle and riding on a donkey, on a colt, the foal of a donkey."? <br>
+            A. Zechariah (Matthew 21:5)  <br><br>
+        
+        G 	15. Who were shouting in the temple courts, "Hosanna to the Son of David."? <br>
+            A. The children (Matthew 21:15)  <br> <br>
+        
+        G 	16. Who took the son and threw him out of the vineyard and killed him? <br>
+            A. The tenants (Matthew 21:39)  <br><br>
+        
+        A 	17. According to Matthew, chapter 21, verse 13, what will my house be called? <br>
+            A. A house of prayer (Matthew 21:13)  <br><br>
+        
+        G 	18. Where will two disciples find a donkey tied, with her colt by her? <br>
+            A. In the village ahead of them (Matthew 21:2)  <br><br>
+        
+        Q 	19. Quote Matthew, chapter 21, verse 21. <br>
+            A. "Jesus replied, "Truly I tell you, if you have faith and do not doubt, not only can you do what was done to the fig tree, but also you can say to this mountain, 'Go, throw yourself into the sea,' and it will be done." (Matthew 21:21)  <br><br>
+        
+        A 	20. According to Matthew, chapter 21, verse 41, what did they reply? <br>
+            A. "He will bring those wretches to a wretched end, and he will rent the vineyard to other tenants, who will give him his share of the crop at harvest time." (Matthew 21:41)  <br><br>
+        
+        </p>
+
+</body>
+</html>

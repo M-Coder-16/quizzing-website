@@ -1,0 +1,902 @@
+<!DOCTYPE html>
+<html> 
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+
+        h1{
+            background-color: black;
+            text-align: center;
+            font-size: 120px;
+            margin: 0px;
+            padding: 30px;
+            color: rgb(0, 172, 172);
+            font-family: 'Impact', Haettenschweiler, Arial Narrow Bold, sans-serif;
+            top: 0px;
+            left: 0px;
+            text-emphasis: bold;
+        }
+
+        head{
+            background-color: black;
+            margin: 0px;
+            padding: 20px;
+        }
+
+        nav{
+            left: 0px;
+            margin: 0px;
+            padding: 20px;
+            background-color: rgb(0, 172, 172);
+            color: black;
+            text-align: left;
+            display: inline-block;
+            height: auto;
+        }
+
+        nav a{
+            color: black;
+            text-decoration: none;
+            margin: 10px 15px;
+            padding: 8px;
+            font-size: 24px;
+            display: inline-block;
+            box-shadow: 0px 0px 10px 5px black;
+            background-color: #b3b3b3;
+            border-radius: 5px;
+        }
+
+        body{
+            background-image: url('data:image/jpeg;base64,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');
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-attachment: fixed;
+        }
+
+        h2{
+            text-align: center;
+            color: white;
+            font-size: 32px;
+            text-emphasis: bold;
+            margin: 10px;
+            background-color: black;
+            padding: 10px;
+            border: double 3px black;
+        }
+
+        .bookmarks{
+            background-color: rgb(0, 172, 172);
+            position: absolute;
+            top: 290px;
+            left: 26%;
+            text-align: center;
+            padding: 10px 20px;
+            border: solid black 5px;
+            border-radius: 25px;
+        }
+
+        .bookmarks a{
+            display: inline-block;
+            background-color: black;
+            color: white;
+            text-emphasis: bold;
+            font-size: 24px;
+            margin: 10px;
+            padding: 10px;
+            border-radius: 10px;
+        }
+
+        h3{
+            font-size: 68px;
+            position: absolute;
+            float: center;
+            top: 350px;
+            left: 48%;
+            text-emphasis: bold;
+            text-align: center;
+            font-family: 'Times New Roman', Times, serif;
+        }
+
+        .verses a{
+            position: absolute;
+            color: rgb(0, 172, 172);
+            background-color: black;
+            font-size: 32px;
+            font-family: Arial, Helvetica, sans-serif;
+            left: 38%;
+            padding: 10px 100px;
+            text-decoration: none;
+            text-align: center;
+            top: 220px;
+            text-emphasis: bold;
+        }
+
+        #myBtn {
+            display: none; /* Hidden by default */
+            position: fixed; /* Fixed/sticky position */
+            bottom: 65px; /* Place the button at the bottom of the page */
+            left: 50px; /* Place the button 30px from the right */
+            z-index: 99; /* Make sure it does not overlap */
+            border: none; /* Remove borders */
+            outline: none; /* Remove outline */
+            background-color: rgb(0, 172, 172); /* Set a background color */
+            color: black; /* Text color */
+            cursor: pointer; /* Add a mouse pointer on hover */
+            padding: 10px; /* Some padding */
+            padding-bottom: 0px;
+            border-radius: 10px; /* Rounded corners */
+            border: solid black 5px;
+            font-size: 72px; /* Increase font size */
+        }
+
+        #myBtn:hover {
+            display: none; /* Hidden by default */
+            position: fixed; /* Fixed/sticky position */
+            bottom: 65px; /* Place the button at the bottom of the page */
+            left: 50px; /* Place the button 30px from the right */
+            z-index: 99; /* Make sure it does not overlap */
+            border: none; /* Remove borders */
+            outline: none; /* Remove outline */
+            background-color: rgb(0, 0, 0); /* Set a background color */
+            color: rgb(0, 172, 172); /* Text color */
+            cursor: pointer; /* Add a mouse pointer on hover */
+            padding: 10px; /* Some padding */
+            padding-bottom: 0px;
+            border-radius: 10px; /* Rounded corners */
+            border: solid rgb(0, 172, 172) 5px;
+            font-size: 72px; /* Increase font size */
+        }
+
+        p{
+            font-size: 22px;
+            position: absolute;
+            top: 500px;
+            left: 30%;
+        }
+
+        h7{
+            font-size: 32px;
+            text-emphasis: bold;
+        }
+
+    </style>
+    <button onclick="topFunction()" id="myBtn" title="Go to top"><b>^</b></button>
+<head> 
+    <h1>Questions</h1>
+    <div class="verses">
+        <a href="Quizzing.html">Click here for memory verses.</a>        
+   </div>
+</head>
+<body>
+   
+    <script>
+        //Get the button
+        var mybutton = document.getElementById("myBtn");
+        
+        // When the user scrolls down 20px from the top of the document, show the button
+        window.onscroll = function() {scrollFunction()};
+        
+        function scrollFunction() {
+          if (document.body.scrollTop > 1750 || document.documentElement.scrollTop > 1750) {
+            mybutton.style.display = "block";
+          } else {
+            mybutton.style.display = "none";
+          }
+        }
+        
+        // When the user clicks on the button, scroll to the top of the document
+        function topFunction() {
+          document.body.scrollTop = 0;
+          document.documentElement.scrollTop = 0;
+        }
+        </script>
+
+    <nav>
+
+        <h2>Select a Chapter</h2>
+        <br>
+
+        <a href="Quizzing_Questions_1.html">Matthew 1</a>
+        <br>
+        <a href="Quizzing_Questions_2.html">Matthew 2</a>
+        <br>
+        <a href="Quizzing_Questions_3.html">Matthew 3</a>
+        <br>
+        <a href="Quizzing_Questions_4.html">Matthew 4</a>
+        <br>
+        <a href="Quizzing_Questions_5.html">Matthew 5</a>
+        <br>
+        <a href="Quizzing_Questions_6.html">Matthew 6</a>
+        <br>
+        <a href="Quizzing_Questions_7.html">Matthew 7</a>
+        <br>
+        <a href="Quizzing_Questions_8.html">Matthew 8</a>
+        <br>
+        <a href="Quizzing_Questions_9.html">Matthew 9</a>
+        <br>
+        <a href="Quizzing_Questions_10.html">Matthew 10</a>
+        <br>
+        <a href="Quizzing_Questions_11.html">Matthew 11</a>
+        <br>
+        <a href="Quizzing_Questions_12.html">Matthew 12</a>
+        <br>
+        <a href="Quizzing_Questions_13.html">Matthew 13</a>
+        <br>
+        <a href="Quizzing_Questions_14.html">Matthew 14</a>
+        <br>
+        <a href="Quizzing_Questions_15.html">Matthew 15</a>
+        <br>
+        <a href="Quizzing_Questions_16.html">Matthew 16</a>
+        <br>
+        <a href="Quizzing_Questions_17.html">Matthew 17</a>
+        <br>
+        <a href="Quizzing_Questions_18.html">Matthew 18</a>
+        <br>
+        <a href="Quizzing_Questions_19.html">Matthew 19</a>
+        <br>
+        <a href="Quizzing_Questions_20.html">Matthew 20</a>
+        <br>
+        <a href="Quizzing_Questions_21.html">Matthew 21</a>
+        <br>
+        <a href="Quizzing_Questions_22.html">Matthew 22</a>
+        <br>
+        <a href="Quizzing_Questions_23.html">Matthew 23</a>
+        <br>
+        <a href="Quizzing_Questions_24.html">Matthew 24</a>
+        <br>
+        <a href="Quizzing_Questions_25.html">Matthew 25</a>
+        <br>
+        <a href="Quizzing_Questions_26.html">Matthew 26</a>
+        <br>
+        <a href="Quizzing_Questions_27.html">Matthew 27</a>
+        <br>
+        <a href="Quizzing_Questions_28.html">Matthew 28</a>
+    </nav>
+
+    <div class="bookmarks">
+        <a href="#1">Set 1</a>
+        <a href="#2">Set 2</a>
+        <a href="#3">Set 3</a>
+        <a href="#4">Set 4</a>
+        <a href="#5">Set 5</a>
+        <a href="#6">Set 6</a>
+        <a href="#7">Set 7</a>
+        <a href="#8">Set 8</a>
+        <a href="#9">Set 9</a>
+        <a href="#10">Set 10</a>
+    </div>
+
+    <h3>Matthew 8</h3>
+
+    <p> <h7 id="1">SET #1</h7>  <br><br>
+
+        G 	1. What will many who come from the east and the west take at the feast with Abraham, Isaac and Jacob in the kingdom of heaven? <br>
+            A. Their places (Matthew 8:11)  <br><br>
+        
+        G 	2. Who lies at home paralyzed, suffering terribly? <br>
+            A. A centurion's servant (Matthew 8:6)  <br><br>
+        
+        Q 	3. Quote Matthew, chapter 8, verse 26. <br>
+            A. "He replied, "You of little faith, why are you so afraid?" Then he got up and rebuked the winds and the waves, and it was completely calm." (Matthew 8:26)  <br><br>
+        
+        G 	4. What did the whole town plead with Jesus? <br>
+            A. To leave their region (Matthew 8:34)  <br><br>
+        
+        G 	5. To whom did Jesus say, "Go! Let it be done just as you believed it would."? <br>
+            A. The centurion (Matthew 8:13)  <br><br>
+        
+        A 	6. According to Matthew, chapter 8, verse 2, who came? <br>
+            A. A man with leprosy (Matthew 8:2)  <br><br>
+        
+        G 	7. To whom should the man show himself? <br>
+            A. The priest (Matthew 8:4)  <br><br>
+        
+        G 	8. Whom did large crowds follow when he came down from the mountainside? <br>
+            A. Jesus (Matthew 8:1)  <br><br>
+        
+        A 	9. According to Matthew, chapter 8, verse 20, what does the Son of Man have? <br>
+            A. No place to lay his head (Matthew 8:20)  <br><br>
+        
+        S 	10. Situation question: who said it, and to whom: "Truly I tell you, I have not found anyone in Israel with such great faith."? <br>
+            A. Jesus said it to those following him (Matthew 8:10)  <br><br>
+        
+        G 	11. Who begged Jesus, "If you drive us out, send us into the herd of pigs."? <br>
+            A. The demons (Matthew 8:31)  <br><br>
+        
+        A 	12. According to Matthew, chapter 8, verse 25, what did the disciples do? <br>
+            A. Went and woke him (saying, "Lord, save us! We're going to drown!") (Matthew 8:25)  <br><br>
+        
+        G 	13. Whom do even the winds and the waves obey? <br>
+            A. Jesus (Matthew 8:27)  <br><br>
+        
+        X 	14. Complete, in essence, the following Old Testament quotation: "He took up our infirmities . . ." <br>
+            A. ". . . and bore our diseases." (Matthew 8:17)  <br><br>
+        
+        A 	15. According to Matthew, chapter 8, verse 23, who followed him? <br>
+            A. His disciples (Matthew 8:23)  <br><br>
+        
+        G 	16. Who reported all this, including what had happened to the demon-possessed men? <br>
+            A. Those tending the pigs (Matthew 8:33)  <br><br>
+        
+        V 	17. Finish this verse: "He replied, "You of little. . ." <br>
+            A. ". . .faith, why are you so afraid?" Then he got up and rebuked the winds and the waves, and it was completely calm." (Matthew 8:26)  <br><br>
+        
+        G 	18. Whose mother-in-law was lying in bed with a fever? <br>
+            A. Peter's (Matthew 8:14)  <br><br>
+        
+        G 	19. What did two demon-possessed men shout? <br>
+            A. "What do you want with us, Son of God?" ("Have you come here to torture us before the appointed time?") (Matthew 8:29)  <br><br>
+        
+        R 	20. Finish this verse and give the reference: "He replied, "You of little. . ." <br>
+            A. ". . .faith, why are you so afraid?" Then he got up and rebuked the winds and the waves, and it was completely calm. " (Matthew 8:26) <br><br> 
+        
+         <br><br>
+          <h7 id="2">SET #2</h7><br><br>
+        
+        A 	1. According to Matthew, chapter 8, verse 16, when were many who were demon-possessed brought to him? <br>
+            A. When evening came (Matthew 8:16)  <br><br>
+        
+        R 	2. Finish this verse and give the reference: "He replied, "You of little. . ." <br>
+            A. ". . .faith, why are you so afraid?" Then he got up and rebuked the winds and the waves, and it was completely calm. " (Matthew 8:26)  <br><br>
+        
+        G 	3. Where did those tending the pigs go? <br>
+            A. Into the town (Matthew 8:33)  <br><br>
+        
+        A 	4. According to Matthew, chapter 8, verse 12, who will be thrown outside, into the darkness? <br>
+            A. The subjects of the kingdom (Matthew 8:12)  <br><br>
+        
+        G 	5. What do foxes have? <br>
+            A. Dens (Matthew 8:20)  <br><br>
+        
+        G 	6. How does a centurion's servant lie at home paralyzed? <br>
+            A. Suffering terribly (Matthew 8:6)  <br><br>
+        
+        V 	7. Finish this verse: "He replied, "You of little. . ." <br>
+            A. ". . .faith, why are you so afraid?" Then he got up and rebuked the winds and the waves, and it was completely calm." (Matthew 8:26)  <br><br>
+    
+        G 	8. Who came down from the mountainside? <br>
+            A. Jesus (Matthew 8:1)  <br><br>
+        
+        A 	9. According to Matthew, chapter 8, verse 18, to where did Jesus give orders to cross? <br>
+            A. The other side of the lake (Matthew 8:18)  <br><br>
+        
+        G 	10. Where has Jesus not found anyone with such great faith? <br>
+            A. In Israel (Matthew 8:10)  <br><br>
+        
+        X 	11. Complete, in essence, the following: "He touched her hand and . . ." <br>
+            A. ". . . the fever left her, and she got up and began to wait on him." (Matthew 8:15)  <br><br>
+        
+        G 	12. As what should the man offer the gift Moses commanded? <br>
+            A. A testimony to them (Matthew 8:4)  <br><br>
+        
+        G 	13. Whom did the demons beg, "If you drive us out, send us into the herd of pigs."? <br>
+            A. Jesus (Matthew 8:31)  <br><br>
+        
+        Q 	14. Quote Matthew, chapter 8, verse 26. <br>
+            A. "He replied, "You of little faith, why are you so afraid?" Then he got up and rebuked the winds and the waves, and it was completely calm." (Matthew 8:26)  <br><br>
+        
+        G 	15. Where was a large herd of pigs feeding? <br>
+            A. Some distance from them (the two demon-possessed men and Jesus) (Matthew 8:30)  <br><br>
+        
+        G 	16. Who said, "Lord, if you are willing, you can make me clean."? <br>
+            A. A man with leprosy (Matthew 8:2)  <br><br>
+        
+        A 	17. According to Matthew, chapter 8, verse 19, what did a teacher of the law say? <br>
+            A. "Teacher, I will follow you wherever you go" (Matthew 8:19)  <br><br>
+        
+        G 	18. How violent were two demon-possessed men? <br>
+            A. So violent that no one could pass that way (Matthew 8:28)  <br><br>
+        
+        G 	19. At what will many who come from the east and the west take their places? <br>
+            A. The feast with Abraham, Isaac and Jacob in the kingdom of heaven (Matthew 8:11)  <br><br>
+        
+        S 	20. Situation question: who said it, and to whom: "Lord, first let me go and bury my father."? <br>
+            A. Another disciple said it to Jesus (Matthew 8:21)  <br><br>
+        
+         <br><br>
+          <h7 id="3">SET #3</h7><br><br>
+        
+        G 	1. Who tells this soldier, "Go", and he goes? <br>
+            A. The centurion (Matthew 8:9)  <br><br>
+        
+        G 	2. What should the man offer as a testimony to them? <br>
+            A. The gift Moses commanded (Matthew 8:4)  <br><br>
+        
+        R 	3. Finish this verse and give the reference: "He replied, "You of little. . ." <br>
+            A. ". . .faith, why are you so afraid?" Then he got up and rebuked the winds and the waves, and it was completely calm. " (Matthew 8:26) <br><br> 
+        
+        A 	4. According to Matthew, chapter 8, verse 27, what obey him? <br>
+            A. Even the winds and the waves (Matthew 8:27)  <br><br>
+        
+        S 	5. Situation question: who said it, to whom, and what was the result: "Go! Let it be done just as you believed it would."? <br>
+            A. Jesus said it to the centurion, and his servant was healed at that moment (Matthew 8:13)  <br><br>
+        
+        V 	6. Finish this verse: "He replied, "You of little. . ." <br>
+            A. ". . .faith, why are you so afraid?" Then he got up and rebuked the winds and the waves, and it was completely calm." (Matthew 8:26)  <br><br>
+        
+        A 	7. According to Matthew, chapter 8, verse 1, when did large crowds follow Jesus? <br>
+            A. When he came down from the mountainside (Matthew 8:1)  <br><br>
+        
+        G 	8. Where was Peter's mother-in-law lying with a fever? <br>
+            A. In bed (Matthew 8:14)  <br><br>
+        
+        G 	9. To where did Jesus give orders to cross when he saw the crowd around him? <br>
+            A. The other side of the lake (Matthew 8:18)  <br><br>
+        
+        A 	10. According to Matthew, chapter 8, verse 20, what did Jesus reply? <br>
+            A. "Foxes have dens and birds have nests, but the Son of Man has no place to lay his head." (Matthew 8:20)  <br><br>
+        
+        G 	11. Who said to Jesus, "Lord, first let me go and bury my father."? <br>
+            A. Another disciple (Matthew 8:21)  <br><br>
+        
+        G 	12. Why did the demons come out and go into the pigs? <br>
+            A. Because Jesus said to them, "Go!" (Matthew 8:32)  <br><br>
+        
+        X 	13. Complete, in essence, the following: "A man with leprosy came . . ." <br>
+            A. ". . . and knelt before him and said, "Lord, if you are willing, you can make me clean." (Matthew 8:2) <br><br> 
+        
+        A 	14. According to Matthew, chapter 8, verse 10, who was amazed? <br>
+            A. Jesus (Matthew 8:10)  <br><br>
+        
+        G 	15. Who met Jesus when he arrived at the other side in the region of the Gadarenes? <br>
+            A. Two demon-possessed men (Matthew 8:28)  <br><br>
+        
+        G 	16. Whom did the whole town go out to meet? <br>
+            A. Jesus (Matthew 8:34)  <br><br>
+        
+        Q 	17. Quote Matthew, chapter 8, verse 26. <br>
+            A. "He replied, "You of little faith, why are you so afraid?" Then he got up and rebuked the winds and the waves, and it was completely calm." (Matthew 8:26)  <br><br>
+        
+        G 	18. Who reached out his hand and touched the man? <br>
+            A. Jesus (Matthew 8:3)  <br><br>
+        
+        G 	19. Who does not deserve to have Jesus come under his roof? <br>
+            A. The centurion (Matthew 8:8)  <br><br>
+        
+        G 	20. With whom will many take their places at the feast in the kingdom of heaven? <br>
+            A. Abraham, Isaac and Jacob (Matthew 8:11)  <br><br>
+        
+         <br><br>
+          <h7 id="4">SET #4</h7><br><br>
+        
+        A 	1. According to Matthew, chapter 8, verse 15, what left her? <br>
+            A. The fever (Matthew 8:15)  <br><br>
+        
+        G 	2. Who went into the pigs? <br>
+            A. The demons (Matthew 8:32)  <br><br>
+        
+        S 	3. Situation question: who said it, and to whom: "Lord, if you are willing, you can make me clean."? <br>
+            A. A man with leprosy said it to Jesus (Matthew 8:2)  <br><br>
+        
+        G 	4. Who woke Jesus, saying, "Lord, save us! We're going to drown"? <br>
+            A. The disciples (Matthew 8:25)  <br><br>
+        
+        G 	5. Who should show himself to the priest and offer the gift Moses commanded? <br>
+            A. The man who was cleansed of his leprosy (Matthew 8:4)  <br><br>
+        
+        R 	6. Finish this verse and give the reference: "He replied, "You of little. . ." <br>
+            A. ". . .faith, why are you so afraid?" Then he got up and rebuked the winds and the waves, and it was completely calm. " (Matthew 8:26) <br><br> 
+        
+        G 	7. How did a furious storm come up on the lake? <br>
+            A. Suddenly (Matthew 8:24)  <br><br>
+        
+        G 	8. Who goes when the centurion tells him, "Go"? <br>
+            A. One soldier (Matthew 8:9)  <br><br>
+        
+        A 	9. According to Matthew, chapter 8, verse 5, where had Jesus entered? <br>
+            A. Capernaum (Matthew 8:5)  <br><br>
+        
+        G 	10. Who said, "Lord, my servant lies at home paralyzed, suffering terribly."? <br>
+            A. A centurion (Matthew 8:6)  <br><br>
+        
+        A 	11. According to Matthew, chapter 8, verse 22, what did Jesus tell him? <br>
+            A. "Follow me, and let the dead bury their own dead." (Matthew 8:22)  <br><br>
+        
+        X 	12. Three-part question: in Matthew, chapter 8, what do foxes have, what do birds have, and what does the Son of Man not have? <br>
+            A. 1) Dens; 2) Nests; 3) A place to lay his head (Matthew 8:20)  <br><br>
+        
+        V 	13. Finish this verse: "He replied, "You of little. . ." <br>
+            A. ". . .faith, why are you so afraid?" Then he got up and rebuked the winds and the waves, and it was completely calm." (Matthew 8:26)  <br><br>
+        
+        G 	14. Whom will a teacher of the law follow wherever he goes? <br>
+            A. Jesus (Matthew 8:19)  <br><br>
+        
+        G 	15. Who will be healed if Jesus just says the word? <br>
+            A. The centurion's servant (Matthew 8:8)  <br><br>
+        
+        Q 	16. Quote Matthew, chapter 8, verse 26. <br>
+            A. "He replied, "You of little faith, why are you so afraid?" Then he got up and rebuked the winds and the waves, and it was completely calm." (Matthew 8:26) <br><br> 
+        
+        G 	17. Who were so violent that no one could pass that way? <br>
+            A. Two demon-possessed men (Matthew 8:28)  <br><br>
+        
+        A 	18. According to Matthew, chapter 8, verse 18, when did Jesus give orders to cross to the other side of the lake? <br>
+            A. When he saw the crowd around him (Matthew 8:18)  <br><br>
+        
+        G 	19. Whom has Jesus not found in Israel? <br>
+            A. Anyone with such great faith (Matthew 8:10)  <br><br>
+        
+        G 	20. Whom did Jesus drive out with a word? <br>
+            A. The spirits (Matthew 8:16)  <br><br>
+        
+         <br><br>
+          <h7 id="5">SET #5</h7><br><br>
+        
+        G 	1. Who saw Peter's mother-in-law lying in bed with a fever? <br>
+            A. Jesus (Matthew 8:14)  <br><br>
+        
+        G 	2. To whom did a teacher of the law come and say, "Teacher, I will follow you wherever you go."? <br>
+            A. Jesus (Matthew 8:19)  <br><br>
+        
+        A 	3. According to Matthew, chapter 8, verse 17, what was spoken through the prophet Isaiah? <br>
+            A. "He took up our infirmities and bore our diseases" (Matthew 8:17)  <br><br>
+        
+        G 	4. Who began to wait on Jesus? <br>
+            A. Peter's mother-in-law (Matthew 8:15)  <br><br>
+        
+        X 	5. Who first wanted to go and bury his father? <br>
+            A. Another disciple (Matthew 8:21)  <br><br>
+        
+        G 	6. What left Peter's mother-in-law? <br>
+            A. The fever (Matthew 8:15)  <br><br>
+        
+        G 	7. Where did a furious storm suddenly come up? <br>
+            A. On the lake (Matthew 8:24)  <br><br>
+        
+        A 	8. According to Matthew, chapter 8, verse 10, what did Jesus say to those following him? <br>
+            A. "Truly I tell you, I have not found anyone in Israel with such great faith." (Matthew 8:10)  <br><br>
+        
+        G 	9. What does the centurion not deserve? <br>
+            A. To have Jesus come under his roof (Matthew 8:8) <br><br> 
+        
+        Q 	10. Quote Matthew, chapter 8, verse 26. <br>
+            A. "He replied, "You of little faith, why are you so afraid?" Then he got up and rebuked the winds and the waves, and it was completely calm." (Matthew 8:26)  <br><br>
+        
+        G 	11. Under what is the centurion himself a man? <br>
+            A. Authority (Matthew 8:9)  <br><br>
+        
+        A 	12. According to Matthew, chapter 8, verse 16, what came? <br>
+            A. Evening (Matthew 8:16)  <br><br>
+        
+        G 	13. When did Jesus give orders to cross to the other side of the lake? <br>
+            A. When he saw the crowd around him (Matthew 8:18)  <br><br>
+        
+        G 	14. How did a centurion come to Jesus when he had entered Capernaum? <br>
+            A. Asking for help (Matthew 8:5)  <br><br>
+        
+        R 	15. Finish this verse and give the reference: "He replied, "You of little. . ." <br>
+            A. ". . .faith, why are you so afraid?" Then he got up and rebuked the winds and the waves, and it was completely calm. " (Matthew 8:26)  <br><br>
+        
+        S 	16. Situation question: who said it, to whom, and what was the reply: "Lord, if you are willing, you can make me clean."? <br>
+            A. A man with leprosy said it to Jesus, and the reply was, "I am willing. Be clean!" (Matthew 8:2-3)  <br><br>
+        
+        A 	17. According to Matthew, chapter 8, verse 2, what if you are willing? <br>
+            A. You can make me clean (Matthew 8:2)  <br><br>
+        
+        G 	18. Who should bury their own dead? <br>
+            A. The dead (Matthew 8:22)  <br><br>
+        
+        V 	19. Finish this verse: "He replied, "You of little. . ." <br>
+            A. ". . .faith, why are you so afraid?" Then he got up and rebuked the winds and the waves, and it was completely calm." (Matthew 8:26)  <br><br>
+        
+        G 	20. What have nests? <br>
+            A. Birds (Matthew 8:20)  <br><br>
+        
+         <br><br>
+          <h7 id="6">SET #6</h7><br><br>
+        
+        G 	1. What did Jesus see when he came into Peter's house? <br> 
+            A. Peter's mother-in-law lying in bed with a fever (Matthew 8:14)  <br><br>
+        
+        G 	2. Who says to his servant, "Do this", and he does it? <br>
+            A. The centurion (Matthew 8:9)  <br><br>
+        
+        A 	3. According to Matthew, chapter 8, verse 13, what did Jesus say to the centurion? <br>
+            A. "Go! Let it be done just as you believed it would." (Matthew 8:13)  <br><br>
+        
+        V 	4. Finish this verse: "He replied, "You of little. . ." <br>
+            A. ". . .faith, why are you so afraid?" Then he got up and rebuked the winds and the waves, and it was completely calm." (Matthew 8:26)  <br><br>
+        
+        G 	5. Whose hand did Jesus touch? <br>
+            A. Peter's mother-in-law's (Matthew 8:15)  <br><br>
+        
+        G 	6. Where has Jesus not found anyone with such great faith? <br>
+            A. In Israel (Matthew 8:10)  <br><br>
+        
+        Q 	7. Quote Matthew, chapter 8, verse 26. <br>
+            A. "He replied, "You of little faith, why are you so afraid?" Then he got up and rebuked the winds and the waves, and it was completely calm." (Matthew 8:26)  <br><br>
+        
+        G 	8. What does the centurion not deserve? <br>
+            A. To have Jesus come under his roof (Matthew 8:8)  <br><br>
+        
+        A 	9. According to Matthew, chapter 8, verse 28, what could no one do? <br>
+            A. Pass that way (Matthew 8:28)  <br><br>
+        
+        G 	10. What did a man with leprosy say? <br>
+            A. "Lord, if you are willing, you can make me clean." (Matthew 8:2)  <br><br>
+        
+        A 	11. According to Matthew, chapter 8, verse 11, from where will many come? <br>
+            A. The east and the west (Matthew 8:11)  <br><br>
+        
+        G 	12. Who came down from the mountainside? <br>
+            A. Jesus (Matthew 8:1)  <br><br>
+        
+        G 	13. As what should the man offer the gift Moses commanded? <br>
+            A. A testimony to them (Matthew 8:4)  <br><br>
+        
+        R 	14. Finish this verse and give the reference: "He replied, "You of little. . ." <br>
+            A. ". . .faith, why are you so afraid?" Then he got up and rebuked the winds and the waves, and it was completely calm. " (Matthew 8:26)  <br><br>
+        
+        G 	15. How does a centurion's servant lie at home paralyzed? <br>
+            A. Suffering terribly (Matthew 8:6)  <br><br>
+        
+        A 	16. According to Matthew, chapter 8, verse 27, who were amazed? <br>
+            A. The men (Matthew 8:27)  <br><br>
+        
+        S 	17. Situation question: who said it, to whom, and in reply to what: "Follow me, and let the dead bury their own dead."? <br>
+            A. Jesus said it to another disciple, in reply to, "Lord, first let me go and bury my father." (Matthew 8:21-22)  <br><br>
+        
+        X 	18. Who was sleeping when a furious storm suddenly came up on the lake? <br>
+            A. Jesus (Matthew 8:24)  <br><br>
+        
+        G 	19. Who reported all this, including what had happened to the demon-possessed men? <br>
+            A. Those tending the pigs (Matthew 8:33)  <br><br>
+        
+        G 	20. What do foxes have? <br>
+            A. Dens (Matthew 8:20)  <br><br>
+        
+         <br><br>
+          <h7 id="7">SET #7</h7><br><br>
+        
+        G 	1. With whom will many take their places at the feast in the kingdom of heaven? <br>
+            A. Abraham, Isaac and Jacob (Matthew 8:11)  <br><br>
+        
+        G 	2. Who lies at home paralyzed, suffering terribly? <br>
+            A. A centurion's servant (Matthew 8:6)  <br><br>
+        
+        A 	3. According to Matthew, chapter 8, verse 3, who reached out his hand? <br>
+            A. Jesus (Matthew 8:3)  <br><br>
+        
+        X 	4. When was Jesus sleeping? <br>
+            A. When a furious storm suddenly came up on the lake (Matthew 8:24)  <br><br>
+        
+        G 	5. Who said, "Lord, if you are willing, you can make me clean."? <br>
+            A. A man with leprosy (Matthew 8:2)  <br><br>
+        
+        V 	6. Finish this verse: "He replied, "You of little. . ." <br>
+            A. ". . .faith, why are you so afraid?" Then he got up and rebuked the winds and the waves, and it was completely calm." (Matthew 8:26)  <br><br>
+        
+        G 	7. Who will be healed if Jesus just says the word? <br>
+            A. The centurion's servant (Matthew 8:8)  <br><br>
+        
+        A 	8. According to Matthew, chapter 8, verse 17, what did he take up? <br>
+            A. Our infirmities (Matthew 8:17)  <br><br>
+        
+        G 	9. Why did the demons come out and go into the pigs? <br>
+            A. Because Jesus said to them, "Go!" (Matthew 8:32)  <br><br>
+        
+        G 	10. Whom has Jesus not found in Israel? <br>
+            A. Anyone with such great faith (Matthew 8:10)  <br><br>
+        
+        Q 	11. Quote Matthew, chapter 8, verse 26. <br>
+            A. "He replied, "You of little faith, why are you so afraid?" Then he got up and rebuked the winds and the waves, and it was completely calm." (Matthew 8:26) <br><br> 
+        
+        G 	12. Whom did the whole town go out to meet? <br>
+            A. Jesus (Matthew 8:34)  <br><br>
+        
+        G 	13. What have nests? <br>
+            A. Birds (Matthew 8:20)  <br><br>
+        
+        S 	14. Situation question: who said it, and to whom: "Lord, save us! We're going to drown!"? <br>
+            A. The disciples said it to Jesus (Matthew 8:25)  <br><br>
+        
+        G 	15. Who should bury their own dead? <br>
+            A. The dead (Matthew 8:22)  <br><br>
+        
+        A 	16. According to Matthew, chapter 8, verse 9, who goes? <br>
+            A. This soldier (Matthew 8:9)  <br><br>
+        
+        G 	17. How violent were two demon-possessed men? <br>
+            A. So violent that no one could pass that way (Matthew 8:28)  <br><br>
+        
+        A 	18. According to Matthew, chapter 8, verse 13, who was healed at that moment? <br>
+            A. The centurion's servant (Matthew 8:13)  <br><br>
+        
+        R 	19. Finish this verse and give the reference: "He replied, "You of little. . ." <br>
+            A. ". . .faith, why are you so afraid?" Then he got up and rebuked the winds and the waves, and it was completely calm. " (Matthew 8:26)  <br><br>
+        
+        G 	20. What should the man offer as a testimony to them? <br>
+            A. The gift Moses commanded (Matthew 8:4)  <br><br>
+        
+         <br><br>
+          <h7 id="8">SET #8</h7><br><br>
+        
+        V 	1. Finish this verse: "He replied, "You of little. . ." <br>
+            A. ". . .faith, why are you so afraid?" Then he got up and rebuked the winds and the waves, and it was completely calm." (Matthew 8:26)  <br><br>
+        
+        G 	2. Where was a large herd of pigs feeding? <br>
+            A. Some distance from them (the two demon-possessed men and Jesus) (Matthew 8:30)  <br><br>
+        
+        S 	3. Situation question: who said it, to whom, and in reply to what: "You of little faith, why are you so afraid?" <br>
+            A. Jesus said it to the disciples, in reply to, "Lord, save us! We're going to drown!" (Matthew 8:25-26)  <br><br>
+        
+        X 	4. In Matthew, chapter 8, where will there be weeping and gnashing of teeth? <br>
+            A. Outside, in the darkness (Matthew 8:12)  <br><br>
+        
+        A 	5. According to Matthew, chapter 8, verse 14, whom did Jesus see? <br>
+            A. Peter's mother-in-law (Matthew 8:14)  <br><br>
+        
+        G 	6. Whom do even the winds and the waves obey? <br>
+            A. Jesus (Matthew 8:27)  <br><br>
+        
+        G 	7. Who woke Jesus, saying, "Lord, save us! We're going to drown"? <br>
+            A. The disciples (Matthew 8:25)  <br><br>
+        
+        A 	8. According to Matthew, chapter 8, verse 31, who begged Jesus? <br>
+            A. The demons (Matthew 8:31)  <br><br>
+        
+        G 	9. Who began to wait on Jesus? <br>
+            A. Peter's mother-in-law (Matthew 8:15)  <br><br>
+        
+        G 	10. Who said to Jesus, "Lord, first let me go and bury my father."? <br>
+            A. Another disciple (Matthew 8:21)  <br><br>
+        
+        R 	11. Finish this verse and give the reference: "He replied, "You of little. . ." <br>
+            A. ". . .faith, why are you so afraid?" Then he got up and rebuked the winds and the waves, and it was completely calm. " (Matthew 8:26)  <br><br>
+        
+        G 	12. What suddenly came up on the lake? <br>
+            A. A furious storm (Matthew 8:24)  <br><br>
+        
+        G 	13. Where did those tending the pigs go? <br>
+            A. Into the town (Matthew 8:33)  <br><br>
+        
+        A 	14. According to Matthew, chapter 8, verse 3, what is Jesus? <br>
+            A. Willing (Matthew 8:3)  <br><br>
+        
+        G 	15. Who does not deserve to have Jesus come under his roof? <br>
+            A. The centurion (Matthew 8:8)  <br><br>
+        
+        G 	16. Who met Jesus when he arrived at the other side in the region of the Gadarenes? <br>
+            A. Two demon-possessed men (Matthew 8:28)  <br><br>
+        
+        Q 	17. Quote Matthew, chapter 8, verse 26. <br>
+            A. "He replied, "You of little faith, why are you so afraid?" Then he got up and rebuked the winds and the waves, and it was completely calm." (Matthew 8:26)  <br><br>
+        
+        G 	18. Who should show himself to the priest and offer the gift Moses commanded? <br>
+            A. The man who was cleansed of his leprosy (Matthew 8:4)  <br><br>
+        
+        A 	19. According to Matthew, chapter 8, verse 32, what did he say to them? <br>
+            A. "Go!" (Matthew 8:32)  <br><br>
+        
+        G 	20. Whom did large crowds follow when he came down from the mountainside? <br>
+            A. Jesus (Matthew 8:1)  <br><br>
+        
+         <br><br>
+          <h7 id="9">SET #9</h7><br><br>
+        
+        A 	1. According to Matthew, chapter 8, verse 8, when will the centurion's servant be healed? <br>
+            A. If the Lord just says the word (Matthew 8:8)  <br><br>
+        
+        R 	2. Finish this verse and give the reference: "He replied, "You of little. . ." <br>
+            A. ". . .faith, why are you so afraid?" Then he got up and rebuked the winds and the waves, and it was completely calm. " (Matthew 8:26)  <br><br>
+        
+        G 	3. When did Jesus give orders to cross to the other side of the lake? <br>
+            A. When he saw the crowd around him (Matthew 8:18)  <br><br>
+        
+        S 	4. Situation question: who said it, to whom, and in reply to what: "Lord, I do not deserve to have you come under my roof. But just say the word, and my servant will be healed."? <br>
+            A. The centurion said it to Jesus, in reply to, "Shall I come and heal him?" (Matthew 8:7-8)  <br><br>
+        
+        V 	5. Finish this verse: "He replied, "You of little. . ." <br>
+            A. ". . .faith, why are you so afraid?" Then he got up and rebuked the winds and the waves, and it was completely calm." (Matthew 8:26)  <br><br>
+        
+        G 	6. At what will many who come from the east and the west take their places? <br>
+            A. The feast with Abraham, Isaac and Jacob in the kingdom of heaven (Matthew 8:11)  <br><br>
+        
+        G 	7. Who said, "Lord, my servant lies at home paralyzed, suffering terribly."? <br>
+            A. A centurion (Matthew 8:6)  <br><br>
+        
+        A 	8. According to Matthew, chapter 8, verse 34, what did the whole town plead with Jesus? <br>
+            A. To leave their region (Matthew 8:34)  <br><br>
+        
+        G 	9. What did two demon-possessed men shout? <br>
+            A. "What do you want with us, Son of God?" ("Have you come here to torture us before the appointed time?") (Matthew 8:29) <br><br> 
+        
+        X 	10. Three-part answer: what did those tending the pigs do? <br>
+            A. 1) They ran off; 2) They went into the town; 3) They reported all this (including what had happened to the demon-possessed men) (Matthew 8:33)  <br><br>
+        
+        G 	11. Who begged Jesus, "If you drive us out, send us into the herd of pigs."? <br>
+            A. The demons (Matthew 8:31)  <br><br>
+        
+        G 	12. How did a centurion come to Jesus when he had entered Capernaum? <br>
+            A. Asking for help (Matthew 8:5)  <br><br>
+        
+        Q 	13. Quote Matthew, chapter 8, verse 26. <br>
+            A. "He replied, "You of little faith, why are you so afraid?" Then he got up and rebuked the winds and the waves, and it was completely calm." (Matthew 8:26)  <br><br>
+        
+        G 	14. Whom will a teacher of the law follow wherever he goes? <br>
+            A. Jesus (Matthew 8:19)  <br><br>
+        
+        A 	15. According to Matthew, chapter 8, verse 4, what did Jesus say to him? <br>
+            A. "See that you don't tell anyone. But go, show yourself to the priest and offer the gift Moses commanded as a testimony to them." (Matthew 8:4)  <br><br>
+        
+        G 	16. Who went into the pigs? <br>
+            A. The demons (Matthew 8:32)  <br><br>
+        
+        G 	17. Who were so violent that no one could pass that way? <br>
+            A. Two demon-possessed men (Matthew 8:28)  <br><br>
+        
+        A 	18. According to Matthew, chapter 8, verse 9, who does it? <br>
+            A. My servant (Matthew 8:9)  <br><br>
+        
+        G 	19. Whom did Jesus drive out with a word? <br>
+            A. The spirits (Matthew 8:16)  <br><br>
+        
+        G 	20. Who reached out his hand and touched the man? <br>
+            A. Jesus (Matthew 8:3)  <br><br>
+        
+        <br><br>
+          <h7 id="10">SET #10</h7><br><br>
+        
+        G 	1. To whom did a teacher of the law come and say, "Teacher, I will follow you wherever you go."? <br>
+            A. Jesus (Matthew 8:19)  <br><br>
+        
+        G 	2. Whom did the demons beg, "If you drive us out, send us into the herd of pigs."? <br>
+            A. Jesus (Matthew 8:31)  <br><br>
+        
+        S 	3. Situation question: who said it, to whom, and in reply to what: "Shall I come and heal him?" <br>
+            A. Jesus said it to a centurion, in reply to, "Lord, my servant lies at home paralyzed, suffering terribly." (Matthew 8:6-7)  <br><br>
+        
+        G 	4. What left Peter's mother-in-law? <br>
+            A. The fever (Matthew 8:15)  <br><br>
+        
+        G 	5. Who goes when the centurion tells him, "Go"? <br>
+            A. One soldier (Matthew 8:9)  <br><br>
+        
+        Q 	6. Quote Matthew, chapter 8, verse 26. <br>
+            A. "He replied, "You of little faith, why are you so afraid?" Then he got up and rebuked the winds and the waves, and it was completely calm." (Matthew 8:26)  <br><br>
+        
+        A 	7. According to Matthew, chapter 8, verse 4, to whom should he show himself? <br>
+            A. The priest (Matthew 8:4)  <br><br>
+        
+        G 	8. Who tells this soldier, "Go", and he goes? <br>
+            A. The centurion (Matthew 8:9)  <br><br>
+        
+        A 	9. According to Matthew, chapter 8, verse 33, who reported all this? <br>
+            A. Those tending the pigs (Matthew 8:33) <br><br> 
+        
+        G 	10. To where did Jesus give orders to cross when he saw the crowd around him? <br>
+            A. The other side of the lake (Matthew 8:18)  <br><br>
+        
+        G 	11. Under what is the centurion himself a man? <br>
+            A. Authority (Matthew 8:9)  <br><br>
+        
+        R 	12. Finish this verse and give the reference: "He replied, "You of little. . ." <br>
+            A. ". . .faith, why are you so afraid?" Then he got up and rebuked the winds and the waves, and it was completely calm. " (Matthew 8:26)  <br><br>
+        
+        G 	13. What will many who come from the east and the west take at the feast with Abraham, Isaac and Jacob in the kingdom of heaven? <br>
+            A. Their places (Matthew 8:11)  <br><br>
+        
+        G 	14. To whom did Jesus say, "Go! Let it be done just as you believed it would."? <br>
+            A. The centurion (Matthew 8:13)  <br><br>
+        
+        V 	15. Finish this verse: "He replied, "You of little. . ." <br>
+            A. ". . .faith, why are you so afraid?" Then he got up and rebuked the winds and the waves, and it was completely calm." (Matthew 8:26) <br><br> 
+        
+        G 	16. Where was Peter's mother-in-law lying with a fever? <br>
+            A. In bed (Matthew 8:14)  <br><br>
+        
+        A 	17. According to Matthew, chapter 8, verse 6, what did he say? <br>
+            A. "Lord, my servant lies at home paralyzed, suffering terribly." (Matthew 8:6)  <br><br>
+        
+        X 	18. Three-part answer: with whom will many take their places at the feast in the kingdom of heaven? <br>
+            A. 1) Abraham; 2) Isaac; 3) Jacob (Matthew 8:11)  <br><br>
+        
+        G 	19. Where did a furious storm suddenly come up? <br>
+            A. On the lake (Matthew 8:24)  <br><br>
+        
+        A 	20. According to Matthew, chapter 8, verse 34, why did the whole town go out? <br>
+            A. To meet Jesus (Matthew 8:34)  <br><br>
+        
+        </p>
+
+</body>
+</html>

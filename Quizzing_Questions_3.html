@@ -1,0 +1,733 @@
+<!DOCTYPE html>
+<html> 
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+
+        h1{
+            background-color: black;
+            text-align: center;
+            font-size: 120px;
+            margin: 0px;
+            padding: 30px;
+            color: rgb(0, 172, 172);
+            font-family: 'Impact', Haettenschweiler, Arial Narrow Bold, sans-serif;
+            top: 0px;
+            left: 0px;
+            text-emphasis: bold;
+        }
+
+        head{
+            background-color: black;
+            margin: 0px;
+            padding: 20px;
+        }
+
+        nav{
+            left: 0px;
+            margin: 0px;
+            padding: 20px;
+            background-color: rgb(0, 172, 172);
+            color: black;
+            text-align: left;
+            display: inline-block;
+            height: auto;
+        }
+
+        nav a{
+            color: black;
+            text-decoration: none;
+            margin: 10px 15px;
+            padding: 8px;
+            font-size: 24px;
+            display: inline-block;
+            box-shadow: 0px 0px 10px 5px black;
+            background-color: #b3b3b3;
+            border-radius: 5px;
+        }
+
+        body{
+            background-image: url('data:image/jpeg;base64,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');
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-attachment: fixed;
+        }
+
+        h2{
+            text-align: center;
+            color: white;
+            font-size: 32px;
+            text-emphasis: bold;
+            margin: 10px;
+            background-color: black;
+            padding: 10px;
+            border: double 3px black;
+        }
+
+        .bookmarks{
+            background-color: rgb(0, 172, 172);
+            position: absolute;
+            top: 290px;
+            left: 26%;
+            text-align: center;
+            padding: 10px 20px;
+            border: solid black 5px;
+            border-radius: 25px;
+        }
+
+        .bookmarks a{
+            display: inline-block;
+            background-color: black;
+            color: white;
+            text-emphasis: bold;
+            font-size: 24px;
+            margin: 10px;
+            padding: 10px;
+            border-radius: 10px;
+        }
+
+        h3{
+            font-size: 68px;
+            position: absolute;
+            float: center;
+            top: 350px;
+            left: 48%;
+            text-emphasis: bold;
+            text-align: center;
+            font-family: 'Times New Roman', Times, serif;
+        }
+
+        .verses a{
+            position: absolute;
+            color: rgb(0, 172, 172);
+            background-color: black;
+            font-size: 32px;
+            font-family: Arial, Helvetica, sans-serif;
+            left: 38%;
+            padding: 10px 100px;
+            text-decoration: none;
+            text-align: center;
+            top: 220px;
+            text-emphasis: bold;
+        }
+
+        #myBtn {
+            display: none; /* Hidden by default */
+            position: fixed; /* Fixed/sticky position */
+            bottom: 65px; /* Place the button at the bottom of the page */
+            left: 50px; /* Place the button 30px from the right */
+            z-index: 99; /* Make sure it does not overlap */
+            border: none; /* Remove borders */
+            outline: none; /* Remove outline */
+            background-color: rgb(0, 172, 172); /* Set a background color */
+            color: black; /* Text color */
+            cursor: pointer; /* Add a mouse pointer on hover */
+            padding: 10px; /* Some padding */
+            padding-bottom: 0px;
+            border-radius: 10px; /* Rounded corners */
+            border: solid black 5px;
+            font-size: 72px; /* Increase font size */
+        }
+
+        #myBtn:hover {
+            display: none; /* Hidden by default */
+            position: fixed; /* Fixed/sticky position */
+            bottom: 65px; /* Place the button at the bottom of the page */
+            left: 50px; /* Place the button 30px from the right */
+            z-index: 99; /* Make sure it does not overlap */
+            border: none; /* Remove borders */
+            outline: none; /* Remove outline */
+            background-color: rgb(0, 0, 0); /* Set a background color */
+            color: rgb(0, 172, 172); /* Text color */
+            cursor: pointer; /* Add a mouse pointer on hover */
+            padding: 10px; /* Some padding */
+            padding-bottom: 0px;
+            border-radius: 10px; /* Rounded corners */
+            border: solid rgb(0, 172, 172) 5px;
+            font-size: 72px; /* Increase font size */
+        }
+
+        p{
+            font-size: 22px;
+            position: absolute;
+            top: 500px;
+            left: 30%;
+        }
+
+        h7{
+            font-size: 32px;
+            text-emphasis: bold;
+        }
+
+    </style>
+    <button onclick="topFunction()" id="myBtn" title="Go to top"><b>^</b></button>
+<head> 
+    <h1>Questions</h1>
+    <div class="verses">
+        <a href="Quizzing.html">Click here for memory verses.</a>        
+   </div>
+</head>
+<body>
+   
+    <script>
+        //Get the button
+        var mybutton = document.getElementById("myBtn");
+        
+        // When the user scrolls down 20px from the top of the document, show the button
+        window.onscroll = function() {scrollFunction()};
+        
+        function scrollFunction() {
+          if (document.body.scrollTop > 1750 || document.documentElement.scrollTop > 1750) {
+            mybutton.style.display = "block";
+          } else {
+            mybutton.style.display = "none";
+          }
+        }
+        
+        // When the user clicks on the button, scroll to the top of the document
+        function topFunction() {
+          document.body.scrollTop = 0;
+          document.documentElement.scrollTop = 0;
+        }
+        </script>
+
+    <nav>
+
+        <h2>Select a Chapter</h2>
+        <br>
+
+        <a href="Quizzing_Questions_1.html">Matthew 1</a>
+        <br>
+        <a href="Quizzing_Questions_2.html">Matthew 2</a>
+        <br>
+        <a href="Quizzing_Questions_3.html">Matthew 3</a>
+        <br>
+        <a href="Quizzing_Questions_4.html">Matthew 4</a>
+        <br>
+        <a href="Quizzing_Questions_5.html">Matthew 5</a>
+        <br>
+        <a href="Quizzing_Questions_6.html">Matthew 6</a>
+        <br>
+        <a href="Quizzing_Questions_7.html">Matthew 7</a>
+        <br>
+        <a href="Quizzing_Questions_8.html">Matthew 8</a>
+        <br>
+        <a href="Quizzing_Questions_9.html">Matthew 9</a>
+        <br>
+        <a href="Quizzing_Questions_10.html">Matthew 10</a>
+        <br>
+        <a href="Quizzing_Questions_11.html">Matthew 11</a>
+        <br>
+        <a href="Quizzing_Questions_12.html">Matthew 12</a>
+        <br>
+        <a href="Quizzing_Questions_13.html">Matthew 13</a>
+        <br>
+        <a href="Quizzing_Questions_14.html">Matthew 14</a>
+        <br>
+        <a href="Quizzing_Questions_15.html">Matthew 15</a>
+        <br>
+        <a href="Quizzing_Questions_16.html">Matthew 16</a>
+        <br>
+        <a href="Quizzing_Questions_17.html">Matthew 17</a>
+        <br>
+        <a href="Quizzing_Questions_18.html">Matthew 18</a>
+        <br>
+        <a href="Quizzing_Questions_19.html">Matthew 19</a>
+        <br>
+        <a href="Quizzing_Questions_20.html">Matthew 20</a>
+        <br>
+        <a href="Quizzing_Questions_21.html">Matthew 21</a>
+        <br>
+        <a href="Quizzing_Questions_22.html">Matthew 22</a>
+        <br>
+        <a href="Quizzing_Questions_23.html">Matthew 23</a>
+        <br>
+        <a href="Quizzing_Questions_24.html">Matthew 24</a>
+        <br>
+        <a href="Quizzing_Questions_25.html">Matthew 25</a>
+        <br>
+        <a href="Quizzing_Questions_26.html">Matthew 26</a>
+        <br>
+        <a href="Quizzing_Questions_27.html">Matthew 27</a>
+        <br>
+        <a href="Quizzing_Questions_28.html">Matthew 28</a>
+    </nav>
+
+    <div class="bookmarks">
+        <a href="#1">Set 1</a>
+        <a href="#2">Set 2</a>
+        <a href="#3">Set 3</a>
+        <a href="#4">Set 4</a>
+        <a href="#5">Set 5</a>
+        <a href="#6">Set 6</a>
+        <a href="#7">Set 7</a>
+        <a href="#8">Set 8</a>
+        <a href="#9">Set 9</a>
+        <a href="#10">Set 10</a>
+    </div>
+
+    <h3>Matthew 3</h3>
+
+    <p><h7 id="1">SET #1</h7><br><br>
+        G 1. Who saw the Spirit of God descending like a dove and alighting on him?<br>
+        A. Jesus (Matthew 3:16) <br><br>
+        A 2. According to Matthew, chapter 3, verse 15, what did Jesus reply? <br>
+        A. "Let it be so now; it is proper for us to do this to fulfill all righteousness" (Matthew 3:15) <br><br>
+        G 3. Whose food was locusts and wild honey?<br>
+        A. John's (the Baptist) (Matthew 3:4) <br><br>
+        Q 4. Quote Matthew, chapter 3, verses 16 through 17. <br>
+        A. "As soon as Jesus was baptized, he went up out of the water. At that moment heaven was opened, and he saw the Spirit of God descending
+        like a dove and alighting on him. And a voice from heaven said, "This is my Son, whom I love; with him I am well pleased."" (Matthew 3:16-17) <br><br>
+        G 5. For whom can God raise up children out of these stones?<br>
+        A. Abraham (Matthew 3:9) <br><br>
+        G 6. At what is the ax already?<br>
+        A. The root of the trees (Matthew 3:10)<br><br>
+        R 7. Finish these verses and give the reference: "In those days John the. . ."<br>
+        A. ". . .Baptist came, preaching in the wilderness of Judea and saying, "Repent, for the kingdom of heaven has come near." " (Matthew 3:1-2)<br><br>
+        G 8. Where did John have a leather belt?<br>
+        A. Around his waist (Matthew 3:4)<br><br>
+        A 9. According to Matthew, chapter 3, verse 14, what did John say?<br>
+        A. "I need to be baptized by you, and do you come to me?" (Matthew 3:14)<br><br>
+        X 10. Complete, in essence, the following: "His winnowing fork is in . . ."<br>
+        A. ". . . his hand, and he will clear his threshing floor, gathering his wheat into the barn and burning up the chaff with unquenchable fire."
+        (Matthew 3:12)<br><br>
+        G 11. What should you produce in keeping with repentance?<br>
+        A. Fruit (Matthew 3:8)<br><br>
+        A 12. According to Matthew, chapter 3, verse 3, who is this?<br>
+        A. He who was spoken of through the prophet Isaiah (Matthew 3:3)<br><br>
+        G 13. When did John the Baptist come, preaching in the wilderness of Judea?<br>
+        A. In those days (Matthew 3:1)<br><br>
+        G 14. Who said to many of the Pharisees and Sadducees: "You brood of vipers! Who warned you to flee from the coming wrath?"?<br>
+        A. John (the Baptist) (Matthew 3:7)<br><br>
+        A 15. According to Matthew, chapter 3, verse 5, who went out to him?<br>
+        A. People (from Jerusalem and all Judea and the whole region of the Jordan) (Matthew 3:5)<br><br>
+        V 16. Finish this verse: ""I baptize you with water. . ."<br>
+        A. ". . .for repentance. But after me comes one who is more powerful than I, whose sandals I am not worthy to carry. He will baptize you with the
+        Holy Spirit and fire." (Matthew 3:11)<br><br>
+        G 17. From where did Jesus come to be baptized by John?<br>
+        A. Galilee (Matthew 3:13)<br><br>
+        G 18. Who can raise up children for Abraham out of these stones?<br>
+        A. God (Matthew 3:9)<br><br>
+        S 19. Situation question: who said it, and to whom: "Produce fruit in keeping with repentance."?<br>
+        A. John (the Baptist) said it to many of the Pharisees and Sadducees (who were coming to where John was baptizing) (Matthew 3:8)<br><br>
+        G 20. What were people confessing?<br>
+        A. Their sins (Matthew 3:6)<br><br>
+        <br><br>
+        <h7 id="2">SET #2 </h7><br><br>
+        
+        G 1. Who alit on Jesus?<br>
+        A. The Spirit of God (Matthew 3:16)<br><br>
+        G 2. What did John have around his waist?<br>
+        A. A leather belt (Matthew 3:4)<br><br>
+        S 3. Situation question: who said it, to whom, and when: "I need to be baptized by you, and do you come to me?"?<br>
+        A. John (the Baptist) said it to Jesus, when Jesus came from Galilee to the Jordan to be baptized by John (Matthew 3:13-14)<br><br>
+        A 4. According to Matthew, chapter 3, verse 10, what will be thrown into the fire?<br>
+        A. Every tree that does not produce good fruit (Matthew 3:10)<br><br>
+        V 5. Finish these verses: "As soon as Jesus was. . ."<br>
+        A. ". . .baptized, he went up out of the water. At that moment heaven was opened, and he saw the Spirit of God descending like a dove and
+        alighting on him. And a voice from heaven said, "This is my Son, whom I love; with him I am well pleased." (Matthew 3:16-17)<br><br>
+        G 6. What should you prepare for the Lord?<br>
+        A. The way (Matthew 3:3)<br><br>
+        G 7. Into what will every tree that does not produce good fruit be thrown?<br>
+        
+        A. The fire (Matthew 3:10)<br><br>
+        Q 8. Quote Matthew, chapter 3, verses 8 through 9.<br>
+        A. "Produce fruit in keeping with repentance. And do not think you can say to yourselves, 'We have Abraham as our father.' I tell you that out of
+        these stones God can raise up children for Abraham." (Matthew 3:8-9)<br><br>
+        G 9. What were locusts and wild honey?<br>
+        A. John's food (Matthew 3:4)<br><br>
+        A 10. According to Matthew, chapter 3, verse 13, from where did Jesus come?<br>
+        A. Galilee (Matthew 3:13)<br><br>
+        G 11. What will be cut down and thrown into the fire?<br>
+        A. Every tree that does not produce good fruit (Matthew 3:10)<br><br>
+        X 12. In Matthew, chapter 3, who said he needed to be baptized by Jesus?<br>
+        A. John (the Baptist) (Matthew 3:14)<br><br>
+        G 13. To whom did people go out from Jerusalem and all Judea and the whole region of the Jordan?<br>
+        A. John (the Baptist) (Matthew 3:5)<br><br>
+        G 14. For whom should you prepare the way?<br>
+        A. The Lord (Matthew 3:3)<br><br>
+        A 15. According to Matthew, chapter 3, verse 16, what was heaven?<br>
+        A. Opened (Matthew 3:16)<br><br>
+        G 16. Who saw many of the Pharisees and Sadducees coming to where he was baptizing?<br>
+        A. John (the Baptist) (Matthew 3:7)<br><br>
+        G 17. Where is his winnowing fork?<br>
+        A. In his hand (Matthew 3:12)<br><br>
+        R 18. Finish this verse and give the reference: ""I baptize you with water. . ."<br>
+        A. ". . .for repentance. But after me comes one who is more powerful than I, whose sandals I am not worthy to carry. He will baptize you with the
+        Holy Spirit and fire. " (Matthew 3:11)<br><br>
+        A 19. According to Matthew, chapter 3, verse 15, why is it proper for us to do this?<br>
+        A. To fulfill all righteousness (Matthew 3:15)<br><br>
+        G 20. When does one who is more powerful than John come?<br>
+        A. After John (the Baptist) (Matthew 3:11)<br><br>
+        <br><br>
+        <h7 id="3">SET #3</h7><br><br>
+        
+        G 1. Why did Jesus come from Galilee to the Jordan?<br>
+        A. To be baptized by John (Matthew 3:13)<br><br>
+        G 2. For what does John baptize you with water?<br>
+        A. Repentance (Matthew 3:11)<br><br>
+        A 3. According to Matthew, chapter 3, verse 17, with whom am I well pleased?<br>
+        A. My Son (Matthew 3:17)<br><br>
+        G 4. How did John try to deter Jesus?<br>
+        A. Saying, "I need to be baptized by you, and do you come to me?" (Matthew 3:14)<br><br>
+        A 5. According to Matthew, chapter 3, verse 2, why should you repent?<br>
+        A. For the kingdom of heaven has come near (Matthew 3:2)<br><br>
+        G 6. With whom will one who is more powerful than John baptize you?<br>
+        A. The Holy Spirit (Matthew 3:11)<br><br>
+        Q 7. Quote Matthew, chapter 3, verses 16 through 17.<br>
+        A. "As soon as Jesus was baptized, he went up out of the water. At that moment heaven was opened, and he saw the Spirit of God descending
+        like a dove and alighting on him. And a voice from heaven said, "This is my Son, whom I love; with him I am well pleased."" (Matthew 3:16-17)<br><br>
+        X 8. In Matthew, chapter 3, what was proper for Jesus and John?<br>
+        A. For John to baptize Jesus (Matthew 3:15)<br><br>
+        S 9. Situation question: who said it, to whom, and what was the reply: "I need to be baptized by you, and do you come to me?"?<br>
+        A. John (the Baptist) said it to Jesus, and the reply was, "Let it be so now; it is proper for us to do this to fulfill all righteousness" (Matthew 3:14-
+        15)<br><br>
+        G 10. What will he clear?<br>
+        A. His threshing floor (Matthew 3:12)<br><br>
+        V 11. Finish this verse: ""I baptize you with water. . ."<br>
+        A. ". . .for repentance. But after me comes one who is more powerful than I, whose sandals I am not worthy to carry. He will baptize you with the
+        Holy Spirit and fire." (Matthew 3:11)<br><br>
+        G 12. How will one who is more powerful than John baptize you?<br>
+        A. With the Holy Spirit and fire (Matthew 3:11)<br><br>
+        G 13. Into what will he gather his wheat?<br>
+        A. The barn (Matthew 3:12)<br><br>
+        R 14. Finish these verses and give the reference: "In those days John the. . ."<br>
+        A. ". . .Baptist came, preaching in the wilderness of Judea and saying, "Repent, for the kingdom of heaven has come near." " (Matthew 3:1-2)<br><br>
+        
+        A 15. According to Matthew, chapter 3, verse 1, where was John the Baptist preaching?<br>
+        A. In the wilderness of Judea (Matthew 3:1)<br><br>
+        G 16. Whom did Jesus see alighting on him?<br>
+        A. The Spirit of God (Matthew 3:16)<br><br>
+        A 17. According to Matthew, chapter 3, verse 12, what will he burn up?<br>
+        A. The chaff (Matthew 3:12)<br><br>
+        G 18. With what will he burn up the chaff?<br>
+        A. Unquenchable fire (Matthew 3:12)<br><br>
+        G 19. For whom is it proper to do this to fulfill all righteousness?<br>
+        A. Jesus and John (the Baptist) (Matthew 3:15)<br><br>
+        G 20. Who said, "I need to be baptized by you, and do you come to me?"?<br>
+        A. John (the Baptist) (Matthew 3:14)<br><br>
+        <br><br>
+        <h7 id="4">SET #4</h7><br><br>
+        
+        S 1. Situation question: who said it, to whom, and when: "I need to be baptized by you, and do you come to me?"?<br>
+        A. John (the Baptist) said it to Jesus, when Jesus came from Galilee to the Jordan to be baptized by John (Matthew 3:13-14)<br><br>
+        A 2. According to Matthew, chapter 3, verse 11, who comes after me?<br>
+        A. One who is more powerful than I (whose sandals I am not worthy to carry) (Matthew 3:11)<br><br>
+        Q 3. Quote Matthew, chapter 3, verses 1 through 2.<br>
+        A. "In those days John the Baptist came, preaching in the wilderness of Judea and saying, "Repent, for the kingdom of heaven has come near.""
+        (Matthew 3:1-2)<br><br>
+        G 4. Who saw many of the Pharisees and Sadducees coming to where he was baptizing?<br>
+        A. John (the Baptist) (Matthew 3:7)<br><br>
+        G 5. How did John try to deter Jesus?<br>
+        A. Saying, "I need to be baptized by you, and do you come to me?" (Matthew 3:14)<br><br>
+        A 6. According to Matthew, chapter 3, verse 3, where is a voice calling?<br>
+        A. In the wilderness (Matthew 3:3)<br><br>
+        G 7. At what is the ax already?<br>
+        A. The root of the trees (Matthew 3:10)<br><br>
+        G 8. Who consented?<br>
+        A. John (the Baptist) (Matthew 3:15)<br><br>
+        R 9. Finish these verses and give the reference: "Produce fruit in keeping with. . ."<br>
+        A. ". . .repentance. And do not think you can say to yourselves, 'We have Abraham as our father.' I tell you that out of these stones God can raise
+        up children for Abraham. " (Matthew 3:8-9)<br><br>
+        G 10. When did John the Baptist come, preaching in the wilderness of Judea?<br>
+        A. In those days (Matthew 3:1)<br><br>
+        G 11. With what will he burn up the chaff?<br>
+        A. Unquenchable fire (Matthew 3:12)<br><br>
+        V 12. Finish these verses: "As soon as Jesus was. . ."<br>
+        A. ". . .baptized, he went up out of the water. At that moment heaven was opened, and he saw the Spirit of God descending like a dove and
+        alighting on him. And a voice from heaven said, "This is my Son, whom I love; with him I am well pleased." (Matthew 3:16-17)<br><br>
+        G 13. What did John have around his waist?<br>
+        A. A leather belt (Matthew 3:4)<br><br>
+        G 14. What should you produce in keeping with repentance?<br>
+        A. Fruit (Matthew 3:8)<br><br>
+        A 15. According to Matthew, chapter 3, verse 17, who is this?<br>
+        A. My Son (whom I love) (Matthew 3:17)<br><br>
+        G 16. Who can raise up children for Abraham out of these stones?<br>
+        A. God (Matthew 3:9)<br><br>
+        G 17. From where did Jesus come to be baptized by John?<br>
+        A. Galilee (Matthew 3:13)<br><br>
+        A 18. According to Matthew, chapter 3, verse 16, what did Jesus see?<br>
+        A. The Spirit of God descending like a dove and alighting on him (Matthew 3:16)<br><br>
+        X 19. In Matthew, chapter 3, who was saying, "Repent, for the kingdom of heaven has come near"?<br>
+        A. John the Baptist (Matthew 3:2)<br><br>
+        G 20. To whom did people go out from Jerusalem and all Judea and the whole region of the Jordan?<br>
+        A. John (the Baptist) (Matthew 3:5)<br><br>
+        <br><br>
+        <h7 id="5">SET #5</h7><br><br>
+        
+        G 1. What were people confessing?<br>
+        
+        A. Their sins (Matthew 3:6)<br><br>
+        G 2. What will he clear?<br>
+        A. His threshing floor (Matthew 3:12)<br><br>
+        A 3. According to Matthew, chapter 3, verse 8, what should you produce?<br>
+        A. Fruit (in keeping with repentance) (Matthew 3:8)<br><br>
+        G 4. Into what will every tree that does not produce good fruit be thrown?<br>
+        A. The fire (Matthew 3:10)<br><br>
+        G 5. What were locusts and wild honey?<br>
+        A. John's food (Matthew 3:4)<br><br>
+        Q 6. Quote Matthew, chapter 3, verses 8 through 9.<br>
+        A. "Produce fruit in keeping with repentance. And do not think you can say to yourselves, 'We have Abraham as our father.' I tell you that out of
+        these stones God can raise up children for Abraham." (Matthew 3:8-9)<br><br>
+        S 7. Situation question: who said it, and to whom: "Produce fruit in keeping with repentance."?<br>
+        A. John (the Baptist) said it to many of the Pharisees and Sadducees (who were coming to where John was baptizing) (Matthew 3:8)<br><br>
+        X 8. In Matthew, chapter 3, what will be thrown into the fire?<br>
+        A. Every tree that does not produce good fruit (Matthew 3:10)<br><br>
+        G 9. For whom should you prepare the way?<br>
+        A. The Lord (Matthew 3:3)<br><br>
+        V 10. Finish these verses: "As soon as Jesus was. . ."<br>
+        A. ". . .baptized, he went up out of the water. At that moment heaven was opened, and he saw the Spirit of God descending like a dove and
+        alighting on him. And a voice from heaven said, "This is my Son, whom I love; with him I am well pleased." (Matthew 3:16-17)<br><br>
+        G 11. Whose food was locusts and wild honey?<br>
+        A. John's (the Baptist) (Matthew 3:4)<br><br>
+        A 12. According to Matthew, chapter 3, verse 9, what do I tell you?<br>
+        A. That out of these stones God can raise up children for Abraham (Matthew 3:9)<br><br>
+        G 13. For whom can God raise up children out of these stones?<br>
+        A. Abraham (Matthew 3:9)<br><br>
+        G 14. Who said, "I need to be baptized by you, and do you come to me?"?<br>
+        A. John (the Baptist) (Matthew 3:14)<br><br>
+        R 15. Finish this verse and give the reference: ""I baptize you with water. . ."<br>
+        A. ". . .for repentance. But after me comes one who is more powerful than I, whose sandals I am not worthy to carry. He will baptize you with the
+        Holy Spirit and fire. " (Matthew 3:11)<br><br>
+        G 16. Why is it proper for Jesus and John to do this?<br>
+        A. To fulfill all righteousness (Matthew 3:15)<br><br>
+        G 17. What will be cut down and thrown into the fire?<br>
+        A. Every tree that does not produce good fruit (Matthew 3:10)<br><br>
+        A 18. According to Matthew, chapter 3, verse 7, whom did he see coming to where he was baptizing?<br>
+        A. Many of the Pharisees and Sadducees (Matthew 3:7)<br><br>
+        G 19. Why did Jesus come from Galilee to the Jordan?<br>
+        A. To be baptized by John (Matthew 3:13)<br><br>
+        A 20. According to Matthew, chapter 3, verse 16, out of what did Jesus go up?<br>
+        A. The water (Matthew 3:16)<br><br>
+        <br><br>
+        <h7 id="6">SET #6</h7><br><br>
+        A 1. According to Matthew, chapter 3, verse 10, what will be thrown into the fire?<br>
+        A. Every tree that does not produce good fruit (Matthew 3:10)<br><br>
+        G 2. For whom is it proper to do this to fulfill all righteousness?<br>
+        A. Jesus and John (the Baptist) (Matthew 3:15)<br><br>
+        G 3. Into what will he gather his wheat?<br>
+        A. The barn (Matthew 3:12)<br><br>
+        Q 4. Quote Matthew, chapter 3, verses 1 through 2.<br>
+        A. "In those days John the Baptist came, preaching in the wilderness of Judea and saying, "Repent, for the kingdom of heaven has come near.""
+        (Matthew 3:1-2)<br><br>
+        X 5. Complete, in essence, the following Old Testament quotation: "A voice of one calling . . ."<br>
+        A. ". . . in the wilderness, 'Prepare the way for the Lord, make straight paths for him.'" (Matthew 3:3)<br><br>
+        S 6. Situation question: who said it, to whom, and when: "I need to be baptized by you, and do you come to me?"?<br>
+        A. John (the Baptist) said it to Jesus, when Jesus came from Galilee to the Jordan to be baptized by John (Matthew 3:13-14)<br><br>
+        G 7. Where did John have a leather belt?<br>
+        A. Around his waist (Matthew 3:4)<br><br>
+        R 8. Finish these verses and give the reference: "As soon as Jesus was. . ."<br>
+        A. ". . .baptized, he went up out of the water. At that moment heaven was opened, and he saw the Spirit of God descending like a dove and
+        alighting on him. And a voice from heaven said, "This is my Son, whom I love; with him I am well pleased." " (Matthew 3:16-17)<br><br>
+        
+        G 9. When does one who is more powerful than John come?<br>
+        A. After John (the Baptist) (Matthew 3:11)<br><br>
+        A 10. According to Matthew, chapter 3, verse 16, what was heaven?<br>
+        A. Opened (Matthew 3:16)<br><br>
+        G 11. Who said to many of the Pharisees and Sadducees: "You brood of vipers! Who warned you to flee from the coming wrath?"?<br>
+        A. John (the Baptist) (Matthew 3:7)<br><br>
+        G 12. What should you prepare for the Lord?<br>
+        A. The way (Matthew 3:3)<br><br>
+        V 13. Finish these verses: "Produce fruit in keeping with. . ."<br>
+        A. ". . .repentance. And do not think you can say to yourselves, 'We have Abraham as our father.' I tell you that out of these stones God can raise
+        up children for Abraham." (Matthew 3:8-9)<br><br>
+        G 14. With whom will one who is more powerful than John baptize you?<br>
+        A. The Holy Spirit (Matthew 3:11)<br><br>
+        A 15. According to Matthew, chapter 3, verse 7, who were coming to where he was baptizing?<br>
+        A. Many of the Pharisees and Sadducees (Matthew 3:7)<br><br>
+        G 16. Whom did Jesus see alighting on him?<br>
+        A. The Spirit of God (Matthew 3:16)<br><br>
+        G 17. Who will baptize you with the Holy Spirit and fire?<br>
+        A. One who is more powerful than John (whose sandals John is not worthy to carry) (Matthew 3:11)<br><br>
+        A 18. According to Matthew, chapter 3, verse 2, why should you repent?<br>
+        A. For the kingdom of heaven has come near (Matthew 3:2)<br><br>
+        G 19. For what does John baptize you with water?<br>
+        A. Repentance (Matthew 3:11)<br><br>
+        G 20. Where is his winnowing fork?<br>
+        A. In his hand (Matthew 3:12)<br><br>
+        <br><br>
+        <h7 id="7">SET #7</h7><br><br>
+        
+        G 1. Whom did Jesus see alighting on him?<br>
+        A. The Spirit of God (Matthew 3:16)<br><br>
+        R 2. Finish these verses and give the reference: "As soon as Jesus was. . ."<br>
+        A. ". . .baptized, he went up out of the water. At that moment heaven was opened, and he saw the Spirit of God descending like a dove and
+        alighting on him. And a voice from heaven said, "This is my Son, whom I love; with him I am well pleased." " (Matthew 3:16-17)<br><br>
+        G 3. Who can raise up children for Abraham out of these stones?<br>
+        A. God (Matthew 3:9)<br><br>
+        G 4. At what is the ax already?<br>
+        A. The root of the trees (Matthew 3:10)<br><br>
+        Q 5. Quote Matthew, chapter 3, verse 11.<br>
+        A. "I baptize you with water for repentance. But after me comes one who is more powerful than I, whose sandals I am not worthy to carry. He will
+        baptize you with the Holy Spirit and fire. (Matthew 3:11)<br><br>
+        G 6. What were people confessing?<br>
+        A. Their sins (Matthew 3:6)<br><br>
+        G 7. Why is it proper for Jesus and John to do this?<br>
+        A. To fulfill all righteousness (Matthew 3:15)<br><br>
+        V 8. Finish these verses: "Produce fruit in keeping with. . ."<br>
+        A. ". . .repentance. And do not think you can say to yourselves, 'We have Abraham as our father.' I tell you that out of these stones God can raise
+        up children for Abraham." (Matthew 3:8-9)<br><br>
+        A 9. According to Matthew, chapter 3, verse 12, what will he burn up?<br>
+        A. The chaff (Matthew 3:12)<br><br>
+        G 10. To whom did people go out from Jerusalem and all Judea and the whole region of the Jordan?<br>
+        A. John (the Baptist) (Matthew 3:5)<br><br>
+        G 11. Who said, "I need to be baptized by you, and do you come to me?"?<br>
+        A. John (the Baptist) (Matthew 3:14)<br><br>
+        S 12. Situation question: who said it, to whom, and what was the reply: "I need to be baptized by you, and do you come to me?"?<br>
+        A. John (the Baptist) said it to Jesus, and the reply was, "Let it be so now; it is proper for us to do this to fulfill all righteousness" (Matthew 3:14-
+        15)<br><br>
+        A 13. According to Matthew, chapter 3, verse 17, with whom am I well pleased?<br>
+        A. My Son (Matthew 3:17)<br><br>
+        G 14. When did John the Baptist come, preaching in the wilderness of Judea?<br>
+        A. In those days (Matthew 3:1)<br><br>
+        G 15. Who saw many of the Pharisees and Sadducees coming to where he was baptizing?<br>
+        A. John (the Baptist) (Matthew 3:7)<br><br>
+        X 16. Complete, in essence, the following: "John's clothes were made of . . ."<br>
+        A. ". . . camel's hair, and he had a leather belt around his waist." (Matthew 3:4)<br><br>
+        
+        A 17. According to Matthew, chapter 3, verse 9, what do I tell you?<br>
+        A. That out of these stones God can raise up children for Abraham (Matthew 3:9)<br><br>
+        G 18. What should you produce in keeping with repentance?<br>
+        A. Fruit (Matthew 3:8)<br><br>
+        G 19. For whom should you prepare the way?<br>
+        A. The Lord (Matthew 3:3)<br><br>
+        A 20. According to Matthew, chapter 3, verse 13, from where did Jesus come?<br>
+        A. Galilee (Matthew 3:13)<br><br>
+        <br><br>
+        <h7 id="8">SET #8</h7><br><br>
+        
+        G 1. For whom can God raise up children out of these stones?<br>
+        A. Abraham (Matthew 3:9)<br><br>
+        S 2. Situation question: who said it, to whom, and when: "I need to be baptized by you, and do you come to me?"?<br>
+        A. John (the Baptist) said it to Jesus, when Jesus came from Galilee to the Jordan to be baptized by John (Matthew 3:13-14)<br><br>
+        A 3. According to Matthew, chapter 3, verse 16, what did Jesus see?<br>
+        A. The Spirit of God descending like a dove and alighting on him (Matthew 3:16)<br><br>
+        G 4. What will be cut down and thrown into the fire?<br>
+        A. Every tree that does not produce good fruit (Matthew 3:10)<br><br>
+        X 5. Complete, in essence, the following: "Confessing their sins, they were . . ."<br>
+        A. ". . . baptized by him in the Jordan River." (Matthew 3:6)<br><br>
+        G 6. From where did Jesus come to be baptized by John?<br>
+        A. Galilee (Matthew 3:13)<br><br>
+        V 7. Finish these verses: "As soon as Jesus was. . ."<br>
+        A. ". . .baptized, he went up out of the water. At that moment heaven was opened, and he saw the Spirit of God descending like a dove and
+        alighting on him. And a voice from heaven said, "This is my Son, whom I love; with him I am well pleased." (Matthew 3:16-17)<br><br>
+        G 8. When does one who is more powerful than John come?<br>
+        A. After John (the Baptist) (Matthew 3:11)<br><br>
+        A 9. According to Matthew, chapter 3, verse 14, what did John say?<br>
+        A. "I need to be baptized by you, and do you come to me?" (Matthew 3:14)<br><br>
+        G 10. What should you prepare for the Lord?<br>
+        A. The way (Matthew 3:3)<br><br>
+        A 11. According to Matthew, chapter 3, verse 8, what should you produce?<br>
+        A. Fruit (in keeping with repentance) (Matthew 3:8)<br><br>
+        G 12. What did John have around his waist?<br>
+        A. A leather belt (Matthew 3:4)<br><br>
+        G 13. Who will baptize you with the Holy Spirit and fire?<br>
+        A. One who is more powerful than John (whose sandals John is not worthy to carry) (Matthew 3:11)<br><br>
+        R 14. Finish these verses and give the reference: "In those days John the. . ."<br>
+        A. ". . .Baptist came, preaching in the wilderness of Judea and saying, "Repent, for the kingdom of heaven has come near." " (Matthew 3:1-2)<br><br>
+        G 15. What were locusts and wild honey?<br>
+        A. John's food (Matthew 3:4)<br><br>
+        G 16. Who said to many of the Pharisees and Sadducees: "You brood of vipers! Who warned you to flee from the coming wrath?"?<br>
+        A. John (the Baptist) (Matthew 3:7)<br><br>
+        Q 17. Quote Matthew, chapter 3, verses 8 through 9.<br>
+        A. "Produce fruit in keeping with repentance. And do not think you can say to yourselves, 'We have Abraham as our father.' I tell you that out of
+        these stones God can raise up children for Abraham." (Matthew 3:8-9)<br><br>
+        G 18. With what will he burn up the chaff?<br>
+        A. Unquenchable fire (Matthew 3:12)<br><br>
+        G 19. Into what will every tree that does not produce good fruit be thrown?<br>
+        A. The fire (Matthew 3:10)<br><br>
+        A 20. According to Matthew, chapter 3, verse 15, what did Jesus reply?<br>
+        A. "Let it be so now; it is proper for us to do this to fulfill all righteousness" (Matthew 3:15)<br><br>
+        <br><br>
+        <h7 id="9">SET #9</h7><br><br>
+        G 1. Who saw the Spirit of God descending like a dove and alighting on him?<br>
+        A. Jesus (Matthew 3:16)<br><br>
+        A 2. According to Matthew, chapter 3, verse 5, who went out to him?<br>
+        A. People (from Jerusalem and all Judea and the whole region of the Jordan) (Matthew 3:5)<br><br>
+        G 3. Where is his winnowing fork?<br>
+        
+        A. In his hand (Matthew 3:12)<br><br>
+        A 4. According to Matthew, chapter 3, verse 17, who is this?<br>
+        A. My Son (whom I love) (Matthew 3:17)<br><br>
+        G 5. How will one who is more powerful than John baptize you?<br>
+        A. With the Holy Spirit and fire (Matthew 3:11)<br><br>
+        Q 6. Quote Matthew, chapter 3, verses 8 through 9.<br>
+        A. "Produce fruit in keeping with repentance. And do not think you can say to yourselves, 'We have Abraham as our father.' I tell you that out of
+        these stones God can raise up children for Abraham." (Matthew 3:8-9)<br><br>
+        G 7. What will he clear?<br>
+        A. His threshing floor (Matthew 3:12)<br><br>
+        G 8. Whose food was locusts and wild honey?<br>
+        A. John's (the Baptist) (Matthew 3:4)<br><br>
+        R 9. Finish these verses and give the reference: "As soon as Jesus was. . ."<br>
+        A. ". . .baptized, he went up out of the water. At that moment heaven was opened, and he saw the Spirit of God descending like a dove and
+        alighting on him. And a voice from heaven said, "This is my Son, whom I love; with him I am well pleased." " (Matthew 3:16-17)<br><br>
+        X 10. In Matthew, chapter 3, from what were the Pharisees and Sadducees warned to flee?<br>
+        A. The coming wrath (Matthew 3:7)<br><br>
+        A 11. According to Matthew, chapter 3, verse 15, why is it proper for us to do this?<br>
+        A. To fulfill all righteousness (Matthew 3:15)<br><br>
+        G 12. Why did Jesus come from Galilee to the Jordan?<br>
+        A. To be baptized by John (Matthew 3:13)<br><br>
+        G 13. Into what will he gather his wheat?<br>
+        A. The barn (Matthew 3:12)<br><br>
+        V 14. Finish this verse: ""I baptize you with water. . ."<br>
+        A. ". . .for repentance. But after me comes one who is more powerful than I, whose sandals I am not worthy to carry. He will baptize you with the
+        Holy Spirit and fire." (Matthew 3:11)<br><br>
+        A 15. According to Matthew, chapter 3, verse 3, who is this?<br>
+        A. He who was spoken of through the prophet Isaiah (Matthew 3:3)<br><br>
+        G 16. Where did John have a leather belt?<br>
+        A. Around his waist (Matthew 3:4)<br><br>
+        S 17. Situation question: who said it, and to whom: "Produce fruit in keeping with repentance."?<br>
+        A. John (the Baptist) said it to many of the Pharisees and Sadducees (who were coming to where John was baptizing) (Matthew 3:8)<br><br>
+        G 18. Who alit on Jesus?<br>
+        A. The Spirit of God (Matthew 3:16)<br><br>
+        G 19. How did John try to deter Jesus?<br>
+        A. Saying, "I need to be baptized by you, and do you come to me?" (Matthew 3:14)<br><br>
+        G 20. With whom will one who is more powerful than John baptize you?<br>
+        A. The Holy Spirit (Matthew 3:11)<br><br>
+        <br><br>
+        <h7 id="10">SET #10</h7><br><br>
+        A 1. According to Matthew, chapter 3, verse 1, where was John the Baptist preaching?<br>
+        A. In the wilderness of Judea (Matthew 3:1)<br><br>
+        X 2. Two-part answer: how will one who is more powerful than John baptize you?<br>
+        A. 1) With the Holy Spirit; 2) With fire (Matthew 3:11)<br><br>
+        A 3. According to Matthew, chapter 3, verse 16, out of what did Jesus go up?<br>
+        A. The water (Matthew 3:16)<br><br>
+        G 4. Why did Jesus come from Galilee to the Jordan?<br>
+        A. To be baptized by John (Matthew 3:13)<br><br>
+        G 5. What did John have around his waist?<br>
+        A. A leather belt (Matthew 3:4)<br><br>
+        S 6. Situation question: who said it, to whom, and when: "I need to be baptized by you, and do you come to me?"?<br>
+        A. John (the Baptist) said it to Jesus, when Jesus came from Galilee to the Jordan to be baptized by John (Matthew 3:13-14)<br><br>
+        G 7. What were people confessing?<br>
+        A. Their sins (Matthew 3:6)<br><br>
+        A 8. According to Matthew, chapter 3, verse 7, whom did he see coming to where he was baptizing?<br>
+        A. Many of the Pharisees and Sadducees (Matthew 3:7)<br><br>
+        G 9. What should you produce in keeping with repentance?<br>
+        A. Fruit (Matthew 3:8)<br><br>
+        V 10. Finish these verses: "In those days John the. . ."<br>
+        A. ". . .Baptist came, preaching in the wilderness of Judea and saying, "Repent, for the kingdom of heaven has come near." (Matthew 3:1-2)<br><br>
+        G 11. What will be cut down and thrown into the fire?<br>
+        A. Every tree that does not produce good fruit (Matthew 3:10)<br><br>
+        
+        G 12. For whom is it proper to do this to fulfill all righteousness?<br>
+        A. Jesus and John (the Baptist) (Matthew 3:15)<br><br>
+        Q 13. Quote Matthew, chapter 3, verses 16 through 17.<br>
+        A. "As soon as Jesus was baptized, he went up out of the water. At that moment heaven was opened, and he saw the Spirit of God descending
+        like a dove and alighting on him. And a voice from heaven said, "This is my Son, whom I love; with him I am well pleased."" (Matthew 3:16-17)<br><br>
+        G 14. With what will he burn up the chaff?<br>
+        A. Unquenchable fire (Matthew 3:12)<br><br>
+        G 15. How did John try to deter Jesus?<br>
+        A. Saying, "I need to be baptized by you, and do you come to me?" (Matthew 3:14)<br><br>
+        R 16. Finish these verses and give the reference: "Produce fruit in keeping with. . ."<br>
+        A. ". . .repentance. And do not think you can say to yourselves, 'We have Abraham as our father.' I tell you that out of these stones God can raise
+        up children for Abraham. " (Matthew 3:8-9)<br><br>
+        A 17. According to Matthew, chapter 3, verse 3, where is a voice calling?<br>
+        A. In the wilderness (Matthew 3:3)<br><br>
+        G 18. Who can raise up children for Abraham out of these stones?<br>
+        A. God (Matthew 3:9)<br><br>
+        G 19. To whom did people go out from Jerusalem and all Judea and the whole region of the Jordan?<br>
+        A. John (the Baptist) (Matthew 3:5)<br><br>
+        G 20. For whom can God raise up children out of these stones?<br>
+        A. Abraham (Matthew 3:9)</p>
+
+</body>
+</html>

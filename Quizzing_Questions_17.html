@@ -1,0 +1,902 @@
+<!DOCTYPE html>
+<html> 
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+
+        h1{
+            background-color: black;
+            text-align: center;
+            font-size: 120px;
+            margin: 0px;
+            padding: 30px;
+            color: rgb(0, 172, 172);
+            font-family: 'Impact', Haettenschweiler, Arial Narrow Bold, sans-serif;
+            top: 0px;
+            left: 0px;
+            text-emphasis: bold;
+        }
+
+        head{
+            background-color: black;
+            margin: 0px;
+            padding: 20px;
+        }
+
+        nav{
+            left: 0px;
+            margin: 0px;
+            padding: 20px;
+            background-color: rgb(0, 172, 172);
+            color: black;
+            text-align: left;
+            display: inline-block;
+            height: auto;
+        }
+
+        nav a{
+            color: black;
+            text-decoration: none;
+            margin: 10px 15px;
+            padding: 8px;
+            font-size: 24px;
+            display: inline-block;
+            box-shadow: 0px 0px 10px 5px black;
+            background-color: #b3b3b3;
+            border-radius: 5px;
+        }
+
+        body{
+            background-image: url('data:image/jpeg;base64,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');
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-attachment: fixed;
+        }
+
+        h2{
+            text-align: center;
+            color: white;
+            font-size: 32px;
+            text-emphasis: bold;
+            margin: 10px;
+            background-color: black;
+            padding: 10px;
+            border: double 3px black;
+        }
+
+        .bookmarks{
+            background-color: rgb(0, 172, 172);
+            position: absolute;
+            top: 290px;
+            left: 26%;
+            text-align: center;
+            padding: 10px 20px;
+            border: solid black 5px;
+            border-radius: 25px;
+        }
+
+        .bookmarks a{
+            display: inline-block;
+            background-color: black;
+            color: white;
+            text-emphasis: bold;
+            font-size: 24px;
+            margin: 10px;
+            padding: 10px;
+            border-radius: 10px;
+        }
+
+        h3{
+            font-size: 68px;
+            position: absolute;
+            float: center;
+            top: 350px;
+            left: 48%;
+            text-emphasis: bold;
+            text-align: center;
+            font-family: 'Times New Roman', Times, serif;
+        }
+
+        .verses a{
+            position: absolute;
+            color: rgb(0, 172, 172);
+            background-color: black;
+            font-size: 32px;
+            font-family: Arial, Helvetica, sans-serif;
+            left: 38%;
+            padding: 10px 100px;
+            text-decoration: none;
+            text-align: center;
+            top: 220px;
+            text-emphasis: bold;
+        }
+
+        #myBtn {
+            display: none; /* Hidden by default */
+            position: fixed; /* Fixed/sticky position */
+            bottom: 65px; /* Place the button at the bottom of the page */
+            left: 50px; /* Place the button 30px from the right */
+            z-index: 99; /* Make sure it does not overlap */
+            border: none; /* Remove borders */
+            outline: none; /* Remove outline */
+            background-color: rgb(0, 172, 172); /* Set a background color */
+            color: black; /* Text color */
+            cursor: pointer; /* Add a mouse pointer on hover */
+            padding: 10px; /* Some padding */
+            padding-bottom: 0px;
+            border-radius: 10px; /* Rounded corners */
+            border: solid black 5px;
+            font-size: 72px; /* Increase font size */
+        }
+
+        #myBtn:hover {
+            display: none; /* Hidden by default */
+            position: fixed; /* Fixed/sticky position */
+            bottom: 65px; /* Place the button at the bottom of the page */
+            left: 50px; /* Place the button 30px from the right */
+            z-index: 99; /* Make sure it does not overlap */
+            border: none; /* Remove borders */
+            outline: none; /* Remove outline */
+            background-color: rgb(0, 0, 0); /* Set a background color */
+            color: rgb(0, 172, 172); /* Text color */
+            cursor: pointer; /* Add a mouse pointer on hover */
+            padding: 10px; /* Some padding */
+            padding-bottom: 0px;
+            border-radius: 10px; /* Rounded corners */
+            border: solid rgb(0, 172, 172) 5px;
+            font-size: 72px; /* Increase font size */
+        }
+
+        p{
+            font-size: 22px;
+            position: absolute;
+            top: 500px;
+            left: 30%;
+        }
+
+        h7{
+            font-size: 32px;
+            text-emphasis: bold;
+        }
+
+    </style>
+    <button onclick="topFunction()" id="myBtn" title="Go to top"><b>^</b></button>
+<head> 
+    <h1>Questions</h1>
+    <div class="verses">
+        <a href="Quizzing.html">Click here for memory verses.</a>        
+   </div>
+</head>
+<body>
+   
+    <script>
+        //Get the button
+        var mybutton = document.getElementById("myBtn");
+        
+        // When the user scrolls down 20px from the top of the document, show the button
+        window.onscroll = function() {scrollFunction()};
+        
+        function scrollFunction() {
+          if (document.body.scrollTop > 1750 || document.documentElement.scrollTop > 1750) {
+            mybutton.style.display = "block";
+          } else {
+            mybutton.style.display = "none";
+          }
+        }
+        
+        // When the user clicks on the button, scroll to the top of the document
+        function topFunction() {
+          document.body.scrollTop = 0;
+          document.documentElement.scrollTop = 0;
+        }
+        </script>
+
+    <nav>
+
+        <h2>Select a Chapter</h2>
+        <br>
+
+        <a href="Quizzing_Questions_1.html">Matthew 1</a>
+        <br>
+        <a href="Quizzing_Questions_2.html">Matthew 2</a>
+        <br>
+        <a href="Quizzing_Questions_3.html">Matthew 3</a>
+        <br>
+        <a href="Quizzing_Questions_4.html">Matthew 4</a>
+        <br>
+        <a href="Quizzing_Questions_5.html">Matthew 5</a>
+        <br>
+        <a href="Quizzing_Questions_6.html">Matthew 6</a>
+        <br>
+        <a href="Quizzing_Questions_7.html">Matthew 7</a>
+        <br>
+        <a href="Quizzing_Questions_8.html">Matthew 8</a>
+        <br>
+        <a href="Quizzing_Questions_9.html">Matthew 9</a>
+        <br>
+        <a href="Quizzing_Questions_10.html">Matthew 10</a>
+        <br>
+        <a href="Quizzing_Questions_11.html">Matthew 11</a>
+        <br>
+        <a href="Quizzing_Questions_12.html">Matthew 12</a>
+        <br>
+        <a href="Quizzing_Questions_13.html">Matthew 13</a>
+        <br>
+        <a href="Quizzing_Questions_14.html">Matthew 14</a>
+        <br>
+        <a href="Quizzing_Questions_15.html">Matthew 15</a>
+        <br>
+        <a href="Quizzing_Questions_16.html">Matthew 16</a>
+        <br>
+        <a href="Quizzing_Questions_17.html">Matthew 17</a>
+        <br>
+        <a href="Quizzing_Questions_18.html">Matthew 18</a>
+        <br>
+        <a href="Quizzing_Questions_19.html">Matthew 19</a>
+        <br>
+        <a href="Quizzing_Questions_20.html">Matthew 20</a>
+        <br>
+        <a href="Quizzing_Questions_21.html">Matthew 21</a>
+        <br>
+        <a href="Quizzing_Questions_22.html">Matthew 22</a>
+        <br>
+        <a href="Quizzing_Questions_23.html">Matthew 23</a>
+        <br>
+        <a href="Quizzing_Questions_24.html">Matthew 24</a>
+        <br>
+        <a href="Quizzing_Questions_25.html">Matthew 25</a>
+        <br>
+        <a href="Quizzing_Questions_26.html">Matthew 26</a>
+        <br>
+        <a href="Quizzing_Questions_27.html">Matthew 27</a>
+        <br>
+        <a href="Quizzing_Questions_28.html">Matthew 28</a>
+    </nav>
+
+    <div class="bookmarks">
+        <a href="#1">Set 1</a>
+        <a href="#2">Set 2</a>
+        <a href="#3">Set 3</a>
+        <a href="#4">Set 4</a>
+        <a href="#5">Set 5</a>
+        <a href="#6">Set 6</a>
+        <a href="#7">Set 7</a>
+        <a href="#8">Set 8</a>
+        <a href="#9">Set 9</a>
+        <a href="#10">Set 10</a>
+    </div>
+
+    <h3>Matthew 17</h3>
+
+    <p> <h7 id="1">SET #1</h7>  <br><br>
+
+        G 	1. Whom did they not recognize? <br>
+            A. Elijah (Matthew 17:12)  <br><br>
+        
+        G 	2. Who say that Elijah must come first? <br>
+            A. The teachers of the law (Matthew 17:10)  <br><br>
+        
+        Q 	3. Quote Matthew, chapter 17, verse 20. <br>
+            A. "He replied, "Because you have so little faith. Truly I tell you, if you have faith as small as a mustard seed, you can say to this mountain, 'Move from here to there,' and it will move. Nothing will be impossible for you."" (Matthew 17:20)  <br><br>
+        
+        G 	4. For what should Peter give a four-drachma coin to them? <br>
+            A. Jesus' tax and Peter's (Matthew 17:27)  <br><br>
+        
+        G 	5. Whom should the disciples not tell what they have seen until the Son of Man has been raised from the dead? <br>
+            A. Anyone (Matthew 17:9)  <br><br>
+        
+        R 	6. Finish this verse and give the reference: "There he was transfigured before. . ." <br>
+            A. ". . .them. His face shone like the sun, and his clothes became as white as the light. " (Matthew 17:2)  <br><br>
+        
+        A 	7. According to Matthew, chapter 17, verse 11, who will restore all things? <br>
+            A. Elijah (Matthew 17:11)  <br><br>
+        
+        G 	8. How did the disciples fall facedown to the ground? <br>
+            A. Terrified (Matthew 17:6)  <br><br>
+        
+        G 	9. To whom did Jesus say, "Then the children are exempt."? <br>
+            A. Peter (Matthew 17:26)  <br><br>
+        
+        V 	10. Finish this verse: "Just then there appeared before. . ." <br>
+            A. ". . .them Moses and Elijah, talking with Jesus." (Matthew 17:3) <br><br> 
+        
+        A 	11. According to Matthew, chapter 17, verse 8, when did they see no one except Jesus? <br>
+            A. When they looked up (Matthew 17:8)  <br><br>
+        
+        G 	12. Who replied, "You unbelieving and perverse generation, how long shall I stay with you? How long shall I put up with you? Bring the boy here to me."? <br>
+            A. Jesus (Matthew 17:17)  <br><br>
+        
+        A 	13. According to Matthew, chapter 17, verse 22, when did he say to them, "The Son of Man is going to be delivered into the hands of men."? <br>
+            A. When they came together in Galilee (Matthew 17:22)  <br><br>
+        
+        G 	14. Who rebuked the demon? <br>
+            A. Jesus (Matthew 17:18)  <br><br>
+        
+        G 	15. Who could not heal a man's son? <br>
+            A. Jesus' disciples (Matthew 17:16)  <br><br>
+        
+        A 	16. According to Matthew, chapter 17, verse 25, what did Jesus ask? <br>
+            A. "What do you think, Simon? From whom do the kings of the earth collect duty and taxes - from their own children or from others?" (Matthew 17:25)  <br><br>
+        
+        X 	17. In Matthew, chapter 17, how much was the temple tax? <br>
+            A. Two drachmas (Matthew 17:24)  <br><br>
+        
+        G 	18. When did a bright cloud cover them? <br>
+            A. While Peter was still speaking (Matthew 17:5) <br><br> 
+        
+        G 	19. When will Peter put up three shelters - one for Jesus, one for Moses and one for Elijah? <br>
+            A. If Jesus wishes (Matthew 17:4)  <br><br>
+        
+        S 	20. Situation question: who said it, and to whom: "Lord, have mercy on my son. He has seizures and is suffering greatly. He often falls into the fire or into the water."? <br>
+            A. A man said it to Jesus (Matthew 17:15)  <br><br>
+        <br><br>
+        
+         <h7 id="2">SET #2</h7>   <br><br>
+        
+        G 	1. Who has seizures and is suffering greatly? <br>
+            A. A man's son (Matthew 17:15)  <br><br>
+        
+        X 	2. From what are children exempt? <br>
+            A. Duty and taxes (Matthew 17:25-26)  <br><br>
+        
+        G 	3. Who instructed the disciples, "Don't tell anyone what you have seen, until the Son of Man has been raised from the dead."? <br>
+            A. Jesus (Matthew 17:9)  <br><br>
+        
+        G 	4. What have they done to Elijah?<br> 
+            A. Everything they wished (Matthew 17:12)  <br><br>
+        
+        A 	5. According to Matthew, chapter 17, verse 20, what do I truly tell you? <br>
+            A. "If you have faith as small as a mustard seed, you can say to this mountain, 'Move from here to there,' and it will move. Nothing will be impossible for you." (Matthew 17:20)  <br><br>
+        
+        G 	6. Who said, "The Son of Man is going to be delivered into the hands of men."? <br>
+            A. Jesus (Matthew 17:22)  <br><br>
+        
+        R 	7. Finish this verse and give the reference: "Just then there appeared before. . ." <br>
+            A. ". . .them Moses and Elijah, talking with Jesus. " (Matthew 17:3)  <br><br>
+        
+        S 	8. Situation question: who said it, and to whom: "To be sure, Elijah comes and will restore all things"? <br>
+            A. Jesus said it to the disciples (Peter, James and John) (Matthew 17:11)  <br><br>
+        
+        G 	9. Whom do the teachers of the law say must come first? <br>
+            A. Elijah (Matthew 17:10)  <br><br>
+        
+        G 	10. Who fell facedown to the ground, terrified? <br>
+            A. The disciples [OR Peter, James and John (the brother of James)] (Matthew 17:6)  <br><br>
+        
+        V 	11. Finish this verse: "There he was transfigured before. . ." <br>
+            A. ". . .them. His face shone like the sun, and his clothes became as white as the light." (Matthew 17:2)  <br><br>
+        
+        G 	12. How did the disciples come to Jesus and ask, "Why couldn't we drive it out?" <br>
+            A. In private (Matthew 17:19)  <br><br>
+        
+        A 	13. According to Matthew, chapter 17, verse 1, whom did Jesus take with him? <br>
+            A. Peter, James and John the brother of James (Matthew 17:1)  <br><br>
+        
+        G 	14. When did the disciples see no one except Jesus? <br>
+            A. When they looked up (Matthew 17:8)  <br><br>
+        
+        G 	15. Where will Peter find a four-drachma coin? <br>
+            A. In the mouth of the first fish he catches (Matthew 17:27)  <br><br>
+        
+        Q 	16. Quote Matthew, chapter 17, verse 5. <br>
+            A. "While he was still speaking, a bright cloud covered them, and a voice from the cloud said, "This is my Son, whom I love; with him I am well pleased. Listen to him!"" (Matthew 17:5)  <br><br>
+        
+        G 	17. When did the collectors of the two-drachma temple tax come to Peter? <br>
+            A. After Jesus and his disciples arrived in Capernaum (Matthew 17:24)  <br><br>
+        
+        G 	18. Who collect duty and taxes? <br>
+            A. The kings of the earth (Matthew 17:25)  <br><br>
+        
+        A 	19. According to Matthew, chapter 17, verse 14, who approached Jesus? <br>
+            A. A man (Matthew 17:14)  <br><br>
+        
+        A 	20. According to Matthew, chapter 17, verse 4, what did Peter say to Jesus? <br>
+            A. "Lord, it is good for us to be here. If you wish, I will put up three shelters - one for you, one for Moses and one for Elijah." (Matthew 17:4)  <br><br>
+        <br><br>
+        
+         <h7 id="3">SET #3</h7>   <br><br>
+        
+        G 	1. Whom couldn't the disciples drive out? <br>
+            A. The demon (Matthew 17:19)  <br><br>
+        
+        G 	2. When did Jesus take with him Peter, James and John the brother of James and lead them up a high mountain by themselves? <br>
+            A. After six days (Matthew 17:1)  <br><br>
+        
+        A 	3. According to Matthew, chapter 17, verse 27, what should you throw out? <br>
+            A. Your line (Matthew 17:27)  <br><br>
+        
+        G 	4. Who replied, "To be sure, Elijah comes and will restore all things."? <br>
+            A. Jesus (Matthew 17:11)  <br><br>
+        
+        A 	5. According to Matthew, chapter 17, verse 12, who has already come? <br>
+            A. Elijah (Matthew 17:12)  <br><br>
+        
+        G 	6. Who came to Peter and asked, "Doesn't your teacher pay the temple tax?" <br>
+            A. The collectors of the two-drachma temple tax (Matthew 17:24)  <br><br>
+        
+        V 	7. Finish this verse: "Just then there appeared before. . ." <br>
+            A. ". . .them Moses and Elijah, talking with Jesus." (Matthew 17:3) <br><br> 
+        
+        G 	8. Who will put up three shelters - one for Jesus, one for Moses and one for Elijah? <br>
+            A. Peter (Matthew 17:4)  <br><br>
+        
+        G 	9. With whom were Moses and Elijah talking? <br>
+            A. Jesus (Matthew 17:3)  <br><br>
+        
+        R 	10. Finish this verse and give the reference: "He replied, "Because you have. . ." <br>
+            A. ". . .so little faith. Truly I tell you, if you have faith as small as a mustard seed, you can say to this mountain, 'Move from here to there,' and it will move. Nothing will be impossible for you." " (Matthew 17:20)  <br><br>
+        
+        S 	11. Situation question: who said it, and to whom: "Why couldn't we drive it out?" <br>
+            A. The disciples said it to Jesus (Matthew 17:19)  <br><br>
+        
+        G 	12. Who led Peter, James and John the brother of James up a high mountain by themselves? <br>
+            A. Jesus (Matthew 17:1)  <br><br>
+        
+        A 	13. According to Matthew, chapter 17, verse 16, to whom did I bring him? <br>
+            A. Your disciples (Matthew 17:16)  <br><br>
+        
+        Q 	14. Quote Matthew, chapter 17, verse 2. <br>
+            A. "There he was transfigured before them. His face shone like the sun, and his clothes became as white as the light." (Matthew 17:2)  <br><br>
+        
+        G 	15. Who said, "Lord, have mercy on my son. He has seizures and is suffering greatly. He often falls into the fire or into the water."? <br>
+            A. A man (Matthew 17:15)  <br><br>
+        
+        X 	16. In Matthew, chapter 17, whom was Jesus talking about when he said, "Elijah has already come, and they did not recognize him, but have done to him everything they wished."? <br>
+            A. John the Baptist (Matthew 17:12-13)  <br><br>
+        
+        A 	17. According to Matthew, chapter 17, verse 9, what did Jesus instruct them? <br>
+            A. "Don't tell anyone what you have seen, until the Son of Man has been raised from the dead." (Matthew 17:9)  <br><br>
+        
+        G 	18. Who should go to the lake and throw out his line? <br>
+            A. Peter (Matthew 17:27)  <br><br>
+        
+        G 	19. To whom did the collectors of the two-drachma temple tax come? <br>
+            A. Peter (Matthew 17:24)  <br><br>
+        
+        G 	20. Before whom did Moses and Elijah appear, talking with Jesus? <br>
+            A. Peter, James and John (the brother of James) (Matthew 17:3)  <br><br>
+        <br><br>
+        
+         <h7 id="4">SET #4 </h7>  <br><br>
+        
+        G 	1. Whom do the teachers of the law say must come first? <br>
+            A. Elijah (Matthew 17:10)  <br><br>
+        
+        A 	2. According to Matthew, chapter 17, verse 6, what were the disciples? <br>
+            A. Terrified (Matthew 17:6)  <br><br>
+        
+        G 	3. Who should go to the lake and throw out his line? <br>
+            A. Peter (Matthew 17:27)  <br><br>
+        
+        A 	4. According to Matthew, chapter 17, verse 15, what does my son often do? <br>
+            A. Fall into the fire or into the water (Matthew 17:15)  <br><br>
+        
+        G 	5. Who collect duty and taxes? <br>
+            A. The kings of the earth (Matthew 17:25)  <br><br>
+        
+        G 	6. Who instructed the disciples, "Don't tell anyone what you have seen, until the Son of Man has been raised from the dead."? <br>
+            A. Jesus (Matthew 17:9)  <br><br>
+        
+        R 	7. Finish this verse and give the reference: "While he was still speaking,. . ." <br>
+            A. ". . .a bright cloud covered them, and a voice from the cloud said, "This is my Son, whom I love; with him I am well pleased. Listen to him!" " (Matthew 17:5)  <br><br>
+        
+        G 	8. With whom were Moses and Elijah talking? <br>
+            A. Jesus (Matthew 17:3)  <br><br>
+        
+        A 	9. According to Matthew, chapter 17, verse 7, who came and touched them? <br>
+            A. Jesus (Matthew 17:7)  <br><br>
+        
+        G 	10. To whom did Jesus say, "Then the children are exempt."? <br>
+            A. Peter (Matthew 17:26)  <br><br>
+        
+        V 	11. Finish this verse: "There he was transfigured before. . ." <br>
+            A. ". . .them. His face shone like the sun, and his clothes became as white as the light." (Matthew 17:2)  <br><br>
+        
+        X 	12. Three-part answer: for whom did Peter say he would put up shelters? <br>
+            A. 1) Jesus; 2) Moses; 3) Elijah (Matthew 17:4)  <br><br>
+        
+        S 	13. Situation question: who said it, to whom, and in reply to what: "Because you have so little faith. Truly I tell you, if you have faith as small as a mustard seed, you can say to this mountain, 'Move from here to there,' and it will move. Nothing will be impossible for you."? <br>
+            A. Jesus said it to the disciples, in reply to, "Why couldn't we drive it out?" (Matthew 17:19-20)  <br><br>
+        
+        G 	14. Who could not heal a man's son? <br>
+            A. Jesus' disciples (Matthew 17:16)  <br><br>
+        
+        G 	15. How did the disciples come to Jesus and ask, "Why couldn't we drive it out?" <br>
+            A. In private (Matthew 17:19)  <br><br>
+        
+        Q 	16. Quote Matthew, chapter 17, verse 20. <br>
+            A. "He replied, "Because you have so little faith. Truly I tell you, if you have faith as small as a mustard seed, you can say to this mountain, 'Move from here to there,' and it will move. Nothing will be impossible for you."" (Matthew 17:20)  <br><br>
+        
+        G 	17. Who replied, "You unbelieving and perverse generation, how long shall I stay with you? How long shall I put up with you? Bring the boy here to me."? <br>
+            A. Jesus (Matthew 17:17)  <br><br>
+        
+        G 	18. When did Jesus take with him Peter, James and John the brother of James and lead them up a high mountain by themselves? <br>
+            A. After six days (Matthew 17:1)  <br><br>
+        
+        A 	19. According to Matthew, chapter 17, verse 18, when was the boy healed? <br>
+            A. At that moment (Matthew 17:18)  <br><br>
+        
+        G 	20. When did the disciples see no one except Jesus? <br>
+            A. When they looked up (Matthew 17:8)  <br><br>
+        <br><br>
+        
+         <h7 id="5">SET #5</h7>   <br><br>
+        
+        G 	1. Whom should the disciples not tell what they have seen until the Son of Man has been raised from the dead? <br>
+            A. Anyone (Matthew 17:9)  <br><br>
+        
+        G 	2. Whom did they not recognize? <br>
+            A. Elijah (Matthew 17:12)  <br><br>
+        
+        Q 	3. Quote Matthew, chapter 17, verse 2. <br>
+            A. "There he was transfigured before them. His face shone like the sun, and his clothes became as white as the light." (Matthew 17:2)  <br><br>
+        
+        A 	4. According to Matthew, chapter 17, verse 18, out of whom did the demon come? <br>
+            A. The boy (Matthew 17:18)  <br><br>
+        
+        G 	5. Who said, "The Son of Man is going to be delivered into the hands of men."? <br>
+            A. Jesus (Matthew 17:22)  <br><br>
+        
+        G 	6. How did the disciples fall facedown to the ground? <br>
+            A. Terrified (Matthew 17:6)  <br><br>
+        
+        A 	7. According to Matthew, chapter 17, verse 25, who came into the house? <br>
+            A. Peter (Matthew 17:25)  <br><br>
+        
+        G 	8. Who said, "Lord, have mercy on my son. He has seizures and is suffering greatly. He often falls into the fire or into the water."? <br>
+            A. A man (Matthew 17:15) <br><br>
+        
+        G 	9. Who fell facedown to the ground, terrified? <br>
+            A. The disciples [OR Peter, James and John (the brother of James)] (Matthew 17:6)  <br><br>
+        
+        R 	10. Finish this verse and give the reference: "He replied, "Because you have. . ." <br>
+            A. ". . .so little faith. Truly I tell you, if you have faith as small as a mustard seed, you can say to this mountain, 'Move from here to there,' and it will move. Nothing will be impossible for you." " (Matthew 17:20)  <br><br>
+        
+        G 	11. Who led Peter, James and John the brother of James up a high mountain by themselves? <br>
+            A. Jesus (Matthew 17:1)  <br><br>
+        
+        S 	12. Situation question: who said it, and to whom: "The Son of Man is going to be delivered into the hands of men. They will kill him, and on the third day he will be raised to life."? <br>
+            A. Jesus said it to the disciples (Matthew 17:22-23)  <br><br>
+        
+        A 	13. According to Matthew, chapter 17, verse 5, to whom should you listen? <br>
+            A. My Son (Matthew 17:5)  <br><br>
+        
+        G 	14. When will Peter put up three shelters - one for Jesus, one for Moses and one for Elijah? <br>
+            A. If Jesus wishes (Matthew 17:4)  <br><br>
+        
+        G 	15. Whom couldn't the disciples drive out? <br>
+            A. The demon (Matthew 17:19)  <br><br>
+        
+        V 	16. Finish this verse: "Just then there appeared before. . ." <br>
+            A. ". . .them Moses and Elijah, talking with Jesus." (Matthew 17:3) <br><br> 
+        
+        X 	17. In Matthew, chapter 17, how much was the temple tax? <br>
+            A. Two drachmas (Matthew 17:24)  <br><br>
+        
+        G 	18. Who replied, "To be sure, Elijah comes and will restore all things."? <br>
+            A. Jesus (Matthew 17:11)  <br><br>
+        
+        G 	19. Where will Peter find a four-drachma coin? <br>
+            A. In the mouth of the first fish he catches (Matthew 17:27)  <br><br>
+        
+        A 	20. According to Matthew, chapter 17, verse 10, what did the disciples ask him? <br>
+            A. "Why then do the teachers of the law say that Elijah must come first?" (Matthew 17:10) <br><br> 
+        <br><br>
+        
+         <h7 id="6">SET #6 </h7>  <br><br> 
+        
+        G 	1. What have they done to Elijah? <br>
+            A. Everything they wished (Matthew 17:12)  <br><br>
+        
+        G 	2. To whom did the collectors of the two-drachma temple tax come? <br>
+            A. Peter (Matthew 17:24)  <br><br>
+        
+        X 	3. From what are children exempt? <br>
+            A. Duty and taxes (Matthew 17:25-26)  <br><br>
+        
+        G 	4. When did a bright cloud cover them? <br>
+            A. While Peter was still speaking (Matthew 17:5)  <br><br>
+        
+        A 	5. According to Matthew, chapter 17, verse 19, how did the disciples come to Jesus? <br>
+            A. In private (Matthew 17:19)  <br><br>
+        
+        G 	6. Who rebuked the demon? <br>
+            A. Jesus (Matthew 17:18)  <br><br>
+        
+        A 	7. According to Matthew, chapter 17, verse 23, with what were the disciples filled? <br>
+            A. Grief (Matthew 17:23)  <br><br>
+        
+        G 	8. Who has seizures and is suffering greatly? <br>
+            A. A man's son (Matthew 17:15)  <br><br>
+        
+        V 	9. Finish this verse: "While he was still speaking,. . ." <br>
+            A. ". . .a bright cloud covered them, and a voice from the cloud said, "This is my Son, whom I love; with him I am well pleased. Listen to him!" (Matthew 17:5)  <br><br>
+        
+        S 	10. Situation question: who said it, to whom, and what was the reply: "Doesn't your teacher pay the temple tax?" <br>
+            A. The collectors of the two-drachma temple tax said it to Peter, and the reply was, "Yes, he does." (Matthew 17:24-25)  <br><br>
+        
+        A 	11. According to Matthew, chapter 17, verse 3, who appeared before them? <br>
+            A. Moses and Elijah (Matthew 17:3)  <br><br>
+        
+        G 	12. What became as white as the light? <br>
+            A. Jesus' clothes (Matthew 17:2)  <br><br>
+        
+        G 	13. Who say that Elijah must come first? <br>
+            A. The teachers of the law (Matthew 17:10)  <br><br>
+        
+        Q 	14. Quote Matthew, chapter 17, verse 20. <br>
+            A. "He replied, "Because you have so little faith. Truly I tell you, if you have faith as small as a mustard seed, you can say to this mountain, 'Move from here to there,' and it will move. Nothing will be impossible for you."" (Matthew 17:20)  <br><br>
+        
+        G 	15. Who will put up three shelters - one for Jesus, one for Moses and one for Elijah? <br>
+            A. Peter (Matthew 17:4)  <br><br>
+        
+        G 	16. For what should Peter give a four-drachma coin to them? <br>
+            A. Jesus' tax and Peter's (Matthew 17:27)  <br><br>
+        
+        A 	17. According to Matthew, chapter 17, verse 13, about whom was he talking to the disciples? <br>
+            A. John the Baptist (Matthew 17:13)  <br><br>
+        
+        R 	18. Finish this verse and give the reference: "There he was transfigured before. . ." <br>
+            A. ". . .them. His face shone like the sun, and his clothes became as white as the light. " (Matthew 17:2)  <br><br>
+        
+        G 	19. Who came to Peter and asked, "Doesn't your teacher pay the temple tax?" <br>
+            A. The collectors of the two-drachma temple tax (Matthew 17:24)  <br><br>
+        
+        G 	20. Before whom did Moses and Elijah appear, talking with Jesus? <br>
+            A. Peter, James and John (the brother of James) (Matthew 17:3)  <br><br>
+        <br><br>
+        
+         <h7 id="7">SET #7</h7>   <br><br>
+        
+        A 	1. According to Matthew, chapter 17, verse 27, what may we not cause? <br>
+            A. Offense (Matthew 17:27)  <br><br>
+        
+        G 	2. Whom do the teachers of the law say must come first? <br>
+            A. Elijah (Matthew 17:10)  <br><br>
+        
+        G 	3. Who instructed the disciples, "Don't tell anyone what you have seen, until the Son of Man has been raised from the dead."? <br>
+            A. Jesus (Matthew 17:9)  <br><br>
+        
+        Q 	4. Quote Matthew, chapter 17, verse 5. <br>
+            A. "While he was still speaking, a bright cloud covered them, and a voice from the cloud said, "This is my Son, whom I love; with him I am well pleased. Listen to him!"" (Matthew 17:5)  <br><br>
+        
+        A 	5. According to Matthew, chapter 17, verse 24, where did Jesus and his disciples arrive? <br>
+            A. In Capernaum (Matthew 17:24)  <br><br>
+        
+        G 	6. To whom did Jesus say, "Then the children are exempt."? <br>
+            A. Peter (Matthew 17:26)  <br><br>
+        
+        G 	7. Who rebuked the demon? <br>
+            A. Jesus (Matthew 17:18)  <br><br>
+        
+        R 	8. Finish this verse and give the reference: "Just then there appeared before. . ." <br>
+            A. ". . .them Moses and Elijah, talking with Jesus. " (Matthew 17:3)  <br><br>
+        
+        A 	9. According to Matthew, chapter 17, verse 25, when was Jesus the first to speak? <br>
+            A. When Peter came into the house (Matthew 17:25)  <br><br>
+        
+        G 	10. Who fell facedown to the ground, terrified? <br>
+            A. The disciples [OR Peter, James and John (the brother of James)] (Matthew 17:6)  <br><br>
+        
+        G 	11. When did the disciples see no one except Jesus? <br>
+            A. When they looked up (Matthew 17:8)  <br><br>
+        
+        S 	12. Situation question: who said it, to whom, and what was the reply: "From whom do the kings of the earth collect duty and taxes - from their own children or from others?" <br>
+            A. Jesus said it to Peter, and the reply was, "From others." (Matthew 17:25-26)  <br><br>
+        
+        V 	13. Finish this verse: "There he was transfigured before. . ." <br>
+            A. ". . .them. His face shone like the sun, and his clothes became as white as the light." (Matthew 17:2)  <br><br>
+        
+        G 	14. Who replied, "You unbelieving and perverse generation, how long shall I stay with you? How long shall I put up with you? Bring the boy here to me."? <br>
+            A. Jesus (Matthew 17:17)  <br><br>
+        
+        G 	15. Who said, "The Son of Man is going to be delivered into the hands of men."? <br>
+            A. Jesus (Matthew 17:22)  <br><br>
+        
+        X 	16. In Matthew, chapter 17, whom was Jesus talking about when he said, "Elijah has already come, and they did not recognize him, but have done to him everything they wished."? <br>
+            A. John the Baptist (Matthew 17:12-13)  <br><br>
+        
+        G 	17. Who will put up three shelters - one for Jesus, one for Moses and one for Elijah? <br>
+            A. Peter (Matthew 17:4)  <br><br>
+        
+        G 	18. When did Jesus take with him Peter, James and John the brother of James and lead them up a high mountain by themselves? <br>
+            A. After six days (Matthew 17:1)  <br><br>
+        
+        A 	19. According to Matthew, chapter 17, verse 20, what do you have? <br>
+            A. So little faith (Matthew 17:20)  <br><br>
+        
+        G 	20. Whom couldn't the disciples drive out? <br>
+            A. The demon (Matthew 17:19)  <br><br>
+        <br><br>
+        
+         <h7 id="8">SET #8</h7>   <br><br>
+        
+        G 	1. Whom should the disciples not tell what they have seen until the Son of Man has been raised from the dead? <br>
+            A. Anyone (Matthew 17:9)  <br><br>
+        
+        G 	2. When will Peter put up three shelters - one for Jesus, one for Moses and one for Elijah? <br>
+            A. If Jesus wishes (Matthew 17:4)  <br><br>
+        
+        R 	3. Finish this verse and give the reference: "He replied, "Because you have. . ." <br>
+            A. ". . .so little faith. Truly I tell you, if you have faith as small as a mustard seed, you can say to this mountain, 'Move from here to there,' and it will move. Nothing will be impossible for you." " (Matthew 17:20)  <br><br>
+        
+        G 	4. Who say that Elijah must come first? <br>
+            A. The teachers of the law (Matthew 17:10)  <br><br>
+        
+        A 	5. According to Matthew, chapter 17, verse 14, when did a man approach Jesus and kneel before him? <br>
+            A. When they came to the crowd (Matthew 17:14)  <br><br>
+        
+        G 	6. Who replied, "To be sure, Elijah comes and will restore all things."? <br>
+            A. Jesus (Matthew 17:11)  <br><br>
+        
+        G 	7. Who said, "Lord, have mercy on my son. He has seizures and is suffering greatly. He often falls into the fire or into the water."? <br>
+            A. A man (Matthew 17:15)  <br><br>
+        
+        Q 	8. Quote Matthew, chapter 17, verse 3. <br>
+            A. "Just then there appeared before them Moses and Elijah, talking with Jesus." (Matthew 17:3)  <br><br>
+        
+        X 	9. In Matthew, chapter 17, how much was the temple tax? <br>
+            A. Two drachmas (Matthew 17:24)  <br><br>
+        
+        G 	10. Who could not heal a man's son? <br>
+            A. Jesus' disciples (Matthew 17:16)  <br><br>
+        
+        S 	11. Situation question: who said it, and to whom: "Then the children are exempt."? <br>
+            A. Jesus said it to Peter (Matthew 17:26)  <br><br>
+        
+        A 	12. According to Matthew, chapter 17, verse 12, who is going to suffer at their hands? <br>
+            A. The Son of Man (Matthew 17:12)  <br><br>
+        
+        G 	13. How did the disciples come to Jesus and ask, "Why couldn't we drive it out?" <br>
+            A. In private (Matthew 17:19)  <br><br>
+        
+        G 	14. How did the disciples fall facedown to the ground? <br>
+            A. Terrified (Matthew 17:6)  <br><br>
+        
+        A 	15. According to Matthew, chapter 17, verse 5, what was he still doing? <br>
+            A. Speaking (Matthew 17:5)  <br><br>
+        
+        G 	16. Who should go to the lake and throw out his line? <br>
+            A. Peter (Matthew 17:27)  <br><br>
+        
+        G 	17. Who collect duty and taxes? <br>
+            A. The kings of the earth (Matthew 17:25)  <br><br>
+        
+        V 	18. Finish this verse: "There he was transfigured before. . ." <br>
+            A. ". . .them. His face shone like the sun, and his clothes became as white as the light." (Matthew 17:2)  <br><br>
+        
+        A 	19. According to Matthew, chapter 17, verse 5, what did a voice from the cloud say? <br>
+            A. "This is my Son, whom I love; with him I am well pleased. Listen to him!" (Matthew 17:5) <br><br> 
+        
+        G 	20. Who led Peter, James and John the brother of James up a high mountain by themselves? <br>
+            A. Jesus (Matthew 17:1)  <br><br>
+        <br><br>
+        
+         <h7 id="9">SET #9</h7>  <br><br>
+        
+        A 	1. According to Matthew, chapter 17, verse 12, at what is the Son of Man going to suffer? <br>
+            A. Their hands (Matthew 17:12)  <br><br>
+        
+        Q 	2. Quote Matthew, chapter 17, verse 20. <br>
+            A. "He replied, "Because you have so little faith. Truly I tell you, if you have faith as small as a mustard seed, you can say to this mountain, 'Move from here to there,' and it will move. Nothing will be impossible for you."" (Matthew 17:20)  <br><br>
+        
+        G 	3. Who came to Peter and asked, "Doesn't your teacher pay the temple tax?" <br>
+            A. The collectors of the two-drachma temple tax (Matthew 17:24)  <br><br>
+        
+        A 	4. According to Matthew, chapter 17, verse 14, before whom did a man kneel? <br>
+            A. Jesus (Matthew 17:14)  <br><br>
+        
+        G 	5. What have they done to Elijah? <br>
+            A. Everything they wished (Matthew 17:12)  <br><br>
+        
+        A 	6. According to Matthew, chapter 17, verse 6, what were the disciples? <br>
+            A. Terrified (Matthew 17:6)  <br><br>
+        
+        G 	7. To whom did the collectors of the two-drachma temple tax come? <br>
+            A. Peter (Matthew 17:24)  <br><br>
+        
+        G 	8. Where will Peter find a four-drachma coin? <br>
+            A. In the mouth of the first fish he catches (Matthew 17:27)  <br><br>
+        
+        S 	9. Situation question: who said it, and to whom: "Get up. Don't be afraid."? <br>
+            A. Jesus said it to the disciples (Peter, James and John) (Matthew 17:7)  <br><br>
+        
+        G 	10. For what should Peter give a four-drachma coin to them? <br>
+            A. Jesus' tax and Peter's (Matthew 17:27)  <br><br>
+        
+        G 	11. When did the collectors of the two-drachma temple tax come to Peter? <br>
+            A. After Jesus and his disciples arrived in Capernaum (Matthew 17:24)  <br><br>
+        
+        R 	12. Finish this verse and give the reference: "There he was transfigured before. . ." <br>
+            A. ". . .them. His face shone like the sun, and his clothes became as white as the light. " (Matthew 17:2)  <br><br>
+        
+        G 	13. When did a bright cloud cover them? <br>
+            A. While Peter was still speaking (Matthew 17:5)  <br><br>
+        
+        A 	14. According to Matthew, chapter 17, verse 26, what are the children? <br>
+            A. Exempt (Matthew 17:26)  <br><br>
+        
+        G 	15. Before whom did Moses and Elijah appear, talking with Jesus? <br>
+            A. Peter, James and John (the brother of James) (Matthew 17:3)  <br><br>
+        
+        V 	16. Finish this verse: "While he was still speaking,. . ." <br>
+            A. ". . .a bright cloud covered them, and a voice from the cloud said, "This is my Son, whom I love; with him I am well pleased. Listen to him!" (Matthew 17:5)  <br><br>
+        
+        G 	17. With whom were Moses and Elijah talking? <br>
+            A. Jesus (Matthew 17:3)  <br><br>
+        
+        G 	18. Who has seizures and is suffering greatly? <br>
+            A. A man's son (Matthew 17:15)  <br><br>
+        
+        X 	19. From what are children exempt? <br>
+            A. Duty and taxes (Matthew 17:25-26)  <br><br>
+        
+        G 	20. Whom did they not recognize? <br>
+            A. Elijah (Matthew 17:12)  <br><br>
+        <br><br>
+        
+         <h7 id="10">SET #10</h7>   <br><br>
+        
+        G 	1. Who collect duty and taxes? <br>
+            A. The kings of the earth (Matthew 17:25)  <br><br>
+        
+        G 	2. When did a bright cloud cover them? <br>
+            A. While Peter was still speaking (Matthew 17:5)  <br><br>
+        
+        A 	3. According to Matthew, chapter 17, verse 24, where did Jesus and his disciples arrive? <br>
+            A. In Capernaum (Matthew 17:24)  <br><br>
+        
+        G 	4. Who should go to the lake and throw out his line? <br>
+            A. Peter (Matthew 17:27)  <br><br>
+        
+        X 	5. Three-part answer: for whom did Peter say he would put up shelters? <br>
+            A. 1) Jesus; 2) Moses; 3) Elijah (Matthew 17:4)  <br><br>
+        
+        A 	6. According to Matthew, chapter 17, verse 1, whom did Jesus take with him? <br>
+            A. Peter, James and John the brother of James (Matthew 17:1)  <br><br>
+        
+        V 	7. Finish this verse: "He replied, "Because you have. . ." <br>
+            A. ". . .so little faith. Truly I tell you, if you have faith as small as a mustard seed, you can say to this mountain, 'Move from here to there,' and it will move. Nothing will be impossible for you." (Matthew 17:20)  <br><br>
+        
+        G 	8. Who replied, "To be sure, Elijah comes and will restore all things."? <br>
+            A. Jesus (Matthew 17:11)  <br><br>
+        
+        S 	9. Situation question: who said it, to whom, and when: "Don't tell anyone what you have seen, until the Son of Man has been raised from the dead."? <br>
+            A. Jesus said it to the disciples (Peter, James and John), as they were coming down the mountain (Matthew 17:9)  <br><br>
+        
+        G 	10. When did the disciples see no one except Jesus? <br>
+            A. When they looked up (Matthew 17:8)  <br><br>
+        
+        Q 	11. Quote Matthew, chapter 17, verse 3. <br>
+            A. "Just then there appeared before them Moses and Elijah, talking with Jesus." (Matthew 17:3)  <br><br>
+        
+        G 	12. Who replied, "You unbelieving and perverse generation, how long shall I stay with you? How long shall I put up with you? Bring the boy here to me."? <br>
+            A. Jesus (Matthew 17:17)  <br><br>
+        
+        G 	13. Who fell facedown to the ground, terrified? <br>
+            A. The disciples [OR Peter, James and John (the brother of James)] (Matthew 17:6)  <br><br>
+        
+        R 	14. Finish this verse and give the reference: "There he was transfigured before. . ." <br>
+            A. ". . .them. His face shone like the sun, and his clothes became as white as the light. " (Matthew 17:2)  <br><br>
+        
+        G 	15. To whom did Jesus say, "Then the children are exempt."? <br>
+            A. Peter (Matthew 17:26)  <br><br>
+        
+        G 	16. Whom do the teachers of the law say must come first? <br>
+            A. Elijah (Matthew 17:10)  <br><br>
+        
+        A 	17. According to Matthew, chapter 17, verse 7, who came and touched them? <br>
+            A. Jesus (Matthew 17:7)  <br><br>
+        
+        G 	18. Who rebuked the demon? <br>
+            A. Jesus (Matthew 17:18)  <br><br>
+        
+        A 	19. According to Matthew, chapter 17, verse 22, when did he say to them, "The Son of Man is going to be delivered into the hands of men."? <br>
+            A. When they came together in Galilee (Matthew 17:22)  <br><br>
+        
+        G 	20. Whom couldn't the disciples drive out? <br>
+            A. The demon (Matthew 17:19)  <br><br>
+        
+         </p>
+
+</body>
+</html>

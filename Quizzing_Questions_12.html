@@ -1,0 +1,902 @@
+<!DOCTYPE html>
+<html> 
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+
+        h1{
+            background-color: black;
+            text-align: center;
+            font-size: 120px;
+            margin: 0px;
+            padding: 30px;
+            color: rgb(0, 172, 172);
+            font-family: 'Impact', Haettenschweiler, Arial Narrow Bold, sans-serif;
+            top: 0px;
+            left: 0px;
+            text-emphasis: bold;
+        }
+
+        head{
+            background-color: black;
+            margin: 0px;
+            padding: 20px;
+        }
+
+        nav{
+            left: 0px;
+            margin: 0px;
+            padding: 20px;
+            background-color: rgb(0, 172, 172);
+            color: black;
+            text-align: left;
+            display: inline-block;
+            height: auto;
+        }
+
+        nav a{
+            color: black;
+            text-decoration: none;
+            margin: 10px 15px;
+            padding: 8px;
+            font-size: 24px;
+            display: inline-block;
+            box-shadow: 0px 0px 10px 5px black;
+            background-color: #b3b3b3;
+            border-radius: 5px;
+        }
+
+        body{
+            background-image: url('data:image/jpeg;base64,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');
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-attachment: fixed;
+        }
+
+        h2{
+            text-align: center;
+            color: white;
+            font-size: 32px;
+            text-emphasis: bold;
+            margin: 10px;
+            background-color: black;
+            padding: 10px;
+            border: double 3px black;
+        }
+
+        .bookmarks{
+            background-color: rgb(0, 172, 172);
+            position: absolute;
+            top: 290px;
+            left: 26%;
+            text-align: center;
+            padding: 10px 20px;
+            border: solid black 5px;
+            border-radius: 25px;
+        }
+
+        .bookmarks a{
+            display: inline-block;
+            background-color: black;
+            color: white;
+            text-emphasis: bold;
+            font-size: 24px;
+            margin: 10px;
+            padding: 10px;
+            border-radius: 10px;
+        }
+
+        h3{
+            font-size: 68px;
+            position: absolute;
+            float: center;
+            top: 350px;
+            left: 48%;
+            text-emphasis: bold;
+            text-align: center;
+            font-family: 'Times New Roman', Times, serif;
+        }
+
+        .verses a{
+            position: absolute;
+            color: rgb(0, 172, 172);
+            background-color: black;
+            font-size: 32px;
+            font-family: Arial, Helvetica, sans-serif;
+            left: 38%;
+            padding: 10px 100px;
+            text-decoration: none;
+            text-align: center;
+            top: 220px;
+            text-emphasis: bold;
+        }
+
+        #myBtn {
+            display: none; /* Hidden by default */
+            position: fixed; /* Fixed/sticky position */
+            bottom: 65px; /* Place the button at the bottom of the page */
+            left: 50px; /* Place the button 30px from the right */
+            z-index: 99; /* Make sure it does not overlap */
+            border: none; /* Remove borders */
+            outline: none; /* Remove outline */
+            background-color: rgb(0, 172, 172); /* Set a background color */
+            color: black; /* Text color */
+            cursor: pointer; /* Add a mouse pointer on hover */
+            padding: 10px; /* Some padding */
+            padding-bottom: 0px;
+            border-radius: 10px; /* Rounded corners */
+            border: solid black 5px;
+            font-size: 72px; /* Increase font size */
+        }
+
+        #myBtn:hover {
+            display: none; /* Hidden by default */
+            position: fixed; /* Fixed/sticky position */
+            bottom: 65px; /* Place the button at the bottom of the page */
+            left: 50px; /* Place the button 30px from the right */
+            z-index: 99; /* Make sure it does not overlap */
+            border: none; /* Remove borders */
+            outline: none; /* Remove outline */
+            background-color: rgb(0, 0, 0); /* Set a background color */
+            color: rgb(0, 172, 172); /* Text color */
+            cursor: pointer; /* Add a mouse pointer on hover */
+            padding: 10px; /* Some padding */
+            padding-bottom: 0px;
+            border-radius: 10px; /* Rounded corners */
+            border: solid rgb(0, 172, 172) 5px;
+            font-size: 72px; /* Increase font size */
+        }
+
+        p{
+            font-size: 22px;
+            position: absolute;
+            top: 500px;
+            left: 30%;
+        }
+
+        h7{
+            font-size: 32px;
+            text-emphasis: bold;
+        }
+
+    </style>
+    <button onclick="topFunction()" id="myBtn" title="Go to top"><b>^</b></button>
+<head> 
+    <h1>Questions</h1>
+    <div class="verses">
+        <a href="Quizzing.html">Click here for memory verses.</a>        
+   </div>
+</head>
+<body>
+   
+    <script>
+        //Get the button
+        var mybutton = document.getElementById("myBtn");
+        
+        // When the user scrolls down 20px from the top of the document, show the button
+        window.onscroll = function() {scrollFunction()};
+        
+        function scrollFunction() {
+          if (document.body.scrollTop > 1750 || document.documentElement.scrollTop > 1750) {
+            mybutton.style.display = "block";
+          } else {
+            mybutton.style.display = "none";
+          }
+        }
+        
+        // When the user clicks on the button, scroll to the top of the document
+        function topFunction() {
+          document.body.scrollTop = 0;
+          document.documentElement.scrollTop = 0;
+        }
+        </script>
+
+    <nav>
+
+        <h2>Select a Chapter</h2>
+        <br>
+
+        <a href="Quizzing_Questions_1.html">Matthew 1</a>
+        <br>
+        <a href="Quizzing_Questions_2.html">Matthew 2</a>
+        <br>
+        <a href="Quizzing_Questions_3.html">Matthew 3</a>
+        <br>
+        <a href="Quizzing_Questions_4.html">Matthew 4</a>
+        <br>
+        <a href="Quizzing_Questions_5.html">Matthew 5</a>
+        <br>
+        <a href="Quizzing_Questions_6.html">Matthew 6</a>
+        <br>
+        <a href="Quizzing_Questions_7.html">Matthew 7</a>
+        <br>
+        <a href="Quizzing_Questions_8.html">Matthew 8</a>
+        <br>
+        <a href="Quizzing_Questions_9.html">Matthew 9</a>
+        <br>
+        <a href="Quizzing_Questions_10.html">Matthew 10</a>
+        <br>
+        <a href="Quizzing_Questions_11.html">Matthew 11</a>
+        <br>
+        <a href="Quizzing_Questions_12.html">Matthew 12</a>
+        <br>
+        <a href="Quizzing_Questions_13.html">Matthew 13</a>
+        <br>
+        <a href="Quizzing_Questions_14.html">Matthew 14</a>
+        <br>
+        <a href="Quizzing_Questions_15.html">Matthew 15</a>
+        <br>
+        <a href="Quizzing_Questions_16.html">Matthew 16</a>
+        <br>
+        <a href="Quizzing_Questions_17.html">Matthew 17</a>
+        <br>
+        <a href="Quizzing_Questions_18.html">Matthew 18</a>
+        <br>
+        <a href="Quizzing_Questions_19.html">Matthew 19</a>
+        <br>
+        <a href="Quizzing_Questions_20.html">Matthew 20</a>
+        <br>
+        <a href="Quizzing_Questions_21.html">Matthew 21</a>
+        <br>
+        <a href="Quizzing_Questions_22.html">Matthew 22</a>
+        <br>
+        <a href="Quizzing_Questions_23.html">Matthew 23</a>
+        <br>
+        <a href="Quizzing_Questions_24.html">Matthew 24</a>
+        <br>
+        <a href="Quizzing_Questions_25.html">Matthew 25</a>
+        <br>
+        <a href="Quizzing_Questions_26.html">Matthew 26</a>
+        <br>
+        <a href="Quizzing_Questions_27.html">Matthew 27</a>
+        <br>
+        <a href="Quizzing_Questions_28.html">Matthew 28</a>
+    </nav>
+
+    <div class="bookmarks">
+        <a href="#1">Set 1</a>
+        <a href="#2">Set 2</a>
+        <a href="#3">Set 3</a>
+        <a href="#4">Set 4</a>
+        <a href="#5">Set 5</a>
+        <a href="#6">Set 6</a>
+        <a href="#7">Set 7</a>
+        <a href="#8">Set 8</a>
+        <a href="#9">Set 9</a>
+        <a href="#10">Set 10</a>
+    </div>
+
+    <h3>Matthew 12</h3>
+
+    <p> <h7 id="1">SET #1</h7>   <br><br>
+
+        S 	1. Situation question: who said it, to whom, and in reply to what: "If any of you has a sheep and it falls into a pit on the Sabbath, will you not take hold of it and lift it out?" <br>
+            A. Jesus said it to the Pharisees, in reply to, "Is it lawful to heal on the Sabbath?" (Matthew 12:10-11) <br><br> 
+        
+        A 	2. According to Matthew, chapter 12, verse 20, what will he not break? <br>
+            A. A bruised reed (Matthew 12:20)  <br><br>
+        
+        V 	3. Finish this verse: "For the Son of Man. . ." <br>
+            A. ". . .is Lord of the Sabbath." (Matthew 12:8)  <br><br>
+        
+        G 	4. Who will be given the sign of the prophet Jonah? <br>
+            A. A wicked and adulterous generation (Matthew 12:39)  <br><br>
+        
+        G 	5. Who will proclaim justice to the nations? <br>
+            A. My servant (Matthew 12:18)  <br><br>
+        
+        A 	6. According to Matthew, chapter 12, verse 31, what can be forgiven? <br>
+            A. Every kind of sin and slander (Matthew 12:31)  <br><br>
+        
+        G 	7. Who will be three days and three nights in the heart of the earth? <br>
+            A. The Son of Man (Matthew 12:40)  <br><br>
+        
+        R 	8. Finish this verse and give the reference: "For the Son of Man. . ." <br>
+            A. ". . .is Lord of the Sabbath." (Matthew 12:8)  <br><br>
+        
+        G 	9. To whom did the Pharisees say, "Look! Your disciples are doing what is unlawful on the Sabbath."? <br>
+            A. Jesus (Matthew 12:2)  <br><br>
+        
+        X 	10. In Matthew, chapter 12, of what was Jesus aware? <br>
+            A. That the Pharisees were plotting how they might kill him (Matthew 12:14-15)  <br><br>
+        
+        G 	11. Why will the Queen of the South rise at the judgment with this generation and condemn it? <br>
+            A. For she came from the ends of the earth to listen to Solomon's wisdom, and now something greater than Solomon is here (Matthew 12:42)  <br><br>
+        
+        G 	12. Who said, "Could this be the Son of David?" <br>
+            A. All the people (Matthew 12:23)  <br><br>
+        
+        Q 	13. Quote Matthew, chapter 12, verse 8. <br>
+            A. "For the Son of Man is Lord of the Sabbath."" (Matthew 12:8)  <br><br>
+        
+        G 	14. What will anyone who speaks a word against the Son of Man be? <br>
+            A. Forgiven (Matthew 12:32)  <br><br>
+        
+        A 	15. According to Matthew, chapter 12, verse 24, who heard this? <br>
+            A. The Pharisees (Matthew 12:24)  <br><br>
+        
+        G 	16. When will everyone have to give account for every empty word they have spoken? <br>
+            A. On the day of judgment (Matthew 12:36)  <br><br>
+        
+        G 	17. Than what is the final condition of that person worse? <br>
+            A. The first (condition) (Matthew 12:45)  <br><br>
+        
+        A 	18. According to Matthew, chapter 12, verse 27, what will they be? <br>
+            A. Your judges (Matthew 12:27)  <br><br>
+        
+        G 	19. What does the mouth speak? <br>
+            A. What the heart is full of (Matthew 12:34)  <br><br>
+        
+        G 	20. When does an impure spirit say, "I will return to the house I left."? <br>
+            A. When it comes out of a person and goes through arid places seeking rest and does not find it (Matthew 12:43-44)  <br><br>
+        
+         <br><br>
+          <h7 id="2">SET #2</h7><br><br>
+        
+        A 	1. According to Matthew, chapter 12, verse 12, what is lawful? <br>
+            A. To do good on the Sabbath (Matthew 12:12)  <br><br>
+        
+        G 	2. What will a tree's fruit be if you make a tree bad? <br>
+            A. Bad (Matthew 12:33)  <br><br>
+        
+        G 	3. Who says, "I will return to the house I left"? <br>
+            A. An impure spirit (Matthew 12:44)  <br><br>
+        
+        R 	4. Finish this verse and give the reference: "For the Son of Man. . ." <br>
+            A. ". . .is Lord of the Sabbath." (Matthew 12:8)  <br><br>
+        
+        G 	5. What city will not stand? <br>
+            A. Every city divided against itself (Matthew 12:25)  <br><br>
+        
+        G 	6. What did the men of Nineveh do at the preaching of Jonah? <br>
+            A. They repented (Matthew 12:41)  <br><br>
+        
+        A 	7. According to Matthew, chapter 12, verse 30, who is against me? <br>
+            A. Whoever is not with me (Matthew 12:30)  <br><br>
+        
+        G 	8. Who came from the ends of the earth to listen to Solomon's wisdom? <br>
+            A. The Queen of the South (Matthew 12:42)  <br><br>
+        
+        G 	9. Who said, "It is only by Beelzebul, the prince of demons, that this fellow drives out demons."? <br>
+            A. The Pharisees (Matthew 12:24)  <br><br>
+        
+        A 	10. According to Matthew, chapter 12, verse 23, who were astonished? <br>
+            A. All the people (Matthew 12:23)  <br><br>
+        
+        Q 	11. Quote Matthew, chapter 12, verse 8. <br>
+            A. "For the Son of Man is Lord of the Sabbath."" (Matthew 12:8)  <br><br>
+        
+        G 	12. Who brings good things out of the good stored up in him? <br>
+            A. A good man (Matthew 12:35)  <br><br>
+        
+        S 	13. Situation question: who said it, about whom, and when: "It is only by Beelzebul, the prince of demons, that this fellow drives out demons."? <br>
+            A. The Pharisees said it about Jesus, when they heard that Jesus had healed a demon-possessed man who was blind and mute so that he could both talk and see (Matthew 12:22-24)  <br><br>
+        
+        G 	14. Who said, "If any of you has a sheep and it falls into a pit on the Sabbath, will you not take hold of it and lift it out?" <br>
+            A. Jesus (Matthew 12:11)  <br><br>
+        
+        A 	15. According to Matthew, chapter 12, verse 3, what did he answer? <br>
+            A. "Haven't you read what David did when he and his companions were hungry?" (Matthew 12:3)  <br><br>
+        
+        G 	16. What sign will be given a wicked and adulterous generation? <br>
+            A. None except the sign of the prophet Jonah (Matthew 12:39)  <br><br>
+        
+        V 	17. Finish this verse: "For the Son of Man. . ." <br>
+            A. ". . .is Lord of the Sabbath." (Matthew 12:8)  <br><br>
+        
+        X 	18. From what Old Testament book does the following quotation come: "In his name the nations will put their hope."? <br>
+            A. Isaiah (Matthew 12:21)  <br><br>
+        
+        G 	19. Where was Jonah three days and three nights? <br>
+            A. In the belly of a huge fish (Matthew 12:40)  <br><br>
+        
+        G 	20. To whom did Jesus point and say, "Here are my mother and my brothers."? <br>
+            A. His disciples (Matthew 12:49)  <br><br>
+        
+         <br><br>
+          <h7 id="3">SET #3</h7><br><br>
+        
+        G 	1. What blasphemy will not be forgiven? <br>
+            A. Blasphemy against the Spirit (Matthew 12:31)  <br><br>
+        
+        G 	2. For whom was it not lawful to eat the consecrated bread? <br>
+            A. David and his companions (Matthew 12:4)  <br><br>
+        
+        R 	3. Finish this verse and give the reference: "For the Son of Man. . ." <br>
+            A. ". . .is Lord of the Sabbath." (Matthew 12:8)  <br><br>
+        
+        G 	4. Who said, "Here are my mother and my brothers."? <br>
+            A. Jesus (Matthew 12:49)  <br><br>
+        
+        G 	5. What does a good man bring out of the good stored up in him? <br>
+            A. Good things (Matthew 12:35)  <br><br>
+        
+        X 	6. In Matthew, chapter 12, than what is a person much more valuable? <br>
+            A. A sheep (Matthew 12:12)  <br><br>
+        
+        A 	7. According to Matthew, chapter 12, verse 15, whom did Jesus heal? <br>
+            A. All who were ill (Matthew 12:15)  <br><br>
+        
+        V 	8. Finish this verse: "For the Son of Man. . ." <br>
+            A. ". . .is Lord of the Sabbath." (Matthew 12:8)  <br><br>
+        
+        G 	9. Who healed a demon-possessed man who was blind and mute? <br>
+            A. Jesus (Matthew 12:22)  <br><br>
+        
+        A 	10. According to Matthew, chapter 12, verse 14, who plotted how they might kill Jesus? <br>
+            A. The Pharisees (Matthew 12:14)  <br><br>
+        
+        G 	11. What does an impure spirit seek when it comes out of a person? <br>
+            A. Rest (Matthew 12:43)  <br><br>
+        
+        A 	12. According to Matthew, chapter 12, verse 32, who will be forgiven? <br>
+            A. Anyone who speaks a word against the Son of Man (Matthew 12:32)  <br><br>
+        
+        Q 	13. Quote Matthew, chapter 12, verse 8. <br>
+            A. "For the Son of Man is Lord of the Sabbath."" (Matthew 12:8)  <br><br>
+        
+        G 	14. When will a tree's fruit be bad? <br>
+            A. If you make a tree bad (Matthew 12:33)  <br><br>
+        
+        G 	15. Who said, "Teacher, we want to see a sign from you."? <br>
+            A. Some of the Pharisees and teachers of the law (Matthew 12:38)  <br><br>
+        
+        S 	16. Situation question: who said it, and about whom: "It is only by Beelzebul, the prince of demons, that this fellow drives out demons."? <br>
+            A. The Pharisees said it about Jesus (Matthew 12:24)  <br><br>
+        
+        G 	17. What was completely restored, just as sound as the other? <br>
+            A. The man's shriveled hand (Matthew 12:13)  <br><br>
+        
+        A 	18. According to Matthew, chapter 12, verse 19, what will he not do? <br>
+            A. Quarrel or cry out (Matthew 12:19)  <br><br>
+        
+        G 	19. When is something greater than Solomon here? <br>
+            A. Now (Matthew 12:42)  <br><br>
+        
+        G 	20. What is worse than the first? <br>
+            A. The final condition of that person (Matthew 12:45)  <br><br>
+        
+         <br><br>
+          <h7 id="4">SET #4</h7><br><br>
+        
+        G 	1. Who will have to give account on the day of judgment for every empty word they have spoken? <br>
+            A. Everyone (Matthew 12:36)  <br><br>
+        
+        G 	2. Who told Jesus, "Your mother and brothers are standing outside, wanting to speak to you."? <br>
+            A. Someone (Matthew 12:47)  <br><br>
+        
+        R 	3. Finish this verse and give the reference: "For the Son of Man. . ." <br>
+            A. ". . .is Lord of the Sabbath." (Matthew 12:8)  <br><br>
+        
+        G 	4. Who is against Jesus? <br>
+            A. Whoever is not with Jesus (Matthew 12:30)  <br><br>
+        
+        G 	5. What does an impure spirit find when it arrives at the house it left? <br>
+            A. The house unoccupied, swept clean and put in order (Matthew 12:44)  <br><br>
+        
+        V 	6. Finish this verse: "For the Son of Man. . ." <br>
+            A. ". . .is Lord of the Sabbath." (Matthew 12:8)  <br><br>
+        
+        G 	7. What did the Queen of the South do? <br>
+            A. She came from the ends of the earth to listen to Solomon's wisdom (Matthew 12:42)  <br><br>
+        
+        G 	8. Who were hungry and began to pick some heads of grain and eat them? <br>
+            A. Jesus' disciples (Matthew 12:1)  <br><br>
+        
+        A 	9. According to Matthew, chapter 12, verse 33, what will be bad? <br>
+            A. A bad tree's fruit (Matthew 12:33)  <br><br>
+        
+        G 	10. Why did the Pharisees ask Jesus, "Is it lawful to heal on the Sabbath?" <br>
+            A. They were looking for a reason to bring charges against Jesus (Matthew 12:10)  <br><br>
+        
+        A 	11. According to Matthew, chapter 12, verse 18, who is here? <br>
+            A. My servant (whom I have chosen, the one I love, in whom I delight) (Matthew 12:18)  <br><br>
+        
+        S 	12. Situation question: who said it, to whom, and in reply to what: "A wicked and adulterous generation asks for a sign! But none will be given it except the sign of the prophet Jonah."? <br>
+            A. Jesus said it to some of the Pharisees and teachers of the law, in reply to, "Teacher, we want to see a sign from you." (Matthew 12:38-39)  <br><br>
+        
+        G 	13. Who stood outside, wanting to speak to Jesus? <br>
+            A. Jesus' mother and brothers (Matthew 12:46)  <br><br>
+        
+        G 	14. How long will the Son of Man be in the heart of the earth? <br>
+            A. Three days and three nights (Matthew 12:40)  <br><br>
+        
+        Q 	15. Quote Matthew, chapter 12, verse 8. <br>
+            A. "For the Son of Man is Lord of the Sabbath."" (Matthew 12:8)  <br><br>
+        
+        X 	16. In Matthew, chapter 12, what did the Pharisees see? <br>
+            A. Jesus' disciples picking heads of grain on the Sabbath and eating them (Matthew 12:1-2)  <br><br>
+        
+        A 	17. According to Matthew, chapter 12, verse 35, what does a good man do? <br>
+            A. Bring good things out of the good stored up in him (Matthew 12:35) <br><br>
+        
+        G 	18. What was not lawful for David and his companions to do? <br>
+            A. Eat the consecrated bread (Matthew 12:4)  <br><br>
+        
+        G 	19. Till when will my servant not break a bruised reed and snuff out a smoldering wick? <br>
+            A. Till he has brought justice through to victory (Matthew 12:20)  <br><br>
+        
+        A 	20. According to Matthew, chapter 12, verse 25, what will be ruined? <br>
+            A. Every kingdom divided against itself (Matthew 12:25)  <br><br>
+        
+         <br><br>
+          <h7 id="5">SET #5</h7><br><br>
+        
+        A 	1. According to Matthew, chapter 12, verse 21, what will the nations do? <br>
+            A. Put their hope in his name (Matthew 12:21)  <br><br>
+        
+        X 	2. From what Old Testament book does the following quotation come: "He will not quarrel or cry out; no one will hear his voice in the streets."? <br>
+            A. Isaiah (Matthew 12:19)  <br><br>
+        
+        A 	3. According to Matthew, chapter 12, verse 22, who was blind and mute? <br>
+            A. A demon-possessed man (Matthew 12:22)  <br><br>
+        
+        G 	4. By what will you be condemned? <br>
+            A. Your words (Matthew 12:37)  <br><br>
+        
+        G 	5. When has the kingdom of God come upon you? <br>
+            A. If it is by the Spirit of God that Jesus drives out demons (Matthew 12:28)  <br><br>
+        
+        R 	6. Finish this verse and give the reference: "For the Son of Man. . ." <br>
+            A. ". . .is Lord of the Sabbath." (Matthew 12:8)  <br><br>
+        
+        G 	7. Out of what does a good man bring good things? <br>
+            A. The good stored up in him (Matthew 12:35)  <br><br>
+        
+        G 	8. To what did the Queen of the South come from the ends of the earth to listen? <br>
+            A. Solomon's wisdom (Matthew 12:42)  <br><br>
+        
+        V 	9. Finish this verse: "For the Son of Man. . ." <br>
+            A. ". . .is Lord of the Sabbath." (Matthew 12:8)  <br><br>
+        
+        G 	10. What do the priests on Sabbath duty in the temple desecrate? <br>
+            A. The Sabbath (Matthew 12:5)  <br><br>
+        
+        S 	11. Situation question: who says it, and when: "I will return to the house I left."? <br>
+            A. An impure spirit says it when it comes out of a person and goes through arid places seeking rest and does not find it (Matthew 12:43-44)  <br><br>
+        
+        A 	12. According to Matthew, chapter 12, verse 38, who want to see a sign from you? <br>
+            A. Some of the Pharisees and teachers of the law (Matthew 12:38)  <br><br>
+        
+        G 	13. Why will the men of Nineveh stand up at the judgment with this generation and condemn it? <br>
+            A. For they repented at the preaching of Jonah, and now something greater than Jonah is here (Matthew 12:41)  <br>
+        
+        Q 	14. Quote Matthew, chapter 12, verse 8. <br>
+            A. "For the Son of Man is Lord of the Sabbath."" (Matthew 12:8)  <br><br>
+        
+        G 	15. Of whom is Beelzebul the prince? <br>
+            A. Demons (Matthew 12:24)  <br><br>
+        
+        G 	16. Who goes and takes with it seven other spirits more wicked than itself? <br>
+            A. An impure spirit (Matthew 12:45)  <br><br>
+        
+        A 	17. According to Matthew, chapter 12, verse 36, what do I tell you? <br>
+            A. That everyone will have to give account on the day of judgment for every empty word they have spoken (Matthew 12:36)  <br><br>
+        
+        G 	18. To whom will my servant proclaim justice? <br>
+            A. The nations (Matthew 12:18)  <br><br>
+        
+        G 	19. What will not stand? <br>
+            A. Every city or household divided against itself (Matthew 12:25)  <br><br>
+        
+        G 	20. Where does an impure spirit go seeking rest when it comes out of a person? <br>
+            A. Through arid places (Matthew 12:43)  <br><br>
+        
+         <br><br>
+          <h7 id="6">SET #6</h7><br><br>
+        
+        A 	1. According to Matthew, chapter 12, verse 15, who was aware of this? <br>
+            A. Jesus (Matthew 12:15)  <br><br>
+        
+        G 	2. By what is a tree recognized? <br>
+            A. Its fruit (Matthew 12:33)  <br><br>
+        
+        G 	3. What would the Pharisees not have done if they had known what these words mean, "I desire mercy, not sacrifice."? <br>
+            A. Condemned the innocent (Matthew 12:7)  <br><br>
+        
+        A 	4. According to Matthew, chapter 12, verse 39, who asks for a sign? <br>
+            A. A wicked and adulterous generation (Matthew 12:39)  <br><br>
+        
+        R 	5. Finish this verse and give the reference: "For the Son of Man. . ." <br>
+            A. ". . .is Lord of the Sabbath." (Matthew 12:8)  <br><br>
+        
+        S 	6. Situation question: who said it, and to whom: "Your mother and brothers are standing outside, wanting to speak to you"? <br>
+            A. Someone said it to Jesus (Matthew 12:47)  <br><br>
+        
+        G 	7. Whose voice will no one hear in the streets? <br>
+            A. My servant's (Matthew 12:19)  <br><br>
+        
+        G 	8. Where was a man with a shriveled hand? <br>
+            A. In their (the Pharisees') synagogue (Matthew 12:10)  <br><br>
+        
+        A 	9. According to Matthew, chapter 12, verse 4, what did he enter? <br>
+            A. The house of God (Matthew 12:4)  <br><br>
+        
+        V 	10. Finish this verse: "For the Son of Man. . ." <br>
+            A. ". . .is Lord of the Sabbath." (Matthew 12:8)  <br><br>
+        
+        X 	11. In Matthew, chapter 12, how did the Pharisees say Jesus drove out demons? <br>
+            A. By Beelzebul (Matthew 12:24)  <br><br>
+        
+        G 	12. Through what did Jesus go on the Sabbath? <br>
+            A. The grainfields (Matthew 12:1)  <br><br>
+        
+        G 	13. Who are innocent when they desecrate the Sabbath? <br>
+            A. The priests on Sabbath duty in the temple (Matthew 12:5)  <br><br>
+        
+        Q 	14. Quote Matthew, chapter 12, verse 8. <br>
+            A. "For the Son of Man is Lord of the Sabbath."" (Matthew 12:8)  <br><br>
+        
+        G 	15. What did Jesus say to the man with a shriveled hand? <br>
+            A. "Stretch out your hand." (Matthew 12:13)  <br><br>
+        
+        A 	16. According to Matthew, chapter 12, verse 22, who could both talk and see? <br>
+            A. A demon-possessed man who was blind and mute (whom Jesus healed) (Matthew 12:22)  <br><br>
+        
+        G 	17. Where is something greater than Jonah now? <br>
+            A. Here (Matthew 12:41)  <br><br>
+        
+        G 	18. In whose name will the nations put their hope? <br>
+            A. My servant's (Matthew 12:21)  <br><br>
+        
+        G 	19. Where does an impure spirit and seven other spirits more wicked than itself live? <br>
+            A. In the house the impure spirit left (Matthew 12:45)  <br><br>
+        
+        G 	20. When can anyone plunder a strong man's house? <br>
+            A. When he first ties up the strong man (Matthew 12:29)  <br><br>
+        
+         <br><br>
+          <h7 id="7">SET #7</h7><br><br>
+        
+        G 	1. Who healed all who were ill? <br>
+            A. Jesus (Matthew 12:15)  <br><br>
+        
+        A 	2. According to Matthew, chapter 12, verse 41, who will condemn this generation? <br>
+            A. The men of Nineveh (Matthew 12:41)  <br><br>
+        
+        G 	3. Who will put their hope in my servant's name? <br>
+            A. The nations (Matthew 12:21)  <br><br>
+        
+        G 	4. Who is Lord of the Sabbath? <br>
+            A. The Son of Man (Matthew 12:8)  <br><br>
+        
+        R 	5. Finish this verse and give the reference: "For the Son of Man. . ." <br>
+            A. ". . .is Lord of the Sabbath." (Matthew 12:8)  <br><br>
+        
+        G 	6. Why did the man with a shriveled hand stretch his hand out? <br>
+            A. Because Jesus said to him, "Stretch out your hand." (Matthew 12:13)  <br><br>
+        
+        S 	7. Situation question: who said it, and to whom: "If any of you has a sheep and it falls into a pit on the Sabbath, will you not take hold of it and lift it out?" <br>
+            A. Jesus said it to the Pharisees (Matthew 12:11)  <br><br>
+        
+        A 	8. According to Matthew, chapter 12, verse 2, what did the Pharisees say to him? <br>
+            A. "Look! Your disciples are doing what is unlawful on the Sabbath." (Matthew 12:2)  <br><br>
+        
+        G 	9. What if you make a tree good? <br>
+            A. Its fruit will be good (Matthew 12:33)  <br><br>
+        
+        G 	10. How was the man's hand restored? <br>
+            A. Completely, just as sound as the other (Matthew 12:13)  <br><br>
+        
+        V 	11. Finish this verse: "For the Son of Man. . ." <br>
+            A. ". . .is Lord of the Sabbath." (Matthew 12:8)  <br><br>
+        
+        X 	12. In Matthew, chapter 12, what can Satan's kingdom not do if he drives out himself? <br>
+            A. Stand (Matthew 12:26)  <br><br>
+        
+        G 	13. Who will hear my servant's voice in the streets? <br>
+            A. No one (Matthew 12:19)  <br><br>
+        
+        G 	14. When would the Pharisees not have condemned the innocent? <br>
+            A. If they had known what these words mean, "I desire mercy, not sacrifice." (Matthew 12:7)  <br><br>
+        
+        Q 	15. Quote Matthew, chapter 12, verse 8. <br>
+            A. "For the Son of Man is Lord of the Sabbath."" (Matthew 12:8)  <br><br>
+        
+        G 	16. What kingdom will be ruined? <br>
+            A. Every kingdom divided against itself (Matthew 12:25)  <br><br>
+        
+        G 	17. Who said, "Stretch out your hand."? <br>
+            A. Jesus (Matthew 12:13)  <br><br>
+        
+        A 	18. According to Matthew, chapter 12, verse 17, what was this to fulfill? <br>
+            A. What was spoken through the prophet Isaiah (Matthew 12:17)  <br><br>
+        
+        G 	19. Who said, "Every kingdom divided against itself will be ruined, and every city or household divided against itself will not stand."? <br>
+            A. Jesus (Matthew 12:25)  <br><br>
+        
+        A 	20. According to Matthew, chapter 12, verse 18, on whom will I put my Spirit? <br>
+            A. My servant (whom I have chosen, the one I love, in whom I delight) (Matthew 12:18)  <br><br>
+        
+         <br><br>
+          <h7 id="8">SET #8</h7><br><br>
+        
+        G 	1. Who healed all who were ill? <br>
+            A. Jesus (Matthew 12:15)  <br><br>
+        
+        G 	2. Whose voice will no one hear in the streets? <br>
+            A. My servant's (Matthew 12:19)  <br><br>
+        
+        R 	3. Finish this verse and give the reference: "For the Son of Man. . ." <br>
+            A. ". . .is Lord of the Sabbath." (Matthew 12:8)  <br><br>
+        
+        G 	4. Who will have to give account on the day of judgment for every empty word they have spoken? <br>
+            A. Everyone (Matthew 12:36)  <br><br>
+        
+        X 	5. Unless what can no one enter a strong man's house and carry off his possessions? <br>
+            A. Unless he first ties up the strong man (Matthew 12:29)  <br><br>
+        
+        G 	6. Who will put their hope in my servant's name? <br>
+            A. The nations (Matthew 12:21)  <br><br>
+        
+        A 	7. According to Matthew, chapter 12, verse 43, what does an impure spirit not find? <br>
+            A. Rest (Matthew 12:43)  <br><br>
+        
+        S 	8. Situation question: who said it, and to whom: "Stretch out your hand."? <br>
+            A. Jesus said it to the man with a shriveled hand (Matthew 12:13)  <br><br>
+        
+        G 	9. What if Satan drives out Satan? <br>
+            A. He is divided against himself (Matthew 12:26)  <br><br>
+        
+        G 	10. What does the mouth speak? <br>
+            A. What the heart is full of (Matthew 12:34)  <br><br>
+        
+        V 	11. Finish this verse: "For the Son of Man. . ." <br>
+            A. ". . .is Lord of the Sabbath." (Matthew 12:8)  <br><br>
+        
+        G 	12. Till when will my servant not break a bruised reed and snuff out a smoldering wick? <br>
+            A. Till he has brought justice through to victory (Matthew 12:20)  <br><br>
+        
+        G 	13. Who will be given the sign of the prophet Jonah? <br>
+            A. A wicked and adulterous generation (Matthew 12:39)  <br><br>
+        
+        Q 	14. Quote Matthew, chapter 12, verse 8. <br>
+            A. "For the Son of Man is Lord of the Sabbath."" (Matthew 12:8)  <br><br>
+        
+        A 	15. According to Matthew, chapter 12, verse 42, who will condemn this generation? <br>
+            A. The Queen of the South (Matthew 12:42)  <br><br>
+        
+        G 	16. Who will proclaim justice to the nations? <br>
+            A. My servant (Matthew 12:18)  <br><br>
+        
+        G 	17. Who told Jesus, "Your mother and brothers are standing outside, wanting to speak to you."? <br>
+            A. Someone (Matthew 12:47)  <br><br>
+        
+        A 	18. According to Matthew, chapter 12, verse 11, what did he say to them? <br>
+            A. "If any of you has a sheep and it falls into a pit on the Sabbath, will you not take hold of it and lift it out?" (Matthew 12:11)  <br><br>
+        
+        G 	19. Who goes and takes with it seven other spirits more wicked than itself? <br>
+            A. An impure spirit (Matthew 12:45)  <br><br>
+        
+        A 	20. According to Matthew, chapter 12, verse 41, who repented? <br>
+            A. The men of Nineveh (Matthew 12:41)  <br><br>
+        <br><br>
+        
+         <h7 id="9">SET #9</h7>   <br><br>
+        
+        G 	1. Where was Jonah three days and three nights? <br>
+            A. In the belly of a huge fish (Matthew 12:40)  <br><br>
+        
+        A 	2. According to Matthew, chapter 12, verse 46, who stood outside? <br>
+            A. Jesus' mother and brothers (Matthew 12:46)  <br><br>
+        
+        G 	3. Who brings good things out of the good stored up in him? <br>
+            A. A good man (Matthew 12:35)  <br><br>
+        
+        G 	4. What will not stand? <br>
+            A. Every city or household divided against itself (Matthew 12:25)  <br><br>
+        
+        A 	5. According to Matthew, chapter 12, verse 44, what does it then say? <br>
+            A. "I will return to the house I left." (Matthew 12:44)  <br><br>
+        
+        G 	6. Where is something greater than Jonah now? <br>
+            A. Here (Matthew 12:41)  <br><br>
+        
+        X 	7. Complete, in essence, the following: "Whoever is not with me . . ." <br>
+            A. ". . . is against me, and whoever does not gather with me scatters." (Matthew 12:30)  <br><br>
+        
+        A 	8. According to Matthew, chapter 12, verse 43, where does an impure spirit go? <br>
+            A. Through arid places (Matthew 12:43)  <br><br>
+        
+        S 	9. Situation question: who said it, and about whom: "It is only by Beelzebul, the prince of demons, that this fellow drives out demons."? <br>
+            A. The Pharisees said it about Jesus (Matthew 12:24)  <br><br>
+        
+        Q 	10. Quote Matthew, chapter 12, verse 8. <br>
+            A. "For the Son of Man is Lord of the Sabbath."" (Matthew 12:8)  <br><br>
+        
+        G 	11. In whose name will the nations put their hope? <br>
+            A. My servant's (Matthew 12:21)  <br><br>
+        
+        G 	12. Through what did Jesus go on the Sabbath? <br>
+            A. The grainfields (Matthew 12:1)  <br><br>
+        
+        R 	13. Finish this verse and give the reference: "For the Son of Man. . ." <br>
+            A. ". . .is Lord of the Sabbath." (Matthew 12:8)  <br><br>
+        
+        A 	14. According to Matthew, chapter 12, verse 13, what was completely restored? <br>
+            A. The man's hand (Matthew 12:13)  <br><br>
+        
+        G 	15. To whom will my servant proclaim justice? <br>
+            A. The nations (Matthew 12:18)  <br><br>
+        
+        G 	16. Who said, "If any of you has a sheep and it falls into a pit on the Sabbath, will you not take hold of it and lift it out?" <br>
+            A. Jesus (Matthew 12:11)  <br><br>
+        
+        V 	17. Finish this verse: "For the Son of Man. . ." <br>
+            A. ". . .is Lord of the Sabbath." (Matthew 12:8)  <br><br>
+        
+        G 	18. Who healed a demon-possessed man who was blind and mute? <br>
+            A. Jesus (Matthew 12:22)  <br><br>
+        
+        G 	19. To whom did Jesus point and say, "Here are my mother and my brothers."? <br>
+            A. His disciples (Matthew 12:49)  <br><br>
+        
+        G 	20. For whom was it not lawful to eat the consecrated bread? <br>
+            A. David and his companions (Matthew 12:4)  <br><br>
+        <br><br>
+        
+         <h7 id="10">SET #10 </h7>  <br><br>
+        
+        A 	1. According to Matthew, chapter 12, verse 1, what were Jesus' disciples? <br>
+            A. Hungry (Matthew 12:1)  <br><br>
+        
+        G 	2. Where does an impure spirit and seven other spirits more wicked than itself live? <br>
+            A. In the house the impure spirit left (Matthew 12:45)  <br><br>
+        
+        G 	3. What does an impure spirit seek when it comes out of a person? <br>
+            A. Rest (Matthew 12:43)  <br><br>
+        
+        R 	4. Finish this verse and give the reference: "For the Son of Man. . ." <br>
+            A. ". . .is Lord of the Sabbath." (Matthew 12:8)  <br><br>
+        
+        G 	5. To whom did the Pharisees say, "Look! Your disciples are doing what is unlawful on the Sabbath."? <br>
+            A. Jesus (Matthew 12:2)  <br><br>
+        
+        G 	6. When can anyone plunder a strong man's house? <br>
+            A. When he first ties up the strong man (Matthew 12:29) <br><br> 
+        
+        A 	7. According to Matthew, chapter 12, verse 46, to whom was Jesus still talking? <br>
+            A. The crowd (Matthew 12:46)  <br><br>
+        
+        G 	8. Who says, "I will return to the house I left"? <br>
+            A. An impure spirit (Matthew 12:44)  <br><br>
+        
+        G 	9. Who will hear my servant's voice in the streets? <br>
+            A. No one (Matthew 12:19)  <br><br>
+        
+        S 	10. Situation question: who said it, and to whom: "If any of you has a sheep and it falls into a pit on the Sabbath, will you not take hold of it and lift it out?" <br>
+            A. Jesus said it to the Pharisees (Matthew 12:11)  <br><br>
+        
+        V 	11. Finish this verse: "For the Son of Man. . ." <br>
+            A. ". . .is Lord of the Sabbath." (Matthew 12:8)  <br><br>
+        
+        G 	12. At what will the men of Nineveh stand up with this generation and condemn it? <br>
+            A. The judgment (Matthew 12:41)  <br><br>
+        
+        A 	13. According to Matthew, chapter 12, verse 47, what are your mother and brothers wanting? <br>
+            A. To speak to you (Matthew 12:47)  <br><br>
+        
+        G 	14. What was not lawful for David and his companions to do? <br>
+            A. Eat the consecrated bread (Matthew 12:4)  <br><br>
+        
+        G 	15. How long will the Son of Man be in the heart of the earth? <br>
+            A. Three days and three nights (Matthew 12:40)  <br><br>
+        
+        A 	16. According to Matthew, chapter 12, verse 49, to whom did he point? <br>
+            A. His disciples (Matthew 12:49)  <br><br>
+        
+        X 	17. Two-part question: for what does a wicked and adulterous generation ask, and what will be given it? <br>
+            A. 1) A sign; 2) No sign except the sign of the prophet Jonah (Matthew 12:39)  <br><br>
+        
+        Q 	18. Quote Matthew, chapter 12, verse 8. <br>
+            A. "For the Son of Man is Lord of the Sabbath."" (Matthew 12:8)  <br><br>
+        
+        G 	19. Of whom is Beelzebul the prince? <br>
+            A. Demons (Matthew 12:24)  <br><br>
+        
+        G 	20. When has the kingdom of God come upon you? <br>
+            A. If it is by the Spirit of God that Jesus drives out demons (Matthew 12:28)  <br><br>
+        
+        </p>
+
+</body>
+</html>

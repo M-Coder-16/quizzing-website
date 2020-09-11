@@ -1,0 +1,874 @@
+<!DOCTYPE html>
+<html> 
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+
+        h1{
+            background-color: black;
+            text-align: center;
+            font-size: 120px;
+            margin: 0px;
+            padding: 30px;
+            color: rgb(0, 172, 172);
+            font-family: 'Impact', Haettenschweiler, Arial Narrow Bold, sans-serif;
+            top: 0px;
+            left: 0px;
+            text-emphasis: bold;
+        }
+
+        head{
+            background-color: black;
+            margin: 0px;
+            padding: 20px;
+        }
+
+        nav{
+            left: 0px;
+            margin: 0px;
+            padding: 20px;
+            background-color: rgb(0, 172, 172);
+            color: black;
+            text-align: left;
+            display: inline-block;
+            height: auto;
+        }
+
+        nav a{
+            color: black;
+            text-decoration: none;
+            margin: 10px 15px;
+            padding: 8px;
+            font-size: 24px;
+            display: inline-block;
+            box-shadow: 0px 0px 10px 5px black;
+            background-color: #b3b3b3;
+            border-radius: 5px;
+        }
+
+        body{
+            background-image: url('data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAkGBwgHBw0HBw0HBwcHBw0HBwcHDQ8IDQcNIBEWFhURExMYHSggGCYxGxMVITEhJSkrLi4uFx8zODMsNygtLisBCgoKDQ0NDg0NDisZHxkrKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrK//AABEIAKgBLAMBIgACEQEDEQH/xAAaAAADAQEBAQAAAAAAAAAAAAABAgMABAUG/8QAGBABAQEBAQAAAAAAAAAAAAAAAAECEhH/xAAXAQEBAQEAAAAAAAAAAAAAAAAAAQID/8QAFBEBAAAAAAAAAAAAAAAAAAAAAP/aAAwDAQACEQMRAD8AaU0qUppXRlaVTNRlPKC0qkqGapKC0p5UZTygtKaVKU0oKymlSlNKqKymlSlNKCkoypymlBWU0qUp5QVlNKlKaUFPW9J63opvQ9L63og2h6X1vQH0LQ9C0BtJa1pbQG0toWltAbQ9LaFoG9D0nregf1vU/W9B8/KaVGU0qKvKeVCVSUF5TyoZp5QXlPKhKeUF5TyoymlBaU0qUppQVlGVKU0oKyjKn6MqotKaVGU8oLSm9RlNKiq+t6n63oKehaT0PQP6HpPQ9A/pbS+haA2ltC0lqoa0tpbS2ge0tpLoLoD3QdJ9B0CnTdJ9B0DwJTSpSmlZVaU8qEqkoL5qkrnlUmgXlPKhNHmgWlPKhNHlBaaNNIymmlFpo00hNGmgXmhmkZoZoF5o80hNGmgXmh6RmhmgW6bpLpugV6bpLpugU6DpPoOgU6C6T6C6A90S6LdEugPdFuiXRboD3Rbol0W6BS6L0S6L0CvTdJdB0Dw5oZpGaNNILzR5pzzR5oHRNKTTnmjzQOiaNNITRppB0TR5pzzR5pR0TQzSE0aaBaaNNIzQzQLzQzSM0M0ovNHmnPNGmgdE0M0hNG6QW6bpLpugV6DpPoOgU6bpLoOgU6C6TugugPdFuiXRLpRS6LdJ3RboFLot0ndFugUug6Tui9Ar03SPTdA8WaGaR9NNMi80eac8p5oHRNHmnPNHmgXmjzSE0aaB0TR5pzzRpoHRNDNITRpoF5o0055o00C80aac80aaUdE0aac80aaB0TQ9ITQ9Av03SPTdAt03SPTdAr0HSXQdAr0F0l0F0Cl0S6JdFugPdFuk7ot0Cl0W6JdFugPdB0ndF6BXpukem6B480aVGUZUVeU00hKeaBeaPNITRpoHRNGmkJo00DomjTSE0aaBeaHpGaHoF5oZpCaNNCLzQzSHRpoF5o0055o00Domh6Q6HoF+m6R6boFum6R6boFeg6S6DoFegukugugUui3Sd0W6BS6LdJ3RboFLot0ndBdAe6DpO6LdAr03SPTdA8roZpLoZoVaaNNITR5oF5o8055o80C80aaQmjTQOiaNNOeaPNAvND0jND0C00M0jNDNAvNDNITRpoF5o0055o00Iv0PSPTdAv03SPQ9Ar03SXTdAp0HSfQdAp0HSfQXQKXRLol0W6A90F0ndFugUui3RLot0B7ot0S6L0CvQdJ9B0DzOh6R6HoVeaNNITRpoF5o8055o00DomjTTnmjTQOiaNNOeaNNA6JoekOh6BfoZpDoZoHRNDNOeaNNA6JoZpzzZpsRfoekO27B0dD05+x7BfpukO27BboOkew7BboLpLsLsFbot0ldluwVui3SV0F2Cl0W6Tui3QK3RbpK7C7BXpukeg6B53Q9JdD0KtNDNIzQzQLzRppCaNNAvNGmnPNGmgdE0aac80aaBfoekOh6BfoZtz9D0Do7Gac/RpoHRNj25+h6EdHY9ufoegdHbdufoewdHYdodt2C/Ydo9B0C3Ydo9N0Ct2W7Sui3QK3QXaV0W6BW6LdJ3RboFLoLpK6C6BXpukem6Bxet0l0PQqs0aaR6GaBaaNNITRugWmjTSHQzQLzRppCaNNAt0PSPTdAt0PSPQ9At0M0h0PQOiaHpCaHoRfpu0Oh6BftukOm6Bftukeg6BfoOkem6BboOkug6BW6LdJ9BdApdB0ndB0Cl0W6JdBaB7ovRLQ6BToPU/W9Bx+t6zCt6aVmAZTSgwG9GVmAZTSswD6PrMDej6zAPo+swD6PrMI3reswD63rMDet6zA3reswN63rMAehazAHoeswB6HrMAeh6zAHreswP//Z');
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-attachment: fixed;
+        }
+
+        h2{
+            text-align: center;
+            color: white;
+            font-size: 32px;
+            text-emphasis: bold;
+            margin: 10px;
+            background-color: black;
+            padding: 10px;
+            border: double 3px black;
+        }
+
+        .bookmarks{
+            background-color: rgb(0, 172, 172);
+            position: absolute;
+            top: 290px;
+            left: 26%;
+            text-align: center;
+            padding: 10px 20px;
+            border: solid black 5px;
+            border-radius: 25px;
+        }
+
+        .bookmarks a{
+            display: inline-block;
+            background-color: black;
+            color: white;
+            text-emphasis: bold;
+            font-size: 24px;
+            margin: 10px;
+            padding: 10px;
+            border-radius: 10px;
+        }
+
+        h3{
+            font-size: 68px;
+            position: absolute;
+            float: center;
+            top: 350px;
+            left: 48%;
+            text-emphasis: bold;
+            text-align: center;
+            font-family: 'Times New Roman', Times, serif;
+        }
+
+        .verses a{
+            position: absolute;
+            color: rgb(0, 172, 172);
+            background-color: black;
+            font-size: 32px;
+            font-family: Arial, Helvetica, sans-serif;
+            left: 38%;
+            padding: 10px 100px;
+            text-decoration: none;
+            text-align: center;
+            top: 220px;
+            text-emphasis: bold;
+        }
+
+        #myBtn {
+            display: none; /* Hidden by default */
+            position: fixed; /* Fixed/sticky position */
+            bottom: 65px; /* Place the button at the bottom of the page */
+            left: 50px; /* Place the button 30px from the right */
+            z-index: 99; /* Make sure it does not overlap */
+            border: none; /* Remove borders */
+            outline: none; /* Remove outline */
+            background-color: rgb(0, 172, 172); /* Set a background color */
+            color: black; /* Text color */
+            cursor: pointer; /* Add a mouse pointer on hover */
+            padding: 10px; /* Some padding */
+            padding-bottom: 0px;
+            border-radius: 10px; /* Rounded corners */
+            border: solid black 5px;
+            font-size: 72px; /* Increase font size */
+        }
+
+        #myBtn:hover {
+            display: none; /* Hidden by default */
+            position: fixed; /* Fixed/sticky position */
+            bottom: 65px; /* Place the button at the bottom of the page */
+            left: 50px; /* Place the button 30px from the right */
+            z-index: 99; /* Make sure it does not overlap */
+            border: none; /* Remove borders */
+            outline: none; /* Remove outline */
+            background-color: rgb(0, 0, 0); /* Set a background color */
+            color: rgb(0, 172, 172); /* Text color */
+            cursor: pointer; /* Add a mouse pointer on hover */
+            padding: 10px; /* Some padding */
+            padding-bottom: 0px;
+            border-radius: 10px; /* Rounded corners */
+            border: solid rgb(0, 172, 172) 5px;
+            font-size: 72px; /* Increase font size */
+        }
+
+        p{
+            font-size: 22px;
+            position: absolute;
+            top: 500px;
+            left: 30%;
+        }
+
+        h7{
+            font-size: 32px;
+            text-emphasis: bold;
+        }
+
+    </style>
+    <button onclick="topFunction()" id="myBtn" title="Go to top"><b>^</b></button>
+<head> 
+    <h1>Questions</h1>
+    <div class="verses">
+        <a href="Quizzing.html">Click here for memory verses.</a>        
+   </div>
+</head>
+<body>
+   
+    <script>
+        //Get the button
+        var mybutton = document.getElementById("myBtn");
+        
+        // When the user scrolls down 20px from the top of the document, show the button
+        window.onscroll = function() {scrollFunction()};
+        
+        function scrollFunction() {
+          if (document.body.scrollTop > 1750 || document.documentElement.scrollTop > 1750) {
+            mybutton.style.display = "block";
+          } else {
+            mybutton.style.display = "none";
+          }
+        }
+        
+        // When the user clicks on the button, scroll to the top of the document
+        function topFunction() {
+          document.body.scrollTop = 0;
+          document.documentElement.scrollTop = 0;
+        }
+        </script>
+
+    <nav>
+
+        <h2>Select a Chapter</h2>
+        <br>
+
+        <a href="Quizzing_Questions_1.html">Matthew 1</a>
+        <br>
+        <a href="Quizzing_Questions_2.html">Matthew 2</a>
+        <br>
+        <a href="Quizzing_Questions_3.html">Matthew 3</a>
+        <br>
+        <a href="Quizzing_Questions_4.html">Matthew 4</a>
+        <br>
+        <a href="Quizzing_Questions_5.html">Matthew 5</a>
+        <br>
+        <a href="Quizzing_Questions_6.html">Matthew 6</a>
+        <br>
+        <a href="Quizzing_Questions_7.html">Matthew 7</a>
+        <br>
+        <a href="Quizzing_Questions_8.html">Matthew 8</a>
+        <br>
+        <a href="Quizzing_Questions_9.html">Matthew 9</a>
+        <br>
+        <a href="Quizzing_Questions_10.html">Matthew 10</a>
+        <br>
+        <a href="Quizzing_Questions_11.html">Matthew 11</a>
+        <br>
+        <a href="Quizzing_Questions_12.html">Matthew 12</a>
+        <br>
+        <a href="Quizzing_Questions_13.html">Matthew 13</a>
+        <br>
+        <a href="Quizzing_Questions_14.html">Matthew 14</a>
+        <br>
+        <a href="Quizzing_Questions_15.html">Matthew 15</a>
+        <br>
+        <a href="Quizzing_Questions_16.html">Matthew 16</a>
+        <br>
+        <a href="Quizzing_Questions_17.html">Matthew 17</a>
+        <br>
+        <a href="Quizzing_Questions_18.html">Matthew 18</a>
+        <br>
+        <a href="Quizzing_Questions_19.html">Matthew 19</a>
+        <br>
+        <a href="Quizzing_Questions_20.html">Matthew 20</a>
+        <br>
+        <a href="Quizzing_Questions_21.html">Matthew 21</a>
+        <br>
+        <a href="Quizzing_Questions_22.html">Matthew 22</a>
+        <br>
+        <a href="Quizzing_Questions_23.html">Matthew 23</a>
+        <br>
+        <a href="Quizzing_Questions_24.html">Matthew 24</a>
+        <br>
+        <a href="Quizzing_Questions_25.html">Matthew 25</a>
+        <br>
+        <a href="Quizzing_Questions_26.html">Matthew 26</a>
+        <br>
+        <a href="Quizzing_Questions_27.html">Matthew 27</a>
+        <br>
+        <a href="Quizzing_Questions_28.html">Matthew 28</a>
+    </nav>
+
+    <div class="bookmarks">
+        <a href="#1">Set 1</a>
+        <a href="#2">Set 2</a>
+        <a href="#3">Set 3</a>
+        <a href="#4">Set 4</a>
+        <a href="#5">Set 5</a>
+        <a href="#6">Set 6</a>
+        <a href="#7">Set 7</a>
+        <a href="#8">Set 8</a>
+        <a href="#9">Set 9</a>
+        <a href="#10">Set 10</a>
+    </div>
+
+    <h3>Matthew 6</h3>
+
+    <p><h7 id="1">SET #1</h7><br><br>
+
+        G 	1. About what will tomorrow worry? <br>
+            A. Itself (Matthew 6:34)  <br><br>
+        
+        G 	2. Why should you store up for yourselves treasures in heaven? <br>
+            A. For where your treasure is, there your heart will be also (Matthew 6:20-21)  <br><br>
+        
+        G 	3. To whom should you pray? <br>
+            A. Your Father (Matthew 6:6)  <br><br>
+        
+        A 	4. According to Matthew, chapter 6, verse 18, what will your Father do? <br>
+            A. Reward you (Matthew 6:18)  <br><br>
+        
+        G 	5. When is the grass of the field thrown into the fire? <br>
+            A. Tomorrow (Matthew 6:30)  <br><br>
+        
+        G 	6. In front of whom should you be careful not to practice your righteousness? <br>
+            A. Others (Matthew 6:1)  <br><br>
+        
+        V 	7. Finish these verses: ""Do not store up for. . ." <br>
+            A. ". . .yourselves treasures on earth, where moths and vermin destroy, and where thieves break in and steal. But store up for yourselves treasures in heaven, where moths and vermin do not destroy, and where thieves do not break in and steal. For where your treasure is, there your heart will be also." (Matthew 6:19-21) <br><br> 
+        
+        A 	8. According to Matthew, chapter 6, verse 26, at what should you look? <br>
+            A. The birds of the air (Matthew 6:26)  <br><br>
+        
+        G 	9. Who clothes the grass of the field? <br>
+            A. God (Matthew 6:30)  <br><br>
+        
+        Q 	10. Quote Matthew, chapter 6, verse 24. <br>
+            A. "No one can serve two masters. Either you will hate the one and love the other, or you will be devoted to the one and despise the other. You cannot serve both God and money. (Matthew 6:24)  <br><br>
+        
+        G 	11. What will be given to you as well when you seek first his kingdom and his righteousness? <br>
+            A. All these things (Matthew 6:33)  <br><br>
+        
+        G 	12. When will your whole body be full of darkness? <br>
+            A. If your eyes are unhealthy (Matthew 6:23)  <br><br>
+        
+        G 	13. How was not even Solomon in all his splendor dressed? <br>
+            A. Like one of these flowers (of the field) (Matthew 6:28-29) <br><br> 
+        
+        X 	14. Two-part question: when will your heavenly Father also forgive you, and when will he not forgive your sins? <br>
+            A. 1) If you forgive other people when they sin against you; 2) If you do not forgive others their sins (Matthew 6:14-15)  <br>br
+
+        
+        G 	15. When should you go into your room, close the door and pray to your Father? <br>
+            A. When you pray (Matthew 6:6)  <br><br>
+        
+        A 	16. According to Matthew, chapter 6, verse 22, what is the eye? <br>
+            A. The lamp of the body (Matthew 6:22)  <br><br>
+        
+        R 	17. Finish these verses and give the reference: "For if you forgive other. . ." <br>
+            A. ". . .people when they sin against you, your heavenly Father will also forgive you. But if you do not forgive others their sins, your Father will not forgive your sins. " (Matthew 6:14-15)  <br><br>
+        
+        A 	18. According to Matthew, chapter 6, verse 15, what will your Father not do? <br>
+            A. Forgive your sins if you do not forgive others their sins (Matthew 6:15)  <br><br>
+        
+        G 	19. Who will be devoted to the one and despise the other? <br>
+            A. You who serves two masters (Matthew 6:24)  <br><br>
+        <br><br>
+        
+           <h7 id="2">SET #2</h7><br><br>
+        
+        A 	1. According to Matthew, chapter 6, verse 2, what should you not do when you give to the needy? <br>
+            A. Announce it with trumpets (Matthew 6:2)  <br><br>
+        
+        G 	2. What if your eyes are healthy? <br>
+            A. Your whole body will be full of light (Matthew 6:22)  <br><br>
+        
+        G 	3. After what do the pagans run? <br>
+            A. All these things ("What shall we eat?" or "What shall we drink?" or "What shall we wear?") (Matthew 6:32)  <br><br>
+        
+        G 	4. How do the hypocrites love to pray? <br>
+            A. Standing in the synagogues and on the street corners (to be seen by others) (Matthew 6:5) <br><br> 
+        
+        Q 	5. Quote Matthew, chapter 6, verses 3 through 4. <br>
+            A. "But when you give to the needy, do not let your left hand know what your right hand is doing, so that your giving may be in secret. Then your Father, who sees what is done in secret, will reward you." (Matthew 6:3-4)  <br><br>
+        
+        R 	6. Finish this verse and give the reference: "Look at the birds of. . ." <br>
+            A. ". . .the air; they do not sow or reap or store away in barns, and yet your heavenly Father feeds them. Are you not much more valuable than they? " (Matthew 6:26)  <br><br>
+        
+        G 	7. Where do the hypocrites love to pray? <br>
+            A. Standing in the synagogues and on the street corners (Matthew 6:5)  <br><br>
+        
+        A 	8. According to Matthew, chapter 6, verse 2, what do I truly tell you? <br>
+            A. The hypocrites have received their reward in full (Matthew 6:2)  <br><br>
+        
+        G 	9. What has enough trouble of its own? <br>
+            A. Each day (Matthew 6:34)  <br><br>
+        
+        G 	10. What if you practice your righteousness in front of others to be seen by them? <br>
+            A. You will have no reward from your Father in heaven (Matthew 6:1)  <br><br>
+        
+        G 	11. Who keep on babbling when they pray? <br>
+            A. Pagans (Matthew 6:7)  <br><br>
+        
+        A 	12. According to Matthew, chapter 6, verse 24, what can you not do? <br>
+            A. Serve both God and money [OR serve two masters] (Matthew 6:24)  <br><br>
+        
+        X 	13. What should be obvious only to your Father? <br>
+            A. That you are fasting (Matthew 6:18)  <br><br>
+        
+        G 	14. What do the flowers of the field not do? <br>
+            A. Labor or spin (Matthew 6:28)  <br><br>
+        
+        V 	15. Finish this verse: "But seek first his kingdom. . ." <br>
+            A. ". . .and his righteousness, and all these things will be given to you as well." (Matthew 6:33)  <br><br>
+        
+        G 	16. What do the birds of the air not do? <br>
+            A. Sow or reap or store away in barns (Matthew 6:26) <br><br> 
+        
+        G 	17. Who was not dressed like one of these flowers of the field? <br>
+            A. Even Solomon (in all his splendor) (Matthew 6:28-29)  <br><br>
+        
+        G 	18. What if you seek first his kingdom and his righteousness? <br>
+            A. All these things will be given to you as well (Matthew 6:33)  <br><br>
+        
+        A 	19. According to Matthew, chapter 6, verse 19, what should you not do? <br>
+            A. Store up for yourselves treasures on earth (Matthew 6:19)  <br><br>
+        <br><br>
+        
+          <h7 id="3">SET #3</h7> <br><br>
+        
+        G 	1. What will worry about itself? <br>
+            A. Tomorrow (Matthew 6:34)  <br><br>
+        
+        G 	2. When should you not let your left hand know what your right hand is doing? <br>
+            A. When you give to the needy (Matthew 6:3)  <br><br>
+        
+        A 	3. According to Matthew, chapter 6, verse 28, what grow? <br>
+            A. The flowers of the field (Matthew 6:28)  <br><br>
+        
+        X 	4. Two-part answer: what do the hypocrites do when they fast? <br>
+            A. 1) They look somber; 2) They disfigure their faces (to show others they are fasting) (Matthew 6:16)  <br><br>
+        
+        G 	5. Who is unseen? <br>
+            A. Your Father (Matthew 6:6)  <br><br>
+        
+        G 	6. Who look somber when they fast? <br>
+            A. The hypocrites (Matthew 6:16)  <br><br>
+        
+        A 	7. According to Matthew, chapter 6, verse 29, what do I tell you? <br>
+            A. That not even Solomon in all his splendor was dressed like one of these (Matthew 6:29) <br><br> 
+        
+        G 	8. Whose name should be hallowed? <br>
+            A. Our Father's (Matthew 6:9)  <br><br>
+        
+        V 	9. Finish these verses: ""This, then, is how you. . ." <br>
+            A. ". . .should pray: "'Our Father in heaven, hallowed be your name, your kingdom come, your will be done, on earth as it is in heaven. Give us today our daily bread. And forgive us our debts, as we also have forgiven our debtors. And lead us not into temptation, but deliver us from the evil one.'" (Matthew 6:9-13)  <br><br>
+        
+        G 	10. What do not sow or reap or store away in barns? <br>
+            A. The birds of the air (Matthew 6:26)  <br><br>
+        
+        A 	11. According to Matthew, chapter 6, verse 3, what should you not do when you give to the needy? <br>
+            A. Let your left hand know what your right hand is doing (Matthew 6:3)  <br><br>
+        
+        A 	12. According to Matthew, chapter 6, verse 16, who have received their reward in full? <br>
+            A. The hypocrites (who disfigure their faces to show others they are fasting) (Matthew 6:16) <br><br> 
+        
+        Q 	13. Quote Matthew, chapter 6, verses 14 through 15. <br>
+            A. "For if you forgive other people when they sin against you, your heavenly Father will also forgive you. But if you do not forgive others their sins, your Father will not forgive your sins." (Matthew 6:14-15)  <br><br>
+        
+        R 	14. Finish this verse and give the reference: "Therefore do not worry about. . ." <br>
+            A. ". . .tomorrow, for tomorrow will worry about itself. Each day has enough trouble of its own. " (Matthew 6:34)  <br><br>
+        
+        G 	15. What should be done on earth as it is in heaven? <br>
+            A. Our Father's will (Matthew 6:10)  <br><br>
+        
+        G 	16. What does your Father see? <br>
+            A. What is done in secret (Matthew 6:4) <br><br> 
+        
+        G 	17. What do thieves not do in heaven? <br>
+            A. Break in and steal (Matthew 6:20)  <br>
+        
+        G 	18. Because of what do pagans think they will be heard? <br>
+            A. Their many words (Matthew 6:7)  <br><br>
+        
+        G 	19. Who knows what you need before you ask him? <br>
+            A. Your Father (Matthew 6:8)  <br><br>
+        <br><br>
+        
+          <h7 id="4">SET #4</h7> <br><br>
+        
+        G 	1. What if you forgive other people when they sin against you? <br>
+            A. Your heavenly Father will also forgive you (Matthew 6:14)  <br><br>
+        
+        G 	2. When will your Father not forgive your sins? <br>
+            A. If you do not forgive others their sins (Matthew 6:15)  <br><br>
+        
+        G 	3. Who should deliver us from the evil one? <br>
+            A. Our Father (Matthew 6:13)  <br><br>
+        
+        G 	4. What should you put on your head when you fast? <br>
+            A. Oil (Matthew 6:17)  <br><br>
+            
+        
+        V 	5. Finish this verse: ""No one can serve two. . ." <br>
+            A. ". . .masters. Either you will hate the one and love the other, or you will be devoted to the one and despise the other. You cannot serve both God and money." (Matthew 6:24)  <br><br>
+        
+        A 	6. According to Matthew, chapter 6, verse 33, what will be given to you as well? <br>
+            A. All these things (Matthew 6:33)  <br><br>
+        
+        G 	7. Whom have we also forgiven? <br>
+            A. Our debtors (Matthew 6:12)  <br><br>
+        
+        R 	8. Finish this verse and give the reference: "Look at the birds of. . ." <br>
+            A. ". . .the air; they do not sow or reap or store away in barns, and yet your heavenly Father feeds them. Are you not much more valuable than they? " (Matthew 6:26)  <br><br>
+        
+        A 	9. According to Matthew, chapter 6, verse 17, what should you do when you fast? <br>
+            A. Put oil on your head and wash your face (Matthew 6:17)  <br><br>
+        
+        G 	10. When should you not look somber as the hypocrites do? <br>
+            A. When you fast (Matthew 6:16)  <br><br>
+        
+        Q 	11. Quote Matthew, chapter 6, verses 19 through 21. <br>
+            A. "Do not store up for yourselves treasures on earth, where moths and vermin destroy, and where thieves break in and steal. But store up for yourselves treasures in heaven, where moths and vermin do not destroy, and where thieves do not break in and steal. For where your treasure is, there your heart will be also. (Matthew 6:19-21)  <br><br>
+        
+        G 	12. What if you do not forgive others their sins? <br>
+            A. Your Father will not forgive your sins (Matthew 6:15) <br><br> 
+        
+        G 	13. Who should forgive us our debts as we also have forgiven our debtors? <br>
+            A. Our Father (Matthew 6:12)  <br><br>
+        
+        G 	14. How should you not look when you fast? <br>
+            A. Somber (as the hypocrites do) (Matthew 6:16) <br>  <br>
+        
+        G 	15. When should our Father give us our daily bread? <br>
+            A. Today (Matthew 6:11)  <br><br>
+        
+        A 	16. According to Matthew, chapter 6, verse 32, what do the pagans do? <br>
+            A. Run after all these things (Matthew 6:32)  <br><br>
+        
+        G 	17. For whom should you not store up treasures on earth? <br>
+            A. Yourselves (Matthew 6:19)  <br><br>
+        
+        A 	18. According to Matthew, chapter 6, verse 30, what is thrown into the fire? <br>
+            A. The grass of the field (Matthew 6:30)  <br><br>
+        
+        X 	19. Only to whom should it be obvious that you are fasting? <br>
+            A. Your Father (Matthew 6:18)  <br><br>
+        <br><br>
+        
+          <h7 id="5">SET #5</h7> <br><br>
+        
+        R 	1. Finish these verses and give the reference: ""Do not store up for. . ." <br>
+            A. ". . .yourselves treasures on earth, where moths and vermin destroy, and where thieves break in and steal. But store up for yourselves treasures in heaven, where moths and vermin do not destroy, and where thieves do not break in and steal. For where your treasure is, there your heart will be also. " (Matthew 6:19-21)  <br><br>
+        
+        X 	2. Two-part answer: in Matthew, chapter 6, what destroy on earth? <br>
+            A. 1) Moths; 2) Vermin (Matthew 6:19)  <br><br>
+        
+        A 	3. According to Matthew, chapter 6, verse 4, when will your Father reward you? <br>
+            A. When your giving is in secret (Matthew 6:4)  <br><br>
+        
+        G 	4. What do moths and vermin not do in heaven? <br>
+            A. Destroy (Matthew 6:20)  <br><br>
+        
+        G 	5. Where do moths and vermin not destroy? <br>
+            A. In heaven (Matthew 6:20)  <br><br>
+        
+        A 	6. According to Matthew, chapter 6, verse 5, like whom should you not be when you pray? <br>
+            A. The hypocrites (Matthew 6:5)  <br><br>
+        
+        G 	7. Why should you put oil on your head and wash your face when you fast? <br>
+            A. So that it will not be obvious to others that you are fasting, but only to your Father (Matthew 6:17-18)  <br><br>
+        
+        A 	8. According to Matthew, chapter 6, verse 33, what should you do first? <br>
+            A. Seek his kingdom and his righteousness (Matthew 6:33)  <br><br>
+        
+        G 	9. Where do moths and vermin destroy? <br>
+            A. On earth (Matthew 6:19)  <br><br>
+        
+        G 	10. How have the hypocrites received their reward? <br>
+            A. In full (Matthew 6:2)  <br><br>
+        
+        G 	11. Where should you not store up for yourselves treasures? <br>
+            A. On earth (Matthew 6:19)  <br><br>
+        
+        A 	12. According to Matthew, chapter 6, verse 4, who will reward you? <br>
+            A. Your Father (Matthew 6:4)  <br><br>
+        
+        Q 	13. Quote Matthew, chapter 6, verses 3 through 4. <br>
+            A. "But when you give to the needy, do not let your left hand know what your right hand is doing, so that your giving may be in secret. Then your Father, who sees what is done in secret, will reward you." (Matthew 6:3-4) <br><br> 
+        
+        G 	14. What do thieves do on earth? <br>
+            A. Break in and steal (Matthew 6:19) <br><br> 
+        
+        G 	15. Who truly tells you the hypocrites have received their reward in full? <br>
+            A. Jesus (Matthew 6:2)  <br>
+        
+        V 	16. Finish this verse: "But seek first his kingdom. . ." <br>
+            A. ". . .and his righteousness, and all these things will be given to you as well." (Matthew 6:33)  <br><br>
+        
+        G 	17. Where do the hypocrites announce it with trumpets when they give to the needy? <br>
+            A. In the synagogues and on the streets (Matthew 6:2)  <br><br>
+        
+        G 	18. Where will your heart be also? <br>
+            A. Where your treasure is (Matthew 6:21) <br><br> 
+        
+        G 	19. What have the hypocrites received in full? <br>
+            A. Their reward (Matthew 6:2)  <br><br>
+        <br><br>
+        
+          <h7 id="7">SET #6</h7><br><br>
+        
+        A 	1. According to Matthew, chapter 6, verse 6, what should you do when you pray? <br>
+            A. Go into your room, close the door and pray to your Father (Matthew 6:6)  <br><br>
+        
+        G 	2. What will be given to you as well when you seek first his kingdom and his righteousness? <br>
+            A. All these things (Matthew 6:33)  <br><br>
+        
+        G 	3. When should you go into your room, close the door and pray to your Father? <br>
+            A. When you pray (Matthew 6:6)  <br><br>
+        
+        Q 	4. Quote Matthew, chapter 6, verse 26. <br>
+            A. "Look at the birds of the air; they do not sow or reap or store away in barns, and yet your heavenly Father feeds them. Are you not much more valuable than they?" (Matthew 6:26)  <br><br>
+        
+        A 	5. According to Matthew, chapter 6, verse 6, when will your Father reward you? <br>
+            A. When you go into your room, close the door and pray to your Father (Matthew 6:6) <br><br> 
+        
+        G 	6. What is the lamp of the body? <br>
+            A. The eye (Matthew 6:22)  <br><br>
+        
+        R 	7. Finish this verse and give the reference: "Therefore do not worry about. . ." <br>
+            A. ". . .tomorrow, for tomorrow will worry about itself. Each day has enough trouble of its own. " (Matthew 6:34)  <br><br>
+        
+        G 	8. To whom should you pray? <br>
+            A. Your Father (Matthew 6:6)  <br><br>
+        
+        G 	9. Who clothes the grass of the field? <br>
+            A. God (Matthew 6:30)  <br><br>
+        
+        G 	10. When will your whole body be full of light? <br>
+            A. If your eyes are healthy (Matthew 6:22)  <br><br>
+        
+        G 	11. What if you seek first his kingdom and his righteousness? <br>
+            A. All these things will be given to you as well (Matthew 6:33)  <br><br>
+        
+        A 	12. According to Matthew, chapter 6, verse 5, when have the hypocrites received their reward in full? <br>
+            A. When they pray standing in the synagogues and on the street corners to be seen by others (Matthew 6:5) <br><br> 
+        
+        A 	13. According to Matthew, chapter 6, verse 6, who will reward you? <br>
+            A. Your Father (Matthew 6:6)  <br><br>
+        
+        X 	14. Three-part answer: when have the hypocrites received their reward in full? <br>
+            A. 1) When they announce their giving to the needy with trumpets (in the synagogues and on the streets); 2) When they pray standing in the synagogues and on the street corners to be seen by others; 3) When they disfigure their faces to show others they are fasting (Matthew 6:2-16)  <br><br>
+        
+        G 	15. Who knows what you need before you ask him? <br>
+            A. Your Father (Matthew 6:8)  <br><br>
+        
+        V 	16. Finish this verse: ""No one can serve two. . ." <br>
+            A. ". . .masters. Either you will hate the one and love the other, or you will be devoted to the one and despise the other. You cannot serve both God and money." (Matthew 6:24)  <br><br>
+        
+        G 	17. What will worry about itself? <br>
+            A. Tomorrow (Matthew 6:34)  <br><br>
+        
+        G 	18. What if your eyes are unhealthy?<br> 
+            A. Your whole body will be full of darkness (Matthew 6:23)  <br><br>
+        
+        G 	19. Who was not dressed like one of these flowers of the field? <br>
+            A. Even Solomon (in all his splendor) (Matthew 6:28-29)  <br><br>
+        <br><br>
+        
+         <h7 id="7">SET #7</h7>   <br><br>
+        
+        G 	1. Who will be devoted to the one and despise the other? <br>
+            A. You who serves two masters (Matthew 6:24)  <br><br>
+        
+        G 	2. When is the grass of the field thrown into the fire? <br>
+            A. Tomorrow (Matthew 6:30)  <br><br>
+        
+        G 	3. Where do the hypocrites love to pray? <br>
+            A. Standing in the synagogues and on the street corners (Matthew 6:5)  <br><br>
+        
+        A 	4. According to Matthew, chapter 6, verse 10, what should come? <br>
+            A. Your kingdom (Matthew 6:10)  <br><br>
+        
+        V 	5. Finish these verses: ""Do not store up for. . ." <br>
+            A. ". . .yourselves treasures on earth, where moths and vermin destroy, and where thieves break in and steal. But store up for yourselves treasures in heaven, where moths and vermin do not destroy, and where thieves do not break in and steal. For where your treasure is, there your heart will be also." (Matthew 6:19-21)  <br><br>
+        
+        A 	6. According to Matthew, chapter 6, verse 9, where is our Father? <br>
+            A. In heaven (Matthew 6:9)  <br><br>
+        
+        G 	7. Who keep on babbling when they pray? <br>
+            A. Pagans (Matthew 6:7)  <br><br>
+        
+        A 	8. According to Matthew, chapter 6, verse 8, what does your Father know? <br>
+            A. What you need before you ask him (Matthew 6:8)  <br><br>
+        
+        G 	9. What do not sow or reap or store away in barns? <br>
+            A. The birds of the air (Matthew 6:26)  <br><br>
+        
+        A 	10. According to Matthew, chapter 6, verse 7, what do pagans think? <br>
+            A. They will be heard because of their many words (Matthew 6:7)  <br><br>
+        
+        G 	11. Who is unseen? <br>
+            A. Your Father (Matthew 6:6) <br><br> 
+        
+        G 	12. How was not even Solomon in all his splendor dressed? <br>
+            A. Like one of these flowers (of the field) (Matthew 6:28-29) <br><br> 
+        
+        Q 	13. Quote Matthew, chapter 6, verses 14 through 15. <br>
+            A. "For if you forgive other people when they sin against you, your heavenly Father will also forgive you. But if you do not forgive others their sins, your Father will not forgive your sins." (Matthew 6:14-15)  <br><br>
+        
+        G 	14. Whose name should be hallowed? <br>
+            A. Our Father's (Matthew 6:9)  <br><br>
+        
+        G 	15. After what do the pagans run? <br>
+            A. All these things ("What shall we eat?" or "What shall we drink?" or "What shall we wear?") (Matthew 6:32)  <br><br>
+        
+        G 	16. What do the birds of the air not do? <br>
+            A. Sow or reap or store away in barns (Matthew 6:26) <br><br> 
+        
+        R 	17. Finish these verses and give the reference: ""This, then, is how you. . ." <br>
+            A. ". . .should pray: "'Our Father in heaven, hallowed be your name, your kingdom come, your will be done, on earth as it is in heaven. Give us today our daily bread. And forgive us our debts, as we also have forgiven our debtors. And lead us not into temptation, but deliver us from the evil one.' " (Matthew 6:9-13)  <br><br>
+        
+        X 	18. Complete, in essence, the following: "For where your treasure is, . . ." <br>
+            A. ". . . there your heart will be also." (Matthew 6:21)  <br><br>
+        
+        G 	19. What has enough trouble of its own? <br>
+            A. Each day (Matthew 6:34)  <br><br>
+        <br><br>
+        
+         <h7 id="8">SET #8 </h7>  <br><br>
+        
+        G 	1. What should be done on earth as it is in heaven? <br>
+            A. Our Father's will (Matthew 6:10)  <br><br>
+        
+        G 	2. How do the hypocrites love to pray? <br>
+            A. Standing in the synagogues and on the street corners (to be seen by others) (Matthew 6:5)  <br><br>
+        
+        R 	3. Finish these verses and give the reference: "But when you give to. . ." <br>
+            A. ". . .the needy, do not let your left hand know what your right hand is doing, so that your giving may be in secret. Then your Father, who sees what is done in secret, will reward you. " (Matthew 6:3-4)  <br><br>
+        
+        G 	4. For whom should you not store up treasures on earth? <br>
+            A. Yourselves (Matthew 6:19)  <br><br>
+        
+        G 	5. What do the flowers of the field not do? <br>
+            A. Labor or spin (Matthew 6:28)  <br><br>
+        
+        A 	6. According to Matthew, chapter 6, verse 1, who is in heaven? <br>
+            A. Your Father (Matthew 6:1)  <br><br>
+        
+        V 	7. Finish this verse: ""No one can serve two. . ." <br>
+            A. ". . .masters. Either you will hate the one and love the other, or you will be devoted to the one and despise the other. You cannot serve both God and money." (Matthew 6:24)  <br><br>
+        
+        G 	8. What does your Father see? <br>
+            A. What is done in secret (Matthew 6:4) <br><br> 
+        
+        G 	9. When should our Father give us our daily bread? <br>
+            A. Today (Matthew 6:11)  <br><br>
+        
+        Q 	10. Quote Matthew, chapter 6, verse 26. <br>
+            A. "Look at the birds of the air; they do not sow or reap or store away in barns, and yet your heavenly Father feeds them. Are you not much more valuable than they?" (Matthew 6:26)  <br><br>
+        
+        A 	11. According to Matthew, chapter 6, verse 1, what should you be careful not to do? <br>
+            A. Practice your righteousness in front of others to be seen by them (Matthew 6:1)  <br><br>
+        
+        G 	12. When should you not let your left hand know what your right hand is doing? <br>
+            A. When you give to the needy (Matthew 6:3)  <br><br>
+        
+        G 	13. Because of what do pagans think they will be heard? <br>
+            A. Their many words (Matthew 6:7)  <br><br>
+        
+        A 	14. According to Matthew, chapter 6, verse 13, what should he do? <br>
+            A. Deliver us from the evil one (Matthew 6:13)  <br><br>
+        
+        G 	15. In front of whom should you be careful not to practice your righteousness? <br>
+            A. Others (Matthew 6:1)  <br><br>
+        
+        A 	16. According to Matthew, chapter 6, verse 10, what is done in heaven? <br>
+            A. Your will (Matthew 6:10)  <br><br>
+        
+        X 	17. In Matthew, chapter 6, what does the Greek for "healthy" imply? <br>
+            A. "Generous" (Matthew 6:22)  <br><br>
+        
+        G 	18. What if you practice your righteousness in front of others to be seen by them? <br>
+            A. You will have no reward from your Father in heaven (Matthew 6:1)  <br><br>
+        
+        G 	19. About what will tomorrow worry? <br>
+            A. Itself (Matthew 6:34)  <br><br>
+        <br><br>
+        
+          <h7 id="9">SET #9</h7>  <br><br>
+        
+        A 	1. According to Matthew, chapter 6, verse 22, what is the eye? <br>
+            A. The lamp of the body (Matthew 6:22)  <br><br>
+        
+        G 	2. Who should deliver us from the evil one? <br>
+            A. Our Father (Matthew 6:13)  <br><br>
+        
+        G 	3. Who look somber when they fast? <br>
+            A. The hypocrites (Matthew 6:16)  <br><br>
+        
+        G 	4. When will your Father not forgive your sins? <br>
+            A. If you do not forgive others their sins (Matthew 6:15)  <br><br>
+        
+        G 	5. When should you not look somber as the hypocrites do? <br>
+            A. When you fast (Matthew 6:16)  <br><br>
+        
+        G 	6. Whom have we also forgiven? <br>
+            A. Our debtors (Matthew 6:12)  <br><br>
+        
+        G 	7. What should you put on your head when you fast? <br>
+            A. Oil (Matthew 6:17)  <br><br>
+        
+        V 	8. Finish this verse: ""No one can serve two. . ." <br>
+            A. ". . .masters. Either you will hate the one and love the other, or you will be devoted to the one and despise the other. You cannot serve both God and money." (Matthew 6:24)  <br><br>
+        
+        G 	9. What if you forgive other people when they sin against you? <br>
+            A. Your heavenly Father will also forgive you (Matthew 6:14)  <br><br>
+        
+        G 	10. Who should forgive us our debts as we also have forgiven our debtors? <br>
+            A. Our Father (Matthew 6:12)  <br><br>
+        
+        A 	11. According to Matthew, chapter 6, verse 32, what do the pagans do? <br>
+            A. Run after all these things (Matthew 6:32)  <br><br>
+        
+        X 	12. In Matthew, chapter 6, what does the Greek for "unhealthy" imply? <br>
+            A. "Stingy" (Matthew 6:23)  <br><br>
+        
+        R 	13. Finish this verse and give the reference: "Therefore do not worry about. . ." <br>
+            A. ". . .tomorrow, for tomorrow will worry about itself. Each day has enough trouble of its own. " (Matthew 6:34)  <br><br>
+        
+        A 	14. According to Matthew, chapter 6, verse 16, when have the hypocrites received their reward in full? <br>
+            A. When they disfigure their faces to show others they are fasting (Matthew 6:16)  <br><br>
+        
+        A 	15. According to Matthew, chapter 6, verse 24, what can you not do? <br>
+            A. Serve both God and money [OR serve two masters] (Matthew 6:24)  <br><br>
+        
+        G 	16. What if you do not forgive others their sins? <br>
+            A. Your Father will not forgive your sins (Matthew 6:15) <br><br> 
+        
+        G 	17. How have the hypocrites received their reward? <br>
+            A. In full (Matthew 6:2)  <br><br>
+        
+        G 	18. How should you not look when you fast? <br>
+            A. Somber (as the hypocrites do) (Matthew 6:16) <br><br> 
+        
+        Q 	19. Quote Matthew, chapter 6, verse 33. <br>
+            A. "But seek first his kingdom and his righteousness, and all these things will be given to you as well." (Matthew 6:33)  <br><br>
+        <br><br>
+        
+         <h7 id="10">SET #10</h7>  <br><br>
+        
+        G 	1. Where do moths and vermin destroy? <br>
+            A. On earth (Matthew 6:19)  <br><br>
+        
+        G 	2. What have the hypocrites received in full? <br>
+            A. Their reward (Matthew 6:2)  <br><br>
+        
+        G 	3. Why should you store up for yourselves treasures in heaven? <br>
+            A. For where your treasure is, there your heart will be also (Matthew 6:20-21)  <br><br>
+        
+        X 	4. In Matthew, chapter 6, than what is the body more? <br>
+            A. Clothes (Matthew 6:25)  <br><br>
+        
+        G 	5. Who truly tells you the hypocrites have received their reward in full? <br>
+            A. Jesus (Matthew 6:2)  <br><br>
+        
+        A 	6. According to Matthew, chapter 6, verse 26, at what should you look? <br>
+            A. The birds of the air (Matthew 6:26)  <br><br>
+        
+        R 	7. Finish these verses and give the reference: "For if you forgive other. . ." <br>
+            A. ". . .people when they sin against you, your heavenly Father will also forgive you. But if you do not forgive others their sins, your Father will not forgive your sins. " (Matthew 6:14-15)  <br><br>
+        
+        V 	8. Finish these verses: ""Do not store up for. . ." <br>
+            A. ". . .yourselves treasures on earth, where moths and vermin destroy, and where thieves break in and steal. But store up for yourselves treasures in heaven, where moths and vermin do not destroy, and where thieves do not break in and steal. For where your treasure is, there your heart will be also." (Matthew 6:19-21)  <br><br>
+        
+        A 	9. According to Matthew, chapter 6, verse 29, what do I tell you? <br>
+            A. That not even Solomon in all his splendor was dressed like one of these (Matthew 6:29)  <br><br>
+        
+        A 	10. According to Matthew, chapter 6, verse 17, what should you do when you fast? <br>
+            A. Put oil on your head and wash your face (Matthew 6:17)  <br><br>
+        
+        G 	11. Why should you put oil on your head and wash your face when you fast? <br>
+            A. So that it will not be obvious to others that you are fasting, but only to your Father (Matthew 6:17-18)  <br><br>
+        
+        G 	12. Where do the hypocrites announce it with trumpets when they give to the needy? <br>
+            A. In the synagogues and on the streets (Matthew 6:2)  <br><br>
+        
+        G 	13. What do thieves not do in heaven? <br>
+            A. Break in and steal (Matthew 6:20)  <br><br>
+        
+        A 	14. According to Matthew, chapter 6, verse 28, what grow? <br>
+            A. The flowers of the field (Matthew 6:28)  <br><br>
+        
+        G 	15. What do thieves do on earth? <br>
+            A. Break in and steal (Matthew 6:19) <br><br> 
+        
+        G 	16. Where should you not store up for yourselves treasures? <br>
+            A. On earth (Matthew 6:19)  <br><br>
+        
+        G 	17. What do moths and vermin not do in heaven? <br>
+            A. Destroy (Matthew 6:20)  <br><br>
+        
+        Q 	18. Quote Matthew, chapter 6, verse 26. <br>
+            A. "Look at the birds of the air; they do not sow or reap or store away in barns, and yet your heavenly Father feeds them. Are you not much more valuable than they?" (Matthew 6:26)  <br><br>
+        
+        G 	19. Where do moths and vermin not destroy? <br>
+            A. In heaven (Matthew 6:20)  <br><br>
+        
+        </p>
+
+</body>
+</html>

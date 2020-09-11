@@ -1,0 +1,903 @@
+<!DOCTYPE html>
+<html> 
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+
+        h1{
+            background-color: black;
+            text-align: center;
+            font-size: 120px;
+            margin: 0px;
+            padding: 30px;
+            color: rgb(0, 172, 172);
+            font-family: 'Impact', Haettenschweiler, Arial Narrow Bold, sans-serif;
+            top: 0px;
+            left: 0px;
+            text-emphasis: bold;
+        }
+
+        head{
+            background-color: black;
+            margin: 0px;
+            padding: 20px;
+        }
+
+        nav{
+            left: 0px;
+            margin: 0px;
+            padding: 20px;
+            background-color: rgb(0, 172, 172);
+            color: black;
+            text-align: left;
+            display: inline-block;
+            height: auto;
+        }
+
+        nav a{
+            color: black;
+            text-decoration: none;
+            margin: 10px 15px;
+            padding: 8px;
+            font-size: 24px;
+            display: inline-block;
+            box-shadow: 0px 0px 10px 5px black;
+            background-color: #b3b3b3;
+            border-radius: 5px;
+        }
+
+        body{
+            background-image: url('data:image/jpeg;base64,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');
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-attachment: fixed;
+        }
+
+        h2{
+            text-align: center;
+            color: white;
+            font-size: 32px;
+            text-emphasis: bold;
+            margin: 10px;
+            background-color: black;
+            padding: 10px;
+            border: double 3px black;
+        }
+
+        .bookmarks{
+            background-color: rgb(0, 172, 172);
+            position: absolute;
+            top: 290px;
+            left: 26%;
+            text-align: center;
+            padding: 10px 20px;
+            border: solid black 5px;
+            border-radius: 25px;
+        }
+
+        .bookmarks a{
+            display: inline-block;
+            background-color: black;
+            color: white;
+            text-emphasis: bold;
+            font-size: 24px;
+            margin: 10px;
+            padding: 10px;
+            border-radius: 10px;
+        }
+
+        h3{
+            font-size: 68px;
+            position: absolute;
+            float: center;
+            top: 350px;
+            left: 48%;
+            text-emphasis: bold;
+            text-align: center;
+            font-family: 'Times New Roman', Times, serif;
+        }
+
+        .verses a{
+            position: absolute;
+            color: rgb(0, 172, 172);
+            background-color: black;
+            font-size: 32px;
+            font-family: Arial, Helvetica, sans-serif;
+            left: 38%;
+            padding: 10px 100px;
+            text-decoration: none;
+            text-align: center;
+            top: 220px;
+            text-emphasis: bold;
+        }
+
+        #myBtn {
+            display: none; /* Hidden by default */
+            position: fixed; /* Fixed/sticky position */
+            bottom: 65px; /* Place the button at the bottom of the page */
+            left: 50px; /* Place the button 30px from the right */
+            z-index: 99; /* Make sure it does not overlap */
+            border: none; /* Remove borders */
+            outline: none; /* Remove outline */
+            background-color: rgb(0, 172, 172); /* Set a background color */
+            color: black; /* Text color */
+            cursor: pointer; /* Add a mouse pointer on hover */
+            padding: 10px; /* Some padding */
+            padding-bottom: 0px;
+            border-radius: 10px; /* Rounded corners */
+            border: solid black 5px;
+            font-size: 72px; /* Increase font size */
+        }
+
+        #myBtn:hover {
+            display: none; /* Hidden by default */
+            position: fixed; /* Fixed/sticky position */
+            bottom: 65px; /* Place the button at the bottom of the page */
+            left: 50px; /* Place the button 30px from the right */
+            z-index: 99; /* Make sure it does not overlap */
+            border: none; /* Remove borders */
+            outline: none; /* Remove outline */
+            background-color: rgb(0, 0, 0); /* Set a background color */
+            color: rgb(0, 172, 172); /* Text color */
+            cursor: pointer; /* Add a mouse pointer on hover */
+            padding: 10px; /* Some padding */
+            padding-bottom: 0px;
+            border-radius: 10px; /* Rounded corners */
+            border: solid rgb(0, 172, 172) 5px;
+            font-size: 72px; /* Increase font size */
+        }
+
+        p{
+            font-size: 22px;
+            position: absolute;
+            top: 500px;
+            left: 30%;
+        }
+
+        h7{
+            font-size: 32px;
+            text-emphasis: bold;
+        }
+
+    </style>
+    <button onclick="topFunction()" id="myBtn" title="Go to top"><b>^</b></button>
+<head> 
+    <h1>Questions</h1>
+    <div class="verses">
+        <a href="Quizzing.html">Click here for memory verses.</a>        
+   </div>
+</head>
+<body>
+   
+    <script>
+        //Get the button
+        var mybutton = document.getElementById("myBtn");
+        
+        // When the user scrolls down 20px from the top of the document, show the button
+        window.onscroll = function() {scrollFunction()};
+        
+        function scrollFunction() {
+          if (document.body.scrollTop > 1750 || document.documentElement.scrollTop > 1750) {
+            mybutton.style.display = "block";
+          } else {
+            mybutton.style.display = "none";
+          }
+        }
+        
+        // When the user clicks on the button, scroll to the top of the document
+        function topFunction() {
+          document.body.scrollTop = 0;
+          document.documentElement.scrollTop = 0;
+        }
+        </script>
+
+    <nav>
+
+        <h2>Select a Chapter</h2>
+        <br>
+
+        <a href="Quizzing_Questions_1.html">Matthew 1</a>
+        <br>
+        <a href="Quizzing_Questions_2.html">Matthew 2</a>
+        <br>
+        <a href="Quizzing_Questions_3.html">Matthew 3</a>
+        <br>
+        <a href="Quizzing_Questions_4.html">Matthew 4</a>
+        <br>
+        <a href="Quizzing_Questions_5.html">Matthew 5</a>
+        <br>
+        <a href="Quizzing_Questions_6.html">Matthew 6</a>
+        <br>
+        <a href="Quizzing_Questions_7.html">Matthew 7</a>
+        <br>
+        <a href="Quizzing_Questions_8.html">Matthew 8</a>
+        <br>
+        <a href="Quizzing_Questions_9.html">Matthew 9</a>
+        <br>
+        <a href="Quizzing_Questions_10.html">Matthew 10</a>
+        <br>
+        <a href="Quizzing_Questions_11.html">Matthew 11</a>
+        <br>
+        <a href="Quizzing_Questions_12.html">Matthew 12</a>
+        <br>
+        <a href="Quizzing_Questions_13.html">Matthew 13</a>
+        <br>
+        <a href="Quizzing_Questions_14.html">Matthew 14</a>
+        <br>
+        <a href="Quizzing_Questions_15.html">Matthew 15</a>
+        <br>
+        <a href="Quizzing_Questions_16.html">Matthew 16</a>
+        <br>
+        <a href="Quizzing_Questions_17.html">Matthew 17</a>
+        <br>
+        <a href="Quizzing_Questions_18.html">Matthew 18</a>
+        <br>
+        <a href="Quizzing_Questions_19.html">Matthew 19</a>
+        <br>
+        <a href="Quizzing_Questions_20.html">Matthew 20</a>
+        <br>
+        <a href="Quizzing_Questions_21.html">Matthew 21</a>
+        <br>
+        <a href="Quizzing_Questions_22.html">Matthew 22</a>
+        <br>
+        <a href="Quizzing_Questions_23.html">Matthew 23</a>
+        <br>
+        <a href="Quizzing_Questions_24.html">Matthew 24</a>
+        <br>
+        <a href="Quizzing_Questions_25.html">Matthew 25</a>
+        <br>
+        <a href="Quizzing_Questions_26.html">Matthew 26</a>
+        <br>
+        <a href="Quizzing_Questions_27.html">Matthew 27</a>
+        <br>
+        <a href="Quizzing_Questions_28.html">Matthew 28</a>
+    </nav>
+
+    <div class="bookmarks">
+        <a href="#1">Set 1</a>
+        <a href="#2">Set 2</a>
+        <a href="#3">Set 3</a>
+        <a href="#4">Set 4</a>
+        <a href="#5">Set 5</a>
+        <a href="#6">Set 6</a>
+        <a href="#7">Set 7</a>
+        <a href="#8">Set 8</a>
+        <a href="#9">Set 9</a>
+        <a href="#10">Set 10</a>
+    </div>
+
+    <h3>Matthew 2</h3>
+
+    <p><h7 id="1">SET #1 </h7><br><br>
+
+        G 	1. Whom did King Herod ask where the Messiah was to be born? <br>
+            A. All the people's chief priests and teachers of the law (Matthew 2:4)  <br><br>
+        
+        G 	2. Whom did Herod call secretly? <br>
+            A. The Magi (Matthew 2:7)  <br><br>
+        
+        A 	3. According to Matthew, chapter 2, verse 16, who was furious? <br>
+            A. Herod (Matthew 2:16)  <br><br>
+        
+        G 	4. When did Joseph take the child and his mother and leave for Egypt? <br>
+            A. During the night (Matthew 2:14)  <br><br>
+        
+        G 	5. Who have come to worship the one who has been born king of the Jews? <br>
+            A. Magi (Matthew 2:2)  <br><br>
+        
+        S 	6. Situation question: who said it, to whom, and when: "Get up, take the child and his mother and go to the land of Israel, for those who were trying to take the child's life are dead."? <br>
+            A. An angel of the Lord said it to Joseph, after Herod died (Matthew 2:19-20)  <br><br>
+        
+        G 	7. Where did an angel of the Lord appear in a dream to Joseph after Herod died? <br>
+            A. In Egypt (Matthew 2:19)  <br><br>
+        
+        G 	8. Who will shepherd my people Israel?<br> 
+            A. A ruler who will come out of Bethlehem (Matthew 2:6)  <br><br>
+        
+        A 	9. According to Matthew, chapter 2, verse 22, what did he hear? <br>
+            A. That Archelaus was reigning in Judea in place of his father Herod (Matthew 2:22) <br><br>  
+        
+        Q 	10. Quote Matthew, chapter 2, verses 1 through 2. <br>
+            A. "After Jesus was born in Bethlehem in Judea, during the time of King Herod, Magi from the east came to Jerusalem and asked, "Where is the one who has been born king of the Jews? We saw his star when it rose and have come to worship him."" (Matthew 2:1-2) <br><br> 
+        
+        X 	11. When was King Herod disturbed? <br>
+            A. When he heard that Magi had come to worship the one who had been born king of the Jews (Matthew 2:2-3)  <br>br
+
+        
+        G 	12. From where did Magi come to Jerusalem?<br> 
+            A. The east (Matthew 2:1)  <br><br>
+        
+        G 	13. Who saw the star? <br>
+            A. The Magi (Matthew 2:10) <br><br> 
+        
+        R 	14. Finish these verses and give the reference: "After Jesus was born in. . ." <br>
+            A. ". . .Bethlehem in Judea, during the time of King Herod, Magi from the east came to Jerusalem and asked, "Where is the one who has been born king of the Jews? We saw his star when it rose and have come to worship him." " (Matthew 2:1-2) <br><br> 
+        
+        G 	15. Where should Joseph stay until an angel of the Lord tells him? <br>
+            A. Egypt (Matthew 2:13)  <br><br>
+        
+        G 	16. How did the Magi return to their country? <br>
+            A. By another route (Matthew 2:12) <br><br> 
+        
+        A 	17. According to Matthew, chapter 2, verse 17, what was fulfilled? <br>
+            A. What was said through the prophet Jeremiah (Matthew 2:17)  <br><br>
+        
+        G 	18. Where did Herod send the Magi? <br>
+            A. To Bethlehem (Matthew 2:8)  <br><br>
+        
+        A 	19. According to Matthew, chapter 2, verse 9, when did they go on their way?<br> 
+            A. After they had heard the king (Matthew 2:9)  <br><br>
+        
+        V 	20. Finish this verse: "On coming to the house,. . ." <br>
+            A. ". . .they saw the child with his mother Mary, and they bowed down and worshiped him. Then they opened their treasures and presented him with gifts of gold, frankincense and myrrh." (Matthew 2:11)  <br><br>
+        <br>
+        <br>
+        
+          <h7 id="2">SET #2</h7> <br><br>
+        
+        A 	1. According to Matthew, chapter 2, verse 10, what did they see? <br>
+            A. The star (Matthew 2:10)  <br><br>
+        
+        G 	2. Whom did Herod give orders to kill?<br> 
+            A. All the boys in Bethlehem and its vicinity who were two years old and under (Matthew 2:16) <br><br>  
+        
+        G 	3. Until whose death did Joseph stay in Egypt? <br>
+            A. Herod's (Matthew 2:15)  <br><br>
+        
+        R 	4. Finish these verses and give the reference: "After Jesus was born in. . ." <br>
+            A. ". . .Bethlehem in Judea, during the time of King Herod, Magi from the east came to Jerusalem and asked, "Where is the one who has been born king of the Jews? We saw his star when it rose and have come to worship him." " (Matthew 2:1-2)  <br><br>
+        
+        S 	5. Situation question: who said it, to whom, and what was the response: "Get up, take the child and his mother and go to the land of Israel, for those who were trying to take the child's life are dead."? <br>
+            A. An angel of the Lord said it to Joseph, and Joseph got up, took the child and his mother and went to the land of Israel (Matthew 2:19-21)  <br><br>
+        
+        G 	6. Who got up, took the child and his mother during the night and left for Egypt? <br>
+            A. Joseph (Matthew 2:14)  <br><br>
+        
+        G 	7. Why is Rachel weeping for her children and refusing to be comforted?<br>
+            A. Because her children are no more (Matthew 2:18)  <br><br>
+        
+        X 	8. As whom are "Magi" traditionally known? <br>
+            A. Wise men (Matthew 2:1)  <br><br>
+        
+        G 	9. Who said, "Get up, take the child and his mother and go to the land of Israel, for those who were trying to take the child's life are dead."? <br>
+            A. An angel of the Lord (Matthew 2:19-20)  <br><br>
+        
+        G 	10. In place of whom was Archelaus reigning in Judea? <br>
+            A. His father Herod (Matthew 2:22)  <br><br>
+        
+        V 	11. Finish this verse: "On coming to the house,. . ." <br>
+            A. ". . .they saw the child with his mother Mary, and they bowed down and worshiped him. Then they opened their treasures and presented him with gifts of gold, frankincense and myrrh." (Matthew 2:11)  <br><br>
+        
+        G 	12. How had the Magi been warned not to go back to Herod? <br>
+            A. In a dream (Matthew 2:12)  <br><br>
+        
+        G 	13. Who asked all the people's chief priests and teachers of the law where the Messiah was to be born? <br>
+            A. King Herod (Matthew 2:4)  <br><br>
+        
+        A 	14. According to Matthew, chapter 2, verse 6, who will come out of Bethlehem? <br>
+            A. A ruler who will shepherd my people Israel (Matthew 2:6)  <br><br>
+        
+        G 	15. Why should Joseph get up, take the child and his mother and go to the land of Israel?<br> 
+            A. For those who were trying to take the child's life are dead (Matthew 2:20)  <br><br>
+        
+        Q 	16. Quote Matthew, chapter 2, verses 1 through 2. <br>
+            A. "After Jesus was born in Bethlehem in Judea, during the time of King Herod, Magi from the east came to Jerusalem and asked, "Where is the one who has been born king of the Jews? We saw his star when it rose and have come to worship him."" (Matthew 2:1-2)  <br><br>
+        
+        G 	17. Through whom was it said that he would be called a Nazarene? <br>
+            A. The prophets (Matthew 2:23)  <br><br>
+        
+        A 	18. According to Matthew, chapter 2, verse 2, what have we come to do? <br>
+            A. Worship the one who has been born king of the Jews (Matthew 2:2)  <br><br>
+        
+        G 	19. Until when did the star go ahead of the Magi? <br>
+            A. Until it stopped over the place where the child was (Matthew 2:9)  <br><br>
+        
+        A 	20. According to Matthew, chapter 2, verse 13, to where should Joseph escape? <br>
+            A. Egypt (Matthew 2:13)  <br><br>
+        <br><br>
+        
+          <h7 id="3">SET #3 </h7> <br><br>
+        
+        G 	1. Who had said through the prophet: "Out of Egypt I called my son."? <br>
+            A. The Lord (Matthew 2:15)  <br><br>
+        
+        G 	2. What did King Herod ask all the people's chief priests and teachers of the law? <br>
+            A. Where the Messiah was to be born (Matthew 2:4)  <br><br>
+        
+        A 	3. According to Matthew, chapter 2, verse 14, whom did he take?<br> 
+            A. The child and his mother (Matthew 2:14)  <br><br>
+        
+        G 	4. Who said, "Go and search carefully for the child. As soon as you find him, report to me, so that I too may go and worship him."? <br>
+            A. Herod (Matthew 2:8)  <br><br>
+        
+        X 	5. Whose father was Herod? <br>
+            A. Archelaus' (Matthew 2:22)  <br><br>
+        
+        G 	6. What had the Magi been warned in a dream? <br>
+            A. Not to go back to Herod (Matthew 2:12)  <br><br>
+        
+        Q 	7. Quote Matthew, chapter 2, verses 1 through 2. <br>
+            A. "After Jesus was born in Bethlehem in Judea, during the time of King Herod, Magi from the east came to Jerusalem and asked, "Where is the one who has been born king of the Jews? We saw his star when it rose and have come to worship him."" (Matthew 2:1-2)  <br><br>
+        
+        G 	8. Whose star did Magi see? <br>
+            A. The one who has been born king of the Jews (Matthew 2:2) <br><br> 
+        
+        G 	9. What had the Magi seen when it rose? <br>
+            A. The star (Matthew 2:9)  <br><br>
+        
+        V 	10. Finish this verse: "On coming to the house,. . ." <br>
+            A. ". . .they saw the child with his mother Mary, and they bowed down and worshiped him. Then they opened their treasures and presented him with gifts of gold, frankincense and myrrh." (Matthew 2:11)  <br><br>
+        
+        G 	11. Who had been outwitted by the Magi? <br>
+            A. Herod (Matthew 2:16)  <br><br>
+        
+        S 	12. Situation question: who said it, and to whom: "Get up, take the child and his mother and escape to Egypt. Stay there until I tell you, for Herod is going to search for the child to kill him."? <br>
+            A. An angel of the Lord said it to Joseph (Matthew 2:13)  <br><br>
+        
+        G 	13. What are Rachel's children? <br>
+            A. No more (Matthew 2:18)  <br><br>
+        
+        A 	14. According to Matthew, chapter 2, verse 5, what is in Judea? <br>
+            A. Bethlehem (Matthew 2:5)  <br><br>
+        
+        G 	15. Out of where will come a ruler who will shepherd my people Israel? <br>
+            A. Bethlehem (Matthew 2:6)  <br><br>
+        
+        G 	16. Who was born in Bethlehem in Judea, during the time of King Herod? <br>
+            A. Jesus (Matthew 2:1)  <br><br>
+        
+        A 	17. According to Matthew, chapter 2, verse 17, who was a prophet? <br>
+            A. Jeremiah (Matthew 2:17)  <br><br>
+        
+        R 	18. Finish these verses and give the reference: "After Jesus was born in. . ." <br>
+            A. ". . .Bethlehem in Judea, during the time of King Herod, Magi from the east came to Jerusalem and asked, "Where is the one who has been born king of the Jews? We saw his star when it rose and have come to worship him." " (Matthew 2:1-2)  <br><br>
+        
+        A 	19. According to Matthew, chapter 2, verse 7, whom did Herod call? <br>
+            A. The Magi (Matthew 2:7)  <br><br>
+        
+        G 	20. Who took the child and his mother and went to the land of Israel? <br>
+            A. Joseph (Matthew 2:21)  <br><br>
+        <br><br>
+        
+          <h7 id="4">SET #4</h7>  <br><br>
+        
+        R 	1. Finish these verses and give the reference: "After Jesus was born in. . ." <br>
+            A. ". . .Bethlehem in Judea, during the time of King Herod, Magi from the east came to Jerusalem and asked, "Where is the one who has been born king of the Jews? We saw his star when it rose and have come to worship him." " (Matthew 2:1-2)  <br><br>
+        
+        G 	2. To whom should the Magi report as soon as they find the child? <br>
+            A. Herod (Matthew 2:8)  <br><br>
+        
+        S 	3. Situation question: who said it, to whom, and when: "In Bethlehem in Judea, for this is what the prophet has written."? <br>
+            A. All the people's chief priests and teachers of the law said it to King Herod, when King Herod had called them together (Matthew 2:4-5)  <br><br>
+        
+        G 	4. Whom did the Lord call out of Egypt? <br>
+            A. His son (Matthew 2:15)  <br><br>
+        
+        A 	5. According to Matthew, chapter 2, verse 9, where did they go? <br>
+            A. On their way (Matthew 2:9)  <br><br>
+        
+        G 	6. Who is refusing to be comforted? <br>
+            A. Rachel (Matthew 2:18)  <br><br>
+        
+        G 	7. Who was reigning in Judea in place of his father Herod? <br>
+            A. Archelaus (Matthew 2:22)  <br><br>
+        
+        Q 	8. Quote Matthew, chapter 2, verses 1 through 2. <br>
+            A. "After Jesus was born in Bethlehem in Judea, during the time of King Herod, Magi from the east came to Jerusalem and asked, "Where is the one who has been born king of the Jews? We saw his star when it rose and have come to worship him."" (Matthew 2:1-2)  <br><br>
+        
+        G 	9. Where was Jesus born? <br>
+            A. In Bethlehem in Judea (Matthew 2:1)  <br><br>
+        
+        G 	10. What will a ruler who will come out of Bethlehem do? <br>
+            A. Shepherd my people Israel (Matthew 2:6)  <br><br>
+        
+        V 	11. Finish this verse: "On coming to the house,. . ." <br>
+            A. ". . .they saw the child with his mother Mary, and they bowed down and worshiped him. Then they opened their treasures and presented him with gifts of gold, frankincense and myrrh." (Matthew 2:11)  <br><br>
+        
+        G 	12. Who called the Magi secretly? <br>
+            A. Herod (Matthew 2:7)  <br><br>
+        
+        G 	13. Why should the Magi report to Herod as soon as they find the child? <br>
+            A. So that Herod too may go and worship him (Matthew 2:8)  <br><br>
+        
+        X 	14. Three-part answer: who stayed in Egypt until the death of Herod?<br> 
+            A. 1) Joseph; 2) The child (Jesus); 3) The child's mother (Mary) (Matthew 2:14-15) <br> <br>
+        
+        A 	15. According to Matthew, chapter 2, verse 10, when were they overjoyed? <br>
+            A. When they saw the star (Matthew 2:10)  <br><br>
+        
+        G 	16. When was Herod furious? <br>
+            A. When he realized that he had been outwitted by the Magi (Matthew 2:16)  <br><br>
+        
+        A 	17. According to Matthew, chapter 2, verse 13, what is Herod going to do? <br>
+            A. Search for the child to kill him (Matthew 2:13)  <br><br>
+        
+        G 	18. Who should search carefully for the child? <br>
+            A. The Magi (Matthew 2:8)  <br><br>
+        
+        A 	19. According to Matthew, chapter 2, verse 19, who appeared? <br>
+            A. An angel of the Lord (Matthew 2:19)  <br><br>
+        
+        G 	20. Who returned to their country by another route? <br>
+            A. The Magi (Matthew 2:12)  <br><br>
+            <br><br>
+        
+          <h7 id="5">SET #5</h7> <br><br>
+        
+        G 	1. Who presented the child with gifts of gold, frankincense and myrrh? <br>
+            A. The Magi (Matthew 2:11)  <br><br>
+        
+        A 	2. According to Matthew, chapter 2, verse 7, what had appeared? <br>
+            A. The star (Matthew 2:7)  <br><br>
+        
+        X 	3. In Matthew, chapter 2, what was the town where Joseph lived called? <br>
+            A. Nazareth (Matthew 2:23)  <br><br>
+        
+        G 	4. Where was Joseph afraid to go? <br>
+            A. Judea (Matthew 2:22)  <br><br>
+        
+        G 	5. Where did the star stop? <br>
+            A. Over the place where the child was (Matthew 2:9)  <br><br>
+        
+        S 	6. Situation question: who said it, to whom, and what was the response: "Get up, take the child and his mother and go to the land of Israel, for those who were trying to take the child's life are dead."? <br>
+            A. An angel of the Lord said it to Joseph, and Joseph got up, took the child and his mother and went to the land of Israel (Matthew 2:19-21)  <br><br>
+        
+        A 	7. According to Matthew, chapter 2, verse 12, how did they return to their country? <br>
+            A. By another route (Matthew 2:12)  <br><br>
+        
+        G 	8. When was Joseph afraid to go to Judea? <br>
+            A. When he heard that Archelaus was reigning in Judea in place of his father Herod (Matthew 2:22)  <br><br>
+        
+        V 	9. Finish these verses: "After Jesus was born in. . ." <br>
+            A. ". . .Bethlehem in Judea, during the time of King Herod, Magi from the east came to Jerusalem and asked, "Where is the one who has been born king of the Jews? We saw his star when it rose and have come to worship him." (Matthew 2:1-2)  <br><br>
+        
+        G 	10. Who worshiped the child? <br>
+            A. The Magi (Matthew 2:11)  <br><br>
+        
+        G 	11. Through whom had the Lord said: "Out of Egypt I called my son."? <br>
+            A. The prophet (Matthew 2:15)  <br><br>
+        
+        A 	12. According to Matthew, chapter 2, verse 16, what did Herod realize? <br>
+            A. That he had been outwitted by the Magi (Matthew 2:16)  <br><br>
+        
+        G 	13. When did the Magi open their treasures and present the child with gifts of gold, frankincense and myrrh? <br>
+            A. After they bowed down and worshiped him (Matthew 2:11)  <br><br>
+        
+        G 	14. Who is going to search for the child to kill him? <br>
+            A. Herod (Matthew 2:13)  <br><br>
+        
+        Q 	15. Quote Matthew, chapter 2, verses 1 through 2. <br>
+            A. "After Jesus was born in Bethlehem in Judea, during the time of King Herod, Magi from the east came to Jerusalem and asked, "Where is the one who has been born king of the Jews? We saw his star when it rose and have come to worship him."" (Matthew 2:1-2)  <br><br>
+        
+        A 	16. According to Matthew, chapter 2, verse 21, whom did he take? <br>
+            A. The child and his mother (Matthew 2:21)  <br><br>
+        
+        G 	17. When was Jesus born in Bethlehem in Judea? <br>
+            A. During the time of King Herod (Matthew 2:1)  <br><br>
+        
+        G 	18. When did the Magi see the child with his mother Mary? <br>
+            A. On coming to the house (Matthew 2:11)  <br><br>
+        
+        R 	19. Finish this verse and give the reference: "On coming to the house,. . ." <br>
+            A. ". . .they saw the child with his mother Mary, and they bowed down and worshiped him. Then they opened their treasures and presented him with gifts of gold, frankincense and myrrh. " (Matthew 2:11)  <br><br>
+        
+        G 	20. Whom did the Magi see on coming to the house? <br>
+            A. The child with his mother Mary (Matthew 2:11)  <br><br>
+            <br><br>
+        
+          <h7 id="6">SET #6</h7> <br><br>
+        
+        A 	1. According to Matthew, chapter 2, verse 1, where is Bethlehem? <br>
+            A. In Judea (Matthew 2:1)  <br><br>
+        
+        G 	2. Why should Joseph get up, take the child and his mother and go to the land of Israel? <br>
+            A. For those who were trying to take the child's life are dead (Matthew 2:20)  <br><br>
+        
+        S 	3. Situation question: who said it, and to whom: "Get up, take the child and his mother and escape to Egypt. Stay there until I tell you, for Herod is going to search for the child to kill him."? <br>
+            A. An angel of the Lord said it to Joseph (Matthew 2:13)  <br><br>
+        
+        G 	4. Where was Joseph afraid to go? <br>
+            A. Judea (Matthew 2:22)  <br><br>
+        
+        G 	5. Whom did Herod call secretly? <br>
+            A. The Magi (Matthew 2:7)  <br><br>
+        
+        R 	6. Finish this verse and give the reference: "On coming to the house,. . ." <br>
+            A. ". . .they saw the child with his mother Mary, and they bowed down and worshiped him. Then they opened their treasures and presented him with gifts of gold, frankincense and myrrh. " (Matthew 2:11)  <br><br>
+        
+        G 	7. Where did the star stop? <br>
+            A. Over the place where the child was (Matthew 2:9)  <br><br>
+        
+        A 	8. According to Matthew, chapter 2, verse 8, for whom should they search carefully? <br>
+            A. The child (Matthew 2:8)  <br><br>
+        
+        G 	9. Through whom was it said that he would be called a Nazarene? <br>
+            A. The prophets (Matthew 2:23)  <br><br>
+        
+        G 	10. Whose star did Magi see? <br>
+            A. The one who has been born king of the Jews (Matthew 2:2) <br><br> 
+        
+        Q 	11. Quote Matthew, chapter 2, verses 1 through 2. <br>
+            A. "After Jesus was born in Bethlehem in Judea, during the time of King Herod, Magi from the east came to Jerusalem and asked, "Where is the one who has been born king of the Jews? We saw his star when it rose and have come to worship him."" (Matthew 2:1-2)  <br><br>
+        
+        X 	12. From what Old Testament book does the following quotation come: "But you, Bethlehem, in the land of Judah, are by no means least among the rulers of Judah; for out of you will come a ruler who will shepherd my people Israel."? <br>
+            A. Micah (Matthew 2:6)  <br><br>
+        
+        G 	13. When did Joseph take the child and his mother and leave for Egypt? <br>
+            A. During the night (Matthew 2:14)  <br><br>
+          
+        G 	14. What did King Herod ask all the people's chief priests and teachers of the law? <br>
+            A. Where the Messiah was to be born (Matthew 2:4)  <br><br>
+        
+        V 	15. Finish these verses: "After Jesus was born in. . ." <br>
+            A. ". . .Bethlehem in Judea, during the time of King Herod, Magi from the east came to Jerusalem and asked, "Where is the one who has been born king of the Jews? We saw his star when it rose and have come to worship him." (Matthew 2:1-2)  <br><br>
+        
+        A 	16. According to Matthew, chapter 2, verse 19, who died? <br>
+            A. Herod (Matthew 2:19)  <br><br>
+        
+        G 	17. What did Herod realize? <br>
+            A. That he had been outwitted by the Magi (Matthew 2:16)  <br><br>
+        
+        G 	18. Who saw the star? <br>
+            A. The Magi (Matthew 2:10) <br><br> 
+        
+        A 	19. According to Matthew, chapter 2, verse 15, out of where did I call my son? <br>
+            A. Egypt (Matthew 2:15)  <br><br>
+        
+        G 	20. Who returned to their country by another route? <br>
+            A. The Magi (Matthew 2:12)  <br><br>
+            <br><br>
+        
+          <h7 id="7">SET #7 </h7> <br><br>
+        
+        G 	1. Who was reigning in Judea in place of his father Herod? <br>
+            A. Archelaus (Matthew 2:22)  <br><br>
+        
+        G 	2. Until whose death did Joseph stay in Egypt? <br>
+            A. Herod's (Matthew 2:15)  <br><br>
+        
+        R 	3. Finish these verses and give the reference: "After Jesus was born in. . ." <br>
+            A. ". . .Bethlehem in Judea, during the time of King Herod, Magi from the east came to Jerusalem and asked, "Where is the one who has been born king of the Jews? We saw his star when it rose and have come to worship him." " (Matthew 2:1-2)  <br><br>
+        
+        G 	4. How did the Magi return to their country? <br>
+            A. By another route (Matthew 2:12)  <br><br>
+        
+        X 	5. Two-part question: how did Herod call the Magi, and what did he find out from them? <br>
+            A. 1) Secretly; 2) The exact time the star had appeared (Matthew 2:7)  <br><br>
+        
+        G 	6. Who got up, took the child and his mother during the night and left for Egypt? <br>
+            A. Joseph (Matthew 2:14)  <br><br>
+        
+        A 	7. According to Matthew, chapter 2, verse 2, whom have we come to worship? <br>
+            A. The one who has been born king of the Jews (Matthew 2:2)  <br><br>
+        
+        G 	8. What will a ruler who will come out of Bethlehem do? <br>
+            A. Shepherd my people Israel (Matthew 2:6)  <br><br>
+        
+        A 	9. According to Matthew, chapter 2, verse 19, where did an angel of the Lord appear in a dream to Joseph? <br>
+            A. In Egypt (Matthew 2:19)  <br><br>
+        
+        S 	10. Situation question: who said it, to whom, and when: "Get up, take the child and his mother and go to the land of Israel, for those who were trying to take the child's life are dead."? <br>
+            A. An angel of the Lord said it to Joseph, after Herod died (Matthew 2:19-20)  <br><br>
+        
+        Q 	11. Quote Matthew, chapter 2, verse 11. <br>
+            A. "On coming to the house, they saw the child with his mother Mary, and they bowed down and worshiped him. Then they opened their treasures and presented him with gifts of gold, frankincense and myrrh." (Matthew 2:11)  <br><br>
+        
+        G 	12. Who asked all the people's chief priests and teachers of the law where the Messiah was to be born? <br>
+            A. King Herod (Matthew 2:4)  <br><br>
+        
+        A 	13. According to Matthew, chapter 2, verse 13, why is Herod going to search for the child? <br>
+            A. To kill him (Matthew 2:13)  <br><br>
+        
+        G 	14. Who is refusing to be comforted? <br>
+            A. Rachel (Matthew 2:18)  <br><br>
+        
+        G 	15. Who took the child and his mother and went to the land of Israel? <br>
+            A. Joseph (Matthew 2:21)  <br><br>
+        
+        V 	16. Finish these verses: "After Jesus was born in. . ." <br>
+            A. ". . .Bethlehem in Judea, during the time of King Herod, Magi from the east came to Jerusalem and asked, "Where is the one who has been born king of the Jews? We saw his star when it rose and have come to worship him." (Matthew 2:1-2)  <br><br>
+        
+        G 	17. In accordance with what did Herod give orders to kill all the boys in Bethlehem and its vicinity who were two years old and under? <br>
+            A. The time he had learned from the Magi (Matthew 2:16)  <br><br>
+        
+        G 	18. Where did Herod send the Magi? <br>
+            A. To Bethlehem (Matthew 2:8)  <br><br>
+        
+        A 	19. According to Matthew, chapter 2, verse 1, to where did Magi from the east come? <br>
+            A. Jerusalem (Matthew 2:1)  <br><br>
+        
+        G 	20. Until when did the star go ahead of the Magi? <br>
+            A. Until it stopped over the place where the child was (Matthew 2:9)  <br><br>
+            <br><br>
+        
+          <h7 id="8">SET #8</h7> <br><br>
+        
+        G 	1. Who have come to worship the one who has been born king of the Jews? <br>
+            A. Magi (Matthew 2:2)  <br><br>
+        
+        A 	2. According to Matthew, chapter 2, verse 1, when was Jesus born? <br>
+            A. During the time of King Herod (Matthew 2:1)  <br><br>
+        
+        G 	3. Where should Joseph stay until an angel of the Lord tells him? <br>
+            A. Egypt (Matthew 2:13)  <br><br>
+        
+        G 	4. Who will shepherd my people Israel? <br>
+            A. A ruler who will come out of Bethlehem (Matthew 2:6)  <br><br>
+        
+        R 	5. Finish these verses and give the reference: "After Jesus was born in. . ." <br>
+            A. ". . .Bethlehem in Judea, during the time of King Herod, Magi from the east came to Jerusalem and asked, "Where is the one who has been born king of the Jews? We saw his star when it rose and have come to worship him." " (Matthew 2:1-2)  <br><br>
+        
+        G 	6. When was Herod furious? <br>
+            A. When he realized that he had been outwitted by the Magi (Matthew 2:16) <br><br> 
+        
+        G 	7. Who had said through the prophet: "Out of Egypt I called my son."? <br>
+            A. The Lord (Matthew 2:15)  <br><br>
+        
+        A 	8. According to Matthew, chapter 2, verse 22, to where did he withdraw? <br>
+            A. The district of Galilee (Matthew 2:22)  <br><br>
+        
+        Q 	9. Quote Matthew, chapter 2, verse 11. <br>
+            A. "On coming to the house, they saw the child with his mother Mary, and they bowed down and worshiped him. Then they opened their treasures and presented him with gifts of gold, frankincense and myrrh." (Matthew 2:11)  <br><br>
+        
+        X 	10. Two-part question: how did the Magi return to their country, and why? <br>
+            A. 1) By another route; 2) They had been warned in a dream not to go back to Herod (Matthew 2:12)  <br><br>
+        
+        G 	11. Who said, "Get up, take the child and his mother and go to the land of Israel, for those who were trying to take the child's life are dead."? <br>
+            A. An angel of the Lord (Matthew 2:19-20)  <br><br>
+        
+        A 	12. According to Matthew, chapter 2, verse 3, what was King Herod? <br>
+            A. Disturbed (Matthew 2:3)  <br><br>
+        
+        G 	13. Who called the Magi secretly? <br>
+            A. Herod (Matthew 2:7)  <br><br>
+        
+        G 	14. Whom did King Herod ask where the Messiah was to be born? <br>
+            A. All the people's chief priests and teachers of the law (Matthew 2:4)  <br><br>
+        
+        A 	15. According to Matthew, chapter 2, verse 23, what would he be called? <br>
+            A. A Nazarene (Matthew 2:23)  <br><br>
+        
+        V 	16. Finish these verses: "After Jesus was born in. . ." <br>
+            A. ". . .Bethlehem in Judea, during the time of King Herod, Magi from the east came to Jerusalem and asked, "Where is the one who has been born king of the Jews? We saw his star when it rose and have come to worship him." (Matthew 2:1-2)  <br><br>
+        
+        G 	17. What had the Magi seen when it rose? <br>
+            A. The star (Matthew 2:9)  <br><br>
+        
+        G 	18. Where did an angel of the Lord appear in a dream to Joseph after Herod died? <br>
+            A. In Egypt (Matthew 2:19)  <br><br>
+        
+        S 	19. Situation question: who said it, to whom, and when: "In Bethlehem in Judea, for this is what the prophet has written."? <br>
+            A. All the people's chief priests and teachers of the law said it to King Herod, when King Herod had called them together (Matthew 2:4-5)  <br><br>
+        
+        G 	20. Why is Rachel weeping for her children and refusing to be comforted? <br>
+            A. Because her children are no more (Matthew 2:18)  <br><br>
+            <br><br>
+        
+          <h7 id="9">SET #9</h7> <br><br>
+        
+        G 	1. What are Rachel's children? <br>
+            A. No more (Matthew 2:18)  <br><br>
+        
+        G 	2. Out of where will come a ruler who will shepherd my people Israel? <br>
+            A. Bethlehem (Matthew 2:6)  <br><br>
+        
+        X 	3. Three-part answer: who should stay in Egypt until the angel of the Lord tells him? <br>
+            A. 1) Joseph; 2) The child (Jesus); 3) The child's mother (Mary) (Matthew 2:13)  <br><br>
+        
+        G 	4. Who should search carefully for the child? <br>
+            A. The Magi (Matthew 2:8)  <br><br>
+        
+        R 	5. Finish these verses and give the reference: "After Jesus was born in. . ." <br>
+            A. ". . .Bethlehem in Judea, during the time of King Herod, Magi from the east came to Jerusalem and asked, "Where is the one who has been born king of the Jews? We saw his star when it rose and have come to worship him." " (Matthew 2:1-2)  <br><br>
+        
+        G 	6. Who said, "Go and search carefully for the child. As soon as you find him, report to me, so that I too may go and worship him."? <br>
+            A. Herod (Matthew 2:8)  <br><br>
+        
+        G 	7. Whom did the Lord call out of Egypt? <br>
+            A. His son (Matthew 2:15)  <br><br>
+        
+        S 	8. Situation question: who said it, to whom, and what was the response: "Get up, take the child and his mother and go to the land of Israel, for those who were trying to take the child's life are dead."? <br>
+            A. An angel of the Lord said it to Joseph, and Joseph got up, took the child and his mother and went to the land of Israel (Matthew 2:19-21)  <br><br>
+        
+        A 	9. According to Matthew, chapter 2, verse 23, what was fulfilled? <br>
+            A. What was said through the prophets, that he would be called a Nazarene (Matthew 2:23)  <br><br>
+        
+        G 	10. Where was Jesus born? <br>
+            A. In Bethlehem in Judea (Matthew 2:1)  <br><br>
+        
+        A 	11. According to Matthew, chapter 2, verse 19, who appeared? <br>
+            A. An angel of the Lord (Matthew 2:19)  <br><br>
+        
+        G 	12. Who had been outwitted by the Magi? <br>
+            A. Herod (Matthew 2:16)  <br><br>
+        
+        G 	13. Why should the Magi report to Herod as soon as they find the child? <br>
+            A. So that Herod too may go and worship him (Matthew 2:8)  <br><br>
+        
+        Q 	14. Quote Matthew, chapter 2, verse 11. <br>
+            A. "On coming to the house, they saw the child with his mother Mary, and they bowed down and worshiped him. Then they opened their treasures and presented him with gifts of gold, frankincense and myrrh." (Matthew 2:11)  <br><br>
+        
+        G 	15. How had the Magi been warned not to go back to Herod? <br>
+            A. In a dream (Matthew 2:12)  <br><br>
+        
+        G 	16. When was Jesus born in Bethlehem in Judea? <br>
+            A. During the time of King Herod (Matthew 2:1)  <br><br>
+        
+        A 	17. According to Matthew, chapter 2, verse 22, what did he hear? <br>
+            A. That Archelaus was reigning in Judea in place of his father Herod (Matthew 2:22)  <br><br>
+        
+        V 	18. Finish these verses: "After Jesus was born in. . ." <br>
+            A. ". . .Bethlehem in Judea, during the time of King Herod, Magi from the east came to Jerusalem and asked, "Where is the one who has been born king of the Jews? We saw his star when it rose and have come to worship him." (Matthew 2:1-2)  <br><br>
+        
+        G 	19. To whom should the Magi report as soon as they find the child? <br>
+            A. Herod (Matthew 2:8)  <br><br>
+        
+        A 	20. According to Matthew, chapter 2, verse 5, what did they reply? <br>
+            A. "In Bethlehem in Judea, for this is what the prophet has written" (Matthew 2:5)  <br><br>
+            <br><br>
+        
+           <h7 id="10">SET #10</h7><br><br>
+        
+        G 	1. When did the Magi open their treasures and present the child with gifts of gold, frankincense and myrrh? <br>
+            A. After they bowed down and worshiped him (Matthew 2:11) <br><br> 
+        
+        G 	2. Who was born in Bethlehem in Judea, during the time of King Herod? <br>
+            A. Jesus (Matthew 2:1)  <br><br>
+        
+        S 	3. Situation question: who said it, and to whom: "Get up, take the child and his mother and escape to Egypt. Stay there until I tell you, for Herod is going to search for the child to kill him."? <br>
+            A. An angel of the Lord said it to Joseph (Matthew 2:13) <br><br> 
+        
+        G 	4. Who worshiped the child? <br>
+            A. The Magi (Matthew 2:11)  <br><br>
+        
+        Q 	5. Quote Matthew, chapter 2, verses 1 through 2. <br>
+            A. "After Jesus was born in Bethlehem in Judea, during the time of King Herod, Magi from the east came to Jerusalem and asked, "Where is the one who has been born king of the Jews? We saw his star when it rose and have come to worship him."" (Matthew 2:1-2)  <br><br>
+        
+        G 	6. In place of whom was Archelaus reigning in Judea? <br>
+            A. His father Herod (Matthew 2:22)  <br><br>
+        
+        G 	7. When did the Magi see the child with his mother Mary? <br>
+            A. On coming to the house (Matthew 2:11)  <br><br>
+        
+        R 	8. Finish this verse and give the reference: "On coming to the house,. . ." <br>
+            A. ". . .they saw the child with his mother Mary, and they bowed down and worshiped him. Then they opened their treasures and presented him with gifts of gold, frankincense and myrrh. " (Matthew 2:11)  <br><br>
+        
+        A 	9. According to Matthew, chapter 2, verse 10, what did they see? <br>
+            A. The star (Matthew 2:10)  <br><br>
+        
+        G 	10. What had the Magi been warned in a dream? <br>
+            A. Not to go back to Herod (Matthew 2:12)  <br><br>
+        
+        G 	11. Whom did the Magi see on coming to the house? <br>
+            A. The child with his mother Mary (Matthew 2:11)  <br><br>
+        
+        X 	12. From what Old Testament book does the following quotation come: "Out of Egypt I called my son."? <br>
+            A. Hosea (Matthew 2:15)  <br><br>
+        
+        A 	13. According to Matthew, chapter 2, verse 5, what is in Judea? <br>
+            A. Bethlehem (Matthew 2:5)  <br><br>
+        
+        V 	14. Finish these verses: "After Jesus was born in. . ." <br>
+            A. ". . .Bethlehem in Judea, during the time of King Herod, Magi from the east came to Jerusalem and asked, "Where is the one who has been born king of the Jews? We saw his star when it rose and have come to worship him." (Matthew 2:1-2)  <br><br>
+        
+        G 	15. From where did Magi come to Jerusalem? <br>
+            A. The east (Matthew 2:1)  <br><br>
+        
+        G 	16. Who presented the child with gifts of gold, frankincense and myrrh? <br>
+            A. The Magi (Matthew 2:11)  <br><br>
+        
+        A 	17. According to Matthew, chapter 2, verse 16, who was furious? <br>
+            A. Herod (Matthew 2:16)  <br><br>
+        
+        G 	18. When was Joseph afraid to go to Judea? <br>
+            A. When he heard that Archelaus was reigning in Judea in place of his father Herod (Matthew 2:22)  <br><br>
+        
+        G 	19. Who is going to search for the child to kill him? <br>
+            A. Herod (Matthew 2:13)  <br><br>
+        
+        A 	20. According to Matthew, chapter 2, verse 7, whom did Herod call? <br>
+            A. The Magi (Matthew 2:7)  <br><br>
+        </p>
+
+</body>
+</html>

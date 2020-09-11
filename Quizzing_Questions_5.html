@@ -1,0 +1,874 @@
+<!DOCTYPE html>
+<html> 
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+
+        h1{
+            background-color: black;
+            text-align: center;
+            font-size: 120px;
+            margin: 0px;
+            padding: 30px;
+            color: rgb(0, 172, 172);
+            font-family: 'Impact', Haettenschweiler, Arial Narrow Bold, sans-serif;
+            top: 0px;
+            left: 0px;
+            text-emphasis: bold;
+        }
+
+        head{
+            background-color: black;
+            margin: 0px;
+            padding: 20px;
+        }
+
+        nav{
+            left: 0px;
+            margin: 0px;
+            padding: 20px;
+            background-color: rgb(0, 172, 172);
+            color: black;
+            text-align: left;
+            display: inline-block;
+            height: auto;
+        }
+
+        nav a{
+            color: black;
+            text-decoration: none;
+            margin: 10px 15px;
+            padding: 8px;
+            font-size: 24px;
+            display: inline-block;
+            box-shadow: 0px 0px 10px 5px black;
+            background-color: #b3b3b3;
+            border-radius: 5px;
+        }
+
+        body{
+            background-image: url('data:image/jpeg;base64,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');
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-attachment: fixed;
+        }
+
+        h2{
+            text-align: center;
+            color: white;
+            font-size: 32px;
+            text-emphasis: bold;
+            margin: 10px;
+            background-color: black;
+            padding: 10px;
+            border: double 3px black;
+        }
+
+        .bookmarks{
+            background-color: rgb(0, 172, 172);
+            position: absolute;
+            top: 290px;
+            left: 26%;
+            text-align: center;
+            padding: 10px 20px;
+            border: solid black 5px;
+            border-radius: 25px;
+        }
+
+        .bookmarks a{
+            display: inline-block;
+            background-color: black;
+            color: white;
+            text-emphasis: bold;
+            font-size: 24px;
+            margin: 10px;
+            padding: 10px;
+            border-radius: 10px;
+        }
+
+        h3{
+            font-size: 68px;
+            position: absolute;
+            float: center;
+            top: 350px;
+            left: 48%;
+            text-emphasis: bold;
+            text-align: center;
+            font-family: 'Times New Roman', Times, serif;
+        }
+
+        .verses a{
+            position: absolute;
+            color: rgb(0, 172, 172);
+            background-color: black;
+            font-size: 32px;
+            font-family: Arial, Helvetica, sans-serif;
+            left: 38%;
+            padding: 10px 100px;
+            text-decoration: none;
+            text-align: center;
+            top: 220px;
+            text-emphasis: bold;
+        }
+
+        #myBtn {
+            display: none; /* Hidden by default */
+            position: fixed; /* Fixed/sticky position */
+            bottom: 65px; /* Place the button at the bottom of the page */
+            left: 50px; /* Place the button 30px from the right */
+            z-index: 99; /* Make sure it does not overlap */
+            border: none; /* Remove borders */
+            outline: none; /* Remove outline */
+            background-color: rgb(0, 172, 172); /* Set a background color */
+            color: black; /* Text color */
+            cursor: pointer; /* Add a mouse pointer on hover */
+            padding: 10px; /* Some padding */
+            padding-bottom: 0px;
+            border-radius: 10px; /* Rounded corners */
+            border: solid black 5px;
+            font-size: 72px; /* Increase font size */
+        }
+
+        #myBtn:hover {
+            display: none; /* Hidden by default */
+            position: fixed; /* Fixed/sticky position */
+            bottom: 65px; /* Place the button at the bottom of the page */
+            left: 50px; /* Place the button 30px from the right */
+            z-index: 99; /* Make sure it does not overlap */
+            border: none; /* Remove borders */
+            outline: none; /* Remove outline */
+            background-color: rgb(0, 0, 0); /* Set a background color */
+            color: rgb(0, 172, 172); /* Text color */
+            cursor: pointer; /* Add a mouse pointer on hover */
+            padding: 10px; /* Some padding */
+            padding-bottom: 0px;
+            border-radius: 10px; /* Rounded corners */
+            border: solid rgb(0, 172, 172) 5px;
+            font-size: 72px; /* Increase font size */
+        }
+
+        p{
+            font-size: 22px;
+            position: absolute;
+            top: 500px;
+            left: 30%;
+        }
+
+        h7{
+            font-size: 32px;
+            text-emphasis: bold;
+        }
+
+    </style>
+    <button onclick="topFunction()" id="myBtn" title="Go to top"><b>^</b></button>
+<head> 
+    <h1>Questions</h1>
+    <div class="verses">
+        <a href="Quizzing.html">Click here for memory verses.</a>        
+   </div>
+</head>
+<body>
+   
+    <script>
+        //Get the button
+        var mybutton = document.getElementById("myBtn");
+        
+        // When the user scrolls down 20px from the top of the document, show the button
+        window.onscroll = function() {scrollFunction()};
+        
+        function scrollFunction() {
+          if (document.body.scrollTop > 1750 || document.documentElement.scrollTop > 1750) {
+            mybutton.style.display = "block";
+          } else {
+            mybutton.style.display = "none";
+          }
+        }
+        
+        // When the user clicks on the button, scroll to the top of the document
+        function topFunction() {
+          document.body.scrollTop = 0;
+          document.documentElement.scrollTop = 0;
+        }
+        </script>
+
+    <nav>
+
+        <h2>Select a Chapter</h2>
+        <br>
+
+        <a href="Quizzing_Questions_1.html">Matthew 1</a>
+        <br>
+        <a href="Quizzing_Questions_2.html">Matthew 2</a>
+        <br>
+        <a href="Quizzing_Questions_3.html">Matthew 3</a>
+        <br>
+        <a href="Quizzing_Questions_4.html">Matthew 4</a>
+        <br>
+        <a href="Quizzing_Questions_5.html">Matthew 5</a>
+        <br>
+        <a href="Quizzing_Questions_6.html">Matthew 6</a>
+        <br>
+        <a href="Quizzing_Questions_7.html">Matthew 7</a>
+        <br>
+        <a href="Quizzing_Questions_8.html">Matthew 8</a>
+        <br>
+        <a href="Quizzing_Questions_9.html">Matthew 9</a>
+        <br>
+        <a href="Quizzing_Questions_10.html">Matthew 10</a>
+        <br>
+        <a href="Quizzing_Questions_11.html">Matthew 11</a>
+        <br>
+        <a href="Quizzing_Questions_12.html">Matthew 12</a>
+        <br>
+        <a href="Quizzing_Questions_13.html">Matthew 13</a>
+        <br>
+        <a href="Quizzing_Questions_14.html">Matthew 14</a>
+        <br>
+        <a href="Quizzing_Questions_15.html">Matthew 15</a>
+        <br>
+        <a href="Quizzing_Questions_16.html">Matthew 16</a>
+        <br>
+        <a href="Quizzing_Questions_17.html">Matthew 17</a>
+        <br>
+        <a href="Quizzing_Questions_18.html">Matthew 18</a>
+        <br>
+        <a href="Quizzing_Questions_19.html">Matthew 19</a>
+        <br>
+        <a href="Quizzing_Questions_20.html">Matthew 20</a>
+        <br>
+        <a href="Quizzing_Questions_21.html">Matthew 21</a>
+        <br>
+        <a href="Quizzing_Questions_22.html">Matthew 22</a>
+        <br>
+        <a href="Quizzing_Questions_23.html">Matthew 23</a>
+        <br>
+        <a href="Quizzing_Questions_24.html">Matthew 24</a>
+        <br>
+        <a href="Quizzing_Questions_25.html">Matthew 25</a>
+        <br>
+        <a href="Quizzing_Questions_26.html">Matthew 26</a>
+        <br>
+        <a href="Quizzing_Questions_27.html">Matthew 27</a>
+        <br>
+        <a href="Quizzing_Questions_28.html">Matthew 28</a>
+    </nav>
+
+    <div class="bookmarks">
+        <a href="#1">Set 1</a>
+        <a href="#2">Set 2</a>
+        <a href="#3">Set 3</a>
+        <a href="#4">Set 4</a>
+        <a href="#5">Set 5</a>
+        <a href="#6">Set 6</a>
+        <a href="#7">Set 7</a>
+        <a href="#8">Set 8</a>
+        <a href="#9">Set 9</a>
+        <a href="#10">Set 10</a>
+    </div>
+
+    <h3>Matthew 5</h3>
+
+    <p><h7 id="1">SET #1</h7> <br><br>
+
+        A 	1. According to Matthew, chapter 5, verse 27, what was said? <br>
+            A. "You shall not commit adultery" (Matthew 5:27)  <br><br>
+
+        
+        A 	2. According to Matthew, chapter 5, verse 33, what should you fulfill to the Lord? <br>
+            A. The vows you have made (Matthew 5:33)  <br><br>
+        
+        G 	3. Why are the meek blessed? <br>
+            A. For they will inherit the earth (Matthew 5:5) <br><br> 
+        
+        Q 	4. Quote Matthew, chapter 5, verses 3 through 4. <br>
+            A. "Blessed are the poor in spirit, for theirs is the kingdom of heaven. Blessed are those who mourn, for they will be comforted. (Matthew 5:3-4) <br><br> 
+        
+        A 	5. According to Matthew, chapter 5, verse 25, what may the judge do? <br>
+            A. Hand you over to the officer (Matthew 5:25) <br><br>
+        
+        G 	6. What if your right hand causes you to stumble? <br>
+            A. Cut it off and throw it away (it is better for you to lose one part of your body than for your whole body to go into hell) (Matthew 5:30)  <br><br>
+        
+        G 	7. Why should you not swear an oath by the earth? <br>
+            A. For it is God's footstool (Matthew 5:35)  <br><br>
+        
+        G 	8. What are those who are persecuted because of righteousness? <br>
+            A. Blessed (Matthew 5:10) <br><br>
+        
+        G 	9. What does your Father in heaven cause to rise on the evil and the good? <br>
+            A. His sun (Matthew 5:45)  <br><br>
+        
+        G 	10. What should you hand over as well if anyone wants to sue you and take your shirt? <br>
+            A. Your coat (Matthew 5:40)  <br><br>
+        
+        G 	11. What can you not make white or black? <br>
+            A. Even one hair (Matthew 5:36) <br><br> 
+        
+        A 	12. According to Matthew, chapter 5, verse 24, what should you first do? <br>
+            A. Go and be reconciled to them (Matthew 5:24)  <br><br>
+        
+        G 	13. For whom should you pray? <br>
+            A. Those who persecute you (Matthew 5:44) <br><br> 
+        
+        G 	14. What if you greet only your own people? <br>
+            A. What are you doing more than others? (Matthew 5:47)  <br><br>
+        
+        G 	15. What is no longer good for anything, except to be thrown out and trampled underfoot? <br>
+            A. Salt that loses its saltiness (Matthew 5:13)  <br><br>
+        
+        V 	16. Finish these verses: ""You have heard that it. . ." <br>
+            A. ". . .was said, 'Love your neighbor and hate your enemy.' But I tell you, love your enemies and pray for those who persecute you," (Matthew 5:43-44)  <br><br>
+        
+        G 	17. Whom may others glorify? <br>
+            A. Your Father in heaven (Matthew 5:16)  <br>
+        
+        X 	18. Two-part answer: in Matthew, chapter 5, who will be subject to judgment? <br>
+            A. 1) Anyone who murders; 2) Anyone who is angry with a brother or sister (Matthew 5:21-22)  <br><br>
+        
+        R 	19. Finish these verses and give the reference: ""You are the light of. . ." <br>
+            A. ". . .the world. A town built on a hill cannot be hidden. Neither do people light a lamp and put it under a bowl. Instead they put it on its stand, and it gives light to everyone in the house. In the same way, let your light shine before others, that they may see your good deeds and glorify your Father in heaven." (Matthew 5:14-16)  <br><br>
+        
+        <br><br>
+          <h7 id="2">SET #2</h7> <br><br>
+        
+        R 	1. Finish these verses and give the reference: "Blessed are those who hunger. . ." <br>
+            A. ". . .and thirst for righteousness, for they will be filled. Blessed are the merciful, for they will be shown mercy. " (Matthew 5:6-7)  <br><br>
+        
+        G 	2. What will those who hunger and thirst for righteousness be? 
+            A. Filled (Matthew 5:6)  
+        
+        A 	3. According to Matthew, chapter 5, verse 29, what if your right eye causes you to stumble? <br>
+            A. Gouge it out and throw it away (it is better for you to lose one part of your body than for your whole body to be thrown into hell) (Matthew 5:29) <br><br> 
+        
+        G 	4. When should you turn to them the other cheek also? <br>
+            A. If anyone slaps you on the right cheek (Matthew 5:39)  <br><br>
+        
+        G 	5. Whose footstool is the earth? <br>
+            A. God's (Matthew 5:35) <br><br> 
+        
+        G 	6. Why should you rejoice and be glad? <br>
+            A. Because great is your reward in heaven (Matthew 5:12) <br><br> 
+        
+        Q 	7. Quote Matthew, chapter 5, verse 5. <br>
+            A. "Blessed are the meek, for they will inherit the earth." (Matthew 5:5) <br><br> 
+        
+        V 	8. Finish this verse: "Be perfect, therefore, as your. . ." <br>
+            A. "... heavenly Father is perfect." (Matthew 5:48)  <br><br>
+        
+        G 	9. What are the meek? <br>
+            A. Blessed (Matthew 5:5)  <br><br>
+        
+        A 	10. According to Matthew, chapter 5, verse 10, why are they persecuted? <br>
+            A. Because of righteousness (Matthew 5:10)  <br><br>
+        
+        A 	11. According to Matthew, chapter 5, verse 30, what should you cut off and throw away if it causes you to stumble? <br>
+            A. Your right hand (Matthew 5:30) <br><br>  
+        
+        X 	12. Complete, in essence, the following: "Neither do people light a . . ." <br>
+            A. ". . . lamp and put it under a bowl. Instead they put it on its stand, and it gives light to everyone in the house." (Matthew 5:15)  <br><br>
+        
+        G 	13. What is all you simply need to say? <br>
+            A. "Yes" or "No" (Matthew 5:37) <br><br> 
+        
+        G 	14. Except for what does anyone who divorces his wife make her the victim of adultery? <br>
+            A. Sexual immorality (Matthew 5:32)  <br><br>
+        
+        A 	15. According to Matthew, chapter 5, verse 2, what did he begin to do? <br>
+            A. Teach them (Matthew 5:2) <br><br>  
+        
+        G 	16. Who causes his sun to rise on the evil and the good? <br>
+            A. Your Father in heaven (Matthew 5:45) <br><br> 
+        
+        G 	17. What should you leave there in front of the altar? <br>
+            A. Your gift (Matthew 5:24) <br><br> 
+        
+        G 	18. Why are those who hunger and thirst for righteousness blessed? <br>
+            A. For they will be filled (Matthew 5:6) <br><br> 
+        
+        G 	19. Until when will you not get out of prison? <br>
+            A. Until you have paid the last penny (Matthew 5:26)  <br><br>
+        
+         <br><br>
+          <h7 id="3">SET #3</h7><br><br>
+        
+        G 	1. What are the pure in heart? <br>
+            A. Blessed (Matthew 5:8)  <br><br>
+        
+        G 	2. How should you settle matters with your adversary who is taking you to court? <br>
+            A. Quickly (Matthew 5:25) <br><br> 
+        
+        X 	3. Where do people put a lighted lamp? <br>
+            A. On its stand (Matthew 5:15) <br><br> 
+        
+        G 	4. Why are the poor in spirit blessed? <br>
+            A. For theirs is the kingdom of heaven (Matthew 5:3) <br><br> 
+        
+        G 	5. With whom should you go two miles? <br>
+            A. Anyone who forces you to go one mile (Matthew 5:41)  <br><br>
+        
+        G 	6. With whom has anyone who looks at a woman lustfully already committed adultery in his heart? <br>
+            A. Her (that woman) (Matthew 5:28) <br><br> 
+        
+        A 	7. According to Matthew, chapter 5, verse 11, what do people do? <br>
+            A. Insult you, persecute you and falsely say all kinds of evil against you (because of me) (Matthew 5:11)  <br><br>
+        
+        G 	8. To whom should you turn the other cheek also? <br>
+            A. Anyone who slaps you on the right cheek (Matthew 5:39)  <br><br>
+        
+        G 	9. Who will be shown mercy? <br>
+            A. The merciful (Matthew 5:7) <br><br> 
+        
+        G 	10. Who tells you, "Do not resist an evil person."? <br>
+            A. Jesus (Matthew 5:39)  <br><br>
+        
+        V 	11. Finish this verse: "Blessed are those who are. . ." <br>
+            A. ". . .persecuted because of righteousness, for theirs is the kingdom of heaven." (Matthew 5:10)  <br><br>
+            
+        
+        G 	12. To whom should you fulfill the vows you have made? <br>
+            A. The Lord (Matthew 5:33)  <br><br>
+        
+        A 	13. According to Matthew, chapter 5, verse 26, what will you not do? <br>
+            A. Get out until you have paid the last penny (Matthew 5:26)  <br><br>
+        
+        R 	14. Finish these verses and give the reference: "Blessed are the pure in. . ." <br>
+            A. ". . .heart, for they will see God. Blessed are the peacemakers, for they will be called children of God. " (Matthew 5:8-9)  <br><br>
+        
+        A 	15. According to Matthew, chapter 5, verse 22, who will be in danger of the fire of hell? <br>
+            A. Anyone who says, "You fool!" (Matthew 5:22)  <br><br>
+        
+        G 	16. Whom will the pure in heart see? <br>
+            A. God (Matthew 5:8)  <br><br>
+        
+        G 	17. Who must give his wife a certificate of divorce? <br>
+            A. Anyone who divorces his wife (Matthew 5:31)  <br><br>
+        
+        Q 	18. Quote Matthew, chapter 5, verses 11 through 12. <br>
+            A. "Blessed are you when people insult you, persecute you and falsely say all kinds of evil against you because of me. Rejoice and be glad, because great is your reward in heaven, for in the same way they persecuted the prophets who were before you. (Matthew 5:11-12)  <br><br>
+        
+        A 	19. According to Matthew, chapter 5, verse 17, what have I not come to do? <br>
+            A. Abolish the Law or the Prophets (Matthew 5:17)  <br><br>
+        
+         <br><br>
+          <h7 id="4">SET #4</h7><br><br>
+        
+        A 	1. According to Matthew, chapter 5, verse 15, what do people do instead? <br>
+            A. Put a lamp on its stand (Matthew 5:15)  <br><br>
+        
+        G 	2. Who will be comforted? <br>
+            A. Those who mourn (Matthew 5:4)  <br><br>
+        
+        G 	3. What are you when people insult you, persecute you and falsely say all kinds of evil against you because of Jesus? <br>
+            A. Blessed (Matthew 5:11) <br><br> 
+        
+        G 	4. Why do people falsely say all kinds of evil against you? <br>
+            A. Because of Jesus (Matthew 5:11)  <br><br>
+        
+        G 	5. To whom may your adversary hand you over? <br>
+            A. The judge (Matthew 5:25) <br><br> 
+        
+        G 	6. Why should you cut your right hand off and throw it away if it causes you to stumble? <br>
+            A. It is better for you to lose one part of your body than for your whole body to go into hell (Matthew 5:30)  <br><br>
+        
+        Q 	7. Quote Matthew, chapter 5, verses 3 through 4. <br>
+            A. "Blessed are the poor in spirit, for theirs is the kingdom of heaven. Blessed are those who mourn, for they will be comforted. (Matthew 5:3-4)  <br><br>
+        
+        R 	8. Finish these verses and give the reference: ""You have heard that it. . ." <br>
+            A. ". . .was said, 'Love your neighbor and hate your enemy.' But I tell you, love your enemies and pray for those who persecute you, " (Matthew 5:43-44)  <br><br>
+        
+        G 	9. When has anyone who looks at a woman lustfully committed adultery with her in his heart? <br>
+            A. Already (Matthew 5:28)  <br><br>
+        
+        G 	10. Who will be called children of God? <br>
+            A. The peacemakers (Matthew 5:9)  <br><br>
+        
+        G 	11. What is God's throne? <br>
+            A. Heaven (Matthew 5:34)  <br><br>
+        
+        V 	12. Finish these verses: ""You are the light of. . ." <br>
+            A. ". . .the world. A town built on a hill cannot be hidden. Neither do people light a lamp and put it under a bowl. Instead they put it on its stand, and it gives light to everyone in the house. In the same way, let your light shine before others, that they may see your good deeds and glorify your Father in heaven." (Matthew 5:14-16)  <br><br>
+        
+        G 	13. Whom does anyone who divorces his wife, except for sexual immorality, make the victim of adultery? <br>
+            A. His wife (Matthew 5:32)  <br><br>
+        
+        X 	14. What cannot be made salty again? <br>
+            A. Salt that loses its saltiness (Matthew 5:13)  <br><br>
+        
+        A 	15. According to Matthew, chapter 5, verse 12, who were before you? <br>
+            A. The prophets (Matthew 5:12)  <br><br>
+        
+        G 	16. What if anyone forces you to go one mile? <br>
+            A. Go with them two miles (Matthew 5:41) <br><br> 
+        
+        A 	17. According to Matthew, chapter 5, verse 29, what is better? <br>
+            A. For you to lose one part of your body (Matthew 5:29) <br><br> 
+        
+        A 	18. According to Matthew, chapter 5, verse 29, why should you gouge your right eye out and throw it away if it causes you to stumble? <br>
+            A. It is better for you to lose one part of your body than for your whole body to be thrown into hell (Matthew 5:29)  <br><br>
+        
+        G 	19. Why do people insult you, persecute you and falsely say all kinds of evil against you? <br>
+            A. Because of Jesus (Matthew 5:11) <br><br> 
+        
+         <br><br>
+          <h7 id="5">SET #5</h7><br><br>
+        
+        X 	1. Two-part question: who will be called least in the kingdom of heaven, and who will be called great in the kingdom of heaven? <br>
+            A. 1) Anyone who sets aside one of the least of these commands and teaches others accordingly; 2) Whoever practices and teaches these commands (Matthew 5:19)  <br><br>
+        
+        V 	2. Finish this verse: "Be perfect, therefore, as your. . ." <br>
+            A. "... heavenly Father is perfect." (Matthew 5:48)  <br><br>
+        
+        A 	3. According to Matthew, chapter 5, verse 31, what must anyone who divorces his wife do? <br>
+            A. Give her a certificate of divorce (Matthew 5:31)  <br><br>
+        
+        G 	4. Where should you let your light shine? <br>
+            A. Before others (Matthew 5:16)  <br><br>
+        
+        G 	5. What is better for you to lose than for your whole body to be thrown into hell? <br>
+            A. One part of your body (Matthew 5:29)  <br><br>
+        
+        G 	6. What is your reward in heaven? <br>
+            A. Great (Matthew 5:12)  <br><br>
+        
+        G 	7. Of what are you the light? <br>
+            A. The world (Matthew 5:14)  <br><br>
+        
+        A 	8. According to Matthew, chapter 5, verse 3, whose is the kingdom of heaven? <br>
+            A. The poor in spirit (Matthew 5:3)  <br><br>
+        
+        G 	9. Because of whom do people falsely say all kinds of evil against you? <br>
+            A. Jesus (Matthew 5:11)  <br><br>
+        
+        Q 	10. Quote Matthew, chapter 5, verses 6 through 7. <br>
+            A. "Blessed are those who hunger and thirst for righteousness, for they will be filled. Blessed are the merciful, for they will be shown mercy." (Matthew 5:6-7) <br><br> 
+        
+        A 	11. According to Matthew, chapter 5, verse 16, whom may others glorify? <br>
+            A. Your Father in heaven (Matthew 5:16)  <br><br>
+        
+        A 	12. According to Matthew, chapter 5, verse 18, what do I truly tell you? <br>
+            A. Until heaven and earth disappear, not the smallest letter, not the least stroke of a pen, will by any means disappear from the Law until everything is accomplished (Matthew 5:18)  <br><br>
+        
+        G 	13. Unless what will you certainly not enter the kingdom of heaven? <br>
+            A. Unless your righteousness surpasses that of the Pharisees and the teachers of the law (Matthew 5:20)  <br><br>
+        
+        G 	14. What does a lamp on its stand give to everyone in the house? <br>
+            A. Light (Matthew 5:15)  <br><br>
+        
+        G 	15. To whom does a lamp on its stand give light? <br>
+            A. Everyone in the house (Matthew 5:15)  <br><br>
+        
+        G 	16. When should you settle matters quickly with your adversary who is taking you to court? <br>
+            A. While you are still together on the way (Matthew 5:25)  <br><br>
+        
+        G 	17. What do people put on its stand? <br>
+            A. A lamp (Matthew 5:15) <br><br> 
+        
+        G 	18. What should you not break? <br>
+            A. Your oath (Matthew 5:33)  <br><br>
+        
+        R 	19. Finish this verse and give the reference: "Blessed are the meek, for. . ." <br>
+            A. ". . .they will inherit the earth. " (Matthew 5:5)  <br><br>
+        
+         <br><br>
+          <h7 id="6">SET #6</h7><br><br>
+          
+        G 	1. Where will anyone who sets aside one of the least of these commands and teaches others accordingly be called least? <br>
+            A. In the kingdom of heaven (Matthew 5:19)  <br><br>
+        
+        V 	2. Finish these verses: ""Blessed are you when people. . ." <br>
+            A. ". . .insult you, persecute you and falsely say all kinds of evil against you because of me. Rejoice and be glad, because great is your reward in heaven, for in the same way they persecuted the prophets who were before you." (Matthew 5:11-12)  <br><br>
+        
+        R 	3. Finish these verses and give the reference: ""Blessed are the poor in. . ." <br>
+            A. ". . .spirit, for theirs is the kingdom of heaven. Blessed are those who mourn, for they will be comforted. " (Matthew 5:3-4)  <br><br>
+        
+        A 	4. According to Matthew, chapter 5, verse 33, to whom should you fulfill the vows you have made? <br>
+            A. The Lord (Matthew 5:33)  <br><br>
+        
+        G 	5. Whose throne is heaven? <br>
+            A. God's (Matthew 5:34)  <br><br>
+        
+        G 	6. What will whoever practices and teaches these commands be called in the kingdom of heaven? <br>
+            A. Great (Matthew 5:19) <br><br> 
+        
+        A 	7. According to Matthew, chapter 5, verse 32, who commits adultery? <br>
+            A. Anyone who marries a divorced woman (Matthew 5:32) <br><br> 
+        
+        G 	8. Who has not come to abolish the Law or the Prophets? <br>
+            A. Jesus (Matthew 5:17)  <br><br>
+        
+        G 	9. What will anyone who is angry with a brother or sister be? <br>
+            A. Subject to judgment (Matthew 5:22) <br><br> 
+        
+        Q 	10. Quote Matthew, chapter 5, verses 43 through 44. <br>
+            A. "You have heard that it was said, 'Love your neighbor and hate your enemy.' But I tell you, love your enemies and pray for those who persecute you, (Matthew 5:43-44) <br><br> 
+        
+        X 	11. Complete, in essence, the following: "Rejoice and be glad, because . . ." <br>
+            A. ". . . great is your reward in heaven, for in the same way they persecuted the prophets who were before you." (Matthew 5:12) <br><br> 
+        
+        G 	12. Who is answerable to the court? <br>
+            A. Anyone who says to a brother or sister, "Raca" (Matthew 5:22)  <br><br>
+        
+        G 	13. To whom was it said, "You shall not murder, and anyone who murders will be subject to judgment."? <br>
+            A. The people (long ago) (Matthew 5:21)  <br><br>
+        
+        G 	14. What should you let shine before others? <br>
+            A. Your light (Matthew 5:16) <br><br> 
+        
+        G 	15. What will not the smallest letter nor least stroke of a pen by any means do until everything is accomplished? <br>
+            A. Disappear from the Law (Matthew 5:18)  <br><br>
+        
+        G 	16. What should you not think that Jesus has come to abolish? <br>
+            A. The Law or the Prophets (Matthew 5:17) <br><br> 
+        
+        A 	17. According to Matthew, chapter 5, verse 20, what do I tell you? <br>
+            A. That unless your righteousness surpasses that of the Pharisees and the teachers of the law, you will certainly not enter the kingdom of heaven (Matthew 5:20)  <br><br>
+        
+        G 	18. Who began to teach his disciples? <br>
+            A. Jesus (Matthew 5:2)  <br><br>
+        
+        A 	19. According to Matthew, chapter 5, verse 14, what cannot be hidden? <br>
+            A. A town built on a hill (Matthew 5:14)  <br><br>
+        
+         <br><br>
+          <h7 id="7">SET #7</h7><br><br>
+        
+        G 	1. What are the meek? <br>
+            A. Blessed (Matthew 5:5) <br><br> 
+        
+        V 	2. Finish these verses: ""You are the light of. . ." <br>
+            A. ". . .the world. A town built on a hill cannot be hidden. Neither do people light a lamp and put it under a bowl. Instead they put it on its stand, and it gives light to everyone in the house. In the same way, let your light shine before others, that they may see your good deeds and glorify your Father in heaven." (Matthew 5:14-16)  <br><br>
+        
+        Q 	3. Quote Matthew, chapter 5, verses 8 through 9. <br>
+            A. "Blessed are the pure in heart, for they will see God. Blessed are the peacemakers, for they will be called children of God." (Matthew 5:8-9)  <br><br>
+        
+        G 	4. What will anyone who is angry with a brother or sister be? <br>
+            A. Subject to judgment (Matthew 5:22)  <br><br>
+        
+        G 	5. Until when will you not get out of prison? <br>
+            A. Until you have paid the last penny (Matthew 5:26) <br><br> 
+        
+        G 	6. What should you not break? <br>
+            A. Your oath (Matthew 5:33)  <br><br>
+        
+        A 	7. According to Matthew, chapter 5, verse 35, what is the earth? <br>
+            A. His footstool (Matthew 5:35)  <br><br>
+        
+        R 	8. Finish this verse and give the reference: "Blessed are those who are. . ." <br>
+            A. ". . .persecuted because of righteousness, for theirs is the kingdom of heaven. " (Matthew 5:10) <br><br> 
+        
+        G 	9. What if you are offering your gift at the altar and there remember that your brother or sister has something against you? <br>
+            A. Leave your gift there in front of the altar. First go and be reconciled to them; then come and offer your gift (Matthew 5:23-24)  <br><br>
+        
+        G 	10. With whom should you go two miles? <br>
+            A. Anyone who forces you to go one mile (Matthew 5:41) <br><br> 
+        
+        G 	11. Who causes his sun to rise on the evil and the good? <br>
+            A. Your Father in heaven (Matthew 5:45)  <br><br>
+        
+        X 	12. From what Old Testament book does the following quotation come: "Anyone who divorces his wife must give her a certificate of divorce."? <br>
+            A. Deuteronomy (Matthew 5:31) <br><br> 
+        
+        G 	13. Who will be comforted? <br>
+            A. Those who mourn (Matthew 5:4) <br><br> 
+        
+        G 	14. Where should you leave your gift if you are offering your gift at the altar and there remember that your brother or sister has something against you? <br>
+            A. There in front of the altar (Matthew 5:23-24) <br><br> 
+        
+        A 	15. According to Matthew, chapter 5, verse 34, by what should you not swear an oath? <br>
+            A. Heaven (Matthew 5:34) <br><br> 
+        
+        A 	16. According to Matthew, chapter 5, verse 21, what shall you not do? <br>
+            A. Murder (Matthew 5:21)  <br><br>
+        
+        G 	17. What can you not make white or black? <br>
+            A. Even one hair (Matthew 5:36)  <br><br>
+        
+        A 	18. According to Matthew, chapter 5, verse 21, what have you heard? <br>
+            A. That it was said to the people long ago, "You shall not murder, and anyone who murders will be subject to judgment" (Matthew 5:21)  <br><br>
+        
+        G 	19. Of what will anyone who says, "You fool!" be in danger? <br>
+            A. The fire of hell (Matthew 5:22) <br><br> 
+        
+         <br><br>
+          <h7 id="8">SET #8</h7><br><br>
+        
+        A 	1. According to Matthew, chapter 5, verse 37, what comes from the evil one? <br>
+            A. Anything beyond this (simply saying "Yes" or "No") (Matthew 5:37) <br><br> 
+        
+        G 	2. What if you greet only your own people? <br>
+            A. What are you doing more than others? (Matthew 5:47)  <br><br>
+        
+        X 	3. Three-part question: to what will anyone who is angry with a brother or sister be subject, to what will anyone who says to a brother or sister, "Raca," be answerable, and of what will anyone who says, "You fool!" be in danger? <br>
+            A. 1) Judgment; 2) The court; 3) The fire of hell (Matthew 5:22)  <br><br>
+        
+        G 	4. When has anyone who looks at a woman lustfully committed adultery with her in his heart? <br>
+            A. Already (Matthew 5:28)  <br><br>
+        
+        A 	5. According to Matthew, chapter 5, verse 39, what do I tell you? <br>
+            A. Do not resist an evil person. If anyone slaps you on the right cheek, turn to them the other cheek also (Matthew 5:39)  <br><br>
+        
+        G 	6. To whom may your adversary hand you over? <br>
+            A. The judge (Matthew 5:25) <br><br> 
+        
+        G 	7. Who must give his wife a certificate of divorce? <br>
+            A. Anyone who divorces his wife (Matthew 5:31)  <br><br>
+        
+        V 	8. Finish these verses: ""Blessed are you when people. . ." <br>
+            A. ". . .insult you, persecute you and falsely say all kinds of evil against you because of me. Rejoice and be glad, because great is your reward in heaven, for in the same way they persecuted the prophets who were before you." (Matthew 5:11-12) <br><br> 
+        
+        A 	9. According to Matthew, chapter 5, verse 38, what have you heard? <br>
+            A. That it was said, "Eye for eye, and tooth for tooth" (Matthew 5:38)  <br><br>
+        
+        G 	10. What if your right hand causes you to stumble? <br>
+            A. Cut it off and throw it away (it is better for you to lose one part of your body than for your whole body to go into hell) (Matthew 5:30) <br><br>  
+        
+        R 	11. Finish these verses and give the reference: ""Blessed are the poor in. . ." <br>
+            A. ". . .spirit, for theirs is the kingdom of heaven. Blessed are those who mourn, for they will be comforted. " (Matthew 5:3-4)  <br><br>
+        
+        G 	12. Why are the meek blessed? <br>
+            A. For they will inherit the earth (Matthew 5:5)  <br><br>
+        
+        G 	13. What will those who hunger and thirst for righteousness be? <br>
+            A. Filled (Matthew 5:6)  <br><br>
+        
+        Q 	14. Quote Matthew, chapter 5, verses 43 through 44. <br>
+            A. "You have heard that it was said, 'Love your neighbor and hate your enemy.' But I tell you, love your enemies and pray for those who persecute you, (Matthew 5:43-44) <br><br> 
+        
+        G 	15. To whom should you turn the other cheek also? <br>
+            A. Anyone who slaps you on the right cheek (Matthew 5:39)  <br><br>
+        
+        G 	16. To whom should you fulfill the vows you have made? <br>
+            A. The Lord (Matthew 5:33)  <br><br>
+        
+        G 	17. For whom should you pray? <br>
+            A. Those who persecute you (Matthew 5:44)  <br><br>
+        
+        G 	18. Who tells you, "Do not resist an evil person."? <br>
+            A. Jesus (Matthew 5:39)  <br><br>
+        
+        A 	19. According to Matthew, chapter 5, verse 36, by what should you not swear? <br>
+            A. Your head (Matthew 5:36) <br><br>  
+        
+         <br><br>
+          <h7 id="9">SET #9</h7><br><br>
+        
+        X 	1. Complete, in essence, the following: "First go and be reconciled . . ." <br>
+            A. ". . . to them; then come and offer your gift." (Matthew 5:24)  <br><br>
+        
+        G 	2. Who will be shown mercy? <br>
+            A. The merciful (Matthew 5:7)  <br><br>
+        
+        A 	3. According to Matthew, chapter 5, verse 44, what do I tell you? <br>
+            A. "Love your enemies and pray for those who persecute you" (Matthew 5:44) <br><br> 
+        
+        G 	4. What is all you simply need to say? <br>
+            A. "Yes" or "No" (Matthew 5:37) <br><br> 
+        
+        G 	5. What are the pure in heart? <br>
+            A. Blessed (Matthew 5:8) <br><br> 
+        
+        V 	6. Finish these verses: "Blessed are those who hunger. . ." <br>
+            A. ". . .and thirst for righteousness, for they will be filled. Blessed are the merciful, for they will be shown mercy." (Matthew 5:6-7) <br><br> 
+        
+        G 	7. With whom has anyone who looks at a woman lustfully already committed adultery in his heart? <br>
+            A. Her (that woman) (Matthew 5:28)  <br><br>
+        
+        A 	8. According to Matthew, chapter 5, verse 44, for whom should you pray? <br>
+            A. Those who persecute you (Matthew 5:44) <br><br> 
+        
+        G 	9. What does your Father in heaven cause to rise on the evil and the good? <br>
+            A. His sun (Matthew 5:45)  <br><br>
+        
+        A 	10. According to Matthew, chapter 5, verse 43, what have you heard? <br>
+            A. That it was said, "Love your neighbor and hate your enemy" (Matthew 5:43)  <br><br>
+        
+        A 	11. According to Matthew, chapter 5, verse 42, to whom should you give? <br>
+            A. The one who asks you (Matthew 5:42)  <br><br>
+        
+        G 	12. How should you settle matters with your adversary who is taking you to court? <br>
+            A. Quickly (Matthew 5:25)  <br><br>
+        
+        G 	13. Why should you cut your right hand off and throw it away if it causes you to stumble? <br>
+            A. It is better for you to lose one part of your body than for your whole body to go into hell (Matthew 5:30) <br><br> 
+        
+        Q 	14. Quote Matthew, chapter 5, verse 5. <br>
+            A. "Blessed are the meek, for they will inherit the earth." (Matthew 5:5)  <br><br>
+        
+        G 	15. Why should you not swear an oath by the earth? <br>
+            A. For it is God's footstool (Matthew 5:35)  <br><br>
+        
+        G 	16. Whom does anyone who divorces his wife, except for sexual immorality, make the victim of adultery? <br>
+            A. His wife (Matthew 5:32) <br><br> 
+        
+        R 	17. Finish this verse and give the reference: "Be perfect, therefore, as your. . ." <br>
+            A. "... heavenly Father is perfect." (Matthew 5:48)  <br><br>
+        
+        G 	18. Why are those who hunger and thirst for righteousness blessed? <br>
+            A. For they will be filled (Matthew 5:6)  <br><br>
+        
+        G 	19. What should you hand over as well if anyone wants to sue you and take your shirt? <br>
+            A. Your coat (Matthew 5:40)  <br><br>
+        
+         <br><br>
+          <h7 id="10">SET #10</h7><br><br>
+        
+        G 	1. Except for what does anyone who divorces his wife make her the victim of adultery? <br>
+            A. Sexual immorality (Matthew 5:32)  <br><br>
+        
+        G 	2. What are those who are persecuted because of righteousness? <br>
+            A. Blessed (Matthew 5:10)  <br><br>
+        
+        G 	3. Why do people insult you, persecute you and falsely say all kinds of evil against you? <br>
+            A. Because of Jesus (Matthew 5:11) <br><br> 
+        
+        G 	4. Whose throne is heaven? <br>
+            A. God's (Matthew 5:34)  <br><br>
+        
+        G 	5. What is better for you to lose than for your whole body to be thrown into hell? <br>
+            A. One part of your body (Matthew 5:29)  <br><br>
+        
+        A 	6. According to Matthew, chapter 5, verse 46, what if you love those who love you? <br>
+            A. What reward will you get? (Matthew 5:46) <br><br> 
+        
+        A 	7. According to Matthew, chapter 5, verse 48, how should you be perfect? <br>
+            A. As your heavenly Father is perfect (Matthew 5:48)  <br><br>
+        
+        V 	8. Finish these verses: ""Blessed are the poor in. . ." <br>
+            A. ". . .spirit, for theirs is the kingdom of heaven. Blessed are those who mourn, for they will be comforted." (Matthew 5:3-4)  <br><br>
+        
+        R 	9. Finish these verses and give the reference: ""Blessed are you when people. . ." <br>
+            A. ". . .insult you, persecute you and falsely say all kinds of evil against you because of me. Rejoice and be glad, because great is your reward in heaven, for in the same way they persecuted the prophets who were before you. " (Matthew 5:11-12)  <br><br>
+        
+        G 	10. What is God's throne? <br>
+            A. Heaven (Matthew 5:34)  <br><br>
+        
+        A 	11. According to Matthew, chapter 5, verse 12, what is in heaven? <br>
+            A. Your reward (Matthew 5:12)  <br><br>
+        
+        G 	12. When should you turn to them the other cheek also? <br>
+            A. If anyone slaps you on the right cheek (Matthew 5:39)  <br><br>
+        
+        A 	13. According to Matthew, chapter 5, verse 45, who is in heaven? <br>
+            A. Your Father (Matthew 5:45)  <br><br>
+        
+        G 	14. Who will be called children of God? <br>
+            A. The peacemakers (Matthew 5:9)  <br><br>
+        
+        G 	15. What if anyone forces you to go one mile? <br>
+            A. Go with them two miles (Matthew 5:41)  <br><br>
+        
+        G 	16. Why are the poor in spirit blessed? <br>
+            A. For theirs is the kingdom of heaven (Matthew 5:3) <br><br> 
+        
+        X 	17. Why should you settle matters quickly with your adversary while you are still together on the way to court? <br>
+            A. If you don't, your adversary may hand you over to the judge, and the judge may hand you over to the officer, and you may be thrown into prison (Matthew 5:25) <br><br>
+        
+        Q 	18. Quote Matthew, chapter 5, verses 14 through 16. <br>
+            A. "You are the light of the world. A town built on a hill cannot be hidden. Neither do people light a lamp and put it under a bowl. Instead they put it on its stand, and it gives light to everyone in the house. In the same way, let your light shine before others, that they may see your good deeds and glorify your Father in heaven. (Matthew 5:14-16) <br><br> 
+        
+        G 	19. Whom will the pure in heart see? <br>
+            A. God (Matthew 5:8)  <br><br>
+        
+        </p>
+
+</body>
+</html>

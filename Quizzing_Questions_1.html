@@ -1,0 +1,871 @@
+<!DOCTYPE html>
+<html> 
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+
+        h1{
+            background-color: black;
+            text-align: center;
+            font-size: 120px;
+            margin: 0px;
+            padding: 30px;
+            color: rgb(0, 172, 172);
+            font-family: 'Impact', Haettenschweiler, Arial Narrow Bold, sans-serif;
+            top: 0px;
+            left: 0px;
+            text-emphasis: bold;
+        }
+
+        head{
+            background-color: black;
+            margin: 0px;
+            padding: 20px;
+        }
+
+        nav{
+            left: 0px;
+            margin: 0px;
+            padding: 20px;
+            background-color: rgb(0, 172, 172);
+            color: black;
+            text-align: left;
+            display: inline-block;
+            height: auto;
+        }
+
+        nav a{
+            color: black;
+            text-decoration: none;
+            margin: 10px 15px;
+            padding: 8px;
+            font-size: 24px;
+            display: inline-block;
+            box-shadow: 0px 0px 10px 5px black;
+            background-color: #b3b3b3;
+            border-radius: 5px;
+        }
+
+        body{
+            background-image: url('data:image/jpeg;base64,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');
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-attachment: fixed;
+        }
+
+        h2{
+            text-align: center;
+            color: white;
+            font-size: 32px;
+            text-emphasis: bold;
+            margin: 10px;
+            background-color: black;
+            padding: 10px;
+            border: double 3px black;
+        }
+
+        .bookmarks{
+            background-color: rgb(0, 172, 172);
+            position: absolute;
+            top: 290px;
+            left: 26%;
+            text-align: center;
+            padding: 10px 20px;
+            border: solid black 5px;
+            border-radius: 25px;
+        }
+
+        .bookmarks a{
+            display: inline-block;
+            background-color: black;
+            color: white;
+            text-emphasis: bold;
+            font-size: 24px;
+            margin: 10px;
+            padding: 10px;
+            border-radius: 10px;
+        }
+
+        h3{
+            font-size: 68px;
+            position: absolute;
+            float: center;
+            top: 350px;
+            left: 48%;
+            text-emphasis: bold;
+            text-align: center;
+            font-family: 'Times New Roman', Times, serif;
+        }
+
+        .verses a{
+            position: absolute;
+            color: rgb(0, 172, 172);
+            background-color: black;
+            font-size: 32px;
+            font-family: Arial, Helvetica, sans-serif;
+            left: 38%;
+            padding: 10px 100px;
+            text-decoration: none;
+            text-align: center;
+            top: 220px;
+            text-emphasis: bold;
+        }
+
+        #myBtn {
+            display: none; /* Hidden by default */
+            position: fixed; /* Fixed/sticky position */
+            bottom: 65px; /* Place the button at the bottom of the page */
+            left: 50px; /* Place the button 30px from the right */
+            z-index: 99; /* Make sure it does not overlap */
+            border: none; /* Remove borders */
+            outline: none; /* Remove outline */
+            background-color: rgb(0, 172, 172); /* Set a background color */
+            color: black; /* Text color */
+            cursor: pointer; /* Add a mouse pointer on hover */
+            padding: 10px; /* Some padding */
+            padding-bottom: 0px;
+            border-radius: 10px; /* Rounded corners */
+            border: solid black 5px;
+            font-size: 72px; /* Increase font size */
+        }
+
+        #myBtn:hover {
+            display: none; /* Hidden by default */
+            position: fixed; /* Fixed/sticky position */
+            bottom: 65px; /* Place the button at the bottom of the page */
+            left: 50px; /* Place the button 30px from the right */
+            z-index: 99; /* Make sure it does not overlap */
+            border: none; /* Remove borders */
+            outline: none; /* Remove outline */
+            background-color: rgb(0, 0, 0); /* Set a background color */
+            color: rgb(0, 172, 172); /* Text color */
+            cursor: pointer; /* Add a mouse pointer on hover */
+            padding: 10px; /* Some padding */
+            padding-bottom: 0px;
+            border-radius: 10px; /* Rounded corners */
+            border: solid rgb(0, 172, 172) 5px;
+            font-size: 72px; /* Increase font size */
+        }
+
+        p{
+            font-size: 22px;
+            position: absolute;
+            top: 500px;
+            left: 30%;
+        }
+
+        h7{
+            font-size: 32px;
+            text-emphasis: bold;
+        }
+
+    </style>
+    <button onclick="topFunction()" id="myBtn" title="Go to top"><b>^</b></button>
+<head> 
+    <h1>Questions</h1>
+    <div class="verses">
+        <a href="Quizzing.html">Click here for memory verses.</a>        
+   </div>
+</head>
+<body>
+   
+    <script>
+        //Get the button
+        var mybutton = document.getElementById("myBtn");
+        
+        // When the user scrolls down 20px from the top of the document, show the button
+        window.onscroll = function() {scrollFunction()};
+        
+        function scrollFunction() {
+          if (document.body.scrollTop > 1750 || document.documentElement.scrollTop > 1750) {
+            mybutton.style.display = "block";
+          } else {
+            mybutton.style.display = "none";
+          }
+        }
+        
+        // When the user clicks on the button, scroll to the top of the document
+        function topFunction() {
+          document.body.scrollTop = 0;
+          document.documentElement.scrollTop = 0;
+        }
+        </script>
+
+    <nav>
+
+        <h2>Select a Chapter</h2>
+        <br>
+
+        <a href="Quizzing_Questions_1.html">Matthew 1</a>
+        <br>
+        <a href="Quizzing_Questions_2.html">Matthew 2</a>
+        <br>
+        <a href="Quizzing_Questions_3.html">Matthew 3</a>
+        <br>
+        <a href="Quizzing_Questions_4.html">Matthew 4</a>
+        <br>
+        <a href="Quizzing_Questions_5.html">Matthew 5</a>
+        <br>
+        <a href="Quizzing_Questions_6.html">Matthew 6</a>
+        <br>
+        <a href="Quizzing_Questions_7.html">Matthew 7</a>
+        <br>
+        <a href="Quizzing_Questions_8.html">Matthew 8</a>
+        <br>
+        <a href="Quizzing_Questions_9.html">Matthew 9</a>
+        <br>
+        <a href="Quizzing_Questions_10.html">Matthew 10</a>
+        <br>
+        <a href="Quizzing_Questions_11.html">Matthew 11</a>
+        <br>
+        <a href="Quizzing_Questions_12.html">Matthew 12</a>
+        <br>
+        <a href="Quizzing_Questions_13.html">Matthew 13</a>
+        <br>
+        <a href="Quizzing_Questions_14.html">Matthew 14</a>
+        <br>
+        <a href="Quizzing_Questions_15.html">Matthew 15</a>
+        <br>
+        <a href="Quizzing_Questions_16.html">Matthew 16</a>
+        <br>
+        <a href="Quizzing_Questions_17.html">Matthew 17</a>
+        <br>
+        <a href="Quizzing_Questions_18.html">Matthew 18</a>
+        <br>
+        <a href="Quizzing_Questions_19.html">Matthew 19</a>
+        <br>
+        <a href="Quizzing_Questions_20.html">Matthew 20</a>
+        <br>
+        <a href="Quizzing_Questions_21.html">Matthew 21</a>
+        <br>
+        <a href="Quizzing_Questions_22.html">Matthew 22</a>
+        <br>
+        <a href="Quizzing_Questions_23.html">Matthew 23</a>
+        <br>
+        <a href="Quizzing_Questions_24.html">Matthew 24</a>
+        <br>
+        <a href="Quizzing_Questions_25.html">Matthew 25</a>
+        <br>
+        <a href="Quizzing_Questions_26.html">Matthew 26</a>
+        <br>
+        <a href="Quizzing_Questions_27.html">Matthew 27</a>
+        <br>
+        <a href="Quizzing_Questions_28.html">Matthew 28</a>
+    </nav>
+
+    <div class="bookmarks">
+        <a href="#1">Set 1</a>
+        <a href="#2">Set 2</a>
+        <a href="#3">Set 3</a>
+        <a href="#4">Set 4</a>
+        <a href="#5">Set 5</a>
+        <a href="#6">Set 6</a>
+        <a href="#7">Set 7</a>
+        <a href="#8">Set 8</a>
+        <a href="#9">Set 9</a>
+        <a href="#10">Set 10</a>
+    </div>
+
+    <h3>Matthew 1</h3>
+
+    <p><h7 id="1">SET #1</h7><br><br>
+
+        G 	1. Who was the father of Hezron? <br>
+            A. Perez (Matthew 1:3)  <br><br>
+        
+        G 	2. Who will give birth to a son?  <br>
+            A. Mary (Matthew 1:21)  <br><br>
+        
+        G 	3. Who was pledged to be married to Joseph?  <br>
+            A. Mary (Jesus' mother) (Matthew 1:18)  <br><br>
+        
+        R 	4. Finish this verse and give the reference: "She will give birth to. . ."  <br>
+            A. ". . .a son, and you are to give him the name Jesus, because he will save his people from their sins." " (Matthew 1:21)  <br><br>
+        
+        G 	5. Who appeared to Joseph in a dream?  <br>
+            A. An angel of the Lord (Matthew 1:20)  <br><br>
+        
+        X 	6. In Matthew, chapter 1, who was faithful to the law?  <br>
+            A. Joseph (Matthew 1:19)  <br><br>
+        
+        V 	7. Finish this verse: ""The virgin will conceive and. . ."  <br>
+            A. ". . .give birth to a son, and they will call him Immanuel" (which means "God with us")." (Matthew 1:23)  <br><br>
+        
+        G 	8. Whom will Jesus save from their sins?  <br>
+            A. His people (Matthew 1:21)  <br><br>
+        
+        A 	9. According to Matthew, chapter 1, verse 19, to what was Joseph faithful?  <br>
+            A. The law (Matthew 1:19)  <br><br>
+        
+        Q 	10. Quote Matthew, chapter 1, verse 18.  <br>
+            A. "This is how the birth of Jesus the Messiah came about: His mother Mary was pledged to be married to Joseph, but before they came together, she was found to be pregnant through the Holy Spirit." (Matthew 1:18)  <br><br>
+        
+        A 	11. According to Matthew, chapter 1, verse 2, of whom was Abraham the father?  <br>
+            A. Isaac (Matthew 1:2)  <br><br>
+        
+        G 	12. What is Joseph to give Mary's son?  <br>
+            A. The name Jesus (Matthew 1:21)  <br><br>
+        
+        G 	13. To whom was Mary pledged to be married?  <br>
+            A. Joseph (Matthew 1:18)  <br><br>
+        
+        A 	14. According to Matthew, chapter 1, verse 16, what was Joseph?  <br>
+            A. The husband of Mary (Matthew 1:16)  <br><br>
+        
+        G 	15. Who gave birth to a son?  <br>
+            A. Mary (Matthew 1:25)  <br><br>
+        
+        A 	16. According to Matthew, chapter 1, verse 1, of whom was Jesus the son?  <br>
+            A. David (Matthew 1:1)  <br><br>
+        
+        G 	17. Who will conceive and give birth to a son?  <br>
+            A. The virgin (Mary) (Matthew 1:23)  <br><br>
+        
+        G 	18. What does Immanuel mean?  <br>
+            A. "God with us" (Matthew 1:23) <br><br> 
+        
+        G 	19. Who did what the angel of the Lord had commanded him and took Mary home as his wife?  <br>
+            A. Joseph (Matthew 1:24)  <br><br>
+            <br><br>
+        
+         <h7 id="2">SET #2</h7>  <br> <br>
+        
+        A 	1. According to Matthew, chapter 1, verse 15, who was the father of Jacob?  <br>
+            A. Matthan (Matthew 1:15)  <br><br>
+        
+        G 	2. Of whom was Amminadab the father?  <br>
+            A. Nahshon (Matthew 1:4)  <br><br>
+        
+        X 	3. In Matthew, chapter 1, who is called the Messiah?  <br>
+            A. Jesus (Matthew 1:16)  <br><br>
+        
+        A 	4. According to Matthew, chapter 1, verse 18, what was Mary found to be?  <br>
+            A. Pregnant (Matthew 1:18)  <br><br>
+        
+        G 	5. Whom will they call Immanuel?  <br>
+            A. The virgin's son (OR Jesus) (Matthew 1:23)  <br><br>
+        
+        A 	6. According to Matthew, chapter 1, verse 16, what was Mary?  <br>
+            A. The mother of Jesus (Matthew 1:16)  <br><br>
+        
+        G 	7. Whom did Joseph take home as his wife?  <br>
+            A. Mary (Matthew 1:24)  <br><br>
+        
+        G 	8. Why should Joseph not be afraid to take Mary home as his wife?  <br>
+            A. Because what is conceived in her is from the Holy Spirit (Matthew 1:20)  <br><br>
+        
+        G 	9. What did Joseph not consummate until Mary gave birth to a son?  <br>
+            A. Their marriage (Matthew 1:25)  <br><br>
+        
+        Q 	10. Quote Matthew, chapter 1, verse 18.  <br>
+            A. "This is how the birth of Jesus the Messiah came about: His mother Mary was pledged to be married to Joseph, but before they came together, she was found to be pregnant through the Holy Spirit." (Matthew 1:18) <br><br> 
+        
+        G 	11. Who was the father of Salmon?  <br>
+            A. Nahshon (Matthew 1:4)  <br><br>
+        
+        G 	12. What were there from the exile to the Messiah?  <br>
+            A. Fourteen generations (Matthew 1:17)  <br><br>
+        
+        G 	13. Whom is Joseph to give the name Jesus?  <br>
+            A. Mary's son (Matthew 1:21)  <br><br>
+        
+        G 	14. Of whom was Hezron the father?  <br>
+            A. Ram (Matthew 1:3)  <br><br>
+        
+        G 	15. Who was the father of Ram?  <br>
+            A. Hezron (Matthew 1:3)  <br><br>
+        
+        G 	16. To what did Joseph not want to expose Mary?  <br>
+            A. Public disgrace (Matthew 1:19)  <br><br>
+        
+        R 	17. Finish this verse and give the reference: ""The virgin will conceive and. . ."  <br>
+            A. ". . .give birth to a son, and they will call him Immanuel" (which means "God with us"). " (Matthew 1:23)  <br><br>
+        
+        V 	18. Finish this verse: "She will give birth to. . ."  <br>
+            A. ". . .a son, and you are to give him the name Jesus, because he will save his people from their sins." (Matthew 1:21)  <br><br>
+        
+        A 	19. According to Matthew, chapter 1, verse 18, what came about?  <br>
+            A. The birth of Jesus the Messiah (Matthew 1:18)  <br><br>
+            <br><br>
+        
+          <h7 id="3">Set#3</h7><br><br>
+        
+        G 	1. Of whom was Mary the mother?  <br>
+            A. Jesus (Matthew 1:16)  <br><br>
+        
+        A 	2. According to Matthew, chapter 1, verse 20, who is the son of David?  <br>
+            A. Joseph (Matthew 1:20)  <br><br>
+        
+        A 	3. According to Matthew, chapter 1, verse 20, when did an angel of the Lord appear to Joseph in a dream?  <br>
+            A. After Joseph had considered this (divorcing Mary quietly) (Matthew 1:20) <br><br> 
+        
+        Q 	4. Quote Matthew, chapter 1, verse 21.  <br>
+            A. "She will give birth to a son, and you are to give him the name Jesus, because he will save his people from their sins."" (Matthew 1:21)  <br><br>
+        
+        G 	5. Who was the father of Solomon?  <br>
+            A. David (Matthew 1:6)  <br><br>
+        
+        A 	6. According to Matthew, chapter 1, verse 20, what did an angel of the Lord say?  <br>
+            A. "Joseph son of David, do not be afraid to take Mary home as your wife, because what is conceived in her is from the Holy Spirit." (Matthew 1:20)  <br><br>
+        
+        G 	7. Who had been Solomon's mother?  <br>
+            A. Uriah's wife (Matthew 1:6)  <br><br>
+        
+        G 	8. Who was the father of Obed?  <br>
+            A. Boaz (Matthew 1:5)  <br><br>
+        
+        G 	9. Of whom was Obed the father?  <br>
+            A. Jesse (Matthew 1:5)  <br><br>
+        
+        G 	10. Who did not want to expose Mary to public disgrace?  <br>
+            A. Joseph (Mary's husband) (Matthew 1:19) <br><br> 
+        
+        G 	11. Who was the father of Asa?  <br>
+            A. Abijah (Matthew 1:7)  <br><br>
+        
+        X 	12. In Matthew, chapter 1, what does the name "Joshua" mean?  <br>
+            A. "The Lord saves" (Matthew 1:21)  <br><br>
+        
+        A 	13. According to Matthew, chapter 1, verse 20, what is from the Holy Spirit?  <br>
+            A. What is conceived in Mary (Matthew 1:20)  <br><br>
+        
+        G 	14. How many generations were there in all from Abraham to David?  <br>
+            A. Fourteen (Matthew 1:17)  <br><br>
+        
+        G 	15. Who was the father of Amminadab?  <br>
+            A. Ram (Matthew 1:4)  <br><br>
+        
+        R 	16. Finish this verse and give the reference: "This is how the birth. . ."  <br>
+            A. ". . .of Jesus the Messiah came about: His mother Mary was pledged to be married to Joseph, but before they came together, she was found to be pregnant through the Holy Spirit. " (Matthew 1:18)  <br><br>
+        
+        V 	17. Finish this verse: ""The virgin will conceive and. . ."  <br>
+            A. ". . .give birth to a son, and they will call him Immanuel" (which means "God with us")." (Matthew 1:23)  <br><br>
+        
+        G 	18. Of whom was David the father?  <br>
+            A. Solomon (Matthew 1:6)  <br><br>
+        
+        G 	19. Who was the mother of Obed?  <br>
+            A. Ruth (Matthew 1:5)  <br><br>
+        
+            <br><br>
+          <h7 id="4">SET #4</h7> <br> <br>
+        
+        G 	1. Who was the father of Ahaz?  <br>
+            A. Jotham (Matthew 1:9)  <br><br>
+        
+        X 	2. From what Old Testament book does the following quotation come: "The virgin will conceive and give birth to a son, and they will call him Immanuel."?  <br>
+            A. Isaiah (Matthew 1:23)  <br><br>
+        
+        G 	3. To where was the exile?  <br>
+            A. Babylon (Matthew 1:11)  <br><br>
+        
+        V 	4. Finish this verse: ""The virgin will conceive and. . ."  <br>
+            A. ". . .give birth to a son, and they will call him Immanuel" (which means "God with us")." (Matthew 1:23)  <br><br>
+        
+        G 	5. Who was faithful to the law?  <br>
+            A. Joseph (Mary's husband) (Matthew 1:19)  <br><br>
+        
+        A 	6. According to Matthew, chapter 1, verse 24, when did Joseph do what the angel of the Lord had commanded him?  <br>
+            A. When Joseph woke up (Matthew 1:24)  <br><br>
+        
+        Q 	7. Quote Matthew, chapter 1, verse 18.  <br>
+            A. "This is how the birth of Jesus the Messiah came about: His mother Mary was pledged to be married to Joseph, but before they came together, she was found to be pregnant through the Holy Spirit." (Matthew 1:18)  <br><br>
+        
+        G 	8. Of whom was Abijah the father?  <br>
+            A. Asa (Matthew 1:7)  <br><br>
+        
+        A 	9. According to Matthew, chapter 1, verse 22, why did all this take place?  <br>
+            A. To fulfill what the Lord had said through the prophet (Matthew 1:22)  <br><br>
+        
+        G 	10. Who was the father of Jehoshaphat?  <br>
+            A. Asa (Matthew 1:8)  <br><br>
+        
+        G 	11. Of whom was Solomon the father?  <br>
+            A. Rehoboam (Matthew 1:7)  <br><br>
+        
+        G 	12. Who was the father of Jotham?  <br>
+            A. Uzziah (Matthew 1:9)  <br><br>
+        
+        A 	13. According to Matthew, chapter 1, verse 21, what are you to give him?  <br>
+            A. The name Jesus (Matthew 1:21)  <br><br>
+        
+        G 	14. Of whom was Jehoshaphat the father?  <br>
+            A. Jehoram (Matthew 1:8)  <br><br>
+            
+        G 	15. Who was the father of Joseph?  <br>
+            A. Jacob (Matthew 1:16)  <br><br>
+        
+        R 	16. Finish this verse and give the reference: "She will give birth to. . ."  <br>
+            A. ". . .a son, and you are to give him the name Jesus, because he will save his people from their sins." " (Matthew 1:21)  <br><br>
+        
+        A 	17. According to Matthew, chapter 1, verse 23, who will give birth to a son?  <br>
+            A. The virgin (Matthew 1:23)  <br><br>
+        
+        G 	18. Of whom was Jotham the father?  <br>
+            A. Ahaz (Matthew 1:9) <br><br> 
+        
+        G 	19. What were there in all from Abraham to David?  <br>
+            A. Fourteen generations (Matthew 1:17)  <br><br>
+            <br><br>
+        
+          <h7 id="5">SET #5 </h7> <br> <br>
+        
+        G 	1. Of whom was Jeconiah the father?  <br>
+            A. Shealtiel (Matthew 1:12)  <br><br>
+        
+        X 	2. Complete, in essence, the following: "When Joseph woke up, he . . ."  <br>
+            A. ". . . did what the angel of the Lord had commanded him and took Mary home as his wife." (Matthew 1:24)  <br><br>
+        
+        V 	3. Finish this verse: "She will give birth to. . ."  <br>
+            A. ". . .a son, and you are to give him the name Jesus, because he will save his people from their sins." (Matthew 1:21)  <br><br>
+        
+        A 	4. According to Matthew, chapter 1, verse 1, of whom was David the son?  <br>
+            A. Abraham (Matthew 1:1)  <br><br>
+        
+        G 	5. As what should Joseph not be afraid to take Mary home?  <br>
+            A. His wife (Matthew 1:20)  <br><br>
+        
+        G 	6. Whom did Joseph have in mind to divorce quietly?  <br>
+            A. Mary (Matthew 1:19)  <br><br>
+        
+        R 	7. Finish this verse and give the reference: ""The virgin will conceive and. . ."  <br>
+            A. ". . .give birth to a son, and they will call him Immanuel" (which means "God with us"). " (Matthew 1:23)  <br><br>
+        
+        A 	8. According to Matthew, chapter 1, verse 19, to what was Joseph faithful?  <br>
+            A. The law (Matthew 1:19)  <br><br>
+        
+        G 	9. Of whom was Zerubbabel the father?  <br>
+            A. Abihud (Matthew 1:13)  <br><br>
+        
+        G 	10. Who was the father of Josiah? 
+            A. Amon (Matthew 1:10)  <br><br>
+        
+        Q 	11. Quote Matthew, chapter 1, verse 18.  <br>
+            A. "This is how the birth of Jesus the Messiah came about: His mother Mary was pledged to be married to Joseph, but before they came together, she was found to be pregnant through the Holy Spirit." (Matthew 1:18)  <br><br>
+        
+        A 	12. According to Matthew, chapter 1, verse 2, of whom was Abraham the father?  <br>
+            A. Isaac (Matthew 1:2)  <br><br>
+        
+        G 	13. Who was the father of Shealtiel?  <br>
+            A. Jeconiah (Matthew 1:12)  <br><br>
+        
+        G 	14. Of whom was Manasseh the father?  <br>
+            A. Amon (Matthew 1:10)  <br><br>
+        
+        G 	15. Who was the father of Eliakim?  <br>
+            A. Abihud (Matthew 1:13)  <br><br>
+        
+        G 	16. Of whom was Azor the father?  <br>
+            A. Zadok (Matthew 1:14)  <br><br>
+        
+        G 	17. At what time was Josiah the father of Jeconiah and his brothers?  <br>
+            A. The time of the exile to Babylon (Matthew 1:11)  <br><br>
+        
+        G 	18. Of whom was Abihud the father?  <br>
+            A. Eliakim (Matthew 1:13)  <br><br>
+        
+        A 	19. According to Matthew, chapter 1, verse 25, what did she do?  <br>
+            A. Gave birth to a son (Matthew 1:25)  <br><br>
+            <br><br>
+        
+          <h7 id="6">SET #6</h7> <br><br>
+
+        G 	1. Who will conceive and give birth to a son?  <br>
+            A. The virgin (Mary) (Matthew 1:23)  <br><br>
+        
+        G 	2. Who was the father of Isaac?  <br>
+            A. Abraham (Matthew 1:2)  <br><br>
+        
+        R 	3. Finish this verse and give the reference: ""The virgin will conceive and. . ."  <br>
+            A. ". . .give birth to a son, and they will call him Immanuel" (which means "God with us"). " (Matthew 1:23) <br><br> 
+        
+        A 	4. According to Matthew, chapter 1, verse 20, what did an angel of the Lord say?  <br>
+            A. "Joseph son of David, do not be afraid to take Mary home as your wife, because what is conceived in her is from the Holy Spirit." (Matthew 1:20)  <br><br>
+        
+        X 	5. Who were the parents of Perez and Zerah?  <br>
+            A. Judah and Tamar (Matthew 1:3)  <br><br>
+        
+        G 	6. Whom is Joseph to give the name Jesus?  <br>
+            A. Mary's son (Matthew 1:21)  <br><br>
+        
+        G 	7. Who was the father of Eleazar?  <br>
+            A. Elihud (Matthew 1:15)  <br><br>
+        
+        G 	8. Whom did Joseph take home as his wife?  <br>
+            A. Mary (Matthew 1:24)  <br><br>
+        
+        G 	9. Of whom was Hezron the father?  <br>
+            A. Ram (Matthew 1:3)  <br><br>
+        
+        V 	10. Finish this verse: "This is how the birth. . ."  <br>
+            A. ". . .of Jesus the Messiah came about: His mother Mary was pledged to be married to Joseph, but before they came together, she was found to be pregnant through the Holy Spirit." (Matthew 1:18)  <br><br>
+        
+        G 	11. What had Joseph considered?  <br>
+            A. Divorcing Mary quietly (Matthew 1:19-20)  <br><br>
+        
+        G 	12. What does Immanuel mean?  <br>
+            A. "God with us" (Matthew 1:23)  <br><br>
+            
+        A 	13. According to Matthew, chapter 1, verse 18, what came about?  <br>
+            A. The birth of Jesus the Messiah (Matthew 1:18)  <br><br>
+        
+        G 	14. Of whom was Elihud the father?  <br>
+            A. Eleazar (Matthew 1:15)  <br><br>
+        
+        G 	15. Who was the father of Akim?  <br>
+            A. Zadok (Matthew 1:14)  <br><br>
+        
+        Q 	16. Quote Matthew, chapter 1, verse 21.  <br>
+            A. "She will give birth to a son, and you are to give him the name Jesus, because he will save his people from their sins."" (Matthew 1:21)  <br><br>
+        
+        A 	17. According to Matthew, chapter 1, verse 16, what was Joseph?  <br>
+            A. The husband of Mary (Matthew 1:16)  <br><br>
+        
+        G 	18. Who gave birth to a son?  <br>
+            A. Mary (Matthew 1:25) <br><br> 
+        
+        A 	19. According to Matthew, chapter 1, verse 18, what was Mary found to be?  <br>
+            A. Pregnant (Matthew 1:18)  <br><br>
+        
+            <br><br>
+          <h7 id="7">SET #7</h7>  <br><br>
+        
+        G 	1. Who was the father of Hezron?  <br>
+            A. Perez (Matthew 1:3)  <br><br>
+        
+        A 	2. According to Matthew, chapter 1, verse 20, when did an angel of the Lord appear to Joseph in a dream?  <br>
+            A. After Joseph had considered this (divorcing Mary quietly) (Matthew 1:20)  <br><br>
+        
+        G 	3. Whom will they call Immanuel?  <br>
+            A. The virgin's son (OR Jesus) (Matthew 1:23) <br><br> 
+        
+        G 	4. Who was the father of Ram?  <br>
+            A. Hezron (Matthew 1:3)  <br><br>
+        
+        A 	5. According to Matthew, chapter 1, verse 20, what is from the Holy Spirit?  <br>
+            A. What is conceived in Mary (Matthew 1:20)  <br><br>
+        
+        X 	6. In Matthew, chapter 1, what do both "Messiah" and "Christ" mean?  <br>
+            A. Anointed One (Matthew 1:1)  <br><br>
+        
+        Q 	7. Quote Matthew, chapter 1, verse 18.  <br>
+            A. "This is how the birth of Jesus the Messiah came about: His mother Mary was pledged to be married to Joseph, but before they came together, she was found to be pregnant through the Holy Spirit." (Matthew 1:18)  <br><br>
+        
+        A 	8. According to Matthew, chapter 1, verse 20, who is the son of David?  <br>
+            A. Joseph (Matthew 1:20)  <br><br>
+        
+        G 	9. To whom was Mary pledged to be married?  <br>
+            A. Joseph (Matthew 1:18)  <br><br>
+        
+        A 	10. According to Matthew, chapter 1, verse 15, who was the father of Jacob?  <br>
+            A. Matthan (Matthew 1:15)  <br><br>
+        
+        G 	11. What did Joseph not consummate until Mary gave birth to a son?  <br>
+            A. Their marriage (Matthew 1:25)  <br><br>
+        
+        G 	12. Whom will Jesus save from their sins?  <br>
+            A. His people (Matthew 1:21)  <br><br>
+        
+        G 	13. Who appeared to Joseph in a dream?  <br>
+            A. An angel of the Lord (Matthew 1:20) <br><br> 
+        
+        V 	14. Finish this verse: ""The virgin will conceive and. . ."  <br>
+            A. ". . .give birth to a son, and they will call him Immanuel" (which means "God with us")." (Matthew 1:23)  <br><br>
+        
+        G 	15. What is Joseph to give Mary's son?  <br>
+            A. The name Jesus (Matthew 1:21)  <br><br>
+        
+        R 	16. Finish this verse and give the reference: "She will give birth to. . ."  <br>
+            A. ". . .a son, and you are to give him the name Jesus, because he will save his people from their sins." " (Matthew 1:21)  <br><br>
+        
+        G 	17. Of whom was Azor the father?  <br>
+            A. Zadok (Matthew 1:14)  <br><br>
+        
+        G 	18. Who did what the angel of the Lord had commanded him and took Mary home as his wife?  <br>
+            A. Joseph (Matthew 1:24)  <br><br>
+        
+        G 	19. Who will give birth to a son?  <br>
+            A. Mary (Matthew 1:21)  <br><br>
+        
+            <br><br>
+          <h7 id="8">SET #8 </h7> <br><br>
+        
+        A 	1. According to Matthew, chapter 1, verse 23, who will give birth to a son?  <br>
+            A. The virgin (Matthew 1:23)  <br><br>
+        
+        G 	2. Of whom was Amminadab the father?  <br>
+            A. Nahshon (Matthew 1:4)  <br><br>
+        
+        G 	3. Of whom was Obed the father?  <br>
+            A. Jesse (Matthew 1:5)  <br><br>
+        
+        G 	4. Who was the mother of Obed?  <br>
+            A. Ruth (Matthew 1:5)  <br><br>
+        
+        G 	5. Who was the father of Obed?  <br>
+            A. Boaz (Matthew 1:5)  <br><br>
+        
+        A 	6. According to Matthew, chapter 1, verse 16, what was Mary?  <br>
+            A. The mother of Jesus (Matthew 1:16)  <br><br>
+        
+        X 	7. In Matthew, chapter 1, who is called the Messiah?  <br>
+            A. Jesus (Matthew 1:16)  <br><br>
+        
+        G 	8. Who was the father of Amminadab?  <br>
+            A. Ram (Matthew 1:4)  <br><br>
+        
+        G 	9. Of whom was David the father?  <br>
+            A. Solomon (Matthew 1:6)  <br><br>
+        
+        G 	10. Who was the father of Solomon?  <br>
+            A. David (Matthew 1:6)  <br><br>
+        
+        G 	11. As what should Joseph not be afraid to take Mary home?  <br>
+            A. His wife (Matthew 1:20)  <br><br>
+        
+        G 	12. Why should Joseph not be afraid to take Mary home as his wife?  <br>
+            A. Because what is conceived in her is from the Holy Spirit (Matthew 1:20) <br><br> 
+        
+        V 	13. Finish this verse: ""The virgin will conceive and. . ."  <br>
+            A. ". . .give birth to a son, and they will call him Immanuel" (which means "God with us")." (Matthew 1:23)  <br><br>
+        
+        A 	14. According to Matthew, chapter 1, verse 21, what are you to give him?  <br>
+            A. The name Jesus (Matthew 1:21)  <br><br>
+        
+        R 	15. Finish this verse and give the reference: "She will give birth to. . ."  <br>
+            A. ". . .a son, and you are to give him the name Jesus, because he will save his people from their sins." " (Matthew 1:21) <br><br> 
+        
+        Q 	16. Quote Matthew, chapter 1, verse 18.  <br>
+            A. "This is how the birth of Jesus the Messiah came about: His mother Mary was pledged to be married to Joseph, but before they came together, she was found to be pregnant through the Holy Spirit." (Matthew 1:18)  <br><br>
+        
+        G 	17. Who was pledged to be married to Joseph?  <br>
+            A. Mary (Jesus' mother) (Matthew 1:18)  <br><br>
+        
+        A 	18. According to Matthew, chapter 1, verse 22, why did all this take place?  <br>
+            A. To fulfill what the Lord had said through the prophet (Matthew 1:22)  <br><br>
+        
+        G 	19. Who was the father of Salmon?  <br>
+            A. Nahshon (Matthew 1:4)  <br><br>
+        
+            <br><br>
+          <h7 id="9">SET #9</h7>  <br><br>
+        
+        G 	1. Who was the father of Ahaz?  <br>
+            A. Jotham (Matthew 1:9)  <br><br>
+        
+        G 	2. Of whom was Jehoshaphat the father?  <br>
+            A. Jehoram (Matthew 1:8)  <br><br>
+        
+        G 	3. Of whom was Abijah the father?  <br>
+            A. Asa (Matthew 1:7)  <br><br>
+        
+        V 	4. Finish this verse: "This is how the birth. . ."  <br>
+            A. ". . .of Jesus the Messiah came about: His mother Mary was pledged to be married to Joseph, but before they came together, she was found to be pregnant through the Holy Spirit." (Matthew 1:18)  <br><br>
+        
+        A 	5. According to Matthew, chapter 1, verse 24, when did Joseph do what the angel of the Lord had commanded him?  <br>
+            A. When Joseph woke up (Matthew 1:24)  <br><br>
+        
+        A 	6. According to Matthew, chapter 1, verse 2, of whom was Abraham the father?  <br>
+            A. Isaac (Matthew 1:2)  <br><br>
+        
+        G 	7. Who was the father of Jehoshaphat?  <br>
+            A. Asa (Matthew 1:8)  <br><br>
+        
+        G 	8. At what time was Josiah the father of Jeconiah and his brothers?  <br>
+            A. The time of the exile to Babylon (Matthew 1:11)  <br><br>
+        
+        G 	9. Who was faithful to the law?  <br>
+            A. Joseph (Mary's husband) (Matthew 1:19)  <br><br>
+        
+        G 	10. Who was the father of Jotham?  <br>
+            A. Uzziah (Matthew 1:9)  <br><br>
+        
+        A 	11. According to Matthew, chapter 1, verse 19, to what was Joseph faithful?  <br>
+            A. The law (Matthew 1:19)  <br><br>
+        
+        Q 	12. Quote Matthew, chapter 1, verse 23.  <br>
+            A. "The virgin will conceive and give birth to a son, and they will call him Immanuel" (which means "God with us"). (Matthew 1:23)  <br><br>
+        
+        G 	13. Of whom was Solomon the father?  <br>
+            A. Rehoboam (Matthew 1:7)  <br><br>
+        
+        X 	14. In Matthew, chapter 1, who was faithful to the law?  <br>
+            A. Joseph (Matthew 1:19)  <br><br>
+        
+        R 	15. Finish this verse and give the reference: "She will give birth to. . ."  <br>
+            A. ". . .a son, and you are to give him the name Jesus, because he will save his people from their sins." " (Matthew 1:21)  <br><br>
+        
+        G 	16. Of whom was Jotham the father?  <br>
+            A. Ahaz (Matthew 1:9)  <br><br>
+        
+        G 	17. Who was the father of Asa?  <br>
+            A. Abijah (Matthew 1:7)  <br><br>
+        
+        G 	18. Who had been Solomon's mother?  <br>
+            A. Uriah's wife (Matthew 1:6)  <br><br>
+        
+        A 	19. According to Matthew, chapter 1, verse 1, of whom was Jesus the son?  <br>
+            A. David (Matthew 1:1)  <br><br>
+        
+            <br><br>
+          <h7 id="10">SET #10</h7>  <br><br>
+        
+        G 	1. Who was the father of Eliakim?  <br>
+            A. Abihud (Matthew 1:13)  <br><br>
+        
+        G 	2. Who was the father of Josiah?  <br>
+            A. Amon (Matthew 1:10)  <br><br>
+        
+        G 	3. To what did Joseph not want to expose Mary?  <br>
+            A. Public disgrace (Matthew 1:19)  <br><br>
+        
+        R 	4. Finish this verse and give the reference: ""The virgin will conceive and. . ."  <br>
+            A. ". . .give birth to a son, and they will call him Immanuel" (which means "God with us"). " (Matthew 1:23)  <br><br>
+        
+        G 	5. Who was the father of Shealtiel?  <br>
+            A. Jeconiah (Matthew 1:12)  <br><br>
+        
+        A 	6. According to Matthew, chapter 1, verse 15, who was the father of Jacob?  <br>
+            A. Matthan (Matthew 1:15)  <br><br>
+        
+        A 	7. According to Matthew, chapter 1, verse 20, what did an angel of the Lord say?  <br>
+            A. "Joseph son of David, do not be afraid to take Mary home as your wife, because what is conceived in her is from the Holy Spirit." (Matthew 1:20)  <br><br>
+        
+        G 	8. Of whom was Zerubbabel the father?  <br>
+            A. Abihud (Matthew 1:13)  <br><br>
+        
+        V 	9. Finish this verse: "She will give birth to. . ."  <br>
+            A. ". . .a son, and you are to give him the name Jesus, because he will save his people from their sins." (Matthew 1:21)  <br><br>
+        
+        G 	10. To where was the exile?  <br>
+            A. Babylon (Matthew 1:11)  <br><br>
+        
+        G 	11. Of whom was Jeconiah the father?  <br>
+            A. Shealtiel (Matthew 1:12)  <br><br>
+        
+        A 	12. According to Matthew, chapter 1, verse 18, what came about?  <br>
+            A. The birth of Jesus the Messiah (Matthew 1:18)  <br><br>
+        
+        G 	13. Who was the father of Joseph?  <br>
+            A. Jacob (Matthew 1:16)  <br><br>
+        
+        Q 	14. Quote Matthew, chapter 1, verse 18.  <br>
+            A. "This is how the birth of Jesus the Messiah came about: His mother Mary was pledged to be married to Joseph, but before they came together, she was found to be pregnant through the Holy Spirit." (Matthew 1:18)  <br><br>
+        
+        X 	15. In Matthew, chapter 1, what does the name "Joshua" mean?  <br>
+            A. "The Lord saves" (Matthew 1:21)  <br><br>
+        
+        G 	16. Of whom was Manasseh the father?  <br>
+            A. Amon (Matthew 1:10)  <br><br>
+        
+        A 	17. According to Matthew, chapter 1, verse 18, what was Mary found to be?  <br>
+            A. Pregnant (Matthew 1:18)  <br><br>
+        
+        G 	18. Of whom was Mary the mother?  <br>
+            A. Jesus (Matthew 1:16) <br><br> 
+            
+        G 	19. Of whom was Abihud the father?  <br>
+            A. Eliakim (Matthew 1:13)<br><br>
+        </p>
+
+</body>
+</html>

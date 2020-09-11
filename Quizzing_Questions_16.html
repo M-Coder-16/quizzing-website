@@ -1,0 +1,909 @@
+<!DOCTYPE html>
+<html> 
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+
+        h1{
+            background-color: black;
+            text-align: center;
+            font-size: 120px;
+            margin: 0px;
+            padding: 30px;
+            color: rgb(0, 172, 172);
+            font-family: 'Impact', Haettenschweiler, Arial Narrow Bold, sans-serif;
+            top: 0px;
+            left: 0px;
+            text-emphasis: bold;
+        }
+
+        head{
+            background-color: black;
+            margin: 0px;
+            padding: 20px;
+        }
+
+        nav{
+            left: 0px;
+            margin: 0px;
+            padding: 20px;
+            background-color: rgb(0, 172, 172);
+            color: black;
+            text-align: left;
+            display: inline-block;
+            height: auto;
+        }
+
+        nav a{
+            color: black;
+            text-decoration: none;
+            margin: 10px 15px;
+            padding: 8px;
+            font-size: 24px;
+            display: inline-block;
+            box-shadow: 0px 0px 10px 5px black;
+            background-color: #b3b3b3;
+            border-radius: 5px;
+        }
+
+        body{
+            background-image: url('data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAkGBwgHBw0HBw0HBwcHBw0HBwcHDQ8IDQcNIBEWFhURExMYHSggGCYxGxMVITEhJSkrLi4uFx8zODMsNygtLisBCgoKDQ0NDg0NDisZHxkrKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrK//AABEIAKgBLAMBIgACEQEDEQH/xAAaAAADAQEBAQAAAAAAAAAAAAABAgMABAUG/8QAGBABAQEBAQAAAAAAAAAAAAAAAAECEhH/xAAXAQEBAQEAAAAAAAAAAAAAAAAAAQID/8QAFBEBAAAAAAAAAAAAAAAAAAAAAP/aAAwDAQACEQMRAD8AaU0qUppXRlaVTNRlPKC0qkqGapKC0p5UZTygtKaVKU0oKymlSlNKqKymlSlNKCkoypymlBWU0qUp5QVlNKlKaUFPW9J63opvQ9L63og2h6X1vQH0LQ9C0BtJa1pbQG0toWltAbQ9LaFoG9D0nregf1vU/W9B8/KaVGU0qKvKeVCVSUF5TyoZp5QXlPKhKeUF5TyoymlBaU0qUppQVlGVKU0oKyjKn6MqotKaVGU8oLSm9RlNKiq+t6n63oKehaT0PQP6HpPQ9A/pbS+haA2ltC0lqoa0tpbS2ge0tpLoLoD3QdJ9B0CnTdJ9B0DwJTSpSmlZVaU8qEqkoL5qkrnlUmgXlPKhNHmgWlPKhNHlBaaNNIymmlFpo00hNGmgXmhmkZoZoF5o80hNGmgXmh6RmhmgW6bpLpugV6bpLpugU6DpPoOgU6C6T6C6A90S6LdEugPdFuiXRboD3Rbol0W6BS6L0S6L0CvTdJdB0Dw5oZpGaNNILzR5pzzR5oHRNKTTnmjzQOiaNNITRppB0TR5pzzR5pR0TQzSE0aaBaaNNIzQzQLzQzSM0M0ovNHmnPNGmgdE0M0hNG6QW6bpLpugV6DpPoOgU6bpLoOgU6C6TugugPdFuiXRLpRS6LdJ3RboFLot0ndFugUug6Tui9Ar03SPTdA8WaGaR9NNMi80eac8p5oHRNHmnPNHmgXmjzSE0aaB0TR5pzzRpoHRNDNITRpoF5o0055o00C80aac80aaUdE0aac80aaB0TQ9ITQ9Av03SPTdAt03SPTdAr0HSXQdAr0F0l0F0Cl0S6JdFugPdFuk7ot0Cl0W6JdFugPdB0ndF6BXpukem6B480aVGUZUVeU00hKeaBeaPNITRpoHRNGmkJo00DomjTSE0aaBeaHpGaHoF5oZpCaNNCLzQzSHRpoF5o0055o00Domh6Q6HoF+m6R6boFum6R6boFeg6S6DoFegukugugUui3Sd0W6BS6LdJ3RboFLot0ndBdAe6DpO6LdAr03SPTdA8roZpLoZoVaaNNITR5oF5o8055o80C80aaQmjTQOiaNNOeaPNAvND0jND0C00M0jNDNAvNDNITRpoF5o0055o00Iv0PSPTdAv03SPQ9Ar03SXTdAp0HSfQdAp0HSfQXQKXRLol0W6A90F0ndFugUui3RLot0B7ot0S6L0CvQdJ9B0DzOh6R6HoVeaNNITRpoF5o8055o00DomjTTnmjTQOiaNNOeaNNA6JoekOh6BfoZpDoZoHRNDNOeaNNA6JoZpzzZpsRfoekO27B0dD05+x7BfpukO27BboOkew7BboLpLsLsFbot0ldluwVui3SV0F2Cl0W6Tui3QK3RbpK7C7BXpukeg6B53Q9JdD0KtNDNIzQzQLzRppCaNNAvNGmnPNGmgdE0aac80aaBfoekOh6BfoZtz9D0Do7Gac/RpoHRNj25+h6EdHY9ufoegdHbdufoewdHYdodt2C/Ydo9B0C3Ydo9N0Ct2W7Sui3QK3QXaV0W6BW6LdJ3RboFLoLpK6C6BXpukem6Bxet0l0PQqs0aaR6GaBaaNNITRugWmjTSHQzQLzRppCaNNAt0PSPTdAt0PSPQ9At0M0h0PQOiaHpCaHoRfpu0Oh6BftukOm6Bftukeg6BfoOkem6BboOkug6BW6LdJ9BdApdB0ndB0Cl0W6JdBaB7ovRLQ6BToPU/W9Bx+t6zCt6aVmAZTSgwG9GVmAZTSswD6PrMDej6zAPo+swD6PrMI3reswD63rMDet6zA3reswN63rMAehazAHoeswB6HrMAeh6zAHreswP//Z');
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-attachment: fixed;
+        }
+
+        h2{
+            text-align: center;
+            color: white;
+            font-size: 32px;
+            text-emphasis: bold;
+            margin: 10px;
+            background-color: black;
+            padding: 10px;
+            border: double 3px black;
+        }
+
+        .bookmarks{
+            background-color: rgb(0, 172, 172);
+            position: absolute;
+            top: 290px;
+            left: 26%;
+            text-align: center;
+            padding: 10px 20px;
+            border: solid black 5px;
+            border-radius: 25px;
+        }
+
+        .bookmarks a{
+            display: inline-block;
+            background-color: black;
+            color: white;
+            text-emphasis: bold;
+            font-size: 24px;
+            margin: 10px;
+            padding: 10px;
+            border-radius: 10px;
+        }
+
+        h3{
+            font-size: 68px;
+            position: absolute;
+            float: center;
+            top: 350px;
+            left: 48%;
+            text-emphasis: bold;
+            text-align: center;
+            font-family: 'Times New Roman', Times, serif;
+        }
+
+        .verses a{
+            position: absolute;
+            color: rgb(0, 172, 172);
+            background-color: black;
+            font-size: 32px;
+            font-family: Arial, Helvetica, sans-serif;
+            left: 38%;
+            padding: 10px 100px;
+            text-decoration: none;
+            text-align: center;
+            top: 220px;
+            text-emphasis: bold;
+        }
+
+        #myBtn {
+            display: none; /* Hidden by default */
+            position: fixed; /* Fixed/sticky position */
+            bottom: 65px; /* Place the button at the bottom of the page */
+            left: 50px; /* Place the button 30px from the right */
+            z-index: 99; /* Make sure it does not overlap */
+            border: none; /* Remove borders */
+            outline: none; /* Remove outline */
+            background-color: rgb(0, 172, 172); /* Set a background color */
+            color: black; /* Text color */
+            cursor: pointer; /* Add a mouse pointer on hover */
+            padding: 10px; /* Some padding */
+            padding-bottom: 0px;
+            border-radius: 10px; /* Rounded corners */
+            border: solid black 5px;
+            font-size: 72px; /* Increase font size */
+        }
+
+        #myBtn:hover {
+            display: none; /* Hidden by default */
+            position: fixed; /* Fixed/sticky position */
+            bottom: 65px; /* Place the button at the bottom of the page */
+            left: 50px; /* Place the button 30px from the right */
+            z-index: 99; /* Make sure it does not overlap */
+            border: none; /* Remove borders */
+            outline: none; /* Remove outline */
+            background-color: rgb(0, 0, 0); /* Set a background color */
+            color: rgb(0, 172, 172); /* Text color */
+            cursor: pointer; /* Add a mouse pointer on hover */
+            padding: 10px; /* Some padding */
+            padding-bottom: 0px;
+            border-radius: 10px; /* Rounded corners */
+            border: solid rgb(0, 172, 172) 5px;
+            font-size: 72px; /* Increase font size */
+        }
+
+        p{
+            font-size: 22px;
+            position: absolute;
+            top: 500px;
+            left: 30%;
+        }
+
+        h7{
+            font-size: 32px;
+            text-emphasis: bold;
+        }
+
+    </style>
+    <button onclick="topFunction()" id="myBtn" title="Go to top"><b>^</b></button>
+<head> 
+    <h1>Questions</h1>
+    <div class="verses">
+        <a href="Quizzing.html">Click here for memory verses.</a>        
+   </div>
+</head>
+<body>
+   
+    <script>
+        //Get the button
+        var mybutton = document.getElementById("myBtn");
+        
+        // When the user scrolls down 20px from the top of the document, show the button
+        window.onscroll = function() {scrollFunction()};
+        
+        function scrollFunction() {
+          if (document.body.scrollTop > 1750 || document.documentElement.scrollTop > 1750) {
+            mybutton.style.display = "block";
+          } else {
+            mybutton.style.display = "none";
+          }
+        }
+        
+        // When the user clicks on the button, scroll to the top of the document
+        function topFunction() {
+          document.body.scrollTop = 0;
+          document.documentElement.scrollTop = 0;
+        }
+        </script>
+
+    <nav>
+
+        <h2>Select a Chapter</h2>
+        <br>
+
+        <a href="Quizzing_Questions_1.html">Matthew 1</a>
+        <br>
+        <a href="Quizzing_Questions_2.html">Matthew 2</a>
+        <br>
+        <a href="Quizzing_Questions_3.html">Matthew 3</a>
+        <br>
+        <a href="Quizzing_Questions_4.html">Matthew 4</a>
+        <br>
+        <a href="Quizzing_Questions_5.html">Matthew 5</a>
+        <br>
+        <a href="Quizzing_Questions_6.html">Matthew 6</a>
+        <br>
+        <a href="Quizzing_Questions_7.html">Matthew 7</a>
+        <br>
+        <a href="Quizzing_Questions_8.html">Matthew 8</a>
+        <br>
+        <a href="Quizzing_Questions_9.html">Matthew 9</a>
+        <br>
+        <a href="Quizzing_Questions_10.html">Matthew 10</a>
+        <br>
+        <a href="Quizzing_Questions_11.html">Matthew 11</a>
+        <br>
+        <a href="Quizzing_Questions_12.html">Matthew 12</a>
+        <br>
+        <a href="Quizzing_Questions_13.html">Matthew 13</a>
+        <br>
+        <a href="Quizzing_Questions_14.html">Matthew 14</a>
+        <br>
+        <a href="Quizzing_Questions_15.html">Matthew 15</a>
+        <br>
+        <a href="Quizzing_Questions_16.html">Matthew 16</a>
+        <br>
+        <a href="Quizzing_Questions_17.html">Matthew 17</a>
+        <br>
+        <a href="Quizzing_Questions_18.html">Matthew 18</a>
+        <br>
+        <a href="Quizzing_Questions_19.html">Matthew 19</a>
+        <br>
+        <a href="Quizzing_Questions_20.html">Matthew 20</a>
+        <br>
+        <a href="Quizzing_Questions_21.html">Matthew 21</a>
+        <br>
+        <a href="Quizzing_Questions_22.html">Matthew 22</a>
+        <br>
+        <a href="Quizzing_Questions_23.html">Matthew 23</a>
+        <br>
+        <a href="Quizzing_Questions_24.html">Matthew 24</a>
+        <br>
+        <a href="Quizzing_Questions_25.html">Matthew 25</a>
+        <br>
+        <a href="Quizzing_Questions_26.html">Matthew 26</a>
+        <br>
+        <a href="Quizzing_Questions_27.html">Matthew 27</a>
+        <br>
+        <a href="Quizzing_Questions_28.html">Matthew 28</a>
+    </nav>
+
+    <div class="bookmarks">
+        <a href="#1">Set 1</a>
+        <a href="#2">Set 2</a>
+        <a href="#3">Set 3</a>
+        <a href="#4">Set 4</a>
+        <a href="#5">Set 5</a>
+        <a href="#6">Set 6</a>
+        <a href="#7">Set 7</a>
+        <a href="#8">Set 8</a>
+        <a href="#9">Set 9</a>
+        <a href="#10">Set 10</a>
+    </div>
+
+    <h3>Matthew 16</h3>
+
+    <p> <h7 id="1">SET #1</h7>   <br><br>
+
+        G 	1. Who will not taste death before they see the Son of Man coming in his kingdom? <br>
+            A. Some who are standing here (Matthew 16:28)  <br><br>
+        
+        V 	2. Finish these verses: "Then Jesus said to his. . ." <br>
+            A. ". . .disciples, "Whoever wants to be my disciple must deny themselves and take up their cross and follow me. For whoever wants to save their life will lose it, but whoever loses their life for me will find it." (Matthew 16:24-25)  <br><br>
+        
+        A 	3. According to Matthew, chapter 16, verse 1, how did the Pharisees and Sadducees test Jesus? <br>
+            A. By asking him to show them a sign from heaven (Matthew 16:1)  <br><br>
+        
+        G 	4. What did the disciples forget to take when they went across the lake? <br>
+            A. Bread (Matthew 16:5)  <br><br>
+        
+        G 	5. What will the gates of Hades not overcome? <br>
+            A. Jesus' church (Matthew 16:18)  <br><br>
+        
+        Q 	6. Quote Matthew, chapter 16, verses 17 through 18. <br>
+            A. "Jesus replied, "Blessed are you, Simon son of Jonah, for this was not revealed to you by flesh and blood, but by my Father in heaven. And I tell you that you are Peter, and on this rock I will build my church, and the gates of Hades will not overcome it." (Matthew 16:17-18) <br><br> 
+        
+        X 	7. When will it be fair weather? <br>
+            A. When evening comes and the sky is red (Matthew 16:2)  <br><br>
+        
+        A 	8. According to Matthew, chapter 16, verse 12, against what should they guard? <br>
+            A. The teaching of the Pharisees and Sadducees (Matthew 16:12)  <br><br>
+        
+        G 	9. Who are talking among themselves about having no bread? <br>
+            A. The disciples (Matthew 16:8)  <br><br>
+        
+        G 	10. With whom is the Son of Man going to come in his Father's glory? <br>
+            A. His angels (Matthew 16:27)  <br><br>
+        
+        R 	11. Finish this verse and give the reference: "From that time on Jesus. . ." <br>
+            A. ". . .began to explain to his disciples that he must go to Jerusalem and suffer many things at the hands of the elders, the chief priests and the teachers of the law, and that he must be killed and on the third day be raised to life. " (Matthew 16:21)  <br><br>
+        
+        G 	12. What do the Pharisees and Sadducees say in the morning? <br>
+            A. "Today it will be stormy, for the sky is red and overcast." (Matthew 16:3)  <br><br>
+        
+        G 	13. What does Peter have in mind? <br>
+            A. Merely human concerns (Matthew 16:23) <br><br> 
+        
+        S 	14. Situation question: who said it, and in reply to what: "Blessed are you, Simon son of Jonah, for this was not revealed to you by flesh and blood, but by my Father in heaven."? <br>
+            A. Jesus said it in reply to, "You are the Messiah, the Son of the living God." (Matthew 16:16-17)  <br><br>
+        
+        A 	15. According to Matthew, chapter 16, verse 17, who is blessed? <br>
+            A. Simon son of Jonah (Matthew 16:17)  <br><br>
+        
+        G 	16. Whom did Peter begin to rebuke? <br>
+            A. Jesus (Matthew 16:22)  <br><br>
+        
+        A 	17. According to Matthew, chapter 16, verse 19, what will be bound in heaven? <br>
+            A. Whatever you bind on earth (Matthew 16:19)  <br><br>
+        
+        G 	18. Who said, "It is because we didn't bring any bread."? <br>
+            A. The disciples (Matthew 16:7)  <br><br>
+        
+        G 	19. What will whoever loses their life for Jesus find? <br>
+            A. Their life (Matthew 16:25)  <br><br>
+        
+        G 	20. What must whoever wants to be Jesus' disciple do? <br>
+            A. Deny themselves and take up their cross and follow Jesus (Matthew 16:24)  <br><br>
+            <br><br>
+        
+        
+         <h7 id="2">SET #2 </h7>  <br><br>
+        
+        G 	1. Who asked Jesus to show them a sign from heaven? <br>
+            A. The Pharisees and Sadducees (Matthew 16:1)  <br><br>
+        
+        R 	2. Finish these verses and give the reference: "Jesus replied, "Blessed are you,. . ." <br>
+            A. ". . .Simon son of Jonah, for this was not revealed to you by flesh and blood, but by my Father in heaven. And I tell you that you are Peter, and on this rock I will build my church, and the gates of Hades will not overcome it. " (Matthew 16:17-18)  <br><br>
+        
+        G 	3. Who was not talking to the disciples about bread? <br>
+            A. Jesus (Matthew 16:11)  <br><br>
+        
+        S 	4. Situation question: who said it, and to whom: "Whoever wants to be my disciple must deny themselves and take up their cross and follow me."? <br>
+            A. Jesus said it to his disciples (Matthew 16:24)  <br><br>
+        
+        G 	5. Who replied, "Some say John the Baptist; others say Elijah; and still others, Jeremiah or one of the prophets."? <br>
+            A. Jesus' disciples (Matthew 16:14)  <br><br>
+        
+        A 	6. According to Matthew, chapter 16, verse 16, of whom are you the Son? <br>
+            A. The living God (Matthew 16:16)  <br><br>
+        
+        G 	7. Where will whatever Peter looses on earth be loosed? <br>
+            A. In heaven (Matthew 16:19)  <br><br>
+        
+        A 	8. According to Matthew, chapter 16, verse 18, who are you? <br>
+            A. Peter (Matthew 16:18)  <br><br>
+        
+        G 	9. By whom was this revealed to Simon son of Jonah? <br>
+            A. Jesus' Father in heaven (Matthew 16:17)  <br><br>
+        
+        G 	10. What can the Pharisees and Sadducees not interpret? <br>
+            A. The signs of the times (Matthew 16:3)  <br><br>
+        
+        Q 	11. Quote Matthew, chapter 16, verse 21. <br>
+            A. "From that time on Jesus began to explain to his disciples that he must go to Jerusalem and suffer many things at the hands of the elders, the chief priests and the teachers of the law, and that he must be killed and on the third day be raised to life." (Matthew 16:21)  <br><br>
+        
+        G 	12. Who said, "Never, Lord! This shall never happen to you!"? <br>
+            A. Peter (Matthew 16:22)  <br><br>
+        
+        A 	13. According to Matthew, chapter 16, verse 12, what was he not telling them? <br>
+            A. To guard against the yeast used in bread (Matthew 16:12)  <br><br>
+        
+        G 	14. Who does not have in mind the concerns of God? <br>
+            A. Peter (Matthew 16:23)  <br><br>
+        
+        G 	15. Who forgot to take bread when they went across the lake? <br>
+            A. The disciples (Matthew 16:5)  <br><br>
+        
+        V 	16. Finish this verse: "What good will it be. . ." <br>
+            A. ". . .for someone to gain the whole world, yet forfeit their soul? Or what can anyone give in exchange for their soul?" (Matthew 16:26)  <br><br>
+        
+        G 	17. Who didn't bring any bread? <br>
+            A. The disciples (Matthew 16:7)  <br><br>
+        
+        X 	18. In Matthew, chapter 16, why did Jesus say Simon Peter was blessed? <br>
+            A. Because it was not revealed to him by flesh and blood that Jesus is the Messiah, the Son of the living God, but by Jesus' Father in heaven (Matthew 16:16-17)  <br><br>
+        
+        G 	19. According to what will the Son of Man reward each person? <br>
+            A. What they have done (Matthew 16:27)  <br><br>
+        
+        A 	20. According to Matthew, chapter 16, verse 2, what do you say when evening comes? <br>
+            A. "It will be fair weather, for the sky is red." (Matthew 16:2)  <br><br>
+            <br><br>
+        
+        
+         <h7 id="3">SET #3</h7>   <br><br>
+        
+        R 	1. Finish these verses and give the reference: "Jesus replied, "Blessed are you,. . ." <br>
+            A. ". . .Simon son of Jonah, for this was not revealed to you by flesh and blood, but by my Father in heaven. And I tell you that you are Peter, and on this rock I will build my church, and the gates of Hades will not overcome it. " (Matthew 16:17-18)  <br><br>
+        
+        G 	2. Who replied, "Blessed are you, Simon son of Jonah, for this was not revealed to you by flesh and blood, but by my Father in heaven."? <br>
+            A. Jesus (Matthew 16:17)  <br><br>
+        
+        S 	3. Situation question: who said it, to whom, and when: "Who do people say the Son of Man is?" <br>
+            A. Jesus said it to his disciples, when Jesus came to the region of Caesarea Philippi (Matthew 16:13) <br><br> 
+        
+        G 	4. What do the Pharisees and Sadducees say when evening comes? <br>
+            A. "It will be fair weather, for the sky is red." (Matthew 16:2)  <br><br>
+        
+        G 	5. Who was telling the disciples to guard against the teaching of the Pharisees and Sadducees? <br>
+            A. Jesus (Matthew 16:12)  <br><br>
+        
+        X 	6. Two-part question: where will Jesus build his church, and what will not overcome it? <br>
+            A. 1) On this rock (Peter); 2) The gates of Hades (Matthew 16:18)  <br><br>
+        
+        G 	7. Who answered, "You are the Messiah, the Son of the living God."? <br>
+            A. Simon Peter (Matthew 16:16)  <br><br>
+        
+        G 	8. Why will it be stormy? <br>
+            A. For the sky is red and overcast (in the morning) (Matthew 16:3)  <br><br>
+        
+        A 	9. According to Matthew, chapter 16, verse 8, what did Jesus ask? <br>
+            A. "You of little faith, why are you talking among yourselves about having no bread?" (Matthew 16:8)  <br><br>
+        
+        G 	10. To whom did Jesus say, "Whoever wants to be my disciple must deny themselves and take up their cross and follow me."? <br>
+            A. His disciples (Matthew 16:24)  <br><br>
+        
+        V 	11. Finish these verses: "Then Jesus said to his. . ." <br>
+            A. ". . .disciples, "Whoever wants to be my disciple must deny themselves and take up their cross and follow me. For whoever wants to save their life will lose it, but whoever loses their life for me will find it." (Matthew 16:24-25)  <br><br>
+        
+        A 	12. According to Matthew, chapter 16, verse 25, who will lose their life? <br>
+            A. Whoever wants to save their life (Matthew 16:25)  <br><br>
+        
+        G 	13. In what is yeast used? <br>
+            A. Bread (Matthew 16:12)  <br><br>
+        
+        G 	14. What did the Pharisees and Sadducees ask Jesus to show them? <br>
+            A. A sign from heaven (Matthew 16:1)  <br><br>
+        
+        Q 	15. Quote Matthew, chapter 16, verse 21. <br>
+            A. "From that time on Jesus began to explain to his disciples that he must go to Jerusalem and suffer many things at the hands of the elders, the chief priests and the teachers of the law, and that he must be killed and on the third day be raised to life." (Matthew 16:21)  <br><br>
+        
+        G 	16. Whom will Jesus give the keys of the kingdom of heaven? <br>
+            A. Peter (Matthew 16:19)  <br><br>
+        
+        A 	17. According to Matthew, chapter 16, verse 23, what is Peter? <br>
+            A. A stumbling block to Jesus (Matthew 16:23)  <br><br>
+        
+        G 	18. Who will reward each person according to what they have done? <br>
+            A. The Son of Man (Matthew 16:27)  <br><br>
+        
+        G 	19. What was revealed to Simon son of Jonah by Jesus' Father in heaven? <br>
+            A. That Jesus is the Messiah, the Son of the living God (Matthew 16:16-17)  <br><br>
+        
+        A 	20. According to Matthew, chapter 16, verse 1, who came to Jesus? <br>
+            A. The Pharisees and Sadducees (Matthew 16:1)  <br><br>
+            <br><br>
+        
+        
+         <h7 id="4">SET #4</h7>   <br><br>
+        
+        G 	1. What keys will Jesus give Peter? <br>
+            A. The keys of the kingdom of heaven (Matthew 16:19)  <br><br>
+        
+        A 	2. According to Matthew, chapter 16, verse 16, what did Simon Peter answer? <br>
+            A. "You are the Messiah, the Son of the living God." (Matthew 16:16)  <br><br>
+        
+        V 	3. Finish these verses: "Then Jesus said to his. . ." <br>
+            A. ". . .disciples, "Whoever wants to be my disciple must deny themselves and take up their cross and follow me. For whoever wants to save their life will lose it, but whoever loses their life for me will find it." (Matthew 16:24-25)  <br><br>
+        
+        G 	4. Whom must whoever wants to be Jesus' disciple follow? <br>
+            A. Jesus (Matthew 16:24)  <br><br>
+        
+        G 	5. Who said to Peter, "Get behind me, Satan! You are a stumbling block to me; you do not have in mind the concerns of God, but merely human concerns."? <br>
+            A. Jesus (Matthew 16:23)  <br><br>
+        
+        A 	6. According to Matthew, chapter 16, verse 6, against what should you be on your guard? <br>
+            A. The yeast of the Pharisees and Sadducees (Matthew 16:6)  <br><br>
+        
+        G 	7. Who must suffer many things at the hands of the elders, the chief priests and the teachers of the law? <br>
+            A. Jesus (Matthew 16:21)  <br><br>
+        
+        G 	8. What must Jesus suffer at the hands of the elders, the chief priests and the teachers of the law? <br>
+            A. Many things (Matthew 16:21)  <br><br>
+        
+        R 	9. Finish this verse and give the reference: "What good will it be. . ." <br>
+            A. ". . .for someone to gain the whole world, yet forfeit their soul? Or what can anyone give in exchange for their soul? " (Matthew 16:26)  <br><br>
+        
+        G 	10. What will Jesus build on this rock? <br>
+            A. His church (Matthew 16:18)  <br><br>
+        
+        G 	11. Whom was Jesus telling to guard against the teaching of the Pharisees and Sadducees? <br>
+            A. The disciples (Matthew 16:12)  <br><br>
+        
+        Q 	12. Quote Matthew, chapter 16, verse 21. <br>
+            A. "From that time on Jesus began to explain to his disciples that he must go to Jerusalem and suffer many things at the hands of the elders, the chief priests and the teachers of the law, and that he must be killed and on the third day be raised to life." (Matthew 16:21)  <br><br>
+        
+        G 	13. Who replied, "When evening comes, you say, 'It will be fair weather, for the sky is red.'"? <br>
+            A. Jesus (Matthew 16:2)  <br><br>
+        
+        A 	14. According to Matthew, chapter 16, verse 11, about what was I not talking to you? <br>
+            A. Bread (Matthew 16:11)  <br><br>
+        
+        G 	15. Who cannot interpret the signs of the times? <br>
+            A. The Pharisees and Sadducees (Matthew 16:3)  <br><br>
+        
+        G 	16. Who then understood that Jesus was telling them to guard against the teaching of the Pharisees and Sadducees? <br>
+            A. The disciples (Matthew 16:12)  <br><br>
+        
+        X 	17. Two-part question: when will it be fair weather, and when will it be stormy? <br>
+            A. 1) When evening comes and the sky is red; 2) Today, when the sky is red and overcast in the morning (Matthew 16:2-3)  <br><br>
+        
+        S 	18. Situation question: who said it, to whom, and when: "Be careful. Be on your guard against the yeast of the Pharisees and Sadducees."? <br>
+            A. Jesus said it to the disciples, when they went across the lake and the disciples forgot to take bread (Matthew 16:5-6)  <br><br>
+        
+        A 	19. According to Matthew, chapter 16, verse 13, what did Jesus ask his disciples? <br>
+            A. "Who do people say the Son of Man is?" (Matthew 16:13)  <br><br>
+        
+        G 	20. Who began to explain to his disciples that he must go to Jerusalem and suffer many things at the hands of the elders, the chief priests, and the teachers of the law? <br>
+            A. Jesus (Matthew 16:21)  <br><br>
+            <br><br>
+        
+        
+         <h7 id="5">SET #5</h7>   <br><br>
+        
+        G 	1. Who replied, "When evening comes, you say, 'It will be fair weather, for the sky is red.'"? <br>
+            A. Jesus (Matthew 16:2)  <br><br>
+        
+        S 	2. Situation question: who said it, to whom, and in reply to what: "Some say John the Baptist; others say Elijah; and still others, Jeremiah or one of the prophets."? <br>
+            A. Jesus' disciples said it to Jesus, in reply to, "Who do people say the Son of Man is?" (Matthew 16:13-14)  <br><br>
+        
+        A 	3. According to Matthew, chapter 16, verse 5, what did the disciples forget? <br>
+            A. To take bread (Matthew 16:5)  <br><br>
+        
+        G 	4. By whom was this revealed to Simon son of Jonah? <br>
+            A. Jesus' Father in heaven (Matthew 16:17)  <br><br>
+        
+        G 	5. Whom was Jesus telling to guard against the teaching of the Pharisees and Sadducees? <br>
+            A. The disciples (Matthew 16:12)  <br><br>
+        
+        A 	6. According to Matthew, chapter 16, verse 22, what did Peter say? <br>
+            A. "Never, Lord! This shall never happen to you!" (Matthew 16:22)  <br><br>
+        
+        G 	7. Who didn't bring any bread? <br>
+            A. The disciples (Matthew 16:7)  <br><br>
+        
+        G 	8. What will whoever loses their life for Jesus find? <br>
+            A. Their life (Matthew 16:25)  <br><br>
+        
+        Q 	9. Quote Matthew, chapter 16, verse 21. <br>
+            A. "From that time on Jesus began to explain to his disciples that he must go to Jerusalem and suffer many things at the hands of the elders, the chief priests and the teachers of the law, and that he must be killed and on the third day be raised to life." (Matthew 16:21)  <br><br>
+        
+        X 	10. Three-part answer: in Matthew, chapter 16, what must whoever wants to be Jesus' disciple do? <br>
+            A. 1) Deny themselves; 2) Take up their cross; 3) Follow Jesus (Matthew 16:24)  <br><br>
+        
+        G 	11. Who are talking among themselves about having no bread? <br>
+            A. The disciples (Matthew 16:8)  <br><br>
+        
+        G 	12. Who was not talking to the disciples about bread? <br>
+            A. Jesus (Matthew 16:11)  <br><br>
+        
+        A 	13. According to Matthew, chapter 16, verse 4, who went away? <br>
+            A. Jesus (Matthew 16:4)  <br><br>
+        
+        G 	14. Why will it be stormy? <br>
+            A. For the sky is red and overcast (in the morning) (Matthew 16:3)  <br><br>
+        
+        G 	15. What keys will Jesus give Peter? <br>
+            A. The keys of the kingdom of heaven (Matthew 16:19)  <br><br>
+        
+        R 	16. Finish these verses and give the reference: "Then Jesus said to his. . ." <br>
+            A. ". . .disciples, "Whoever wants to be my disciple must deny themselves and take up their cross and follow me. For whoever wants to save their life will lose it, but whoever loses their life for me will find it. " (Matthew 16:24-25)  <br><br>
+        
+        G 	17. What will Jesus build on this rock? <br>
+            A. His church (Matthew 16:18)  <br><br>
+        
+        G 	18. With whom is the Son of Man going to come in his Father's glory? <br>
+            A. His angels (Matthew 16:27)  <br><br>
+        
+        A 	19. According to Matthew, chapter 16, verse 23, what does Peter have in mind? <br>
+            A. Merely human concerns (Matthew 16:23)  <br><br>
+        
+        V 	20. Finish these verses: "Jesus replied, "Blessed are you,. . ." <br>
+            A. ". . .Simon son of Jonah, for this was not revealed to you by flesh and blood, but by my Father in heaven. And I tell you that you are Peter, and on this rock I will build my church, and the gates of Hades will not overcome it." (Matthew 16:17-18)  <br><br>
+        <br><br>
+        
+         <h7 id="6">SET #6</h7>   <br><br>
+        
+        G 	1. Who replied, "Some say John the Baptist; others say Elijah; and still others, Jeremiah or one of the prophets."? <br>
+            A. Jesus' disciples (Matthew 16:14)  <br><br>
+        
+        G 	2. What was revealed to Simon son of Jonah by Jesus' Father in heaven? <br>
+            A. That Jesus is the Messiah, the Son of the living God (Matthew 16:16-17) <br><br> 
+        
+        R 	3. Finish this verse and give the reference: "From that time on Jesus. . ." <br>
+            A. ". . .began to explain to his disciples that he must go to Jerusalem and suffer many things at the hands of the elders, the chief priests and the teachers of the law, and that he must be killed and on the third day be raised to life. " (Matthew 16:21) <br><br> 
+        
+        S 	4. Situation question: who said it, to whom, and in reply to what: "But what about you? Who do you say I am?" <br>
+            A. Jesus said it to his disciples, in reply to, "Some say John the Baptist; others say Elijah; and still others, Jeremiah or one of the prophets." (Matthew 16:14-15)  <br><br>
+        
+        A 	5. According to Matthew, chapter 16, verse 28, what will some who are standing here not do? <br>
+            A. Taste death before they see the Son of Man coming in his kingdom (Matthew 16:28)  <br><br>
+        
+        G 	6. What did the Pharisees and Sadducees ask Jesus to show them? <br>
+            A. A sign from heaven (Matthew 16:1)  <br><br>
+        
+        X 	7. When will it be stormy? <br>
+            A. Today, when the sky is red and overcast in the morning (Matthew 16:3)  <br><br>
+        
+        G 	8. Where will whatever Peter looses on earth be loosed? <br>
+            A. In heaven (Matthew 16:19)  <br><br>
+        
+        A 	9. According to Matthew, chapter 16, verse 27, how will the Son of Man reward each person? <br>
+            A. According to what they have done (Matthew 16:27)  <br><br>
+        
+        G 	10. What will the gates of Hades not overcome? <br>
+            A. Jesus' church (Matthew 16:18)  <br><br>
+        
+        G 	11. What did the disciples forget to take when they went across the lake? <br>
+            A. Bread (Matthew 16:5)  <br><br>
+        
+        Q 	12. Quote Matthew, chapter 16, verse 26. <br>
+            A. "What good will it be for someone to gain the whole world, yet forfeit their soul? Or what can anyone give in exchange for their soul?" (Matthew 16:26)  <br><br>
+        
+        G 	13. In what is yeast used? <br>
+            A. Bread (Matthew 16:12)  <br><br>
+        
+        G 	14. Who replied, "Blessed are you, Simon son of Jonah, for this was not revealed to you by flesh and blood, but by my Father in heaven."? <br>
+            A. Jesus (Matthew 16:17)  <br><br>
+        
+        V 	15. Finish these verses: "Jesus replied, "Blessed are you,. . ." <br>
+            A. ". . .Simon son of Jonah, for this was not revealed to you by flesh and blood, but by my Father in heaven. And I tell you that you are Peter, and on this rock I will build my church, and the gates of Hades will not overcome it." (Matthew 16:17-18)  <br><br>
+        
+        A 	16. According to Matthew, chapter 16, verse 27, who is going to come? <br>
+            A. The Son of Man (Matthew 16:27)  <br><br>
+        
+        G 	17. Who said, "It is because we didn't bring any bread."? <br>
+            A. The disciples (Matthew 16:7)  <br><br>
+        
+        G 	18. What do the Pharisees and Sadducees say when evening comes? <br>
+            A. "It will be fair weather, for the sky is red." (Matthew 16:2)  <br><br>
+        
+        A 	19. According to Matthew, chapter 16, verse 4, who looks for a sign? <br>
+            A. A wicked and adulterous generation (Matthew 16:4)  <br><br>
+        
+        G 	20. Who answered, "You are the Messiah, the Son of the living God."? <br>
+            A. Simon Peter (Matthew 16:16)  <br><br>
+            <br><br>
+        
+        
+         <h7 id="7">SET #7</h7>  <br><br>
+        
+        A 	1. According to Matthew, chapter 16, verse 3, what do you know how to do? <br>
+            A. Interpret the appearance of the sky (Matthew 16:3)  <br><br>
+        
+        G 	2. What does Peter have in mind? <br>
+            A. Merely human concerns (Matthew 16:23) <br><br> 
+        
+        G 	3. Who was telling the disciples to guard against the teaching of the Pharisees and Sadducees? <br>
+            A. Jesus (Matthew 16:12)  <br><br>
+        
+        A 	4. According to Matthew, chapter 16, verse 21, what did Jesus begin to explain to his disciples? <br>
+            A. That he must go to Jerusalem and suffer many things at the hands of the elders, the chief priests, and the teachers of the law, and that he must be killed and on the third day be raised to life (Matthew 16:21)  <br><br>
+        
+        R 	5. Finish these verses and give the reference: "Jesus replied, "Blessed are you,. . ." <br>
+            A. ". . .Simon son of Jonah, for this was not revealed to you by flesh and blood, but by my Father in heaven. And I tell you that you are Peter, and on this rock I will build my church, and the gates of Hades will not overcome it. " (Matthew 16:17-18)  <br><br>
+        
+        G 	6. Who forgot to take bread when they went across the lake? <br>
+            A. The disciples (Matthew 16:5)  <br><br>
+        
+        G 	7. What do the Pharisees and Sadducees say in the morning? <br>
+            A. "Today it will be stormy, for the sky is red and overcast." (Matthew 16:3)  <br><br>
+        
+        V 	8. Finish this verse: "From that time on Jesus. . ." <br>
+            A. ". . .began to explain to his disciples that he must go to Jerusalem and suffer many things at the hands of the elders, the chief priests and the teachers of the law, and that he must be killed and on the third day be raised to life." (Matthew 16:21)  <br><br>
+        
+        S 	9. Situation question: who said it, to whom, and in reply to what: "You are the Messiah, the Son of the living God."? <br>
+            A. Simon Peter said it to Jesus, in reply to, "But what about you? Who do you say I am?" (Matthew 16:15-16)  <br><br>
+        
+        G 	10. Whom did Peter begin to rebuke? <br>
+            A. Jesus (Matthew 16:22)  <br><br>
+        
+        A 	11. According to Matthew, chapter 16, verse 21, at whose hands must Jesus suffer many things? <br>
+            A. The elders, the chief priests, and the teachers of the law (Matthew 16:21)  <br><br>
+        
+        G 	12. Whom must whoever wants to be Jesus' disciple follow? <br>
+            A. Jesus (Matthew 16:24)  <br><br>
+        
+        G 	13. Who will reward each person according to what they have done? <br>
+            A. The Son of Man (Matthew 16:27)  <br><br>
+        
+        Q 	14. Quote Matthew, chapter 16, verses 24 through 25. <br>
+            A. "Then Jesus said to his disciples, "Whoever wants to be my disciple must deny themselves and take up their cross and follow me. For whoever wants to save their life will lose it, but whoever loses their life for me will find it." (Matthew 16:24-25)  <br><br>
+        
+        G 	15. Who asked Jesus to show them a sign from heaven? <br>
+            A. The Pharisees and Sadducees (Matthew 16:1)  <br><br>
+        
+        A 	16. According to Matthew, chapter 16, verse 3, what will it be today? <br>
+            A. Stormy (Matthew 16:3)  <br><br>
+        
+        G 	17. Whom will Jesus give the keys of the kingdom of heaven? <br>
+            A. Peter (Matthew 16:19)  <br><br>
+        
+        G 	18. Who will not taste death before they see the Son of Man coming in his kingdom? <br>
+            A. Some who are standing here (Matthew 16:28)  <br><br>
+        
+        X 	19. How many loaves were there for the five thousand? <br>
+            A. Five (Matthew 16:9)  <br><br>
+        
+        G 	20. Who then understood that Jesus was telling them to guard against the teaching of the Pharisees and Sadducees? <br>
+            A. The disciples (Matthew 16:12)  <br><br>
+            <br><br>
+        
+        
+         <h7 id="8">SET #8</h7>   <br><br>
+        
+        A 	1. According to Matthew, chapter 16, verse 8, what did Jesus ask? <br>
+            A. "You of little faith, why are you talking among yourselves about having no bread?" (Matthew 16:8)  <br><br>
+        
+        G 	2. Who said, "Never, Lord! This shall never happen to you!"? <br>
+            A. Peter (Matthew 16:22)  <br><br>
+        
+        G 	3. Who cannot interpret the signs of the times? <br>
+            A. The Pharisees and Sadducees (Matthew 16:3)  <br><br>
+        
+        Q 	4. Quote Matthew, chapter 16, verse 26. <br>
+            A. "What good will it be for someone to gain the whole world, yet forfeit their soul? Or what can anyone give in exchange for their soul?" (Matthew 16:26)  <br><br>
+        
+        S 	5. Situation question: who said it, and to whom: "Whoever wants to be my disciple must deny themselves and take up their cross and follow me."? <br>
+            A. Jesus said it to his disciples (Matthew 16:24)  <br><br>
+        
+        G 	6. What can the Pharisees and Sadducees not interpret? <br>
+        A. The signs of the times (Matthew 16:3)  <br><br>
+        
+        G 	7. Who does not have in mind the concerns of God? <br>
+            A. Peter (Matthew 16:23)  <br><br>
+        
+        R 	8. Finish this verse and give the reference: "From that time on Jesus. . ." <br>
+            A. ". . .began to explain to his disciples that he must go to Jerusalem and suffer many things at the hands of the elders, the chief priests and the teachers of the law, and that he must be killed and on the third day be raised to life. " (Matthew 16:21)  <br><br>
+        
+        A 	9. According to Matthew, chapter 16, verse 11, about what was I not talking to you? <br>
+            A. Bread (Matthew 16:11)  <br><br>
+        
+        G 	10. What must Jesus suffer at the hands of the elders, the chief priests and the teachers of the law? <br>
+            A. Many things (Matthew 16:21)  <br><br>
+        
+        G 	11. Who must suffer many things at the hands of the elders, the chief priests and the teachers of the law? <br>
+            A. Jesus (Matthew 16:21)  <br><br>
+        
+        V 	12. Finish these verses: "Jesus replied, "Blessed are you,. . ." <br>
+            A. ". . .Simon son of Jonah, for this was not revealed to you by flesh and blood, but by my Father in heaven. And I tell you that you are Peter, and on this rock I will build my church, and the gates of Hades will not overcome it." (Matthew 16:17-18)  <br><br>
+        
+        X 	13. When will it be fair weather? <br>
+            A. When evening comes and the sky is red (Matthew 16:2)  <br><br>
+        
+        A 	14. According to Matthew, chapter 16, verse 1, how did the Pharisees and Sadducees test Jesus? <br>
+            A. By asking him to show them a sign from heaven (Matthew 16:1)  <br><br>
+        
+        G 	15. What must whoever wants to be Jesus' disciple do? <br>
+            A. Deny themselves and take up their cross and follow Jesus (Matthew 16:24)  <br><br>
+        
+        G 	16. According to what will the Son of Man reward each person? <br>
+            A. What they have done (Matthew 16:27)  <br><br>
+        
+        A 	17. According to Matthew, chapter 16, verse 17, who is blessed? <br>
+            A. Simon son of Jonah (Matthew 16:17)  <br><br>
+        
+        G 	18. Who said to Peter, "Get behind me, Satan! You are a stumbling block to me; you do not have in mind the concerns of God, but merely human concerns."? <br>
+            A. Jesus (Matthew 16:23)  <br><br>
+        
+        G 	19. Who began to explain to his disciples that he must go to Jerusalem and suffer many things at the hands of the elders, the chief priests, and the teachers of the law? <br>
+            A. Jesus (Matthew 16:21)  <br><br>
+        
+        G 	20. To whom did Jesus begin to explain that he must go to Jerusalem and suffer many things at the hands of the elders, the chief priests, and the teachers of the law? <br>
+            A. His disciples (Matthew 16:21)  <br><br>
+            <br><br>
+        
+        
+         <h7 id="9">SET #9 </h7>  <br><br>
+        
+        X 	1. In Matthew, chapter 16, why did Jesus say Simon Peter was blessed? <br>
+            A. Because it was not revealed to him by flesh and blood that Jesus is the Messiah, the Son of the living God, but by Jesus' Father in heaven (Matthew 16:16-17)  <br><br>
+        
+        G 	2. By whom was this revealed to Simon son of Jonah? <br>
+            A. Jesus' Father in heaven (Matthew 16:17)  <br><br>
+        
+        V 	3. Finish these verses: "Jesus replied, "Blessed are you,. . ." <br>
+            A. ". . .Simon son of Jonah, for this was not revealed to you by flesh and blood, but by my Father in heaven. And I tell you that you are Peter, and on this rock I will build my church, and the gates of Hades will not overcome it." (Matthew 16:17-18)  <br><br>
+        
+        G 	4. Who forgot to take bread when they went across the lake? <br>
+            A. The disciples (Matthew 16:5)  <br><br>
+        
+        G 	5. Whom did Peter begin to rebuke? <br>
+            A. Jesus (Matthew 16:22)  <br><br>
+        
+        R 	6. Finish these verses and give the reference: "Then Jesus said to his. . ." <br>
+            A. ". . .disciples, "Whoever wants to be my disciple must deny themselves and take up their cross and follow me. For whoever wants to save their life will lose it, but whoever loses their life for me will find it. " (Matthew 16:24-25)  <br><br>
+        
+        G 	7. To whom did Jesus say, "Whoever wants to be my disciple must deny themselves and take up their cross and follow me."? <br>
+            A. His disciples (Matthew 16:24)  <br><br>
+        
+        A 	8. According to Matthew, chapter 16, verse 19, what will be bound in heaven? <br>
+            A. Whatever you bind on earth (Matthew 16:19)  <br><br>
+        
+        G 	9. Who replied, "Some say John the Baptist; others say Elijah; and still others, Jeremiah or one of the prophets."? <br>
+            A. Jesus' disciples (Matthew 16:14)  <br><br>
+        
+        S 	10. Situation question: who said it, to whom, and when: "Be careful. Be on your guard against the yeast of the Pharisees and Sadducees."? <br>
+            A. Jesus said it to the disciples, when they went across the lake and the disciples forgot to take bread (Matthew 16:5-6)  <br><br>
+        
+        A 	11. According to Matthew, chapter 16, verse 16, what did Simon Peter answer? <br>
+            A. "You are the Messiah, the Son of the living God." (Matthew 16:16)  <br><br>
+        
+        G 	12. Who are talking among themselves about having no bread? <br>
+            A. The disciples (Matthew 16:8)  <br><br>
+        
+        G 	13. Who said to Peter, "Get behind me, Satan! You are a stumbling block to me; you do not have in mind the concerns of God, but merely human concerns."? <br>
+            A. Jesus (Matthew 16:23)  <br><br>
+        
+        A 	14. According to Matthew, chapter 16, verse 18, who are you? <br>
+            A. Peter (Matthew 16:18)  <br><br>
+        
+        G 	15. With whom is the Son of Man going to come in his Father's glory? <br>
+            A. His angels (Matthew 16:27)  <br><br>
+        
+        G 	16. Why will it be stormy? <br>
+            A. For the sky is red and overcast (in the morning) (Matthew 16:3)  <br><br>
+        
+        Q 	17. Quote Matthew, chapter 16, verse 26. <br>
+            A. "What good will it be for someone to gain the whole world, yet forfeit their soul? Or what can anyone give in exchange for their soul?" (Matthew 16:26) <br><br> 
+        
+        G 	18. Who will not taste death before they see the Son of Man coming in his kingdom? <br>
+            A. Some who are standing here (Matthew 16:28)  <br><br>
+        
+        A 	19. According to Matthew, chapter 16, verse 2, what do you say when evening comes? <br>
+            A. "It will be fair weather, for the sky is red." (Matthew 16:2)  <br><br>
+        
+        G 	20. To whom did Jesus begin to explain that he must go to Jerusalem and suffer many things at the hands of the elders, the chief priests, and the teachers of the law? <br>
+            A. His disciples (Matthew 16:21)  <br><br>
+            <br><br>
+        
+        
+         <h7 id="10">SET #10</h7>   <br><br>
+        
+        G 	1. Whom was Jesus telling to guard against the teaching of the Pharisees and Sadducees? <br>
+            A. The disciples (Matthew 16:12)  <br><br>
+        
+        A 	2. According to Matthew, chapter 16, verse 6, against what should you be on your guard? <br>
+            A. The yeast of the Pharisees and Sadducees (Matthew 16:6)  <br><br>
+        
+        G 	3. What will whoever loses their life for Jesus find? <br>
+            A. Their life (Matthew 16:25)  <br><br>
+        
+        G 	4. What do the Pharisees and Sadducees say in the morning? <br>
+            A. "Today it will be stormy, for the sky is red and overcast." (Matthew 16:3)  <br><br>
+        
+        A 	5. According to Matthew, chapter 16, verse 5, what did the disciples forget? <br>
+            A. To take bread (Matthew 16:5)  <br><br>
+        
+        V 	6. Finish these verses: "Then Jesus said to his. . ." <br>
+            A. ". . .disciples, "Whoever wants to be my disciple must deny themselves and take up their cross and follow me. For whoever wants to save their life will lose it, but whoever loses their life for me will find it." (Matthew 16:24-25)  <br><br>
+        
+        A 	7. According to Matthew, chapter 16, verse 1, who came to Jesus? <br>
+            A. The Pharisees and Sadducees (Matthew 16:1)  <br><br>
+        
+        G 	8. Who was not talking to the disciples about bread? <br>
+            A. Jesus (Matthew 16:11)  <br><br>
+        
+        S 	9. Situation question: who said it, and in reply to what: "Blessed are you, Simon son of Jonah, for this was not revealed to you by flesh and blood, but by my Father in heaven."? <br>
+            A. Jesus said it in reply to, "You are the Messiah, the Son of the living God." (Matthew 16:16-17)  <br><br>
+        
+        G 	10. Who replied, "Blessed are you, Simon son of Jonah, for this was not revealed to you by flesh and blood, but by my Father in heaven."? <br>
+            A. Jesus (Matthew 16:17)  <br><br>
+        
+        G 	11. Who will reward each person according to what they have done? <br>
+            A. The Son of Man (Matthew 16:27)  <br><br>
+        
+        Q 	12. Quote Matthew, chapter 16, verse 21. <br>
+            A. "From that time on Jesus began to explain to his disciples that he must go to Jerusalem and suffer many things at the hands of the elders, the chief priests and the teachers of the law, and that he must be killed and on the third day be raised to life." (Matthew 16:21)  <br><br>
+        
+        G 	13. Where will whatever Peter looses on earth be loosed? <br>
+            A. In heaven (Matthew 16:19)  <br><br>
+        
+        G 	14. What do the Pharisees and Sadducees say when evening comes? <br>
+            A. "It will be fair weather, for the sky is red." (Matthew 16:2)  <br><br>
+        
+        R 	15. Finish these verses and give the reference: "Jesus replied, "Blessed are you,. . ." <br>
+            A. ". . .Simon son of Jonah, for this was not revealed to you by flesh and blood, but by my Father in heaven. And I tell you that you are Peter, and on this rock I will build my church, and the gates of Hades will not overcome it. " (Matthew 16:17-18)  <br><br>
+        
+        X 	16. Two-part question: where will Jesus build his church, and what will not overcome it? <br>
+            A. 1) On this rock (Peter); 2) The gates of Hades (Matthew 16:18)  <br><br>
+        
+        G 	17. Who didn't bring any bread? <br>
+            A. The disciples (Matthew 16:7)  <br><br>
+        
+        A 	18. According to Matthew, chapter 16, verse 16, of whom are you the Son? <br>
+            A. The living God (Matthew 16:16)  <br><br>
+        
+        G 	19. Who said, "Never, Lord! This shall never happen to you!"? <br>
+            A. Peter (Matthew 16:22)  <br><br>
+        
+        G 	20. What does Peter have in mind? <br>
+            A. Merely human concerns (Matthew 16:23) <br><br> 
+        </p>
+
+</body>
+</html>

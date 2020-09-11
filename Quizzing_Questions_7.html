@@ -1,0 +1,874 @@
+<!DOCTYPE html>
+<html> 
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+
+        h1{
+            background-color: black;
+            text-align: center;
+            font-size: 120px;
+            margin: 0px;
+            padding: 30px;
+            color: rgb(0, 172, 172);
+            font-family: 'Impact', Haettenschweiler, Arial Narrow Bold, sans-serif;
+            top: 0px;
+            left: 0px;
+            text-emphasis: bold;
+        }
+
+        head{
+            background-color: black;
+            margin: 0px;
+            padding: 20px;
+        }
+
+        nav{
+            left: 0px;
+            margin: 0px;
+            padding: 20px;
+            background-color: rgb(0, 172, 172);
+            color: black;
+            text-align: left;
+            display: inline-block;
+            height: auto;
+        }
+
+        nav a{
+            color: black;
+            text-decoration: none;
+            margin: 10px 15px;
+            padding: 8px;
+            font-size: 24px;
+            display: inline-block;
+            box-shadow: 0px 0px 10px 5px black;
+            background-color: #b3b3b3;
+            border-radius: 5px;
+        }
+
+        body{
+            background-image: url('data:image/jpeg;base64,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');
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-attachment: fixed;
+        }
+
+        h2{
+            text-align: center;
+            color: white;
+            font-size: 32px;
+            text-emphasis: bold;
+            margin: 10px;
+            background-color: black;
+            padding: 10px;
+            border: double 3px black;
+        }
+
+        .bookmarks{
+            background-color: rgb(0, 172, 172);
+            position: absolute;
+            top: 290px;
+            left: 26%;
+            text-align: center;
+            padding: 10px 20px;
+            border: solid black 5px;
+            border-radius: 25px;
+        }
+
+        .bookmarks a{
+            display: inline-block;
+            background-color: black;
+            color: white;
+            text-emphasis: bold;
+            font-size: 24px;
+            margin: 10px;
+            padding: 10px;
+            border-radius: 10px;
+        }
+
+        h3{
+            font-size: 68px;
+            position: absolute;
+            float: center;
+            top: 350px;
+            left: 48%;
+            text-emphasis: bold;
+            text-align: center;
+            font-family: 'Times New Roman', Times, serif;
+        }
+
+        .verses a{
+            position: absolute;
+            color: rgb(0, 172, 172);
+            background-color: black;
+            font-size: 32px;
+            font-family: Arial, Helvetica, sans-serif;
+            left: 38%;
+            padding: 10px 100px;
+            text-decoration: none;
+            text-align: center;
+            top: 220px;
+            text-emphasis: bold;
+        }
+
+        #myBtn {
+            display: none; /* Hidden by default */
+            position: fixed; /* Fixed/sticky position */
+            bottom: 65px; /* Place the button at the bottom of the page */
+            left: 50px; /* Place the button 30px from the right */
+            z-index: 99; /* Make sure it does not overlap */
+            border: none; /* Remove borders */
+            outline: none; /* Remove outline */
+            background-color: rgb(0, 172, 172); /* Set a background color */
+            color: black; /* Text color */
+            cursor: pointer; /* Add a mouse pointer on hover */
+            padding: 10px; /* Some padding */
+            padding-bottom: 0px;
+            border-radius: 10px; /* Rounded corners */
+            border: solid black 5px;
+            font-size: 72px; /* Increase font size */
+        }
+
+        #myBtn:hover {
+            display: none; /* Hidden by default */
+            position: fixed; /* Fixed/sticky position */
+            bottom: 65px; /* Place the button at the bottom of the page */
+            left: 50px; /* Place the button 30px from the right */
+            z-index: 99; /* Make sure it does not overlap */
+            border: none; /* Remove borders */
+            outline: none; /* Remove outline */
+            background-color: rgb(0, 0, 0); /* Set a background color */
+            color: rgb(0, 172, 172); /* Text color */
+            cursor: pointer; /* Add a mouse pointer on hover */
+            padding: 10px; /* Some padding */
+            padding-bottom: 0px;
+            border-radius: 10px; /* Rounded corners */
+            border: solid rgb(0, 172, 172) 5px;
+            font-size: 72px; /* Increase font size */
+        }
+
+        p{
+            font-size: 22px;
+            position: absolute;
+            top: 500px;
+            left: 30%;
+        }
+
+        h7{
+            font-size: 32px;
+            text-emphasis: bold;
+        }
+
+    </style>
+    <button onclick="topFunction()" id="myBtn" title="Go to top"><b>^</b></button>
+<head> 
+    <h1>Questions</h1>
+    <div class="verses">
+        <a href="Quizzing.html">Click here for memory verses.</a>        
+   </div>
+</head>
+<body>
+   
+    <script>
+        //Get the button
+        var mybutton = document.getElementById("myBtn");
+        
+        // When the user scrolls down 20px from the top of the document, show the button
+        window.onscroll = function() {scrollFunction()};
+        
+        function scrollFunction() {
+          if (document.body.scrollTop > 1750 || document.documentElement.scrollTop > 1750) {
+            mybutton.style.display = "block";
+          } else {
+            mybutton.style.display = "none";
+          }
+        }
+        
+        // When the user clicks on the button, scroll to the top of the document
+        function topFunction() {
+          document.body.scrollTop = 0;
+          document.documentElement.scrollTop = 0;
+        }
+        </script>
+
+    <nav>
+
+        <h2>Select a Chapter</h2>
+        <br>
+
+        <a href="Quizzing_Questions_1.html">Matthew 1</a>
+        <br>
+        <a href="Quizzing_Questions_2.html">Matthew 2</a>
+        <br>
+        <a href="Quizzing_Questions_3.html">Matthew 3</a>
+        <br>
+        <a href="Quizzing_Questions_4.html">Matthew 4</a>
+        <br>
+        <a href="Quizzing_Questions_5.html">Matthew 5</a>
+        <br>
+        <a href="Quizzing_Questions_6.html">Matthew 6</a>
+        <br>
+        <a href="Quizzing_Questions_7.html">Matthew 7</a>
+        <br>
+        <a href="Quizzing_Questions_8.html">Matthew 8</a>
+        <br>
+        <a href="Quizzing_Questions_9.html">Matthew 9</a>
+        <br>
+        <a href="Quizzing_Questions_10.html">Matthew 10</a>
+        <br>
+        <a href="Quizzing_Questions_11.html">Matthew 11</a>
+        <br>
+        <a href="Quizzing_Questions_12.html">Matthew 12</a>
+        <br>
+        <a href="Quizzing_Questions_13.html">Matthew 13</a>
+        <br>
+        <a href="Quizzing_Questions_14.html">Matthew 14</a>
+        <br>
+        <a href="Quizzing_Questions_15.html">Matthew 15</a>
+        <br>
+        <a href="Quizzing_Questions_16.html">Matthew 16</a>
+        <br>
+        <a href="Quizzing_Questions_17.html">Matthew 17</a>
+        <br>
+        <a href="Quizzing_Questions_18.html">Matthew 18</a>
+        <br>
+        <a href="Quizzing_Questions_19.html">Matthew 19</a>
+        <br>
+        <a href="Quizzing_Questions_20.html">Matthew 20</a>
+        <br>
+        <a href="Quizzing_Questions_21.html">Matthew 21</a>
+        <br>
+        <a href="Quizzing_Questions_22.html">Matthew 22</a>
+        <br>
+        <a href="Quizzing_Questions_23.html">Matthew 23</a>
+        <br>
+        <a href="Quizzing_Questions_24.html">Matthew 24</a>
+        <br>
+        <a href="Quizzing_Questions_25.html">Matthew 25</a>
+        <br>
+        <a href="Quizzing_Questions_26.html">Matthew 26</a>
+        <br>
+        <a href="Quizzing_Questions_27.html">Matthew 27</a>
+        <br>
+        <a href="Quizzing_Questions_28.html">Matthew 28</a>
+    </nav>
+
+    <div class="bookmarks">
+        <a href="#1">Set 1</a>
+        <a href="#2">Set 2</a>
+        <a href="#3">Set 3</a>
+        <a href="#4">Set 4</a>
+        <a href="#5">Set 5</a>
+        <a href="#6">Set 6</a>
+        <a href="#7">Set 7</a>
+        <a href="#8">Set 8</a>
+        <a href="#9">Set 9</a>
+        <a href="#10">Set 10</a>
+    </div>
+
+    <h3>Matthew 7</h3>
+
+    <p>
+       <h7 id="1">SET #1</h7> <br><br>
+
+G 	1. To whom do you say, "Let me take the speck out of your eye."? <br>
+	A. Your brother (Matthew 7:4)  <br><br>
+
+R 	2. Finish this verse and give the reference: "So in everything, do to. . ." <br>
+	A. ". . .others what you would have them do to you, for this sums up the Law and the Prophets. " (Matthew 7:12)  <br><br>
+
+G 	3. Who is like a wise man who built his house on the rock? <br>
+	A. Everyone who hears these words of Jesus and puts them into practice (Matthew 7:24)  <br><br>
+
+G 	4. Whom will Jesus tell plainly, "I never knew you. Away from me, you evildoers!"? <br>
+	A. Many who will say to Jesus on that day, "Lord, Lord, did we not prophesy in your name and in your name drive out demons and in your name perform many miracles?" (Matthew 7:22-23) <br><br> 
+
+A 	5. According to Matthew, chapter 7, verse 14, what is small? <br>
+	A. The gate that leads to life (Matthew 7:14)  <br><br>
+
+X 	6. When will you not give your son a snake? <br>
+	A. If he asks for a fish (Matthew 7:10)  <br><br>
+
+G 	7. What will be opened to the one who knocks? <br>
+	A. The door (Matthew 7:8)  <br><br>
+
+A 	8. According to Matthew, chapter 7, verse 15, what are they inwardly? <br>
+	A. Ferocious wolves (Matthew 7:15)  <br><br>
+
+V 	9. Finish these verses: ""Do not judge, or you. . ." <br>
+	A. ". . .too will be judged. For in the same way you judge others, you will be judged, and with the measure you use, it will be measured to you." (Matthew 7:1-2)  <br><br>
+
+G 	10. What fell with a great crash? <br>
+	A. A foolish man's house (Matthew 7:27) <br><br> 
+
+G 	11. What should you not give what is sacred? <br>
+	A. Dogs (Matthew 7:6)  <br><br>
+
+G 	12. Who will say to Jesus on that day, "Lord, Lord, did we not prophesy in your name and in your name drive out demons and in your name perform many miracles?" <br>
+	A. Many (Matthew 7:22)  <br><br>
+
+A 	13. According to Matthew, chapter 7, verse 19, what is thrown into the fire? <br>
+    A. Every tree that does not bear good fruit (Matthew 7:19)  <br><br>
+
+Q 	14. Quote Matthew, chapter 7, verses 7 through 8. <br>
+    A. "Ask and it will be given to you; seek and you will find; knock and the door will be opened to you. For everyone who asks receives; the one who seeks finds; and to the one who knocks, the door will be opened. (Matthew 7:7-8)  <br><br>
+
+G 	15. Where is the speck of sawdust? <br>
+	A. In your brother's eye (Matthew 7:3) <br><br> 
+
+G 	16. How will you recognize false prophets? <br>
+	A. By their fruit (Matthew 7:16)  <br><br>
+
+A 	17. According to Matthew, chapter 7, verse 2, how will you be judged? <br>
+	A. In the same way you judge others (Matthew 7:2)  <br><br>
+
+G 	18. Why were the crowds amazed at Jesus' teaching? <br>
+	A. Because he taught as one who had authority, and not as their teachers of the law (Matthew 7:28-29)  <br><br>
+
+G 	19. What blew and beat against a wise man's house? <br>
+	A. The winds (Matthew 7:25)  <br><br>
+<br><br>
+
+ <h7 id="2">SET #2</h7>   <br><br>
+
+V 	1. Finish these verses: ""Ask and it will be. . ." <br>
+	A. ". . .given to you; seek and you will find; knock and the door will be opened to you. For everyone who asks receives; the one who seeks finds; and to the one who knocks, the door will be opened." (Matthew 7:7-8) <br><br> 
+
+G 	2. At what were the crowds amazed when Jesus had finished saying these things? <br>
+	A. Jesus' teaching (Matthew 7:28)  <br><br>
+
+G 	3. What is in your own eye? <br>
+    A. The plank (Matthew 7:3)  <br><br>
+
+G 	4. What will Jesus tell many plainly? <br>
+	A. "I never knew you. Away from me, you evildoers!" (Matthew 7:23)  <br><br>
+
+A 	5. According to Matthew, chapter 7, verse 21, who will enter the kingdom of heaven? <br>
+	A. Only the one who does the will of my Father (Matthew 7:21)  <br><br>
+
+Q 	6. Quote Matthew, chapter 7, verses 1 through 2. <br>
+	A. "Do not judge, or you too will be judged. For in the same way you judge others, you will be judged, and with the measure you use, it will be measured to you. (Matthew 7:1-2)  <br><br>
+
+A 	7. According to Matthew, chapter 7, verse 23, what will I tell them plainly? <br>
+	A. "I never knew you. Away from me, you evildoers!" (Matthew 7:23)  <br><br>
+
+A 	8. According to Matthew, chapter 7, verse 25, what did not fall? <br>
+	A. That house (Matthew 7:25)  <br><br>
+
+G 	9. On what did a foolish man build his house? <br>
+	A. Sand (Matthew 7:26)  <br><br>
+
+R 	10. Finish this verse and give the reference: "So in everything, do to. . ." <br>
+	A. ". . .others what you would have them do to you, for this sums up the Law and the Prophets. " (Matthew 7:12)  <br><br>
+
+G 	11. To what should you not throw your pearls? <br>
+	A. Pigs (Matthew 7:6)  <br><br>
+
+G 	12. What if your son asks for bread? <br>
+	A. Which of you will give him a stone? (Matthew 7:9) <br><br> 
+
+G 	13. What should you first take out of your own eye? <br>
+	A. The plank (Matthew 7:5)  <br><br>
+
+X 	14. Two-part question: who enter through the wide gate, and who find the road that leads to life? <br>
+	A. 1) Many; 2) Only a few (Matthew 7:13-14)  <br><br>
+
+G 	15. When do you say to your brother, "Let me take the speck out of your eye."? <br>
+	A. When all the time there is a plank in your own eye (Matthew 7:4)  <br><br>
+
+G 	16. Where did a wise man's house have its foundation? <br>
+	A. On the rock (Matthew 7:25)  <br><br>
+
+A 	17. According to Matthew, chapter 7, verse 25, where did that house have its foundation? <br>
+	A. On the rock (Matthew 7:25)  <br><br>
+
+G 	18. To whom should you in everything do what you would have them to do you? <br>
+	A. Others (Matthew 7:12)  <br><br>
+
+G 	19. What is broad? <br>
+	A. The road that leads to destruction (Matthew 7:13)  <br><br>
+<br><br>
+
+ <h7 id="3">SET #3</h7>   <br><br>
+
+G 	1. What do you know how to give to your children? <br>
+	A. Good gifts (Matthew 7:11)  <br><br>
+
+G 	2. What should you in everything do to others? <br>
+	A. What you would have them do to you (Matthew 7:12) <br><br> 
+
+G 	3. Like whom is everyone who hears these words of Jesus and puts them into practice? <br>
+	A. A wise man who built his house on the rock (Matthew 7:24)  <br><br>
+
+V 	4. Finish this verse: "So in everything, do to. . ." <br>
+	A. ". . .others what you would have them do to you, for this sums up the Law and the Prophets." (Matthew 7:12)  <br><br>
+
+G 	5. How will you see to remove the speck from your brother's eye if you first take the plank out of your own eye? <br>
+    A. Clearly (Matthew 7:5)  <br><br>
+
+A 	6. According to Matthew, chapter 7, verse 28, at what were the crowds amazed? <br>
+	A. Jesus' teaching (Matthew 7:28)  <br><br>
+
+X 	7. Complete, in essence, the following: "Not everyone who says to . . ." <br>
+	A. ". . . me, 'Lord, Lord,' will enter the kingdom of heaven, but only the one who does the will of my Father who is in heaven." (Matthew 7:21) <br><br> 
+
+A 	8. According to Matthew, chapter 7, verse 27, what came down? <br>
+	A. The rain (Matthew 7:27)  <br><br>
+
+G 	9. When should you take the plank out of your own eye? <br>
+	A. First (Matthew 7:5)  <br><br>
+
+A 	10. According to Matthew, chapter 7, verse 28, what had Jesus finished doing? <br>
+	A. Saying these things (Matthew 7:28)  <br>
+
+R 	11. Finish these verses and give the reference: ""Do not judge, or you. . ." <br>
+	A. ". . .too will be judged. For in the same way you judge others, you will be judged, and with the measure you use, it will be measured to you. " (Matthew 7:1-2)  <br><br>
+
+G 	12. What is the gate that leads to life? <br>
+	A. Small (Matthew 7:14)  <br><br>
+
+Q 	13. Quote Matthew, chapter 7, verses 7 through 8. <br>
+	A. "Ask and it will be given to you; seek and you will find; knock and the door will be opened to you. For everyone who asks receives; the one who seeks finds; and to the one who knocks, the door will be opened. (Matthew 7:7-8)  <br><br>
+
+G 	14. What if you know how to give good gifts to your children? <br>
+	A. How much more will your Father in heaven give good gifts to those who ask him! (Matthew 7:11) <br><br> 
+
+A 	15. According to Matthew, chapter 7, verse 25, what came down? <br>
+	A. The rain (Matthew 7:25)  <br><br>
+
+G 	16. How do false prophets come to you? <br>
+	A. In sheep's clothing (Matthew 7:15)  <br><br>
+
+G 	17. When will you too be judged? <br>
+	A. If you judge (Matthew 7:1)  <br><br>
+
+G 	18. When will the door be opened to you? <br>
+	A. If you knock (Matthew 7:7)  <br><br>
+
+G 	19. What should you not throw to pigs? <br>
+	A. Your pearls (Matthew 7:6)  <br><br>
+<br><br>
+
+ <h7 id="4">SET #4</h7>   <br><br>
+
+A 	1. According to Matthew, chapter 7, verse 28, when were the crowds amazed at Jesus' teaching? <br>
+	A. When Jesus had finished saying these things (Matthew 7:28)  <br><br>
+
+A 	2. According to Matthew, chapter 7, verse 3, to what do you pay no attention? <br>
+	A. The plank in your own eye (Matthew 7:3)  <br><br>
+
+G 	3. Who come to you in sheep's clothing, but inwardly are ferocious wolves? <br>
+    A. False prophets (Matthew 7:15)  <br><br>
+
+G 	4. What does a bad tree bear? <br>
+	A. Bad fruit (Matthew 7:17)  <br><br>
+
+X 	5. From what do people not pick grapes? <br>
+    A. Thornbushes (Matthew 7:16)  <br><br>
+
+G 	6. To whom do you know how to give good gifts? <br>
+	A. Your children (Matthew 7:11)  <br>
+
+G 	7. Who enter through the wide gate? <br>
+	A. Many (Matthew 7:13)  <br><br>
+
+G 	8. What bears bad fruit? <br>
+	A. A bad tree (Matthew 7:17) <br><br> 
+
+V 	9. Finish these verses: ""Do not judge, or you. . ." <br>
+	A. ". . .too will be judged. For in the same way you judge others, you will be judged, and with the measure you use, it will be measured to you." (Matthew 7:1-2)  <br><br>
+
+G 	10. Where did a foolish man build his house? <br>
+	A. On sand (Matthew 7:26)  <br><br>
+
+R 	11. Finish these verses and give the reference: ""Ask and it will be. . ." <br>
+	A. ". . .given to you; seek and you will find; knock and the door will be opened to you. For everyone who asks receives; the one who seeks finds; and to the one who knocks, the door will be opened. " (Matthew 7:7-8)  <br><br>
+
+A 	12. According to Matthew, chapter 7, verse 4, what is there all the time? <br>
+	A. A plank in your own eye (Matthew 7:4)  <br><br>
+
+A 	13. According to Matthew, chapter 7, verse 6, what may they do? <br>
+	A. Trample your pearls under their feet, and turn and tear you to pieces (Matthew 7:6)  <br><br>
+
+G 	14. To what does the broad road lead? <br>
+	A. Destruction (Matthew 7:13)  <br><br>
+
+G 	15. Through what gate do many enter? <br>
+	A. The wide gate (Matthew 7:13)  <br><br>
+
+G 	16. What did a wise man's house not do? <br>
+	A. Fall (Matthew 7:25)  <br><br>
+
+Q 	17. Quote Matthew, chapter 7, verse 12. <br>
+	A. "So in everything, do to others what you would have them do to you, for this sums up the Law and the Prophets." (Matthew 7:12)  <br><br>
+
+G 	18. What road do only a few find? <br>
+	A. The (narrow) road that leads to life (Matthew 7:14)  <br>
+
+G 	19. What cannot bear good fruit? <br>
+	A. A bad tree (Matthew 7:18)  <br><br>
+<br><br>
+
+ <h7 id="5">SET #5</h7>  <br><br>
+
+Q 	1. Quote Matthew, chapter 7, verses 7 through 8. <br>
+	A. "Ask and it will be given to you; seek and you will find; knock and the door will be opened to you. For everyone who asks receives; the one who seeks finds; and to the one who knocks, the door will be opened. (Matthew 7:7-8)  <br><br>
+
+G 	2. Where did a wise man build his house? <br>
+	A. On the rock (Matthew 7:24)  <br><br>
+
+A 	3. According to Matthew, chapter 7, verse 7, when will it be given to you? <br>
+	A. If you ask (Matthew 7:7)  <br><br>
+
+A 	4. According to Matthew, chapter 7, verse 1, what should you not do? <br>
+	A. Judge (Matthew 7:1)  <br><br>
+
+G 	5. Where is every tree that does not bear good fruit thrown? <br>
+	A. Into the fire (Matthew 7:19)  <br><br>
+
+G 	6. How will you see to remove the speck from your brother's eye if you first take the plank out of your own eye? <br>
+    A. Clearly (Matthew 7:5)  <br><br>
+
+A 	7. According to Matthew, chapter 7, verse 7, when will you find? <br>
+	A. If you seek (Matthew 7:7)  <br><br>
+
+V 	8. Finish this verse: "So in everything, do to. . ." <br>
+	A. ". . .others what you would have them do to you, for this sums up the Law and the Prophets." (Matthew 7:12)  <br><br>
+
+G 	9. What can a good tree not bear? <br>
+	A. Bad fruit (Matthew 7:18)  <br><br>
+
+G 	10. What is in your own eye? <br>
+	A. The plank (Matthew 7:3)  <br><br>
+
+A 	11. According to Matthew, chapter 7, verse 8, who finds? <br>
+	A. The one who seeks (Matthew 7:8)  <br><br>
+
+R 	12. Finish these verses and give the reference: ""Do not judge, or you. . ." <br>
+	A. ". . .too will be judged. For in the same way you judge others, you will be judged, and with the measure you use, it will be measured to you. " (Matthew 7:1-2)  <br><br>
+
+G 	13. To what should you not throw your pearls? <br>
+	A. Pigs (Matthew 7:6)  <br><br>
+
+G 	14. Who is like a foolish man who built his house on sand? <br>
+	A. Everyone who hears these words of Jesus and does not put them into practice (Matthew 7:26)  <br><br>
+
+G 	15. With what measure will it be measured to you? <br>
+    A. The measure you use (Matthew 7:2)  <br><br>
+
+X 	16. Two-part question: what road is broad, and what road is narrow? <br>
+	A. 1) The road that leads to destruction; 2) The road that leads to life (Matthew 7:13-14)  <br><br>
+
+G 	17. Where will not everyone who says to Jesus, "Lord, Lord," enter? <br>
+	A. The kingdom of heaven (Matthew 7:21)  <br><br>
+
+G 	18. What will be opened to the one who knocks? <br>
+	A. The door (Matthew 7:8)  <br><br>
+
+G 	19. In what way will you be judged? <br>
+	A. In the same way you judge others (Matthew 7:2)  <br><br>
+<br><br>
+
+ <h7 id="6">SET #6</h7>   <br><br>
+
+G 	1. At what were the crowds amazed when Jesus had finished saying these things? <br>
+    A. Jesus' teaching (Matthew 7:28)  <br><br>
+
+G 	2. What should you not give what is sacred?<br> 
+	A. Dogs (Matthew 7:6)  <br><br>
+
+R 	3. Finish these verses and give the reference: ""Ask and it will be. . ." <br>
+	A. ". . .given to you; seek and you will find; knock and the door will be opened to you. For everyone who asks receives; the one who seeks finds; and to the one who knocks, the door will be opened. " (Matthew 7:7-8)  <br><br>
+
+A 	4. According to Matthew, chapter 7, verse 11, where is your Father? <br>
+	A. In heaven (Matthew 7:11)  <br><br>
+
+A 	5. According to Matthew, chapter 7, verse 12, what should you do to others in everything? <br>
+	A. What you would have them do to you (Matthew 7:12)  <br><br>
+
+G 	6. What if your son asks for bread? <br>
+	A. Which of you will give him a stone? (Matthew 7:9)  <br><br>
+
+A 	7. According to Matthew, chapter 7, verse 11, what do you know how to do? <br>
+	A. Give good gifts to your children (Matthew 7:11)  <br><br>
+
+V 	8. Finish these verses: ""Do not judge, or you. . ." <br>
+	A. ". . .too will be judged. For in the same way you judge others, you will be judged, and with the measure you use, it will be measured to you." (Matthew 7:1-2)  <br><br>
+
+G 	9. What blew and beat against a wise man's house? <br>
+	A. The winds (Matthew 7:25)  <br><br>
+
+G 	10. When do you say to your brother, "Let me take the speck out of your eye."? <br>
+	A. When all the time there is a plank in your own eye (Matthew 7:4)  <br><br>
+
+A 	11. According to Matthew, chapter 7, verse 13, what do many do? <br>
+    A. Enter through the wide gate (Matthew 7:13)  <br><br>
+
+G 	12. What did a wise man's house not do? <br>
+	A. Fall (Matthew 7:25)  <br><br>
+
+Q 	13. Quote Matthew, chapter 7, verse 12. <br>
+	A. "So in everything, do to others what you would have them do to you, for this sums up the Law and the Prophets." (Matthew 7:12)  <br><br>
+
+X 	14. Complete, in essence, the following: "But small is the gate . . ." <br>
+	A. ". . . and narrow the road that leads to life, and only a few find it." (Matthew 7:14)  <br><br>
+
+G 	15. What do you know how to give to your children? <br>
+	A. Good gifts (Matthew 7:11)  <br><br>
+
+G 	16. Whom will Jesus tell plainly, "I never knew you. Away from me, you evildoers!"? <br>
+	A. Many who will say to Jesus on that day, "Lord, Lord, did we not prophesy in your name and in your name drive out demons and in your name perform many miracles?" (Matthew 7:22-23)  <br><br>
+
+G 	17. Who will say to Jesus on that day, "Lord, Lord, did we not prophesy in your name and in your name drive out demons and in your name perform many miracles?" <br>
+	A. Many (Matthew 7:22)  <br><br>
+
+G 	18. What will Jesus tell many plainly? <br>
+	A. "I never knew you. Away from me, you evildoers!" (Matthew 7:23)  <br><br>
+
+G 	19. When should you take the plank out of your own eye? <br>
+	A. First (Matthew 7:5)  <br><br>
+<br><br>
+
+ <h7 id="7">SET #7</h7>   <br><br> 
+
+G 	1. What should you not throw to pigs? <br>
+    A. Your pearls (Matthew 7:6)  <br><br>
+
+G 	2. When will you too be judged? <br>
+    A. If you judge (Matthew 7:1)  <br><br>
+
+A 	3. According to Matthew, chapter 7, verse 2, how will you be judged? <br>
+	A. In the same way you judge others (Matthew 7:2)  <br><br>
+
+R 	4. Finish these verses and give the reference: ""Do not judge, or you. . ." <br>
+	A. ". . .too will be judged. For in the same way you judge others, you will be judged, and with the measure you use, it will be measured to you. " (Matthew 7:1-2)  <br><br>
+
+G 	5. Where did a foolish man build his house? <br>
+    A. On sand (Matthew 7:26)  <br><br>
+
+X 	6. Complete, in essence, the following: "By their fruit you will . . ." <br>
+	A. ". . . recognize them. Do people pick grapes from thornbushes, or figs from thistles?" (Matthew 7:16)  <br><br>
+
+A 	7. According to Matthew, chapter 7, verse 14, what is small? <br>
+	A. The gate that leads to life (Matthew 7:14)  <br><br>
+
+G 	8. Where is the speck of sawdust? <br>
+	A. In your brother's eye (Matthew 7:3) <br><br>  
+
+G 	9. Who is like a wise man who built his house on the rock? <br>
+	A. Everyone who hears these words of Jesus and puts them into practice (Matthew 7:24) <br><br> 
+
+G 	10. To whom do you say, "Let me take the speck out of your eye."? <br>
+	A. Your brother (Matthew 7:4)  <br><br>
+
+G 	11. On what did a foolish man build his house? <br>
+	A. Sand (Matthew 7:26)  <br><br>
+
+G 	12. Why were the crowds amazed at Jesus' teaching? <br>
+	A. Because he taught as one who had authority, and not as their teachers of the law (Matthew 7:28-29) <br><br> 
+
+G 	13. What should you first take out of your own eye? <br>
+	A. The plank (Matthew 7:5)  <br><br>
+
+V 	14. Finish these verses: ""Ask and it will be. . ." <br>
+	A. ". . .given to you; seek and you will find; knock and the door will be opened to you. For everyone who asks receives; the one who seeks finds; and to the one who knocks, the door will be opened." (Matthew 7:7-8)  <br><br>
+
+A 	15. According to Matthew, chapter 7, verse 15, what are they inwardly? <br>
+	A. Ferocious wolves (Matthew 7:15)  <br><br>
+
+Q 	16. Quote Matthew, chapter 7, verse 12. <br>
+    A. "So in everything, do to others what you would have them do to you, for this sums up the Law and the Prophets." (Matthew 7:12)  <br><br>
+
+G 	17. Like whom is everyone who hears these words of Jesus and puts them into practice? <br>
+	A. A wise man who built his house on the rock (Matthew 7:24)  <br><br>
+
+G 	18. Where did a wise man's house have its foundation? <br>
+	A. On the rock (Matthew 7:25)  <br><br>
+
+A 	19. According to Matthew, chapter 7, verse 19, what is thrown into the fire? <br>
+	A. Every tree that does not bear good fruit (Matthew 7:19)  <br><br>
+<br><br>
+
+ <h7 id="8">SET #8</h7>   <br><br>
+
+G 	1. How will you recognize false prophets? <br>
+	A. By their fruit (Matthew 7:16)  <br><br>
+
+X 	2. What do people not pick from thornbushes? <br>
+	A. Grapes (Matthew 7:16)  <br><br>
+
+G 	3. What fell with a great crash? <br>
+    A. A foolish man's house (Matthew 7:27) <br><br> 
+
+G 	4. To what does the broad road lead? <br>
+	A. Destruction (Matthew 7:13)  <br><br>
+
+V 	5. Finish these verses: ""Do not judge, or you. . ." <br>
+	A. ". . .too will be judged. For in the same way you judge others, you will be judged, and with the measure you use, it will be measured to you." (Matthew 7:1-2)  <br><br>
+
+G 	6. What if you know how to give good gifts to your children? <br>
+	A. How much more will your Father in heaven give good gifts to those who ask him! (Matthew 7:11) <br> <br>
+
+G 	7. When will the door be opened to you? <br>
+	A. If you knock (Matthew 7:7)  <br><br>
+
+G 	8. Who enter through the wide gate?<br> 
+	A. Many (Matthew 7:13)  <br><br>
+
+R 	9. Finish this verse and give the reference: "So in everything, do to. . ." <br>
+	A. ". . .others what you would have them do to you, for this sums up the Law and the Prophets. " (Matthew 7:12)  <br><br>
+
+G 	10. What is broad? <br>
+	A. The road that leads to destruction (Matthew 7:13)  <br><br>
+
+G 	11. To whom should you in everything do what you would have them to do you? <br>
+	A. Others (Matthew 7:12)  <br><br>
+
+Q 	12. Quote Matthew, chapter 7, verses 7 through 8. <br>
+	A. "Ask and it will be given to you; seek and you will find; knock and the door will be opened to you. For everyone who asks receives; the one who seeks finds; and to the one who knocks, the door will be opened. (Matthew 7:7-8)  <br><br>
+
+A 	13. According to Matthew, chapter 7, verse 21, who will enter the kingdom of heaven? <br>
+	A. Only the one who does the will of my Father (Matthew 7:21)  <br><br>
+
+G 	14. What should you in everything do to others? <br>
+	A. What you would have them do to you (Matthew 7:12) <br><br>  
+
+A 	15. According to Matthew, chapter 7, verse 25, what did not fall? <br>
+	A. That house (Matthew 7:25)  <br><br>
+
+A 	16. According to Matthew, chapter 7, verse 25, where did that house have its foundation? <br>
+    A. On the rock (Matthew 7:25)  <br><br>
+
+G 	17. Through what gate do many enter? <br>
+	A. The wide gate (Matthew 7:13)  <br><br>
+
+A 	18. According to Matthew, chapter 7, verse 23, what will I tell them plainly? <br>
+	A. "I never knew you. Away from me, you evildoers!" (Matthew 7:23)  <br><br>
+
+G 	19. To whom do you know how to give good gifts? <br>
+	A. Your children (Matthew 7:11)  <br><br>
+<br><br>
+
+ <h7 id="9">SET #9</h7>   <br><br>
+
+R 	1. Finish these verses and give the reference: ""Do not judge, or you. . ." <br>
+	A. ". . .too will be judged. For in the same way you judge others, you will be judged, and with the measure you use, it will be measured to you. " (Matthew 7:1-2)  <br><br>
+
+G 	2. How do false prophets come to you? <br>
+    A. In sheep's clothing (Matthew 7:15)  <br><br>
+
+G 	3. What is the gate that leads to life? <br>
+	A. Small (Matthew 7:14)  <br><br>
+
+G 	4. What does a bad tree bear? <br>
+	A. Bad fruit (Matthew 7:17)  <br><br>
+
+A 	5. According to Matthew, chapter 7, verse 28, what had Jesus finished doing? <br>
+	A. Saying these things (Matthew 7:28)  <br><br>
+
+X 	6. Two-part question: what bears good fruit, and what bears bad fruit? <br>
+    A. 1) Every good tree; 2) A bad tree (Matthew 7:17)  <br><br>
+
+G 	7. What cannot bear good fruit? <br>
+	A. A bad tree (Matthew 7:18)  <br><br>
+
+Q 	8. Quote Matthew, chapter 7, verses 7 through 8. <br>
+	A. "Ask and it will be given to you; seek and you will find; knock and the door will be opened to you. For everyone who asks receives; the one who seeks finds; and to the one who knocks, the door will be opened. (Matthew 7:7-8)  <br><br>
+
+G 	9. What bears bad fruit? <br>
+    A. A bad tree (Matthew 7:17) <br><br> 
+
+V 	10. Finish this verse: "So in everything, do to. . ." <br>
+	A. ". . .others what you would have them do to you, for this sums up the Law and the Prophets." (Matthew 7:12)  <br><br>
+
+A 	11. According to Matthew, chapter 7, verse 25, what came down? <br>
+	A. The rain (Matthew 7:25)  <br><br>
+
+G 	12. What should you first take out of your own eye? <br>
+	A. The plank (Matthew 7:5)  <br><br>
+
+G 	13. What will be opened to the one who knocks? <br>
+	A. The door (Matthew 7:8)  <br><br>
+
+G 	14. What should you not give what is sacred? <br>
+	A. Dogs (Matthew 7:6)  <br><br>
+
+A 	15. According to Matthew, chapter 7, verse 28, at what were the crowds amazed? <br>
+	A. Jesus' teaching (Matthew 7:28)  <br><br>
+
+G 	16. Who come to you in sheep's clothing, but inwardly are ferocious wolves? <br>
+	A. False prophets (Matthew 7:15)  <br><br>
+
+G 	17. Where is the speck of sawdust? <br>
+	A. In your brother's eye (Matthew 7:3) <br> <br>
+
+A 	18. According to Matthew, chapter 7, verse 27, what came down? <br>
+	A. The rain (Matthew 7:27)  <br><br>
+
+G 	19. What road do only a few find? <br>
+	A. The (narrow) road that leads to life (Matthew 7:14)  <br><br>
+<br><br>
+
+ <h7 id="10">SET #10</h7>  <br><br>
+
+G 	1. When do you say to your brother, "Let me take the speck out of your eye."? <br>
+	A. When all the time there is a plank in your own eye (Matthew 7:4)  <br><br>
+
+A 	2. According to Matthew, chapter 7, verse 28, when were the crowds amazed at Jesus' teaching? <br>
+	A. When Jesus had finished saying these things (Matthew 7:28)  <br><br>
+
+G 	3. Why were the crowds amazed at Jesus' teaching? <br>
+	A. Because he taught as one who had authority, and not as their teachers of the law (Matthew 7:28-29)  <br><br>
+
+G 	4. Where will not everyone who says to Jesus, "Lord, Lord," enter? <br>
+    A. The kingdom of heaven (Matthew 7:21)  <br><br>
+
+A 	5. According to Matthew, chapter 7, verse 4, what is there all the time? <br>
+	A. A plank in your own eye (Matthew 7:4)  <br><br>
+
+G 	6. What if you know how to give good gifts to your children? <br>
+	A. How much more will your Father in heaven give good gifts to those who ask him! (Matthew 7:11)  <br><br>
+
+G 	7. What blew and beat against a wise man's house? <br>
+	A. The winds (Matthew 7:25)  <br><br>
+
+G 	8. To whom do you say, "Let me take the speck out of your eye."? <br>
+	A. Your brother (Matthew 7:4)  <br><br>
+
+R 	9. Finish this verse and give the reference: "So in everything, do to. . ." <br>
+	A. ". . .others what you would have them do to you, for this sums up the Law and the Prophets. " (Matthew 7:12)  <br><br>
+
+G 	10. What if your son asks for bread? <br>
+    A. Which of you will give him a stone? (Matthew 7:9)  <br><br>
+
+G 	11. Where did a foolish man build his house? <br>
+	A. On sand (Matthew 7:26)  <br><br>
+
+V 	12. Finish these verses: ""Ask and it will be. . ." <br>
+	A. ". . .given to you; seek and you will find; knock and the door will be opened to you. For everyone who asks receives; the one who seeks finds; and to the one who knocks, the door will be opened." (Matthew 7:7-8)  <br><br>
+
+G 	13. Who is like a wise man who built his house on the rock? <br>
+	A. Everyone who hears these words of Jesus and puts them into practice (Matthew 7:24) <br><br> 
+
+A 	14. According to Matthew, chapter 7, verse 6, what may they do? <br>
+	A. Trample your pearls under their feet, and turn and tear you to pieces (Matthew 7:6)  <br><br>
+
+A 	15. According to Matthew, chapter 7, verse 3, to what do you pay no attention? <br>
+    A. The plank in your own eye (Matthew 7:3)  <br><br>
+
+G 	16. What will Jesus tell many plainly? <br>
+	A. "I never knew you. Away from me, you evildoers!" (Matthew 7:23)  <br><br>
+
+X 	17. In Matthew, chapter 7, how is a tree recognized? <br>
+	A. By its fruit (Matthew 7:17-20)  <br><br>
+
+Q 	18. Quote Matthew, chapter 7, verses 1 through 2. <br>
+	A. "Do not judge, or you too will be judged. For in the same way you judge others, you will be judged, and with the measure you use, it will be measured to you. (Matthew 7:1-2)  <br><br>
+
+G 	19. To what should you not throw your pearls? <br>
+	A. Pigs (Matthew 7:6)  <br><br>
+
+
+    </p>
+
+</body>
+</html>

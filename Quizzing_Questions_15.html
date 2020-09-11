@@ -1,0 +1,902 @@
+<!DOCTYPE html>
+<html> 
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+
+        h1{
+            background-color: black;
+            text-align: center;
+            font-size: 120px;
+            margin: 0px;
+            padding: 30px;
+            color: rgb(0, 172, 172);
+            font-family: 'Impact', Haettenschweiler, Arial Narrow Bold, sans-serif;
+            top: 0px;
+            left: 0px;
+            text-emphasis: bold;
+        }
+
+        head{
+            background-color: black;
+            margin: 0px;
+            padding: 20px;
+        }
+
+        nav{
+            left: 0px;
+            margin: 0px;
+            padding: 20px;
+            background-color: rgb(0, 172, 172);
+            color: black;
+            text-align: left;
+            display: inline-block;
+            height: auto;
+        }
+
+        nav a{
+            color: black;
+            text-decoration: none;
+            margin: 10px 15px;
+            padding: 8px;
+            font-size: 24px;
+            display: inline-block;
+            box-shadow: 0px 0px 10px 5px black;
+            background-color: #b3b3b3;
+            border-radius: 5px;
+        }
+
+        body{
+            background-image: url('data:image/jpeg;base64,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');
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-attachment: fixed;
+        }
+
+        h2{
+            text-align: center;
+            color: white;
+            font-size: 32px;
+            text-emphasis: bold;
+            margin: 10px;
+            background-color: black;
+            padding: 10px;
+            border: double 3px black;
+        }
+
+        .bookmarks{
+            background-color: rgb(0, 172, 172);
+            position: absolute;
+            top: 290px;
+            left: 26%;
+            text-align: center;
+            padding: 10px 20px;
+            border: solid black 5px;
+            border-radius: 25px;
+        }
+
+        .bookmarks a{
+            display: inline-block;
+            background-color: black;
+            color: white;
+            text-emphasis: bold;
+            font-size: 24px;
+            margin: 10px;
+            padding: 10px;
+            border-radius: 10px;
+        }
+
+        h3{
+            font-size: 68px;
+            position: absolute;
+            float: center;
+            top: 350px;
+            left: 48%;
+            text-emphasis: bold;
+            text-align: center;
+            font-family: 'Times New Roman', Times, serif;
+        }
+
+        .verses a{
+            position: absolute;
+            color: rgb(0, 172, 172);
+            background-color: black;
+            font-size: 32px;
+            font-family: Arial, Helvetica, sans-serif;
+            left: 38%;
+            padding: 10px 100px;
+            text-decoration: none;
+            text-align: center;
+            top: 220px;
+            text-emphasis: bold;
+        }
+
+        #myBtn {
+            display: none; /* Hidden by default */
+            position: fixed; /* Fixed/sticky position */
+            bottom: 65px; /* Place the button at the bottom of the page */
+            left: 50px; /* Place the button 30px from the right */
+            z-index: 99; /* Make sure it does not overlap */
+            border: none; /* Remove borders */
+            outline: none; /* Remove outline */
+            background-color: rgb(0, 172, 172); /* Set a background color */
+            color: black; /* Text color */
+            cursor: pointer; /* Add a mouse pointer on hover */
+            padding: 10px; /* Some padding */
+            padding-bottom: 0px;
+            border-radius: 10px; /* Rounded corners */
+            border: solid black 5px;
+            font-size: 72px; /* Increase font size */
+        }
+
+        #myBtn:hover {
+            display: none; /* Hidden by default */
+            position: fixed; /* Fixed/sticky position */
+            bottom: 65px; /* Place the button at the bottom of the page */
+            left: 50px; /* Place the button 30px from the right */
+            z-index: 99; /* Make sure it does not overlap */
+            border: none; /* Remove borders */
+            outline: none; /* Remove outline */
+            background-color: rgb(0, 0, 0); /* Set a background color */
+            color: rgb(0, 172, 172); /* Text color */
+            cursor: pointer; /* Add a mouse pointer on hover */
+            padding: 10px; /* Some padding */
+            padding-bottom: 0px;
+            border-radius: 10px; /* Rounded corners */
+            border: solid rgb(0, 172, 172) 5px;
+            font-size: 72px; /* Increase font size */
+        }
+
+        p{
+            font-size: 22px;
+            position: absolute;
+            top: 500px;
+            left: 30%;
+        }
+
+        h7{
+            font-size: 32px;
+            text-emphasis: bold;
+        }
+
+    </style>
+    <button onclick="topFunction()" id="myBtn" title="Go to top"><b>^</b></button>
+<head> 
+    <h1>Questions</h1>
+    <div class="verses">
+        <a href="Quizzing.html">Click here for memory verses.</a>        
+   </div>
+</head>
+<body>
+   
+    <script>
+        //Get the button
+        var mybutton = document.getElementById("myBtn");
+        
+        // When the user scrolls down 20px from the top of the document, show the button
+        window.onscroll = function() {scrollFunction()};
+        
+        function scrollFunction() {
+          if (document.body.scrollTop > 1750 || document.documentElement.scrollTop > 1750) {
+            mybutton.style.display = "block";
+          } else {
+            mybutton.style.display = "none";
+          }
+        }
+        
+        // When the user clicks on the button, scroll to the top of the document
+        function topFunction() {
+          document.body.scrollTop = 0;
+          document.documentElement.scrollTop = 0;
+        }
+        </script>
+
+    <nav>
+
+        <h2>Select a Chapter</h2>
+        <br>
+
+        <a href="Quizzing_Questions_1.html">Matthew 1</a>
+        <br>
+        <a href="Quizzing_Questions_2.html">Matthew 2</a>
+        <br>
+        <a href="Quizzing_Questions_3.html">Matthew 3</a>
+        <br>
+        <a href="Quizzing_Questions_4.html">Matthew 4</a>
+        <br>
+        <a href="Quizzing_Questions_5.html">Matthew 5</a>
+        <br>
+        <a href="Quizzing_Questions_6.html">Matthew 6</a>
+        <br>
+        <a href="Quizzing_Questions_7.html">Matthew 7</a>
+        <br>
+        <a href="Quizzing_Questions_8.html">Matthew 8</a>
+        <br>
+        <a href="Quizzing_Questions_9.html">Matthew 9</a>
+        <br>
+        <a href="Quizzing_Questions_10.html">Matthew 10</a>
+        <br>
+        <a href="Quizzing_Questions_11.html">Matthew 11</a>
+        <br>
+        <a href="Quizzing_Questions_12.html">Matthew 12</a>
+        <br>
+        <a href="Quizzing_Questions_13.html">Matthew 13</a>
+        <br>
+        <a href="Quizzing_Questions_14.html">Matthew 14</a>
+        <br>
+        <a href="Quizzing_Questions_15.html">Matthew 15</a>
+        <br>
+        <a href="Quizzing_Questions_16.html">Matthew 16</a>
+        <br>
+        <a href="Quizzing_Questions_17.html">Matthew 17</a>
+        <br>
+        <a href="Quizzing_Questions_18.html">Matthew 18</a>
+        <br>
+        <a href="Quizzing_Questions_19.html">Matthew 19</a>
+        <br>
+        <a href="Quizzing_Questions_20.html">Matthew 20</a>
+        <br>
+        <a href="Quizzing_Questions_21.html">Matthew 21</a>
+        <br>
+        <a href="Quizzing_Questions_22.html">Matthew 22</a>
+        <br>
+        <a href="Quizzing_Questions_23.html">Matthew 23</a>
+        <br>
+        <a href="Quizzing_Questions_24.html">Matthew 24</a>
+        <br>
+        <a href="Quizzing_Questions_25.html">Matthew 25</a>
+        <br>
+        <a href="Quizzing_Questions_26.html">Matthew 26</a>
+        <br>
+        <a href="Quizzing_Questions_27.html">Matthew 27</a>
+        <br>
+        <a href="Quizzing_Questions_28.html">Matthew 28</a>
+    </nav>
+
+    <div class="bookmarks">
+        <a href="#1">Set 1</a>
+        <a href="#2">Set 2</a>
+        <a href="#3">Set 3</a>
+        <a href="#4">Set 4</a>
+        <a href="#5">Set 5</a>
+        <a href="#6">Set 6</a>
+        <a href="#7">Set 7</a>
+        <a href="#8">Set 8</a>
+        <a href="#9">Set 9</a>
+        <a href="#10">Set 10</a>
+    </div>
+
+    <p> <h7 id="1">SET #1</h7>  <br><br>
+
+        A 	1. According to Matthew, chapter 15, verse 12, what were the Pharisees? <br>
+            A. Offended (Matthew 15:12)  <br><br>
+        
+        G 	2. Out of what does sexual immorality come? <br>
+            A. The heart (Matthew 15:19)  <br><br>
+        
+        V 	3. Finish this verse: "Great crowds came to him,. . ." <br>
+            A. ". . .bringing the lame, the blind, the crippled, the mute and many others, and laid them at his feet; and he healed them." (Matthew 15:30)  <br><br>
+        
+        G 	4. Who broke the seven loaves and the fish and gave them to the disciples? <br>
+            A. Jesus (Matthew 15:36)  <br><br>
+        
+        G 	5. Who said, "Woman, you have great faith! Your request is granted."? <br>
+            A. Jesus (Matthew 15:28)  <br><br>
+        
+        S 	6. Situation question: who said it, to whom, and in reply to what: "Are you still so dull?" <br>
+            A. Jesus said it to the disciples, in reply to, "Explain the parable to us." (Matthew 15:15-16)  <br><br>
+        
+        G 	7. Who nullify the word of God for the sake of their tradition? <br>
+            A. The Pharisees and teachers of the law (Matthew 15:6)  <br><br>
+        
+        G 	8. Who told the crowd to sit down on the ground? <br>
+            A. Jesus (Matthew 15:35)  <br><br>
+        
+        Q 	9. Quote Matthew, chapter 15, verse 30. <br>
+            A. "Great crowds came to him, bringing the lame, the blind, the crippled, the mute and many others, and laid them at his feet; and he healed them." (Matthew 15:30)  <br><br>
+        
+        G 	10. To what is anyone who curses their father or mother to be put? <br>
+            A. Death (Matthew 15:4)  <br><br>
+        
+        A 	11. According to Matthew, chapter 15, verse 23, what did Jesus' disciples urge Jesus? <br>
+            A. "Send her away, for she keeps crying out after us." (Matthew 15:23)  <br><br>
+        
+        G 	12. When did the disciples pick up seven basketfuls of broken pieces that were left over? <br>
+            A. After the people all ate and were satisfied (Matthew 15:37)  <br><br>
+        
+        G 	13. Who were amazed when they saw the mute speaking, the crippled made well, the lame walking and the blind seeing? <br>
+            A. The people (Matthew 15:31)  <br><br>
+        
+        A 	14. According to Matthew, chapter 15, verse 10, what did Jesus say? <br>
+            A. "Listen and understand." (Matthew 15:10)  <br><br>
+        
+        G 	15. Who asked, "How many loaves do you have?" <br>
+            A. Jesus (Matthew 15:34)  <br><br>
+        
+        R 	16. Finish this verse and give the reference: "Great crowds came to him,. . ." <br>
+            A. ". . .bringing the lame, the blind, the crippled, the mute and many others, and laid them at his feet; and he healed them. " (Matthew 15:30)  <br><br>
+        
+        G 	17. Who said, "Even the dogs eat the crumbs that fall from their masters' table."? <br>
+            A. The Canaanite woman (Matthew 15:27)  <br><br>
+        
+        A 	18. According to Matthew, chapter 15, verse 24, to whom was I sent only? <br>
+            A. The lost sheep of Israel (Matthew 15:24)  <br><br>
+        
+        G 	19. Who went along the Sea of Galilee? <br>
+            A. Jesus (Matthew 15:29)  <br><br>
+        
+        X 	20. In Matthew, chapter 15, who was demon-possessed? <br>
+            A. A Canaanite woman's daughter (Matthew 15:22)  <br><br>
+        
+         <br><br>
+          <h7 id="2">SET #2</h7><br><br>
+        
+        G 	1. Who went to the vicinity of Magadan? <br>
+            A. Jesus (Matthew 15:39)  <br><br>
+        
+        R 	2. Finish this verse and give the reference: "Great crowds came to him,. . ." <br>
+            A. ". . .bringing the lame, the blind, the crippled, the mute and many others, and laid them at his feet; and he healed them. " (Matthew 15:30)  <br><br>
+        
+        G 	3. When were the Pharisees offended? <br>
+            A. When they heard this: "What goes into someone's mouth does not defile them, but what comes out of their mouth, that is what defiles them." (Matthew 15:11-12)  <br><br>
+        
+        G 	4. Besides whom was the number of those who ate four thousand men? <br>
+            A. Women and children (Matthew 15:38)  <br><br>
+        
+        A 	5. According to Matthew, chapter 15, verse 28, what did Jesus say to her? <br>
+            A. "Woman, you have great faith! Your request is granted." (Matthew 15:28)  <br><br>
+        
+        V 	6. Finish this verse: "Great crowds came to him,. . ." <br>
+            A. ". . .bringing the lame, the blind, the crippled, the mute and many others, and laid them at his feet; and he healed them." (Matthew 15:30)  <br><br>
+        
+        X 	7. Whose tradition do Jesus' disciples break when they do not wash their hands before they eat? <br>
+            A. The elders' tradition (Matthew 15:2)  <br><br>
+        
+        G 	8. Who said, "I have compassion for these people; they have already been with me three days and have nothing to eat. I do not want to send them away hungry, or they may collapse on the way."? <br>
+            A. Jesus (Matthew 15:32)  <br><br>
+        
+        A 	9. According to Matthew, chapter 15, verse 23, what did Jesus not answer? <br>
+            A. A word (Matthew 15:23)  <br><br>
+        
+        G 	10. To what is it not right to toss the children's bread? <br>
+            A. The dogs (Matthew 15:26)  <br><br>
+        
+        G 	11. Who was right when he prophesied about the Pharisees and teachers of the law? <br>
+            A. Isaiah (Matthew 15:7)  <br><br>
+        
+        S 	12. Situation question: who said it, to whom, and in reply to what: "And why do you break the command of God for the sake of your tradition?" <br>
+            A. Jesus said it to some Pharisees and teachers of the law, in reply to, "Why do your disciples break the tradition of the elders? They don't wash their hands before they eat!" (Matthew 15:2-3)  <br><br>
+        
+        Q 	13. Quote Matthew, chapter 15, verse 30. <br>
+            A. "Great crowds came to him, bringing the lame, the blind, the crippled, the mute and many others, and laid them at his feet; and he healed them." (Matthew 15:30)  <br><br>
+        
+        G 	14. What will both do if the blind lead the blind? <br>
+            A. Fall into a pit (Matthew 15:14)  <br><br>
+        
+        G 	15. Who replied, "And why do you break the command of God for the sake of your tradition?" <br>
+            A. Jesus (Matthew 15:3)  <br><br>
+        
+        A 	16. According to Matthew, chapter 15, verse 20, what does not defile a person? <br>
+            A. Eating with unwashed hands (Matthew 15:20)  <br><br>
+        
+        G 	17. For what do the Pharisees and teachers of the law nullify the word of God? <br>
+            A. The sake of their tradition (Matthew 15:6)  <br><br>
+        
+        G 	18. What do the things that come out of a person's mouth do? <br>
+            A. Defile them (Matthew 15:18)  <br><br>
+        
+        A 	19. According to Matthew, chapter 15, verse 22, what was a Canaanite woman crying out? <br>
+            A. "Lord, Son of David, have mercy on me! My daughter is demon-possessed and suffering terribly." (Matthew 15:22) <br><br> 
+        
+        G 	20. Before whom did the Canaanite woman kneel? <br>
+            A. Jesus (Matthew 15:25)  <br><br>
+        
+         <br><br>
+          <h7 id="3">SET #3</h7><br><br>
+        
+        G 	1. Who were offended when they heard this? <br>
+            A. The Pharisees (Matthew 15:12)  <br><br>
+        
+        A 	2. According to Matthew, chapter 15, verse 28, what does the woman have? <br>
+            A. Great faith (Matthew 15:28)  <br><br>
+        
+        G 	3. Where does whatever enters the mouth go? <br>
+            A. Into the stomach and then out of the body (Matthew 15:17)  <br><br>
+        
+        G 	4. Who asked, "Why do your disciples break the tradition of the elders? They don't wash their hands before they eat!"? <br>
+            A. Some Pharisees and teachers of the law (Matthew 15:1-2)  <br><br>
+        
+        Q 	5. Quote Matthew, chapter 15, verse 30. <br>
+            A. "Great crowds came to him, bringing the lame, the blind, the crippled, the mute and many others, and laid them at his feet; and he healed them." (Matthew 15:30)  <br><br>
+        
+        G 	6. What do the Pharisees and teachers of the law break for the sake of their tradition? <br>
+            A. The command of God (Matthew 15:3)  <br><br>
+        
+        G 	7. Who did not answer a word? <br>
+            A. Jesus (Matthew 15:23)  <br><br>
+        
+        R 	8. Finish this verse and give the reference: "Great crowds came to him,. . ." <br>
+            A. ". . .bringing the lame, the blind, the crippled, the mute and many others, and laid them at his feet; and he healed them. " (Matthew 15:30)  <br><br>
+        
+        A 	9. According to Matthew, chapter 15, verse 26, what is not right? <br>
+            A. To take the children's bread and toss it to the dogs (Matthew 15:26)  <br><br>
+        
+        G 	10. When don't Jesus' disciples wash their hands? <br>
+            A. Before they eat (Matthew 15:2)  <br><br>
+        
+        G 	11. When was Isaiah right? <br>
+            A. When he prophesied about the Pharisees and teachers of the law (Matthew 15:7)  <br><br>
+        
+        V 	12. Finish this verse: "Great crowds came to him,. . ." <br>
+            A. ". . .bringing the lame, the blind, the crippled, the mute and many others, and laid them at his feet; and he healed them." (Matthew 15:30)  <br><br>
+        
+        G 	13. Who honor me with their lips? <br>
+            A. These people (Matthew 15:8)  <br><br>
+        
+        G 	14. Out of what does false testimony come? <br>
+            A. The heart (Matthew 15:19)  <br><br>
+        
+        A 	15. According to Matthew, chapter 15, verse 11, what does not defile them? <br>
+            A. What goes into someone's mouth (Matthew 15:11)  <br><br>
+        
+        X 	16. In Matthew, chapter 15, how many basketfuls of broken pieces were left over? <br>
+            A. Seven (Matthew 15:37)  <br><br>
+        
+        A 	17. According to Matthew, chapter 15, verse 25, what did the woman say? <br>
+            A. "Lord, help me!" (Matthew 15:25)  <br><br>
+        
+        S 	18. Situation question: who said it, and to whom: "Lord, Son of David, have mercy on me! My daughter is demon-possessed and suffering terribly." <br>
+            A. A Canaanite woman said it to Jesus (Matthew 15:22)  <br><br>
+        
+        G 	19. Into what will both fall if the blind lead the blind? <br>
+            A. A pit (Matthew 15:14)  <br><br>
+        
+        G 	20. Whom did Jesus ask, "Are you still so dull?" <br>
+            A. The disciples (Matthew 15:16)  <br><br>
+        
+         <br><br>
+          <h7 id="4">SET #4</h7><br><br>
+        
+        G 	1. Who don't wash their hands before they eat? <br>
+            A. Jesus' disciples (Matthew 15:2)  <br><br>
+        
+        G 	2. What do even the dogs eat? <br>
+            A. The crumbs that fall from their masters' table (Matthew 15:27)  <br><br>
+        
+        V 	3. Finish this verse: "Great crowds came to him,. . ." <br>
+            A. ". . .bringing the lame, the blind, the crippled, the mute and many others, and laid them at his feet; and he healed them." (Matthew 15:30)  <br><br>
+        
+        A 	4. According to Matthew, chapter 15, verse 2, what don't your disciples do? <br>
+            A. Wash their hands before they eat (Matthew 15:2)  <br><br>
+        
+        G 	5. Who answered, "I was sent only to the lost sheep of Israel."? <br>
+            A. Jesus (Matthew 15:24)  <br><br>
+        
+        G 	6. How is a Canaanite woman's daughter suffering? <br>
+            A. Terribly (Matthew 15:22)  <br><br>
+        
+        Q 	7. Quote Matthew, chapter 15, verse 30. <br>
+            A. "Great crowds came to him, bringing the lame, the blind, the crippled, the mute and many others, and laid them at his feet; and he healed them." (Matthew 15:30)  <br><br>
+        
+        G 	8. At whose feet did great crowds lay the lame, the blind, the crippled, the mute and many others? <br>
+            A. Jesus' (Matthew 15:30)  <br><br>
+        
+        A 	9. According to Matthew, chapter 15, verse 29, who went up on a mountainside? <br>
+            A. Jesus (Matthew 15:29)  <br><br>
+        
+        G 	10. Who urged Jesus, "Send her away, for she keeps crying out after us."? <br>
+            A. Jesus' disciples (Matthew 15:23)  <br><br>
+        
+        A 	11. According to Matthew, chapter 15, verse 16, what did Jesus ask them? <br>
+            A. "Are you still so dull?" (Matthew 15:16)  <br><br>
+        
+        X 	12. Complete, in essence, the following Old Testament quotation: "Anyone who curses their father . . ." <br>
+            A. ". . . or mother is to be put to death." (Matthew 15:4)  <br><br>
+        
+        G 	13. Whose daughter is demon-possessed and suffering terribly? <br>
+            A. A Canaanite woman's (Matthew 15:22)  <br><br>
+        
+        A 	14. According to Matthew, chapter 15, verse 28, who was healed at that moment? <br>
+            A. The woman's daughter (Matthew 15:28)  <br><br>
+        
+        G 	15. What does what goes into someone's mouth not do? <br>
+            A. Defile them (Matthew 15:11)  <br><br>
+        
+        G 	16. Out of what does theft come? <br>
+            A. The heart (Matthew 15:19)  <br><br>
+        
+        R 	17. Finish this verse and give the reference: "Great crowds came to him,. . ." <br>
+            A. ". . .bringing the lame, the blind, the crippled, the mute and many others, and laid them at his feet; and he healed them. " (Matthew 15:30)  <br><br>
+        
+        G 	18. What was a Canaanite woman from that vicinity crying out? <br>
+            A. "Lord, Son of David, have mercy on me! My daughter is demon-possessed and suffering terribly." (Matthew 15:22)  <br><br>
+        
+        G 	19. What don't Jesus' disciples wash before they eat? <br>
+            A. Their hands (Matthew 15:2)  <br><br>
+        
+        S 	20. Situation question: who said it, and to whom: "Do you know that the Pharisees were offended when they heard this?" <br>
+            A. The disciples said it to Jesus (Matthew 15:12)  <br><br>
+        
+         <br><br>
+          <h7 id="5">SET #5</h7><br><br>
+        
+        G 	1. Who broke the seven loaves and the fish and gave them to the disciples? <br>
+            A. Jesus (Matthew 15:36) <br><br>
+        
+        A 	2. According to Matthew, chapter 15, verse 31, what did the people see? <br>
+            A. The mute speaking, the crippled made well, the lame walking and the blind seeing (Matthew 15:31)  <br><br>
+        
+        G 	3. Besides whom was the number of those who ate four thousand men? <br>
+            A. Women and children (Matthew 15:38)  <br><br>
+        
+        G 	4. Who answered, "I was sent only to the lost sheep of Israel."? <br>
+            A. Jesus (Matthew 15:24)  <br><br>
+        
+        S 	5. Situation question: who said it, to whom, and about whom: "Send her away, for she keeps crying out after us."? <br>
+            A. Jesus' disciples said it to Jesus, about a Canaanite woman (Matthew 15:23)  <br><br>
+        
+        G 	6. Who said, "I have compassion for these people; they have already been with me three days and have nothing to eat. I do not want to send them away hungry, or they may collapse on the way."? <br>
+            A. Jesus (Matthew 15:32)  <br><br>
+        
+        G 	7. Whom did Jesus ask, "Are you still so dull?" <br>
+            A. The disciples (Matthew 15:16)  <br><br>
+        
+        A 	8. According to Matthew, chapter 15, verse 18, what defile them? <br>
+            A. The things that come out of a person's mouth (Matthew 15:18)  <br><br>
+        
+        G 	9. Who went to the vicinity of Magadan? <br>
+            A. Jesus (Matthew 15:39)  <br><br>
+        
+        R 	10. Finish this verse and give the reference: "Great crowds came to him,. . ." <br>
+            A. ". . .bringing the lame, the blind, the crippled, the mute and many others, and laid them at his feet; and he healed them. " (Matthew 15:30)  <br><br>
+        
+        X 	11. From what Old Testament books does the following quotation come: "Honor your father and mother."? <br>
+            A. 1) Exodus; 2) Deuteronomy (Matthew 15:4)  <br><br>
+        
+        G 	12. Who went along the Sea of Galilee? <br>
+            A. Jesus (Matthew 15:29)  <br><br>
+        
+        G 	13. Who were offended when they heard this? <br>
+            A. The Pharisees (Matthew 15:12)  <br><br>
+        
+        Q 	14. Quote Matthew, chapter 15, verse 30. <br>
+            A. "Great crowds came to him, bringing the lame, the blind, the crippled, the mute and many others, and laid them at his feet; and he healed them." (Matthew 15:30)  <br><br>
+        
+        G 	15. When did the disciples pick up seven basketfuls of broken pieces that were left over? <br>
+            A. After the people all ate and were satisfied (Matthew 15:37)  <br><br>
+        
+        G 	16. Who asked, "How many loaves do you have?" <br>
+            A. Jesus (Matthew 15:34)  <br><br>
+        
+        V 	17. Finish this verse: "Great crowds came to him,. . ." <br>
+            A. ". . .bringing the lame, the blind, the crippled, the mute and many others, and laid them at his feet; and he healed them." (Matthew 15:30)  <br><br>
+        
+        G 	18. Where does whatever enters the mouth go? <br>
+            A. Into the stomach and then out of the body (Matthew 15:17)  <br><br>
+        
+        A 	19. According to Matthew, chapter 15, verse 14, what are they? <br>
+            A. Blind guides (Matthew 15:14)  <br><br>
+        
+        A 	20. According to Matthew, chapter 15, verse 1, who came to Jesus from Jerusalem? <br>
+            A. Some Pharisees and teachers of the law (Matthew 15:1)  <br><br>
+        
+         <br><br>
+          <h7 id="6">SET #6</h7><br><br>
+        
+        A 	1. According to Matthew, chapter 15, verse 21, to where did Jesus withdraw? <br>
+            A. The region of Tyre and Sidon (Matthew 15:21)  <br><br>
+        
+        G 	2. Who replied, "And why do you break the command of God for the sake of your tradition?" <br>
+            A. Jesus (Matthew 15:3)  <br><br>
+        
+        A 	3. According to Matthew, chapter 15, verse 31, who were amazed? <br>
+            A. The people (Matthew 15:31)  <br><br>
+        
+        G 	4. Who nullify the word of God for the sake of their tradition? <br>
+            A. The Pharisees and teachers of the law (Matthew 15:6)  <br><br>
+        
+        G 	5. Who told the crowd to sit down on the ground? <br>
+            A. Jesus (Matthew 15:35)  <br><br>
+        
+        Q 	6. Quote Matthew, chapter 15, verse 30. <br>
+            A. "Great crowds came to him, bringing the lame, the blind, the crippled, the mute and many others, and laid them at his feet; and he healed them." (Matthew 15:30)  <br><br>
+        
+        S 	7. Situation question: who said it, to whom, and in reply to what: "It is not right to take the children's bread and toss it to the dogs."? <br>
+            A. Jesus said it to the Canaanite woman, in reply to, "Lord, help me!" (Matthew 15:25-26)  <br><br>
+        
+        G 	8. When were the Pharisees offended? <br>
+            A. When they heard this: "What goes into someone's mouth does not defile them, but what comes out of their mouth, that is what defiles them." (Matthew 15:11-12)  <br><br>
+        
+        G 	9. Who urged Jesus, "Send her away, for she keeps crying out after us."? <br>
+            A. Jesus' disciples (Matthew 15:23)  <br><br>
+        
+        R 	10. Finish this verse and give the reference: "Great crowds came to him,. . ." <br>
+            A. ". . .bringing the lame, the blind, the crippled, the mute and many others, and laid them at his feet; and he healed them. " (Matthew 15:30)  <br><br>
+        
+        G 	11. What will both do if the blind lead the blind? <br>
+            A. Fall into a pit (Matthew 15:14)  <br><br>
+        
+        A 	12. According to Matthew, chapter 15, verse 34, how many loaves do you have? <br>
+            A. Seven (Matthew 15:34)  <br><br>
+        
+        X 	13. In Matthew, chapter 15, what are far from God? <br>
+            A. These people's hearts (Matthew 15:8)  <br><br>
+        
+        G 	14. Who was right when he prophesied about the Pharisees and teachers of the law? <br>
+            A. Isaiah (Matthew 15:7)  <br><br>
+        
+        A 	15. According to Matthew, chapter 15, verse 32, what did Jesus say? <br>
+            A. "I have compassion for these people; they have already been with me three days and have nothing to eat. I do not want to send them away hungry, or they may collapse on the way." (Matthew 15:32)  <br><br>
+        
+        G 	16. To what is anyone who curses their father or mother to be put? <br>
+            A. Death (Matthew 15:4)  <br><br>
+        
+        G 	17. To what is it not right to toss the children's bread? <br>
+            A. The dogs (Matthew 15:26)  <br><br>
+        
+        V 	18. Finish this verse: "Great crowds came to him,. . ." <br>
+            A. ". . .bringing the lame, the blind, the crippled, the mute and many others, and laid them at his feet; and he healed them." (Matthew 15:30)  <br><br>
+        
+        G 	19. Who said, "Even the dogs eat the crumbs that fall from their masters' table."? <br>
+            A. The Canaanite woman (Matthew 15:27)  <br><br>
+        
+        G 	20. How is a Canaanite woman's daughter suffering? <br>
+            A. Terribly (Matthew 15:22)  <br><br>
+        
+         <br><br>
+          <h7 id="7">SET #7</h7><br><br>
+        
+        G 	1. For what do the Pharisees and teachers of the law nullify the word of God? <br>
+            A. The sake of their tradition (Matthew 15:6)  <br><br>
+        
+        A 	2. According to Matthew, chapter 15, verse 32, what does Jesus not want to do? <br>
+            A. Send these people away hungry (Matthew 15:32)  <br><br>
+        
+        G 	3. What do the Pharisees and teachers of the law break for the sake of their tradition? <br>
+            A. The command of God (Matthew 15:3)  <br><br>
+        
+        G 	4. Into what will both fall if the blind lead the blind? <br>
+            A. A pit (Matthew 15:14)  <br><br>
+        
+        R 	5. Finish this verse and give the reference: "Great crowds came to him,. . ." <br>
+            A. ". . .bringing the lame, the blind, the crippled, the mute and many others, and laid them at his feet; and he healed them. " (Matthew 15:30)  <br><br>
+        
+        G 	6. What do the things that come out of a person's mouth do? <br>
+            A. Defile them (Matthew 15:18)  <br><br>
+        
+        S 	7. Situation question: who said it, to whom, and what was the reply: "It is not right to take the children's bread and toss it to their dogs."? <br>
+            A. Jesus said it to the Canaanite woman, and the reply was, "Yes it is, Lord. Even the dogs eat the crumbs that fall from their master's table." (Matthew 15:26-27)  <br><br>
+        
+        X 	8. From what Old Testament book does the following quotation come: "They worship me in vain; their teachings are merely human rules."? <br>
+            A. Isaiah (Matthew 15:9)  <br><br>
+        
+        G 	9. Who asked, "Why do your disciples break the tradition of the elders? They don't wash their hands before they eat!"? <br>
+            A. Some Pharisees and teachers of the law (Matthew 15:1-2)  <br><br>
+        
+        A 	10. According to Matthew, chapter 15, verse 1, from where did some Pharisees and teachers of the law come to Jesus? <br> 
+            A. Jerusalem (Matthew 15:1)  <br><br>
+        
+        G 	11. What do even the dogs eat? <br>
+            A. The crumbs that fall from their masters' table (Matthew 15:27)  <br><br>
+        
+        Q 	12. Quote Matthew, chapter 15, verse 30. <br>
+            A. "Great crowds came to him, bringing the lame, the blind, the crippled, the mute and many others, and laid them at his feet; and he healed them." (Matthew 15:30)  <br><br>
+        
+        G 	13. When was Isaiah right? <br>
+            A. When he prophesied about the Pharisees and teachers of the law (Matthew 15:7)  <br><br>
+        
+        G 	14. Before whom did the Canaanite woman kneel? <br>
+            A. Jesus (Matthew 15:25)  <br><br>
+        
+        V 	15. Finish this verse: "Great crowds came to him,. . ." <br>
+            A. ". . .bringing the lame, the blind, the crippled, the mute and many others, and laid them at his feet; and he healed them." (Matthew 15:30)  <br><br>
+        
+        G 	16. What does what goes into someone's mouth not do? <br>
+            A. Defile them (Matthew 15:11)  <br><br>
+        
+        G 	17. Who said, "Woman, you have great faith! Your request is granted."? <br>
+            A. Jesus (Matthew 15:28)  <br><br>
+        
+        A 	18. According to Matthew, chapter 15, verse 35, what did he tell the crowd? <br>
+            A. To sit down on the ground (Matthew 15:35)  <br><br>
+        
+        G 	19. Who were amazed when they saw the mute speaking, the crippled made well, the lame walking and the blind seeing? <br>
+            A. The people (Matthew 15:31)  <br><br>
+        
+        A 	20. According to Matthew, chapter 15, verse 8, where are these people's hearts? <br>
+            A. Far from me (Matthew 15:8)  <br><br>
+        
+         <br><br>
+          <h7 id="8">SET #8</h7><br><br>
+        
+        A 	1. According to Matthew, chapter 15, verse 7, when was Isaiah right? <br>
+            A. When he prophesied about you (Matthew 15:7)  <br><br>
+        
+        G 	2. Who did not answer a word? <br>
+            A. Jesus (Matthew 15:23)  <br><br>
+        
+        V 	3. Finish this verse: "Great crowds came to him,. . ." <br>
+            A. ". . .bringing the lame, the blind, the crippled, the mute and many others, and laid them at his feet; and he healed them." (Matthew 15:30)  <br><br>
+        
+        G 	4. What don't Jesus' disciples wash before they eat? <br>
+            A. Their hands (Matthew 15:2)  <br><br>
+        
+        G 	5. Who don't wash their hands before they eat? <br>
+            A. Jesus' disciples (Matthew 15:2)  <br><br>
+        
+        A 	6. According to Matthew, chapter 15, verse 9, what are their teachings? <br>
+            A. Merely human rules (Matthew 15:9)  <br><br>
+        
+        G 	7. At whose feet did great crowds lay the lame, the blind, the crippled, the mute and many others? <br>
+            A. Jesus' (Matthew 15:30)  <br><br>
+        
+        S 	8. Situation question: who said it, to whom, and what was the reply: "Yes it is, Lord. Even the dogs eat the crumbs that fall from their master's table."? <br>
+            A. The Canaanite woman said it to Jesus, and the reply was, "Woman, you have great faith! Your request is granted." (Matthew 15:27-28)  <br><br>
+        
+        X 	9. In Matthew, chapter 15, who are blind guides? <br>
+            A. The Pharisees (Matthew 15:14)  <br><br>
+        
+        G 	10. Who honor me with their lips? <br>
+            A. These people (Matthew 15:8)  <br><br>
+        
+        G 	11. What was a Canaanite woman from that vicinity crying out? <br>
+            A. "Lord, Son of David, have mercy on me! My daughter is demon-possessed and suffering terribly." (Matthew 15:22)  <br><br>
+        
+        Q 	12. Quote Matthew, chapter 15, verse 30. <br>
+            A. "Great crowds came to him, bringing the lame, the blind, the crippled, the mute and many others, and laid them at his feet; and he healed them." (Matthew 15:30)  <br><br>
+        
+        G 	13. When don't Jesus' disciples wash their hands? <br>
+            A. Before they eat (Matthew 15:2)  <br><br>
+        
+        G 	14. Out of what does theft come? <br>
+            A. The heart (Matthew 15:19)  <br><br>
+        
+        A 	15. According to Matthew, chapter 15, verse 36, when did he break them and give them to the disciples? <br>
+            A. When he had given thanks (Matthew 15:36)  <br><br>
+        
+        G 	16. Out of what does sexual immorality come? <br>
+            A. The heart (Matthew 15:19)  <br><br>
+        
+        G 	17. Whose daughter is demon-possessed and suffering terribly? <br>
+            A. A Canaanite woman's (Matthew 15:22)  <br><br>
+        
+        A 	18. According to Matthew, chapter 15, verse 32, how long have these people already been with Jesus? <br>
+            A. Three days (Matthew 15:32)  <br><br>
+        
+        R 	19. Finish this verse and give the reference: "Great crowds came to him,. . ." <br>
+            A. ". . .bringing the lame, the blind, the crippled, the mute and many others, and laid them at his feet; and he healed them. " (Matthew 15:30)  <br><br>
+        
+        G 	20. Out of what does false testimony come? <br>
+            A. The heart (Matthew 15:19)  <br><br>
+        
+         <br><br>
+          <h7 id="9">SET #9</h7><br><br>
+        
+        G 	1. Into what will both fall if the blind lead the blind? <br>
+            A. A pit (Matthew 15:14)  <br><br>
+        
+        G 	2. Whose daughter is demon-possessed and suffering terribly? <br>
+            A. A Canaanite woman's (Matthew 15:22)  <br><br>
+        
+        Q 	3. Quote Matthew, chapter 15, verse 30. <br>
+            A. "Great crowds came to him, bringing the lame, the blind, the crippled, the mute and many others, and laid them at his feet; and he healed them." (Matthew 15:30) <br><br> 
+        
+        G 	4. Before whom did the Canaanite woman kneel? <br>
+            A. Jesus (Matthew 15:25)  <br><br>
+        
+        A 	5. According to Matthew, chapter 15, verse 7, who prophesied about you? <br>
+            A. Isaiah (Matthew 15:7)  <br><br>
+        
+        G 	6. What do even the dogs eat? <br>
+            A. The crumbs that fall from their masters' table (Matthew 15:27)  <br><br>
+        
+        G 	7. Who told the crowd to sit down on the ground? <br>
+            A. Jesus (Matthew 15:35)  <br><br>
+        
+        R 	8. Finish this verse and give the reference: "Great crowds came to him,. . ." <br>
+            A. ". . .bringing the lame, the blind, the crippled, the mute and many others, and laid them at his feet; and he healed them. " (Matthew 15:30)  <br><br>
+        
+        G 	9. Who were amazed when they saw the mute speaking, the crippled made well, the lame walking and the blind seeing? <br>
+            A. The people (Matthew 15:31)  <br><br>
+        
+        S 	10. Situation question: who said it, to whom, and what was the result: "Woman, you have great faith! Your request is granted."? <br>
+            A. Jesus said it to the Canaanite woman, and the woman's daughter was healed at that moment (Matthew 15:28)  <br><br>
+        
+        X 	11. Whose tradition do Jesus' disciples break when they do not wash their hands before they eat? <br>
+            A. The elders' tradition (Matthew 15:2)  <br><br>
+        
+        G 	12. Who were offended when they heard this? <br>
+            A. The Pharisees (Matthew 15:12)  <br><br>
+        
+        A 	13. According to Matthew, chapter 15, verse 37, what did the disciples pick up? <br>
+            A. Seven basketfuls of broken pieces (that were left over) (Matthew 15:37)  <br><br>
+        
+        G 	14. Who went along the Sea of Galilee? <br>
+            A. Jesus (Matthew 15:29)  <br><br>
+        
+        G 	15. Who asked, "How many loaves do you have?" <br>
+            A. Jesus (Matthew 15:34)  <br><br>
+        
+        V 	16. Finish this verse: "Great crowds came to him,. . ." <br>
+            A. ". . .bringing the lame, the blind, the crippled, the mute and many others, and laid them at his feet; and he healed them." (Matthew 15:30)  <br><br>
+        
+        A 	17. According to Matthew, chapter 15, verse 36, what did the disciples do in turn? <br>
+            A. Gave them to the people (Matthew 15:36)  <br><br>
+        
+        G 	18. To what is anyone who curses their father or mother to be put? <br>
+            A. Death (Matthew 15:4)  <br><br>
+        
+        G 	19. Who nullify the word of God for the sake of their tradition? <br>
+            A. The Pharisees and teachers of the law (Matthew 15:6)  <br><br>
+        
+        A 	20. According to Matthew, chapter 15, verse 38, what was the number of those who ate? <br>
+            A. Four thousand men, besides women and children (Matthew 15:38)  <br><br>
+        
+         <br><br>
+          <h7 id="10">SET #10</h7><br><br>
+        
+        G 	1. Who broke the seven loaves and the fish and gave them to the disciples? <br>
+            A. Jesus (Matthew 15:36)  <br><br>
+        
+        G 	2. Who was right when he prophesied about the Pharisees and teachers of the law? <br>
+            A. Isaiah (Matthew 15:7)  <br><br>
+        
+        R 	3. Finish this verse and give the reference: "Great crowds came to him,. . ." <br>
+            A. ". . .bringing the lame, the blind, the crippled, the mute and many others, and laid them at his feet; and he healed them. " (Matthew 15:30)  <br><br>
+        
+        G 	4. To what is it not right to toss the children's bread? <br>
+            A. The dogs (Matthew 15:26)  <br><br>
+        
+        S 	5. Situation question: who said it, to whom, and what was the reply: "I have compassion for these people; they have already been with me three days and have nothing to eat. I do not want to send them away hungry, or they may collapse on the way."? <br>
+            A. Jesus said it to his disciples, and the reply was, "Where could we get enough bread in this remote place to feed such a crowd?" (Matthew 15:32-33)  <br><br>
+        
+        Q 	6. Quote Matthew, chapter 15, verse 30. <br>
+            A. "Great crowds came to him, bringing the lame, the blind, the crippled, the mute and many others, and laid them at his feet; and he healed them." (Matthew 15:30)  <br><br>
+        
+        G 	7. Besides whom was the number of those who ate four thousand men? <br>
+            A. Women and children (Matthew 15:38)  <br><br>
+        
+        G 	8. Who asked, "Why do your disciples break the tradition of the elders? They don't wash their hands before they eat!"? <br>
+            A. Some Pharisees and teachers of the law (Matthew 15:1-2)  <br><br>
+        
+        A 	9. According to Matthew, chapter 15, verse 6, what do you nullify? <br>
+            A. The word of God (Matthew 15:6)  <br><br>
+        
+        G 	10. Who replied, "And why do you break the command of God for the sake of your tradition?" <br>
+            A. Jesus (Matthew 15:3)  <br><br>
+        
+        A 	11. According to Matthew, chapter 15, verse 4, who is to be put to death? <br>
+            A. Anyone who curses their father or mother (Matthew 15:4)  <br><br>
+        
+        G 	12. What don't Jesus' disciples wash before they eat? <br>
+            A. Their hands (Matthew 15:2)  <br><br>
+        
+        V 	13. Finish this verse: "Great crowds came to him,. . ." <br>
+            A. ". . .bringing the lame, the blind, the crippled, the mute and many others, and laid them at his feet; and he healed them." (Matthew 15:30)  <br><br>
+        
+        A 	14. According to Matthew, chapter 15, verse 4, what did God say? <br>
+            A. "Honor your father and mother" and "Anyone who curses their father or mother is to be put to death" (Matthew 15:4)  <br><br>
+        
+        G 	15. Who said, "I have compassion for these people; they have already been with me three days and have nothing to eat. I do not want to send them away hungry, or they may collapse on the way."? <br>
+            A. Jesus (Matthew 15:32)  <br><br>
+        
+        A 	16. According to Matthew, chapter 15, verse 39, what did Jesus do after he had sent the crowd away? <br>
+            A. He got into the boat and went to the vicinity of Magadan (Matthew 15:39)  <br><br>
+        
+        G 	17. When did the disciples pick up seven basketfuls of broken pieces that were left over? <br>
+            A. After the people all ate and were satisfied (Matthew 15:37)  <br><br>
+        
+        X 	18. In Matthew, chapter 15, who was demon-possessed? <br>
+            A. A Canaanite woman's daughter (Matthew 15:22)  <br><br>
+        
+        G 	19. When were the Pharisees offended? <br>
+            A. When they heard this: "What goes into someone's mouth does not defile them, but what comes out of their mouth, that is what defiles them." (Matthew 15:11-12)  <br><br>
+        
+        G 	20. What will both do if the blind lead the blind? <br>
+            A. Fall into a pit (Matthew 15:14)  <br><br>
+        
+        </p>
+
+    <h3>Matthew 15</h3>
+
+</body>
+</html>

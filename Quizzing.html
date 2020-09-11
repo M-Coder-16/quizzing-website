@@ -1,0 +1,864 @@
+<!DOCTYPE html>
+<html>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+   
+    <style>
+        .container{
+            margin: 20px;
+            padding: 20px;
+            display: inline-block;
+            background-color: grey;
+            text-align: center;
+            height: auto;
+            width: 1000px;
+            opacity: 0.8;
+        }
+
+        h2{
+            font-size: 54px;
+            text-emphasis: bold;
+            color:white;
+            margin: 10px;
+            margin-bottom: 60px;
+        }
+
+        h3{
+            margin:10px;
+            font-size: 32px;
+            color: grey;
+        }
+
+        h3:hover{
+            margin:10px;
+            font-size: 32px;
+            color: black;
+        }
+
+        h1{
+            font-size: 120px;
+            text-align: center;
+            margin: 50px;
+            margin-top: 20px;
+            background-color: #666666;
+            color: gold;
+            padding: 20px;
+        }
+
+        body{
+            background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQaPpP6yN584e1vSfKpt2alJ5LOXZI9zwRuOEi2E0yBaoouxfx5&usqp=CAU');
+            background-size: cover;
+            background-attachment: fixed;
+            background-repeat: none;
+        }
+
+        .head{
+            text-align: center;
+            margin: 15px;
+            background-color: black;
+            color: blue;
+            padding: 20px 50px;
+        }
+
+        .head a:link{
+            color: black;
+            font-size: 22px;
+            text-decoration:none;
+            background-color: #666666;
+            padding: 10px;
+            margin: 10px;
+            display: inline-block;
+            box-shadow: 3px 3px gold;
+            border-radius: 5px;
+        }
+
+        .head a:visited{
+            color: black;
+            font-size: 22px;
+            text-decoration:none;
+            background-color: #666666;
+            padding: 10px;
+            margin: 10px;
+            display: inline-block;
+            box-shadow: 3px 3px gold;
+            border-radius: 5px;
+        }
+
+        .head a:hover{
+            color: black;
+            font-size: 22px;
+            text-decoration:none;
+            background-color: #666666;
+            padding: 10px;
+            margin: 10px;
+            display: inline-block;
+            box-shadow: 3px 3px gold;
+            border-radius: 5px;
+        }
+
+        .head a:active{
+            color: black;
+            font-size: 22px;
+            text-decoration:none;
+            background-color: #666666;
+            padding: 10px;
+            margin: 9px;
+            display: inline-block;
+            border-radius: 5px;
+            transform: translateX(3px) translateY(3px);
+            box-shadow: 0px 0px gold;
+        }
+
+        h4{
+            color: white;
+            background-color: black;
+            font-size: 42px;
+            margin: 10px;
+            padding: 20px;
+            text-align: center;
+        }
+
+        #myBtn {
+            display: none; /* Hidden by default */
+            position: fixed; /* Fixed/sticky position */
+            bottom: 65px; /* Place the button at the bottom of the page */
+            right: 50px; /* Place the button 30px from the right */
+            z-index: 99; /* Make sure it does not overlap */
+            border: none; /* Remove borders */
+            outline: none; /* Remove outline */
+            background-color: black; /* Set a background color */
+            color: gold; /* Text color */
+            cursor: pointer; /* Add a mouse pointer on hover */
+            padding: 10px; /* Some padding */
+            padding-bottom: 0px;
+            border-radius: 10px; /* Rounded corners */
+            border: solid gold;
+            font-size: 72px; /* Increase font size */
+        }
+
+        #myBtn:hover {
+            display: none; /* Hidden by default */
+            position: fixed; /* Fixed/sticky position */
+            bottom: 65px; /* Place the button at the bottom of the page */
+            right: 50px; /* Place the button 30px from the right */
+            z-index: 99; /* Make sure it does not overlap */
+            border: none; /* Remove borders */
+            outline: none; /* Remove outline */
+            background-color: rgb(0, 0, 0); /* Set a background color */
+            color: white; /* Text color */
+            cursor: pointer; /* Add a mouse pointer on hover */
+            padding: 10px; /* Some padding */
+            padding-bottom: 0px;
+            border-radius: 10px; /* Rounded corners */
+            border: solid gold;
+            font-size: 72px; /* Increase font size */
+        }
+
+        .questions{
+            color: black;
+            margin: 10px;
+            padding: 10px 60px;
+            font-size: 32px;
+            text-emphasis: bold;
+            text-decoration: none;
+            position: absolute;
+        }
+
+        .questions a:link{
+            color: black;
+            background-color: #b3b3b3;
+            margin: 10px;
+            padding: 10px 60px;
+            font-size: 32px;
+            text-emphasis: bold;
+            text-decoration: none;
+            position: absolute;
+            top: 230px;
+            text-align: center;
+            left: 200px;
+            width: 800px;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        .questions a:visited{
+            color: black;
+            background-color: #b3b3b3;
+            margin: 10px;
+            padding: 10px 60px;
+            font-size: 32px;
+            text-emphasis: bold;
+            text-decoration: none;
+            position: absolute;
+            top: 230px;
+            text-align: center;
+            left: 200px;
+            width: 800px;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        .questions a:hover{
+            color: black;
+            background-color: #b3b3b3;
+            margin: 10px;
+            padding: 10px 60px;
+            font-size: 32px;
+            text-emphasis: bold;
+            text-decoration: none;
+            position: absolute;
+            top: 230px;
+            text-align: center;
+            left: 200px;
+            width: 800px;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        .questions a:active{
+            color: black;
+            background-color: #b3b3b3;
+            margin: 10px;
+            padding: 10px 60px;
+            font-size: 32px;
+            text-emphasis: bold;
+            text-decoration: none;
+            position: absolute;
+            top: 230px;
+            text-align: center;
+            left: 200px;
+            width: 800px;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+    </style>
+    <center>
+    <head>
+        
+            <div class="questions">
+            <a href="Quizzing_Questions.html">Click here for Questions.</a>
+            </div>
+
+        <div class="head">
+            <h1>Memory Verses</h1>
+            <b>
+            <br>
+            <br>
+            <br>
+            <a href="#1">Matthew 1</a>
+            <a href="#2">Matthew 2</a>
+            <a href="#3">Matthew 3</a>
+            <a href="#4">Matthew 4</a>
+            <a href="#5">Matthew 5</a>
+            <a href="#6">Matthew 6</a>
+            <a href="#7">Matthew 7</a>
+            <a href="#8">Matthew 8</a>
+            <a href="#9">Matthew 9</a>
+            <a href="#10">Matthew 10</a>
+            <a href="#11">Matthew 11</a>
+            <a href="#12">Matthew 12</a>
+            <a href="#13">Matthew 13</a>
+            <a href="#14">Matthew 14</a>
+            <a href="#15">Matthew 15</a>
+            <a href="#16">Matthew 16</a>
+            <a href="#17">Matthew 17</a>
+            <a href="#18">Matthew 18</a>
+            <a href="#19">Matthew 19</a>
+            <a href="#20">Matthew 20</a>
+            <a href="#21">Matthew 21</a>
+            <a href="#22">Matthew 22</a>
+            <a href="#23">Matthew 23</a>
+            <a href="#24">Matthew 24</a>
+            <a href="#25">Matthew 25</a>
+            <a href="#26">Matthew 26</a>
+            <a href="#27">Matthew 27</a>
+            <a href="#28">Matthew 28</a>
+            <br>
+            <br>
+            </b>
+        </div>
+    </head>
+    <button onclick="topFunction()" id="myBtn" title="Go to top"><b>^</b></button>
+    <body>
+
+        <script>
+            //Get the button
+            var mybutton = document.getElementById("myBtn");
+            
+            // When the user scrolls down 20px from the top of the document, show the button
+            window.onscroll = function() {scrollFunction()};
+            
+            function scrollFunction() {
+              if (document.body.scrollTop > 725 || document.documentElement.scrollTop > 725) {
+                mybutton.style.display = "block";
+              } else {
+                mybutton.style.display = "none";
+              }
+            }
+            
+            // When the user clicks on the button, scroll to the top of the document
+            function topFunction() {
+              document.body.scrollTop = 0;
+              document.documentElement.scrollTop = 0;
+            }
+            </script>
+
+        <h2>Hover over the empty space to reveal the verse.</h2>
+
+        <div id="1"></div>
+
+        <h4>Chapter 1</h4>
+
+        <div class="container">
+            <h2>Mathew 1:18</h2>
+            <h3>This is how the birth of Jesus the Messiah came about: His mother Mary was pledged to be married to Joseph, but before they came together, she was found to be pregnant through the Holy Spirit.</h3>
+        </div>
+
+        <div class="container">
+            <h2>Mathew 1:21</h2>
+            <h3>She will give birth to a son, and you are to give him the name Jesus, because he will save his people from their sins."</h3>
+        </div>
+
+        <div class="container">
+            <h2>Mathew 1:23</h2>
+            <h3>"The virgin will conceive and give birth to a son, and they will call him Immanuel" (which means "God with us").</h3>
+        </div>
+
+        <div id="2"></div>
+
+        <h4>Chapter 2</h4>
+
+        <div class="container">
+            <h2>Mathew 2:1-2</h2>
+            <h3>After Jesus was born in Bethlehem in Judea, during the time of King Herod, Magi from the east came to Jerusalem and asked, "Where is the one who has been born king of the Jews? We saw his star when it rose and have come to worship him."</h3>
+        </div>
+
+        <div class="container">
+            <h2>Mathew 2:11</h2>
+            <h3>On coming to the house, they saw the child with his mother Mary, and they bowed down and worshiped him. Then they opened their treasures and presented him with gifts of gold, frankincense and myrrh.</h3>
+        </div>
+
+        <div id="3"></div>
+
+        <h4>Chapter 3</h4>
+
+        <div class="container">
+            <h2>Mathew 3:1-2</h2>
+            <h3>In those days John the Baptist came, preaching in the wilderness of Judea and saying, "Repent, for the kingdom of heaven has come near."</h3>  
+        </div>
+
+        <div class="container">
+            <h2>Mathew 3:8-9</h2>
+            <h3>Produce fruit in keeping with repentance. And do not think you can say to yourselves, 'We have Abraham as our father.' I tell you that out of these stones God can raise up children for Abraham.</h3>  
+        </div>
+
+        <div class="container">
+            <h2>Mathew 3:11</h2>
+            <h3>"I baptize you with water for repentance. But after me comes one who is more powerful than I, whose sandals I am not worthy to carry. He will baptize you with the Holy Spirit and fire.</h3>  
+        </div>
+
+        <div class="container">
+            <h2>Mathew 3:16-17</h2>
+            <h3>As soon as Jesus was baptized, he went up out of the water. At that moment heaven was opened, and he saw the Spirit of God descending like a dove and alighting on him. And a voice from heaven said, "This is my Son, whom I love; with him I am well pleased."</h3>  
+        </div>
+
+        <div id="4"></div>
+
+        <h4>Chapter 4</h4>
+
+        <div class="container">
+            <h2>Mathew 4:4</h2>
+            <h3>Jesus answered, "It is written: 'Man shall not live on bread alone, but on every word that comes from the mouth of God.'</h3>  
+        </div>
+
+        <div class="container">
+            <h2>Mathew 4:7</h2>
+            <h3>Jesus answered him, "It is also written: 'Do not put the Lord your God to the test.'"</h3>  
+        </div>
+
+        <div class="container">
+            <h2>Mathew 4:10</h2>
+            <h3>Jesus said to him, "Away from me, Satan! For it is written: 'Worship the Lord your God, and serve him only.'"</h3>  
+        </div>
+
+        <div class="container">
+            <h2>Mathew 4:19-20</h2>
+            <h3>"Come, follow me," Jesus said, "and I will send you out to fish for people." At once they left their nets and followed him.</h3>  
+        </div>
+
+        <div id="5"></div>
+
+        <h4>Chapter 5</h4>
+
+        <div class="container">
+            <h2>Mathew 5:3-4</h2>
+            <h3>"Blessed are the poor in spirit, for theirs is the kingdom of heaven. Blessed are those who mourn, for they will be comforted.</h3>  
+        </div>
+
+        <div class="container">
+            <h2>Mathew 5:5</h2>
+            <h3>Blessed are the meek, for they will inherit the earth.</h3>  
+        </div>
+
+        <div class="container">
+            <h2>Mathew 5:6-7</h2>
+            <h3>Blessed are those who hunger and thirst for righteousness, for they will be filled. Blessed are the merciful, for they will be shown mercy.</h3>  
+        </div>
+
+        <div class="container">
+            <h2>Mathew 5:8-9</h2>
+            <h3>Blessed are the pure in heart, for they will see God. Blessed are the peacemakers, for they will be called children of God.</h3>  
+        </div>
+
+        <div class="container">
+            <h2>Mathew 5:10</h2>
+            <h3>Blessed are those who are persecuted because of righteousness, for theirs is the kingdom of heaven.</h3>  
+        </div>
+
+        <div class="container">
+            <h2>Mathew 5:11-12</h2>
+            <h3>"Blessed are you when people insult you, persecute you and falsely say all kinds of evil against you because of me. Rejoice and be glad, because great is your reward in heaven, for in the same way they persecuted the prophets who were before you.</h3>  
+        </div>
+
+        <div class="container">
+            <h2>Mathew 5:43-44</h2>
+            <h3>"You have heard that it was said, 'Love your neighbor and hate your enemy.' But I tell you, love your enemies and pray for those who persecute you,</h3>  
+        </div>
+
+        <div class="container">
+            <h2>Mathew 5:48</h2>
+            <h3>Be perfect, therefore, as your heavenly Father is perfect.</h3>  
+        </div>
+
+        <div id="6"></div>
+
+        <h4>Chapter 6</h4>
+
+        <div class="container">
+            <h2>Mathew 6:3-4</h2>
+            <h3>But when you give to the needy, do not let your left hand know what your right hand is doing, so that your giving may be in secret. Then your Father, who sees what is done in secret, will reward you.</h3>  
+        </div>
+
+        <div class="container">
+            <h2>Mathew 6:9-13</h2>
+            <h3>"This, then, is how you should pray: "'Our Father in heaven, hallowed be your name, your kingdom come, your will be done, on earth as it is in heaven. Give us today our daily bread. And forgive us our debts, as we also have forgiven our debtors. And lead us not into temptation, but deliver us from the evil one.'</h3>  
+        </div>
+
+        <div class="container">
+            <h2>Mathew 6:14-15</h2>
+            <h3>For if you forgive other people when they sin against you, your heavenly Father will also forgive you. But if you do not forgive others their sins, your Father will not forgive your sins.</h3>  
+        </div>
+
+        <div class="container">
+            <h2>Mathew 6:19-21</h2>
+            <h3>"Do not store up for yourselves treasures on earth, where moths and vermin destroy, and where thieves break in and steal. But store up for yourselves treasures in heaven, where moths and vermin do not destroy, and where thieves do not break in and steal. For where your treasure is, there your heart will be also.</h3>  
+        </div>
+
+        <div class="container">
+            <h2>Mathew 6:24</h2>
+            <h3>"No one can serve two masters. Either you will hate the one and love the other, or you will be devoted to the one and despise the other. You cannot serve both God and money.</h3>  
+        </div>
+
+        <div class="container">
+            <h2>Mathew 6:26</h2>
+            <h3>Look at the birds of the air; they do not sow or reap or store away in barns, and yet your heavenly Father feeds them. Are you not much more valuable than they?</h3>  
+        </div>
+
+        <div class="container">
+            <h2>Mathew 6:33</h2>
+            <h3>But seek first his kingdom and his righteousness, and all these things will be given to you as well.</h3>  
+        </div>
+
+        <div class="container">
+            <h2>Mathew 6:34</h2>
+            <h3>Therefore do not worry about tomorrow, for tomorrow will worry about itself. Each day has enough trouble of its own.</h3>  
+        </div>
+
+        <div id="7"></div>
+
+        <h4>Chapter 7</h4>
+
+        <div class="container">
+            <h2>Mathew 7:1-2</h2>
+            <h3>"Do not judge, or you too will be judged. For in the same way you judge others, you will be judged, and with the measure you use, it will be measured to you.</h3>  
+        </div>
+
+        <div class="container">
+            <h2>Mathew 7:7-8</h2>
+            <h3>"Ask and it will be given to you; seek and you will find; knock and the door will be opened to you. For everyone who asks receives; the one who seeks finds; and to the one who knocks, the door will be opened.</h3>  
+        </div>
+
+        <div class="container">
+            <h2>Mathew 7:12</h2>
+            <h3>So in everything, do to others what you would have them do to you, for this sums up the Law and the Prophets.</h3>  
+        </div>
+
+        <div id="8"></div>
+
+        <h4>Chapter 8</h4>
+
+        <div class="container">
+            <h2>Mathew 8:26</h2>
+            <h3>He replied, "You of little faith, why are you so afraid?" Then he got up and rebuked the winds and the waves, and it was completely calm.</h3>  
+        </div>
+
+        <div id="9"></div>
+
+        <h4>Chapter 9</h4>
+
+        <div class="container">
+            <h2>Mathew 9:12-13</h2>
+            <h3>On hearing this, Jesus said, "It is not the healthy who need a doctor, but the sick. But go and learn what this means: 'I desire mercy, not sacrifice.' For I have not come to call the righteous, but sinners."</h3>  
+        </div>
+
+        <div class="container">
+            <h2>Mathew 9:36</h2>
+            <h3>When he saw the crowds, he had compassion on them, because they were harassed and helpless, like sheep without a shepherd.</h3>  
+        </div>
+
+        <div class="container">
+            <h2>Mathew 9:37-38</h2>
+            <h3>Then he said to his disciples, "The harvest is plentiful but the workers are few. Ask the Lord of the harvest, therefore, to send out workers into his harvest field."</h3>  
+        </div>
+
+        <div id="10"></div>
+
+        <h4>Chapter 10</h4>
+
+        <div class="container">
+            <h2>Mathew 10:32</h2>
+            <h3>"Whoever acknowledges me before others, I will also acknowledge before my Father in heaven. But whoever disowns me before others, I will disown before my Father in heaven.</h3>  
+        </div>
+
+        <div class="container">
+            <h2>Mathew 10:39</h2>
+            <h3>Whoever finds their life will lose it, and whoever loses their life for my sake will find it.</h3>  
+        </div>
+
+        <div class="container">
+            <h2>Mathew 10:40</h2>
+            <h3>"Anyone who welcomes you welcomes me, and anyone who welcomes me welcomes the one who sent me.</h3>  
+        </div>
+
+        <div class="container">
+            <h2>Mathew 10:42</h2>
+            <h3>And if anyone gives even a cup of cold water to one of these little ones who is my disciple, truly I tell you, that person will certainly not lose their reward."</h3>  
+        </div>
+
+        <div id="11"></div>
+
+        <h4>Chapter 11</h4>
+
+        <div class="container">
+            <h2>Mathew 11:28-30</h2>
+            <h3>"Come to me, all you who are weary and burdened, and I will give you rest. Take my yoke upon you and learn from me, for I am gentle and humble in heart, and you will find rest for your souls. For my yoke is easy and my burden is light."</h3>  
+        </div>
+
+        <div id="12"></div>
+
+        <h4>Chapter 12</h4>
+
+        <div class="container">
+            <h2>Mathew 12:8</h2>
+            <h3>For the Son of Man is Lord of the Sabbath."</h3>  
+        </div>
+
+        <div id="13"></div>
+
+        <h4>Chapter 13</h4>
+
+        <div class="container">
+            <h2>Mathew 13:12</h2>
+            <h3>Whoever has will be given more, and they will have an abundance. Whoever does not have, even what they have will be taken from them.</h3>  
+        </div>
+
+        <div class="container">
+            <h2>Mathew 13:44</h2>
+            <h3>"The kingdom of heaven is like treasure hidden in a field. When a man found it, he hid it again, and then in his joy went and sold all he had and bought that field.</h3>  
+        </div>
+
+        <div id="14"></div>
+
+        <h4>Chapter 14</h4>
+
+        <div class="container">
+            <h2>Mathew 14:31</h2>
+            <h3>Immediately Jesus reached out his hand and caught him. "You of little faith," he said, "why did you doubt?"</h3>  
+        </div>
+
+        <div id="15"></div>
+
+        <h4>Chapter 15</h4>
+
+        <div class="container">
+            <h2>Mathew 15:30</h2>
+            <h3>Great crowds came to him, bringing the lame, the blind, the crippled, the mute and many others, and laid them at his feet; and he healed them.</h3>  
+        </div>
+
+        <div id="16"></div>
+
+        <h4>Chapter 16</h4>
+
+        <div class="container">
+            <h2>Mathew 16:17-18</h2>
+            <h3>Jesus replied, "Blessed are you, Simon son of Jonah, for this was not revealed to you by flesh and blood, but by my Father in heaven. And I tell you that you are Peter, and on this rock I will build my church, and the gates of Hades will not overcome it.</h3>  
+        </div>
+
+        <div class="container">
+            <h2>Mathew 16:21</h2>
+            <h3>From that time on Jesus began to explain to his disciples that he must go to Jerusalem and suffer many things at the hands of the elders, the chief priests and the teachers of the law, and that he must be killed and on the third day be raised to life.</h3>  
+        </div>
+
+        <div class="container">
+            <h2>Mathew 16:24-25</h2>
+            <h3>Then Jesus said to his disciples, "Whoever wants to be my disciple must deny themselves and take up their cross and follow me. For whoever wants to save their life will lose it, but whoever loses their life for me will find it.</h3>  
+        </div>
+
+        <div class="container">
+            <h2>Mathew 16:26</h2>
+            <h3>What good will it be for someone to gain the whole world, yet forfeit their soul? Or what can anyone give in exchange for their soul?</h3>  
+        </div>
+
+        <div id="17"></div>
+
+        <h4>Chapter 17</h4>
+
+        <div class="container">
+            <h2>Mathew 17:2</h2>
+            <h3>There he was transfigured before them. His face shone like the sun, and his clothes became as white as the light.</h3>  
+        </div>
+
+        <div class="container">
+            <h2>Mathew 17:3</h2>
+            <h3>Just then there appeared before them Moses and Elijah, talking with Jesus.</h3>  
+        </div>
+
+        <div class="container">
+            <h2>Mathew 17:5</h2>
+            <h3>While he was still speaking, a bright cloud covered them, and a voice from the cloud said, "This is my Son, whom I love; with him I am well pleased. Listen to him!"</h3>  
+        </div>
+
+        <div class="container">
+            <h2>Mathew 17:20</h2>
+            <h3>He replied, "Because you have so little faith. Truly I tell you, if you have faith as small as a mustard seed, you can say to this mountain, 'Move from here to there,' and it will move. Nothing will be impossible for you."</h3>  
+        </div>
+
+        <div id="18"></div>
+
+        <h4>Chapter 18</h4>
+
+        <div class="container">
+            <h2>Mathew 18:3</h2>
+            <h3>And he said: "Truly I tell you, unless you change and become like little children, you will never enter the kingdom of heaven.</h3>  
+        </div>
+
+        <div class="container">
+            <h2>Mathew 18:19-20</h2>
+            <h3>Again, truly I tell you that if two of you on earth agree about anything they ask for, it will be done for them by my Father in heaven. For where two or three gather in my name, there am I with them."
+            </h3>  
+        </div>
+
+        <div id="19"></div>
+
+        <h4>Chapter 19</h4>
+
+        <div class="container">
+            <h2>Mathew 19:6</h2>
+            <h3>So they are no longer two, but one flesh. Therefore what God has joined together, let no one separate."</h3>  
+        </div>
+
+        <div class="container">
+            <h2>Mathew 19:14</h2>
+            <h3>Jesus said, "Let the little children come to me, and do not hinder them, for the kingdom of heaven belongs to such as these."</h3>  
+        </div>
+
+        <div class="container">
+            <h2>Mathew 19:24</h2>
+            <h3>Again I tell you, it is easier for a camel to go through the eye of a needle than for someone who is rich to enter the kingdom of God."</h3>  
+        </div>
+
+        <div class="container">
+            <h2>Mathew 19:26</h2>
+            <h3>Jesus looked at them and said, "With man this is impossible, but with God all things are possible."</h3>  
+        </div>
+
+        <div class="container">
+            <h2>Mathew 19:30</h2>
+            <h3>But many who are first will be last, and many who are last will be first.</h3>  
+        </div>
+
+        <div id="20"></div>
+
+        <h4>Chapter 20</h4>
+
+        <div class="container">
+            <h2>Mathew 20:28</h2>
+            <h3>just as the Son of Man did not come to be served, but to serve, and to give his life as a ransom for many."</h3>  
+        </div>
+
+        <div id="21"></div>
+
+        <h4>Chapter 21</h4>
+
+        <div class="container">
+            <h2>Mathew 21:9</h2>
+            <h3>The crowds that went ahead of him and those that followed shouted, "Hosanna to the Son of David!" "Blessed is he who comes in the name of the Lord!" "Hosanna in the highest heaven!"</h3>  
+        </div>
+
+        <div class="container">
+            <h2>Mathew 21:21</h2>
+            <h3>Jesus replied, "Truly I tell you, if you have faith and do not doubt, not only can you do what was done to the fig tree, but also you can say to this mountain, 'Go, throw yourself into the sea,' and it will be done.</h3>  
+        </div>
+
+        <div id="22"></div>
+
+        <h4>Chapter 22</h4>
+
+        <div class="container">
+            <h2>Mathew 22:29</h2>
+            <h3>Jesus replied, "You are in error because you do not know the Scriptures or the power of God.</h3>  
+        </div>
+
+        <div class="container">
+            <h2>Mathew 22:31-32</h2>
+            <h3>But about the resurrection of the dead-have you not read what God said to you, I am the God of Abraham, the God of Isaac, and the God of Jacob'? He is not the God of the dead but of the living."</h3>  
+        </div>
+
+        <div class="container">
+            <h2>Mathew 22:37-38</h2>
+            <h3>Jesus replied: "'Love the Lord your God with all your heart and with all your soul and with all your mind.' This is the first and greatest commandment.</h3>  
+        </div>
+
+        <div class="container">
+            <h2>Mathew 22:39-40</h2>
+            <h3>And the second is like it: 'Love your neighbor as yourself.' All the Law and the Prophets hang on these two commandments."</h3>  
+        </div>
+
+        <div id="23"></div>
+
+        <h4>Chapter 23</h4>
+
+        <div class="container">
+            <h2>Mathew 23:12</h2>
+            <h3>For those who exalt themselves will be humbled, and those who humble themselves will be exalted.</h3>  
+        </div>
+
+        <div class="container">
+            <h2>Mathew 23:26</h2>
+            <h3>Blind Pharisee! First clean the inside of the cup and dish, and then the outside also will be clean.</h3>  
+        </div>
+
+        <div id="24"></div>
+
+        <h4>Chapter 24</h4>
+
+        <div class="container">
+            <h2>Mathew 24:12-13</h2>
+            <h3>Because of the increase of wickedness, the love of most will grow cold, but the one who stands firm to the end will be saved.</h3>  
+        </div>
+
+        <div class="container">
+            <h2>Mathew 24:14</h2>
+            <h3>And this gospel of the kingdom will be preached in the whole world as a testimony to all nations, and then the end will come.</h3>  
+        </div>
+
+        <div class="container">
+            <h2>Mathew 24:30</h2>
+            <h3>"Then will appear the sign of the Son of Man in heaven. And then all the peoples of the earth will mourn when they see the Son of Man coming on the clouds of heaven, with power and great glory.</h3>  
+        </div>
+
+        <div class="container">
+            <h2>Mathew 24:35</h2>
+            <h3>Heaven and earth will pass away, but my words will never pass away.</h3>  
+        </div>
+
+        <div class="container">
+            <h2>Mathew 24:36</h2>
+            <h3>"But about that day or hour no one knows, not even the angels in heaven, nor the Son, but only the Father.</h3>  
+        </div>
+
+        <div id="25"></div>
+
+        <h4>Chapter 25</h4>
+
+        <div class="container">
+            <h2>Mathew 25:31</h2>
+            <h3>"When the Son of Man comes in his glory, and all the angels with him, he will sit on his glorious throne.</h3>  
+        </div>
+
+        <div class="container">
+            <h2>Mathew 25:32-33</h2>
+            <h3>All the nations will be gathered before him, and he will separate the people one from another as a shepherd separates the sheep from the goats. He will put the sheep on his right and the goats on his left.</h3>  
+        </div>
+
+        <div class="container">
+            <h2>Mathew 25:35</h2>
+            <h3>For I was hungry and you gave me something to eat, I was thirsty and you gave me something to drink, I was a stranger and you invited me in,</h3>  
+        </div>
+
+        <div class="container">
+            <h2>Mathew 25:40</h2>
+            <h3>"The King will reply, 'Truly I tell you, whatever you did for one of the least of these brothers and sisters of mine, you did for me.'</h3>  
+        </div>
+
+        <div id="26"></div>
+
+        <h4>Chapter 26</h4>
+
+        <div class="container">
+            <h2>Mathew 26:26</h2>
+            <h3>While they were eating, Jesus took bread, and when he had given thanks, he broke it and gave it to his disciples, saying, "Take and eat; this is my body."</h3>  
+        </div>
+
+        <div class="container">
+            <h2>Mathew 26:27-28</h2>
+            <h3>Then he took a cup, and when he had given thanks, he gave it to them, saying, "Drink from it, all of you. This is my blood of the covenant, which is poured out for many for the forgiveness of sins.</h3>  
+        </div>
+
+        <div class="container">
+            <h2>Mathew 26:39</h2>
+            <h3>Going a little farther, he fell with his face to the ground and prayed, "My Father, if it is possible, may this cup be taken from me. Yet not as I will, but as you will."</h3>  
+        </div>
+
+        <div class="container">
+            <h2>Mathew 26:41</h2>
+            <h3>"Watch and pray so that you will not fall into temptation. The spirit is willing, but the flesh is weak."</h3>  
+        </div>
+
+        <div id="27"></div>
+
+        <h4>Chapter 27</h4>
+
+        <div class="container">
+            <h2>Mathew 27:46</h2>
+            <h3>About three in the afternoon Jesus cried out in a loud voice, "Eli, Eli, lema sabachthani?" (which means "My God, my God, why have you forsaken me?").</h3>  
+        </div>
+
+        <div class="container">
+            <h2>Mathew 27:50</h2>
+            <h3>And when Jesus had cried out again in a loud voice, he gave up his spirit.</h3>  
+        </div>
+
+        <div class="container">
+            <h2>Mathew 27:51-52</h2>
+            <h3>At that moment the curtain of the temple was torn in two from top to bottom. The earth shook, the rocks split and the tombs broke open. The bodies of many holy people who had died were raised to life.</h3>  
+        </div>
+
+        <div id="28"></div>
+
+        <h4>Chapter 28</h4>
+
+        <div class="container">
+            <h2>Mathew 28:6</h2>
+            <h3>He is not here; he has risen, just as he said. Come and see the place where he lay.</h3>  
+        </div>
+
+        <div class="container">
+            <h2>Mathew 28:18</h2>
+            <h3>Then Jesus came to them and said, "All authority in heaven and on earth has been given to me.</h3>  
+        </div>
+
+        <div class="container">
+            <h2>Mathew 28:19-20</h2>
+            <h3>Therefore go and make disciples of all nations, baptizing them in the name of the Father and of the Son and of the Holy Spirit, and teaching them to obey everything I have commanded you. And surely I am with you always, to the very end of the age."</h3>  
+        </div>
+
+    </body>
+</center>
+</html>

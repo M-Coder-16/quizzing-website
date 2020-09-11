@@ -1,0 +1,902 @@
+<!DOCTYPE html>
+<html> 
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+
+        h1{
+            background-color: black;
+            text-align: center;
+            font-size: 120px;
+            margin: 0px;
+            padding: 30px;
+            color: rgb(0, 172, 172);
+            font-family: 'Impact', Haettenschweiler, Arial Narrow Bold, sans-serif;
+            top: 0px;
+            left: 0px;
+            text-emphasis: bold;
+        }
+
+        head{
+            background-color: black;
+            margin: 0px;
+            padding: 20px;
+        }
+
+        nav{
+            left: 0px;
+            margin: 0px;
+            padding: 20px;
+            background-color: rgb(0, 172, 172);
+            color: black;
+            text-align: left;
+            display: inline-block;
+            height: auto;
+        }
+
+        nav a{
+            color: black;
+            text-decoration: none;
+            margin: 10px 15px;
+            padding: 8px;
+            font-size: 24px;
+            display: inline-block;
+            box-shadow: 0px 0px 10px 5px black;
+            background-color: #b3b3b3;
+            border-radius: 5px;
+        }
+
+        body{
+            background-image: url('data:image/jpeg;base64,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');
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-attachment: fixed;
+        }
+
+        h2{
+            text-align: center;
+            color: white;
+            font-size: 32px;
+            text-emphasis: bold;
+            margin: 10px;
+            background-color: black;
+            padding: 10px;
+            border: double 3px black;
+        }
+
+        .bookmarks{
+            background-color: rgb(0, 172, 172);
+            position: absolute;
+            top: 290px;
+            left: 26%;
+            text-align: center;
+            padding: 10px 20px;
+            border: solid black 5px;
+            border-radius: 25px;
+        }
+
+        .bookmarks a{
+            display: inline-block;
+            background-color: black;
+            color: white;
+            text-emphasis: bold;
+            font-size: 24px;
+            margin: 10px;
+            padding: 10px;
+            border-radius: 10px;
+        }
+
+        h3{
+            font-size: 68px;
+            position: absolute;
+            float: center;
+            top: 350px;
+            left: 48%;
+            text-emphasis: bold;
+            text-align: center;
+            font-family: 'Times New Roman', Times, serif;
+        }
+
+        .verses a{
+            position: absolute;
+            color: rgb(0, 172, 172);
+            background-color: black;
+            font-size: 32px;
+            font-family: Arial, Helvetica, sans-serif;
+            left: 38%;
+            padding: 10px 100px;
+            text-decoration: none;
+            text-align: center;
+            top: 220px;
+            text-emphasis: bold;
+        }
+
+        #myBtn {
+            display: none; /* Hidden by default */
+            position: fixed; /* Fixed/sticky position */
+            bottom: 65px; /* Place the button at the bottom of the page */
+            left: 50px; /* Place the button 30px from the right */
+            z-index: 99; /* Make sure it does not overlap */
+            border: none; /* Remove borders */
+            outline: none; /* Remove outline */
+            background-color: rgb(0, 172, 172); /* Set a background color */
+            color: black; /* Text color */
+            cursor: pointer; /* Add a mouse pointer on hover */
+            padding: 10px; /* Some padding */
+            padding-bottom: 0px;
+            border-radius: 10px; /* Rounded corners */
+            border: solid black 5px;
+            font-size: 72px; /* Increase font size */
+        }
+
+        #myBtn:hover {
+            display: none; /* Hidden by default */
+            position: fixed; /* Fixed/sticky position */
+            bottom: 65px; /* Place the button at the bottom of the page */
+            left: 50px; /* Place the button 30px from the right */
+            z-index: 99; /* Make sure it does not overlap */
+            border: none; /* Remove borders */
+            outline: none; /* Remove outline */
+            background-color: rgb(0, 0, 0); /* Set a background color */
+            color: rgb(0, 172, 172); /* Text color */
+            cursor: pointer; /* Add a mouse pointer on hover */
+            padding: 10px; /* Some padding */
+            padding-bottom: 0px;
+            border-radius: 10px; /* Rounded corners */
+            border: solid rgb(0, 172, 172) 5px;
+            font-size: 72px; /* Increase font size */
+        }
+
+        p{
+            font-size: 22px;
+            position: absolute;
+            top: 500px;
+            left: 30%;
+        }
+
+        h7{
+            font-size: 32px;
+            text-emphasis: bold;
+        }
+
+    </style>
+    <button onclick="topFunction()" id="myBtn" title="Go to top"><b>^</b></button>
+<head> 
+    <h1>Questions</h1>
+    <div class="verses">
+        <a href="Quizzing.html">Click here for memory verses.</a>        
+   </div>
+</head>
+<body>
+   
+    <script>
+        //Get the button
+        var mybutton = document.getElementById("myBtn");
+        
+        // When the user scrolls down 20px from the top of the document, show the button
+        window.onscroll = function() {scrollFunction()};
+        
+        function scrollFunction() {
+          if (document.body.scrollTop > 1750 || document.documentElement.scrollTop > 1750) {
+            mybutton.style.display = "block";
+          } else {
+            mybutton.style.display = "none";
+          }
+        }
+        
+        // When the user clicks on the button, scroll to the top of the document
+        function topFunction() {
+          document.body.scrollTop = 0;
+          document.documentElement.scrollTop = 0;
+        }
+        </script>
+
+    <nav>
+
+        <h2>Select a Chapter</h2>
+        <br>
+
+        <a href="Quizzing_Questions_1.html">Matthew 1</a>
+        <br>
+        <a href="Quizzing_Questions_2.html">Matthew 2</a>
+        <br>
+        <a href="Quizzing_Questions_3.html">Matthew 3</a>
+        <br>
+        <a href="Quizzing_Questions_4.html">Matthew 4</a>
+        <br>
+        <a href="Quizzing_Questions_5.html">Matthew 5</a>
+        <br>
+        <a href="Quizzing_Questions_6.html">Matthew 6</a>
+        <br>
+        <a href="Quizzing_Questions_7.html">Matthew 7</a>
+        <br>
+        <a href="Quizzing_Questions_8.html">Matthew 8</a>
+        <br>
+        <a href="Quizzing_Questions_9.html">Matthew 9</a>
+        <br>
+        <a href="Quizzing_Questions_10.html">Matthew 10</a>
+        <br>
+        <a href="Quizzing_Questions_11.html">Matthew 11</a>
+        <br>
+        <a href="Quizzing_Questions_12.html">Matthew 12</a>
+        <br>
+        <a href="Quizzing_Questions_13.html">Matthew 13</a>
+        <br>
+        <a href="Quizzing_Questions_14.html">Matthew 14</a>
+        <br>
+        <a href="Quizzing_Questions_15.html">Matthew 15</a>
+        <br>
+        <a href="Quizzing_Questions_16.html">Matthew 16</a>
+        <br>
+        <a href="Quizzing_Questions_17.html">Matthew 17</a>
+        <br>
+        <a href="Quizzing_Questions_18.html">Matthew 18</a>
+        <br>
+        <a href="Quizzing_Questions_19.html">Matthew 19</a>
+        <br>
+        <a href="Quizzing_Questions_20.html">Matthew 20</a>
+        <br>
+        <a href="Quizzing_Questions_21.html">Matthew 21</a>
+        <br>
+        <a href="Quizzing_Questions_22.html">Matthew 22</a>
+        <br>
+        <a href="Quizzing_Questions_23.html">Matthew 23</a>
+        <br>
+        <a href="Quizzing_Questions_24.html">Matthew 24</a>
+        <br>
+        <a href="Quizzing_Questions_25.html">Matthew 25</a>
+        <br>
+        <a href="Quizzing_Questions_26.html">Matthew 26</a>
+        <br>
+        <a href="Quizzing_Questions_27.html">Matthew 27</a>
+        <br>
+        <a href="Quizzing_Questions_28.html">Matthew 28</a>
+    </nav>
+
+    <div class="bookmarks">
+        <a href="#1">Set 1</a>
+        <a href="#2">Set 2</a>
+        <a href="#3">Set 3</a>
+        <a href="#4">Set 4</a>
+        <a href="#5">Set 5</a>
+        <a href="#6">Set 6</a>
+        <a href="#7">Set 7</a>
+        <a href="#8">Set 8</a>
+        <a href="#9">Set 9</a>
+        <a href="#10">Set 10</a>
+    </div>
+
+    <h3>Matthew 18</h3>
+
+    <p> <h7 id="1">SET #1</h7>   <br><br>
+
+        G 	1. Who begged that servant, "Be patient with me, and I will pay it back."? <br>
+            A. His fellow servant (Matthew 18:29)  <br><br>
+        
+        R 	2. Finish these verses and give the reference: ""Again, truly I tell you. . ." <br>
+            A. ". . .that if two of you on earth agree about anything they ask for, it will be done for them by my Father in heaven. For where two or three gather in my name, there am I with them." " (Matthew 18:19-20)  <br><br>
+        
+        G 	3. When should you gouge your eye out and throw it away? <br>
+            A. If it causes you to stumble (Matthew 18:9)  <br><br>
+        
+        A 	4. According to Matthew, chapter 18, verse 19, by whom will it be done for them? <br>
+            A. My Father in heaven (Matthew 18:19)  <br><br>
+        
+        G 	5. What is to the world because of the things that cause people to stumble? <br>
+            A. Woe (Matthew 18:7)  <br><br>
+        
+        G 	6. Why should you not despise one of these little ones? <br>
+            A. Their angels in heaven always see the face of Jesus' Father in heaven (Matthew 18:10)  <br><br>
+        
+        A 	7. According to Matthew, chapter 18, verse 23, like what is the kingdom of heaven? <br>
+            A. A king who wanted to settle accounts with his servants (Matthew 18:23)  <br><br>
+        
+        G 	8. What may be established by the testimony of two or three witnesses? <br>
+            A. Every matter (Matthew 18:16)  <br><br>
+        
+        Q 	9. Quote Matthew, chapter 18, verse 3. <br>
+            A. "And he said: "Truly I tell you, unless you change and become like little children, you will never enter the kingdom of heaven." (Matthew 18:3)  <br><br>
+        
+        G 	10. Why did his master hand the servant over to the jailers? <br>
+            A. To be tortured until he should pay back all he owed (Matthew 18:34)  <br><br>
+        
+        G 	11. Who is there with them when two or three gather in Jesus' name? <br>
+            A. Jesus (Matthew 18:20)  <br><br>
+        
+        X 	12. Complete, in essence, the following: "He called a little child . . ." <br>
+            A. ". . . to him, and placed the child among them." (Matthew 18:2)  <br><br>
+        
+        A 	13. According to Matthew, chapter 18, verse 25, what was he not able to do? <br>
+            A. Pay (Matthew 18:25)  <br><br>
+        
+        G 	14. Who were outraged? <br>
+            A. The other servants (Matthew 18:31)  <br><br>
+        
+        A 	15. According to Matthew, chapter 18, verse 28, what did one of his fellow servants owe that servant? <br>
+            A. A hundred silver coins (Matthew 18:28)  <br><br>
+        
+        V 	16. Finish this verse: "And he said: "Truly I. . ." <br>
+            A. ". . .tell you, unless you change and become like little children, you will never enter the kingdom of heaven." (Matthew 18:3)  <br><br>
+        
+        G 	17. Who is the greatest in the kingdom of heaven? <br>
+            A. Whoever takes the lowly position of this child (Matthew 18:4)  <br><br>
+        
+        G 	18. What will whatever you bind on earth be? <br>
+            A. Bound in heaven (Matthew 18:18)  <br><br>
+        
+        S 	19. Situation question: who said it, to whom, and what was the reply: "Lord, how many times shall I forgive my brother or sister who sins against me? Up to seven times?" <br>
+            A. Peter said it to Jesus, and the reply was, "I tell you, not seven times, but seventy-seven times." (Matthew 18:21-22)  <br><br>
+        
+        G 	20. Whom should you treat as you would a pagan or a tax collector if they refuse to listen even to the church? <br>
+            A. Your brother or sister (Matthew 18:17)  <br><br>
+        <br><br>
+        
+         <h7 id="2">SET #2</h7>  <br><br>
+        
+        G 	1. When did the other servants go and tell their master everything that had happened? <br>
+            A. When they saw what had happened (Matthew 18:31)  <br><br>
+        
+        G 	2. Than what is it better for you to enter life maimed or crippled? <br>
+            A. Than to have two hands and two feet and be thrown into eternal fire (Matthew 18:8)  <br><br>
+        
+        A 	3. According to Matthew, chapter 18, verse 26, who fell on his knees before him? <br>
+            A. The servant (Matthew 18:26)  <br><br>
+        
+        G 	4. Who asked, "Who, then, is the greatest in the kingdom of heaven?" <br>
+            A. The disciples (Matthew 18:1)  <br><br>
+        
+        G 	5. Whom should you forgive from your heart? <br>
+            A. Your brother or sister (Matthew 18:35)  <br><br>
+        
+        X 	6. From what Old Testament book does the following quotation come: "Every matter may be established by the testimony of two or three witnesses."? <br>
+            A. Deuteronomy (Matthew 18:16)  <br><br>
+        
+        V 	7. Finish this verse: "And he said: "Truly I. . ." <br>
+            A. ". . .tell you, unless you change and become like little children, you will never enter the kingdom of heaven." (Matthew 18:3)  <br><br>
+        
+        G 	8. When would it be better for them to have a large millstone hung around their neck and to be drowned in the depths of the sea? <br>
+            A. If anyone causes one of these little ones - those who believe in Jesus - to stumble (Matthew 18:6)  <br><br>
+        
+        G 	9. Who placed the child among them? <br>
+            A. Jesus (Matthew 18:2)  <br><br>
+        
+        A 	10. According to Matthew, chapter 18, verse 30, until when did he have the man thrown into prison? <br>
+            A. Until he could pay the debt (Matthew 18:30)  <br><br>
+        
+        Q 	11. Quote Matthew, chapter 18, verses 19 through 20. <br>
+            A. "Again, truly I tell you that if two of you on earth agree about anything they ask for, it will be done for them by my Father in heaven. For where two or three gather in my name, there am I with them." (Matthew 18:19-20)  <br><br>
+        
+        S 	12. Situation question: who said it, and to whom: "Pay back what you owe me!"? <br>
+            A. The servant said it to one of his fellow servants who owed him a hundred silver coins (Matthew 18:28)  <br><br>
+        
+        G 	13. What if your brother or sister listen to you? <br>
+            A. You have won them over (Matthew 18:15)  <br><br>
+        
+        G 	14. Until when did his master hand the servant over to the jailers to be tortured? <br>
+            A. Until he should pay back all he owed (Matthew 18:34)  <br><br>
+        
+        R 	15. Finish this verse and give the reference: "And he said: "Truly I. . ." <br>
+            A. ". . .tell you, unless you change and become like little children, you will never enter the kingdom of heaven. " (Matthew 18:3)  <br><br>
+        
+        A 	16. According to Matthew, chapter 18, verse 19, what do I truly tell you? <br>
+            A. That if two of you on earth agree about anything they ask for, it will be done for them by my Father in heaven (Matthew 18:19)  <br><br>
+        
+        G 	17. What do their angels in heaven always see? <br>
+            A. The face of Jesus' Father in heaven (Matthew 18:10)  <br><br>
+        
+        G 	18. Who answered, "I tell you, not seven times, but seventy-seven times."? <br>
+            A. Jesus (Matthew 18:22)  <br><br>
+        
+        A 	19. According to Matthew, chapter 18, verse 24, what did he begin? <br>
+            A. The settlement (Matthew 18:24)  <br><br>
+        
+        G 	20. When should you tell it to the church? <br>
+            A. If your brother or sister still refuse to listen (Matthew 18:17)  <br><br>
+        <br><br>
+        
+         <h7 id="3">SET #3 </h7>  <br><br>
+        
+        G 	1. Who is happier about that one sheep if he finds it than about the ninety-nine that did not wander off? <br>
+            A. A man who owns a hundred sheep (Matthew 18:13)  <br><br>
+        
+        G 	2. Who demanded, "Pay back what you owe me!"? <br>
+            A. That servant (Matthew 18:28)  <br><br>
+        
+        V 	3. Finish this verse: "And he said: "Truly I. . ." <br>
+            A. ". . .tell you, unless you change and become like little children, you will never enter the kingdom of heaven." (Matthew 18:3)  <br><br>
+        
+        X 	4. Two-part question: what will a man leave on the hills, and why? <br>
+            A. 1) The ninety-nine sheep; 2) To look for the one that wandered off (Matthew 18:12)  <br><br>
+        
+        A 	5. According to Matthew, chapter 18, verse 16, why should you take one or two others along? <br>
+            A. So that "every matter may be established by the testimony of two or three witnesses" (Matthew 18:16)  <br><br>
+        
+        G 	6. To whom should you tell it if your brother or sister still refuse to listen? <br>
+            A. The church (Matthew 18:17)  <br><br>
+        
+        A 	7. According to Matthew, chapter 18, verse 27, who let him go? <br>
+            A. The servant's master (Matthew 18:27)  <br><br>
+        
+        G 	8. By whom will anything they ask for be done if two of you on earth agree about it? <br>
+            A. Jesus' Father in heaven (Matthew 18:19)  <br><br>
+        
+        G 	9. Who is not willing that any of these little ones should perish? <br>
+            A. Your Father in heaven (Matthew 18:14)  <br><br>
+        
+        Q 	10. Quote Matthew, chapter 18, verses 19 through 20. <br>
+            A. "Again, truly I tell you that if two of you on earth agree about anything they ask for, it will be done for them by my Father in heaven. For where two or three gather in my name, there am I with them." (Matthew 18:19-20)  <br><br>
+        
+        G 	11. What if anyone causes one of these little ones - those who believe in Jesus - to stumble? <br>
+            A. It would be better for them to have a large millstone hung around their neck and to be drowned in the depths of the sea (Matthew 18:6)  <br><br>
+        
+        A 	12. According to Matthew, chapter 18, verse 31, what did the other servants tell their master? <br>
+            A. Everything that had happened (Matthew 18:31)  <br><br>
+        
+        R 	13. Finish this verse and give the reference: "And he said: "Truly I. . ." <br>
+            A. ". . .tell you, unless you change and become like little children, you will never enter the kingdom of heaven. " (Matthew 18:3)  <br><br>
+        
+        S 	14. Situation question: who said it, to whom, and what was the reply: "Lord, how many times shall I forgive my brother or sister who sins against me? Up to seven times?" <br>
+            A. Peter said it to Jesus, and the reply was, "I tell you, not seven times, but seventy-seven times." (Matthew 18:21-22)  <br><br>
+        
+        G 	15. Where is whoever takes the lowly position of this child the greatest? <br>
+            A. In the kingdom of heaven (Matthew 18:4)  <br><br>
+        
+        G 	16. What should you point out, just between the two of you, if your brother or sister sins? <br>
+            A. Their fault (Matthew 18:15)  <br><br>
+        
+        A 	17. According to Matthew, chapter 18, verse 29, who fell to his knees? <br>
+            A. His fellow servant (Matthew 18:29)  <br><br>
+        
+        G 	18. Who said, "You wicked servant, I canceled all that debt of yours because you begged me to."? <br>
+            A. The master (Matthew 18:32)  <br><br>
+        
+        G 	19. What is better than to have two hands or two feet and be thrown into eternal fire? <br>
+            A. For you to enter life maimed or crippled (Matthew 18:8)  <br><br>
+        
+        G 	20. Than what is it better for you to enter life with one eye? <br>
+            A. Than to have two eyes and be thrown into the fire of hell (Matthew 18:9)  <br><br>
+        <br><br>
+        
+         <h7 id="4">SET #4 </h7>  <br><br>
+        
+        G 	1. Who was not able to pay? <br>
+            A. A man who owed a king ten thousand bags of gold (Matthew 18:25)  <br><br>
+        
+        G 	2. When should you go and point out their fault, just between the two of you? <br>
+            A. If your brother or sister sins (Matthew 18:15)  <br><br>
+        
+        A 	3. According to Matthew, chapter 18, verse 2, whom did he call to him? <br>
+            A. A little child (Matthew 18:2)  <br><br>
+        
+        G 	4. Who took pity on the servant? <br>
+            A. The servant's master (Matthew 18:27) <br><br> 
+        
+        G 	5. Who begged the master to cancel all that debt of his? <br>
+            A. The servant (Matthew 18:32)  <br><br>
+        
+        S 	6. Situation question: who said it, and to whom: "Pay back what you owe me!"? <br>
+            A. The servant said it to one of his fellow servants who owed him a hundred silver coins (Matthew 18:28)  <br><br>
+        
+        G 	7. What will be done for them by Jesus' Father in heaven if two of you on earth agree about it? <br>
+            A. Anything they ask for (Matthew 18:19)  <br><br>
+        
+        X 	8. Complete, in essence, the following: "For where two or three . . ." <br>
+            A. ". . . gather in my name, there am I with them." (Matthew 18:20)  <br><br>
+        
+        A 	9. According to Matthew, chapter 18, verse 17, how should you treat them if they refuse to listen even to the church? <br>
+            A. As you would a pagan or a tax collector (Matthew 18:17)  <br><br>
+        
+        Q 	10. Quote Matthew, chapter 18, verses 19 through 20. <br>
+            A. "Again, truly I tell you that if two of you on earth agree about anything they ask for, it will be done for them by my Father in heaven. For where two or three gather in my name, there am I with them." (Matthew 18:19-20)  <br><br>
+        
+        G 	11. What if a man finds the one sheep that wandered off? <br>
+            A. He is happier about that one sheep than about the ninety-nine that did not wander off (Matthew 18:13)  <br><br>
+        
+        G 	12. To what did his fellow servant fall? <br>
+            A. His knees (Matthew 18:29)  <br><br>
+        
+        A 	13. According to Matthew, chapter 18, verse 16, what if they will not listen? <br>
+            A. Take one or two others along, so that "every matter may be established by the testimony of two or three witnesses" (Matthew 18:16)  <br><br>
+        
+        G 	14. Who wanted to settle accounts with his servants? <br>
+            A. A king (Matthew 18:23)  <br><br>
+        
+        G 	15. Who was brought to a king as he began the settlement? <br>
+            A. A man who owed him ten thousand bags of gold (Matthew 18:24) <br><br> 
+        
+        V 	16. Finish this verse: "And he said: "Truly I. . ." <br>
+            A. ". . .tell you, unless you change and become like little children, you will never enter the kingdom of heaven." (Matthew 18:3)  <br><br>
+        
+        G 	17. Whom did that servant have thrown into prison until he could pay the debt? <br>
+            A. His fellow servant (Matthew 18:30)  <br><br>
+        
+        A 	18. According to Matthew, chapter 18, verse 21, what did Peter ask? <br>
+            A. "Lord, how many times shall I forgive my brother or sister who sins against me? Up to seven times?" (Matthew 18:21)  <br><br>
+        
+        R 	19. Finish these verses and give the reference: ""Again, truly I tell you. . ." <br>
+            A. ". . .that if two of you on earth agree about anything they ask for, it will be done for them by my Father in heaven. For where two or three gather in my name, there am I with them." " (Matthew 18:19-20)  <br><br>
+        
+        G 	20. How did the servant fall before the master? <br>
+            A. On his knees (Matthew 18:26)  <br><br>
+        <br><br>
+        
+         <h7 id="5">SET #5</h7>   <br><br>
+        
+        Q 	1. Quote Matthew, chapter 18, verses 19 through 20. <br>
+            A. "Again, truly I tell you that if two of you on earth agree about anything they ask for, it will be done for them by my Father in heaven. For where two or three gather in my name, there am I with them." (Matthew 18:19-20)  <br><br>
+        
+        G 	2. What may be established by the testimony of two or three witnesses? <br>
+            A. Every matter (Matthew 18:16)  <br><br>
+        
+        S 	3. Situation question: who said it, to whom, and what was the reply: "Lord, how many times shall I forgive my brother or sister who sins against me? Up to seven times?" <br>
+            A. Peter said it to Jesus, and the reply was, "I tell you, not seven times, but seventy-seven times." (Matthew 18:21-22)  <br><br>
+        
+        G 	4. What did one of his fellow servants owe that servant? <br>
+            A. A hundred silver coins (Matthew 18:28)  <br><br>
+        
+        G 	5. When should you tell it to the church? <br>
+            A. If your brother or sister still refuse to listen (Matthew 18:17)  <br><br>
+        
+        A 	6. According to Matthew, chapter 18, verse 31, who were outraged? <br>
+            A. The other servants (Matthew 18:31)  <br><br>
+        
+        G 	7. When should you gouge your eye out and throw it away? <br>
+            A. If it causes you to stumble (Matthew 18:9)  <br><br>
+        
+        G 	8. What is better than to have two hands or two feet and be thrown into eternal fire? <br>
+            A. For you to enter life maimed or crippled (Matthew 18:8)  <br><br>
+        
+        A 	9. According to Matthew, chapter 18, verse 14, who is not willing that any of these little ones should perish? <br>
+            A. Your Father in heaven (Matthew 18:14)  <br><br>
+        
+        X 	10. In Matthew, chapter 18, how should the wicked servant have had mercy on his fellow servant? <br>
+            A. Just as his master had on him (Matthew 18:33)  <br><br>
+        
+        G 	11. What did a man owe a king who wanted to settle accounts with his servants? <br>
+            A. Ten thousand bags of gold (Matthew 18:24)  <br><br>
+        
+        G 	12. On whom did the servant's master take pity? <br>
+            A. The servant (Matthew 18:27)  <br><br>
+        
+        V 	13. Finish these verses: ""Again, truly I tell you. . ." <br>
+            A. ". . .that if two of you on earth agree about anything they ask for, it will be done for them by my Father in heaven. For where two or three gather in my name, there am I with them." (Matthew 18:19-20)  <br><br>
+        
+        G 	14. What did the master order since the man was not able to pay? <br>
+            A. That the man and his wife and his children and all that he had be sold to repay the debt (Matthew 18:25)  <br><br>
+        
+        A 	15. According to Matthew, chapter 18, verse 32, what did the master cancel? <br>
+            A. All that debt of the servant's (Matthew 18:32)  <br><br>
+        
+        G 	16. Than what is a man happier about that one sheep if he finds it? <br>
+            A. The ninety-nine sheep that did not wander off (Matthew 18:13)  <br><br>
+        
+        G 	17. To what did his fellow servant fall? <br>
+            A. His knees (Matthew 18:29)  <br><br>
+        
+        A 	18. According to Matthew, chapter 18, verse 34, what did his master do in anger? <br>
+            A. Handed him over to the jailers (to be tortured until he should pay back all he owed) (Matthew 18:34)  <br><br>
+        
+        G 	19. What if your brother or sister listen to you? <br>
+            A. You have won them over (Matthew 18:15)  <br><br>
+        
+        R 	20. Finish this verse and give the reference: "And he said: "Truly I. . ." <br>
+            A. ". . .tell you, unless you change and become like little children, you will never enter the kingdom of heaven. " (Matthew 18:3)  <br><br>
+        <br><br>
+        
+         <h7 id="6">SET #6</h7>   <br><br>
+        
+        G 	1. Why should you not despise one of these little ones? <br>
+            A. Their angels in heaven always see the face of Jesus' Father in heaven (Matthew 18:10)  <br><br>
+        
+        G 	2. Who said, "You wicked servant, I canceled all that debt of yours because you begged me to."? <br>
+            A. The master (Matthew 18:32)  <br><br>
+        
+        V 	3. Finish these verses: ""Again, truly I tell you. . ." <br>
+            A. ". . .that if two of you on earth agree about anything they ask for, it will be done for them by my Father in heaven. For where two or three gather in my name, there am I with them." (Matthew 18:19-20)  <br><br>
+        
+        G 	4. Where is whoever takes the lowly position of this child the greatest? <br>
+            A. In the kingdom of heaven (Matthew 18:4)  <br><br>
+        
+        A 	5. According to Matthew, chapter 18, verse 1, to whom did the disciples come? <br>
+            A. Jesus (Matthew 18:1)  <br><br>
+        
+        G 	6. To whom should you tell it if your brother or sister still refuse to listen? <br>
+            A. The church (Matthew 18:17)  <br><br>
+        
+        G 	7. Who took pity on the servant? <br>
+            A. The servant's master (Matthew 18:27) <br><br> 
+        
+        Q 	8. Quote Matthew, chapter 18, verse 3. <br>
+            A. "And he said: "Truly I tell you, unless you change and become like little children, you will never enter the kingdom of heaven." (Matthew 18:3)  <br><br>
+        
+        G 	9. Why did his master hand the servant over to the jailers? <br>
+            A. To be tortured until he should pay back all he owed (Matthew 18:34)  <br><br>
+        
+        X 	10. In Matthew, chapter 18, what should the wicked servant have had on his fellow servant? <br>
+            A. Mercy (Matthew 18:33)  <br><br>
+        
+        G 	11. Who answered, "I tell you, not seven times, but seventy-seven times."? <br>
+            A. Jesus (Matthew 18:22)  <br><br>
+        
+        G 	12. What is to the world because of the things that cause people to stumble? <br>
+            A. Woe (Matthew 18:7)  <br><br>
+        
+        A 	13. According to Matthew, chapter 18, verse 5, who welcomes Jesus? <br>
+            A. Whoever welcomes one such child in my name (Matthew 18:5)  <br><br>
+        
+        R 	14. Finish this verse and give the reference: "And he said: "Truly I. . ." <br>
+            A. ". . .tell you, unless you change and become like little children, you will never enter the kingdom of heaven. " (Matthew 18:3)  <br><br>
+        
+        G 	15. Than what is it better for you to enter life with one eye? <br>
+            A. Than to have two eyes and be thrown into the fire of hell (Matthew 18:9)  <br><br>
+        
+        G 	16. Who placed the child among them? <br>
+            A. Jesus (Matthew 18:2)  <br><br>
+        
+        S 	17. Situation question: who said it, and to whom: "Pay back what you owe me!"? <br>
+            A. The servant said it to one of his fellow servants who owed him a hundred silver coins (Matthew 18:28)  <br><br>
+        
+        G 	18. Who were outraged? <br>
+            A. The other servants (Matthew 18:31)  <br><br>
+        
+        A 	19. According to Matthew, chapter 18, verse 13, what do I truly tell you? <br>
+            A. If he finds it, he is happier about that one sheep than about the ninety-nine that did not wander off (Matthew 18:13)  <br><br>
+        
+        A 	20. According to Matthew, chapter 18, verse 35, how should you forgive your brother or sister? <br>
+            A. From your heart (Matthew 18:35)  <br><br>
+        <br><br>
+        
+         <h7 id="7">SET #7</h7>   <br><br>
+        
+        A 	1. According to Matthew, chapter 18, verse 10, whom should you not despise? <br>
+            A. One of these little ones (Matthew 18:10)  <br><br>
+        
+        G 	2. By whom will anything they ask for be done if two of you on earth agree about it? <br>
+            A. Jesus' Father in heaven (Matthew 18:19)  <br><br>
+        
+        V 	3. Finish these verses: ""Again, truly I tell you. . ." <br>
+            A. ". . .that if two of you on earth agree about anything they ask for, it will be done for them by my Father in heaven. For where two or three gather in my name, there am I with them." (Matthew 18:19-20)  <br><br>
+        
+        A 	4. According to Matthew, chapter 18, verse 8, how is it better for you to enter life? <br>
+            A. Maimed or crippled (Matthew 18:8)  <br><br>
+        
+        G 	5. Who is there with them when two or three gather in Jesus' name? <br>
+            A. Jesus (Matthew 18:20)  <br><br>
+        
+        X 	6. Complete, in essence, the following: "Therefore, whoever takes the lowly . . ." <br>
+            A. ". . . position of this child is the greatest in the kingdom of heaven." (Matthew 18:4) <br><br> 
+        
+        G 	7. Until when did his master hand the servant over to the jailers to be tortured? <br>
+            A. Until he should pay back all he owed (Matthew 18:34)  <br><br>
+        
+        G 	8. When did the other servants go and tell their master everything that had happened? <br>
+            A. When they saw what had happened (Matthew 18:31)  <br><br>
+        
+        Q 	9. Quote Matthew, chapter 18, verse 3. <br>
+            A. "And he said: "Truly I tell you, unless you change and become like little children, you will never enter the kingdom of heaven." (Matthew 18:3)  <br><br>
+        
+        G 	10. Who is happier about that one sheep if he finds it than about the ninety-nine that did not wander off? <br>
+            A. A man who owns a hundred sheep (Matthew 18:13)  <br><br>
+        
+        A 	11. According to Matthew, chapter 18, verse 9, what should you gouge out and throw away if it causes you to stumble? <br>
+            A. Your eye (Matthew 18:9)  <br><br>
+        
+        G 	12. Who asked, "Who, then, is the greatest in the kingdom of heaven?" <br>
+            A. The disciples (Matthew 18:1)  <br><br>
+        
+        R 	13. Finish this verse and give the reference: "And he said: "Truly I. . ." <br>
+            A. ". . .tell you, unless you change and become like little children, you will never enter the kingdom of heaven. " (Matthew 18:3)  <br><br>
+        
+        G 	14. Who begged the master to cancel all that debt of his? <br>
+            A. The servant (Matthew 18:32)  <br><br>
+        
+        G 	15. Who was not able to pay? <br>
+            A. A man who owed a king ten thousand bags of gold (Matthew 18:25)  <br><br>
+        
+        S 	16. Situation question: who said it, to whom, and what was the reply: "Lord, how many times shall I forgive my brother or sister who sins against me? Up to seven times?" <br>
+            A. Peter said it to Jesus, and the reply was, "I tell you, not seven times, but seventy-seven times." (Matthew 18:21-22)  <br><br>
+        
+        G 	17. When would it be better for them to have a large millstone hung around their neck and to be drowned in the depths of the sea? <br>
+            A. If anyone causes one of these little ones - those who believe in Jesus - to stumble (Matthew 18:6)  <br><br>
+        
+        G 	18. What should you point out, just between the two of you, if your brother or sister sins? <br>
+            A. Their fault (Matthew 18:15)  <br><br>
+        
+        A 	19. According to Matthew, chapter 18, verse 7, what things must come? <br>
+            A. Such things that cause people to stumble (Matthew 18:7)  <br><br>
+        
+        G 	20. Who owed that servant a hundred silver coins? <br>
+            A. One of his fellow servants (Matthew 18:28)  <br><br>
+        <br><br>
+        
+         <h7 id="8">SET #8</h7>   <br><br>
+        
+        A 	1. According to Matthew, chapter 18, verse 14, who is not willing that any of these little ones should perish? <br>
+            A. Your Father in heaven (Matthew 18:14)  <br><br>
+        
+        G 	2. What if a man finds the one sheep that wandered off? <br>
+            A. He is happier about that one sheep than about the ninety-nine that did not wander off (Matthew 18:13)  <br><br>
+        
+        Q 	3. Quote Matthew, chapter 18, verses 19 through 20. <br>
+            A. "Again, truly I tell you that if two of you on earth agree about anything they ask for, it will be done for them by my Father in heaven. For where two or three gather in my name, there am I with them." (Matthew 18:19-20)  <br><br>
+        
+        G 	4. What will whatever you bind on earth be? <br>
+            A. Bound in heaven (Matthew 18:18)  <br><br>
+        
+        S 	5. Situation question: who said it, and to whom: "Pay back what you owe me!"? <br>
+            A. The servant said it to one of his fellow servants who owed him a hundred silver coins (Matthew 18:28)  <br><br>
+        
+        G 	6. Whom should you forgive from your heart? <br>
+            A. Your brother or sister (Matthew 18:35)  <br><br>
+        
+        G 	7. Whom should you treat as you would a pagan or a tax collector if they refuse to listen even to the church? <br>
+            A. Your brother or sister (Matthew 18:17)  <br><br>
+        
+        X 	8. In Matthew, chapter 18, why is there woe to the world? <br>
+            A. Because of the things that cause people to stumble! (Matthew 18:7)  <br><br>
+        
+        A 	9. According to Matthew, chapter 18, verse 10, what do their angels in heaven always see? <br>
+            A. The face of my Father in heaven (Matthew 18:10)  <br><br>
+        
+        G 	10. How many bags of gold did a man owe a king? <br>
+            A. Ten thousand (Matthew 18:24)  <br><br>
+        
+        V 	11. Finish these verses: ""Again, truly I tell you. . ." <br>
+            A. ". . .that if two of you on earth agree about anything they ask for, it will be done for them by my Father in heaven. For where two or three gather in my name, there am I with them." (Matthew 18:19-20)  <br><br>
+        
+        A 	12. According to Matthew, chapter 18, verse 8, what should you cut off and throw away if it causes you to stumble? <br>
+            A. Your hand or your foot (Matthew 18:8)  <br><br>
+        
+        G 	13. How did the servant fall before the master? <br>
+            A. On his knees (Matthew 18:26)  <br><br>
+        
+        G 	14. Whom did that servant have thrown into prison until he could pay the debt? <br>
+            A. His fellow servant (Matthew 18:30)  <br><br>
+        
+        R 	15. Finish this verse and give the reference: "And he said: "Truly I. . ." <br>
+            A. ". . .tell you, unless you change and become like little children, you will never enter the kingdom of heaven. " (Matthew 18:3)  <br><br>
+    
+        G 	16. When should you go and point out their fault, just between the two of you? <br>
+            A. If your brother or sister sins (Matthew 18:15)  <br><br>
+        
+        A 	17. According to Matthew, chapter 18, verse 16, why should you take one or two others along? <br>
+            A. So that "every matter may be established by the testimony of two or three witnesses" (Matthew 18:16)  <br><br>
+        
+        G 	18. What if anyone causes one of these little ones - those who believe in Jesus - to stumble? <br>
+            A. It would be better for them to have a large millstone hung around their neck and to be drowned in the depths of the sea (Matthew 18:6)  <br><br>
+        
+        G 	19. Who is the greatest in the kingdom of heaven? <br>
+            A. Whoever takes the lowly position of this child (Matthew 18:4)  <br><br>
+        
+        G 	20. Who begged that servant, "Be patient with me, and I will pay it back."? <br>
+            A. His fellow servant (Matthew 18:29)  <br><br>
+        <br><br>
+        
+         <h7 id="9">SET #9</h7>   <br><br>
+        
+        A 	1. According to Matthew, chapter 18, verse 32, what did the master cancel? <br>
+            A. All that debt of the servant's (Matthew 18:32)  <br><br>
+        
+        G 	2. Who wanted to settle accounts with his servants? <br>
+            A. A king (Matthew 18:23)  <br><br>
+        
+        A 	3. According to Matthew, chapter 18, verse 2, whom did he call to him? <br>
+            A. A little child (Matthew 18:2)  <br><br>
+        
+        G 	4. Who demanded, "Pay back what you owe me!"? <br>
+            A. That servant (Matthew 18:28)  <br><br>
+        
+        G 	5. What is to the world because of the things that cause people to stumble? <br>
+            A. Woe (Matthew 18:7)  <br><br>
+        
+        R 	6. Finish this verse and give the reference: "And he said: "Truly I. . ." <br>
+            A. ". . .tell you, unless you change and become like little children, you will never enter the kingdom of heaven. " (Matthew 18:3)  <br><br>
+        
+        G 	7. What do their angels in heaven always see? <br>
+            A. The face of Jesus' Father in heaven (Matthew 18:10) <br><br> 
+        
+        S 	8. Situation question: who said it, to whom, and what was the reply: "Lord, how many times shall I forgive my brother or sister who sins against me? Up to seven times?" <br>
+            A. Peter said it to Jesus, and the reply was, "I tell you, not seven times, but seventy-seven times." (Matthew 18:21-22)  <br><br>
+        
+        A 	9. According to Matthew, chapter 18, verse 24, what did he begin? <br>
+            A. The settlement (Matthew 18:24)  <br><br>
+        
+        G 	10. Whom did that servant have thrown into prison until he could pay the debt? <br>
+            A. His fellow servant (Matthew 18:30)  <br><br>
+        
+        G 	11. Who is not willing that any of these little ones should perish? <br>
+            A. Your Father in heaven (Matthew 18:14)  <br><br>
+        
+        Q 	12. Quote Matthew, chapter 18, verse 3. <br>
+            A. "And he said: "Truly I tell you, unless you change and become like little children, you will never enter the kingdom of heaven." (Matthew 18:3)  <br><br>
+        
+        G 	13. When should you gouge your eye out and throw it away? <br>
+            A. If it causes you to stumble (Matthew 18:9)  <br><br>
+        
+        X 	14. What if a man owns a hundred sheep, and one of them wanders away? <br>
+            A. He will leave the ninety-nine sheep on the hills and go to look for the one that wandered off (Matthew 18:12)  <br><br>
+        
+        G 	15. Than what is it better for you to enter life maimed or crippled? <br>
+            A. Than to have two hands and two feet and be thrown into eternal fire (Matthew 18:8) <br><br> 
+        
+        A 	16. According to Matthew, chapter 18, verse 16, what if they will not listen? <br>
+            A. Take one or two others along, so that "every matter may be established by the testimony of two or three witnesses" (Matthew 18:16)  <br><br>
+        
+        V 	17. Finish these verses: ""Again, truly I tell you. . ." <br>
+            A. ". . .that if two of you on earth agree about anything they ask for, it will be done for them by my Father in heaven. For where two or three gather in my name, there am I with them." (Matthew 18:19-20)  <br><br>
+        
+        G 	18. What if your brother or sister listen to you? <br>
+            A. You have won them over (Matthew 18:15)  <br><br>
+        
+        G 	19. When should you tell it to the church? <br>
+            A. If your brother or sister still refuse to listen (Matthew 18:17)  <br><br>
+        
+        G 	20. What will be done for them by Jesus' Father in heaven if two of you on earth agree about it? <br>
+            A. Anything they ask for (Matthew 18:19)  <br><br>
+        <br><br>
+        
+         <h7 id="10">SET #10</h7>   <br><br>
+        
+        A 	1. According to Matthew, chapter 18, verse 21, what did Peter ask? <br>
+            A. "Lord, how many times shall I forgive my brother or sister who sins against me? Up to seven times?" (Matthew 18:21)  <br><br>
+        
+        S 	2. Situation question: who said it, and to whom: "Pay back what you owe me!"? <br>
+            A. The servant said it to one of his fellow servants who owed him a hundred silver coins (Matthew 18:28)  <br><br>
+        
+        G 	3. When would it be better for them to have a large millstone hung around their neck and to be drowned in the depths of the sea? <br>
+            A. If anyone causes one of these little ones - those who believe in Jesus - to stumble (Matthew 18:6)  <br><br>
+        
+        G 	4. Who were outraged? <br>
+            A. The other servants (Matthew 18:31)  <br><br>
+        
+        Q 	5. Quote Matthew, chapter 18, verses 19 through 20. <br>
+            A. "Again, truly I tell you that if two of you on earth agree about anything they ask for, it will be done for them by my Father in heaven. For where two or three gather in my name, there am I with them." (Matthew 18:19-20)  <br><br>
+        
+        A 	6. According to Matthew, chapter 18, verse 23, like what is the kingdom of heaven? <br>
+            A. A king who wanted to settle accounts with his servants (Matthew 18:23)  <br><br>
+        
+        G 	7. Until when did his master hand the servant over to the jailers to be tortured? <br>
+            A. Until he should pay back all he owed (Matthew 18:34)  <br><br>
+        
+        A 	8. According to Matthew, chapter 18, verse 25, what was he not able to do? <br>
+            A. Pay (Matthew 18:25)  <br><br>
+        
+        G 	9. Who took pity on the servant? <br>
+            A. The servant's master (Matthew 18:27)  <br><br>
+        
+        G 	10. What may be established by the testimony of two or three witnesses? <br>
+            A. Every matter (Matthew 18:16)  <br><br>
+        
+        R 	11. Finish these verses and give the reference: ""Again, truly I tell you. . ." <br>
+            A. ". . .that if two of you on earth agree about anything they ask for, it will be done for them by my Father in heaven. For where two or three gather in my name, there am I with them." " (Matthew 18:19-20)  <br><br>
+        
+        G 	12. Who begged that servant, "Be patient with me, and I will pay it back."? <br>
+            A. His fellow servant (Matthew 18:29)  <br><br>
+        
+        G 	13. Than what is it better for you to enter life with one eye? <br>
+            A. Than to have two eyes and be thrown into the fire of hell (Matthew 18:9)  <br><br>
+        
+        V 	14. Finish this verse: "And he said: "Truly I. . ." <br>
+            A. ". . .tell you, unless you change and become like little children, you will never enter the kingdom of heaven." (Matthew 18:3)  <br><br>
+        
+        X 	15. Complete, in essence, the following: "He called a little child . . ." <br>
+            A. ". . . to him, and placed the child among them." (Matthew 18:2)  <br><br>
+        
+        G 	16. What should you point out, just between the two of you, if your brother or sister sins? <br>
+            A. Their fault (Matthew 18:15)  <br><br>
+        
+        G 	17. Why should you not despise one of these little ones? <br>
+            A. Their angels in heaven always see the face of Jesus' Father in heaven (Matthew 18:10)  <br><br>
+        
+        A 	18. According to Matthew, chapter 18, verse 17, how should you treat them if they refuse to listen even to the church? <br>
+            A. As you would a pagan or a tax collector (Matthew 18:17)  <br><br>
+        
+        G 	19. Who answered, "I tell you, not seven times, but seventy-seven times."? <br>
+            A. Jesus (Matthew 18:22)  <br><br>
+        
+        G 	20. What if a man finds the one sheep that wandered off? <br>
+            A. He is happier about that one sheep than about the ninety-nine that did not wander off (Matthew 18:13)  <br><br>
+        
+        </p>
+
+</body>
+</html>
